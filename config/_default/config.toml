@@ -1,4 +1,5 @@
 # Change baseurl before deploy
+
 baseurl = "https://skay138.github.io"
 languageCode = "ko-kr"
 paginate = 8
@@ -26,4 +27,4 @@ enableRobotsTXT = true
   priority = 0.5
 
 [params]
-googleAnalytics = G-VCCW8CEZ8X
+googleAnalytics = "G-VCCW8CEZ8X"
