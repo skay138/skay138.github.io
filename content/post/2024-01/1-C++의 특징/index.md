@@ -2,6 +2,7 @@
 title: "1. C++의 특징"
 description: C++의 설계목적과 특징
 date: 2023-08-23
+image: cover.png
 categories:
   - Languages
 tags:
