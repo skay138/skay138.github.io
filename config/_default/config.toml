@@ -24,3 +24,6 @@ enableRobotsTXT = true
   changefreq = "monthly"
   filename = "sitemap.xml"
   priority = 0.5
+
+[params]
+googleAnalytics = G-VCCW8CEZ8X
