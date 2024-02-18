@@ -1,6 +1,6 @@
 ---
 title: "2. C++의 입출력"
-description: C++의 입력과 출력
+description: C++ 기본 문법
 date: 2023-08-29 00:00:03+0000
 image: cover.png
 categories:

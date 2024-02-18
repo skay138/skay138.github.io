@@ -1,6 +1,6 @@
 ---
 title: "3. 클래스와 객체"
-description: 클래스와 객체의 특성
+description: C++ 기본 문법
 date: 2023-09-05 00:00:03+0000
 image: cover.png
 categories:

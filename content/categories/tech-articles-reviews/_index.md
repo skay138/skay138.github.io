@@ -1,11 +1,11 @@
 ---
 title: Tech Articles Reviews
-description: path paved by predecessors
+description: my reviews
 weight: 3
-image: img.png
+image: cover.png
 
 # Badge style
 style:
-  background: "#f9acf9"
+  background: "#59886B"
   color: "#fff"
 ---
