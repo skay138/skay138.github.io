@@ -34,9 +34,26 @@ tags:
 
 - @Autowired  
   의존성 주입(Dependency Injection)을 지정하는 데 사용.  
-  스프링 컨테이너는 @Autowired가 붙은 필드나 메서드의 매개변수에 해당하는 _빈(Bean)_[^1]을 찾아서 주입.
+  스프링 컨테이너는 @Autowired가 붙은 필드나 메서드의 매개변수에 해당하는 빈(Bean)을 찾아서 주입.
   참고 : 스프링에서는 필드 주입을 사용할 때 일반적으로 'final' 키워드를 사용할 수 없음.
-  [^1]: 스프링 컨테이너에서 관리되는 인스턴스화된 객체
 
 - @GetMapping  
   매핑될 URL을 지정하는데 사용. value= 는 생략 가능
+
+- @Bean  
+   _애플리케이션_[^1] 컨텍스트에 의해 관리되는 객체. IoC 컨테이너에 의해 생성, 조립, 관리됨.
+  [^1]: 빈(Bean) 관리, 의존성 주입(Dependency Injection), 생명주기 관리를 담당하는 컨테이너.
+
+- Configuration  
+  스프링 애플리케이션 컨텍스트에 대한 구성 클래스를 선언하는 데 사용. 자바 클래스를 스프링의 구성 클래스로 선언할 수 있음.
+
+- @EnableWebSecurity  
+  스프링 시큐리티에서 사용되는 애노테이션으로, 웹 보안 설정을 활성화하는 데 사용한다.
+
+- @EnableMethodSecurity
+  메소드 호출에 대한 보안 규칙을 정의하고 적용하는 데 사용하는 어노테이션
+  prePostEnabled 속성을 true로 설정하면 @PreAuthorize, @PostAuthorize, @PreFilter, @PostFilter 어노테이션을 활성화할 수 있다.
+
+- @PreAuthorize("isAuthenticated()")
+  메소드가 호출되기 전에 미리 정의된 보안 조건을 검사
+  isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하는 데 사용할 수 있음.
