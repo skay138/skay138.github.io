@@ -6,6 +6,7 @@ image: cover.png
 categories:
   - Algorithm
 tags:
+  - 백준
   - 구간 합
 ---
 
@@ -27,7 +28,7 @@ tags:
 - 1 ≤ M ≤ 100,000
 - 1 ≤ i ≤ j ≤ N
 
-## 설명
+## 풀이
 
 수의 개수가 크기 때문에 구간 합을 미리 구해두고 구간합을 구했다.
 
