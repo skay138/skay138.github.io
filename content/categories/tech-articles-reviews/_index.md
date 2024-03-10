@@ -1,11 +1,11 @@
 ---
 title: Tech Articles Reviews
 description: my reviews
-weight: 3
+weight: 4
 image: cover.png
 
 # Badge style
 style:
-  background: "#59886B"
+  background: "#BEAAE3"
   color: "#fff"
 ---

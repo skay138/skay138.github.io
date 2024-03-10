@@ -1,7 +1,7 @@
 ---
 title: Languages
 description: Programing Languages
-weight: 4
+weight: 3
 image: img.png
 
 # Badge style
