@@ -61,8 +61,8 @@ tags:
 """
 
 
-folder_path = f"./{title}"
-os.makedirs(f"./{title}")
+folder_path = f"./content/post/LeetCode/{title}"
+os.makedirs(folder_path)
 
 with open(f"{folder_path}/index.md", "w", encoding="utf-8") as f:
     f.write(article_text)
