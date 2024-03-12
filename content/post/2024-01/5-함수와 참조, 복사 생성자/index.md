@@ -1,5 +1,5 @@
 ---
-title: "5. 함수와 참조, 복사 생성자"
+title: "[C++] 5. 함수와 참조, 복사 생성자"
 description: C++ 기본 문법
 date: 2023-09-25 00:00:03+0000
 image: cover.png

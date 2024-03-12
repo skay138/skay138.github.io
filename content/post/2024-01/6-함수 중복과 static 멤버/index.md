@@ -1,5 +1,5 @@
 ---
-title: "6. 함수 중복과 static 멤버"
+title: "[C++] 6. 함수 중복과 static 멤버"
 description: C++ 기본 문법
 date: 2023-10-23 00:00:03+0000
 image: cover.png

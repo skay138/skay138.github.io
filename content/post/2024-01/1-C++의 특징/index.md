@@ -1,5 +1,5 @@
 ---
-title: "1. C++의 특징"
+title: "[C++] 1. C++의 특징"
 description: C++ 기본 문법
 date: 2023-08-23
 image: cover.png

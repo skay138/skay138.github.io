@@ -10,9 +10,9 @@ Algorithm = "Array / String"
 
 
 current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S%z')
-current_folder_name = "leetcode_article_gen"
+current_folder_name = "zen_article"
 
-with open(f"{current_folder_name}/page.html", "r", encoding="utf-8") as page:
+with open(f"{current_folder_name}/leetcode.html", "r", encoding="utf-8") as page:
     html = page.read()
 
 markdown_text = md(html=html)
@@ -67,6 +67,6 @@ os.makedirs(folder_path)
 with open(f"{folder_path}/index.md", "w", encoding="utf-8") as f:
     f.write(article_text)
 
-shutil.copy(f"{current_folder_name}/cover.png", folder_path)
+shutil.copy(f"{current_folder_name}/leetcode.png", f"{folder_path}/cover.png")
 
 print("done")

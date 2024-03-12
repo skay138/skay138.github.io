@@ -1,5 +1,5 @@
 ---
-title: "8. 상속"
+title: "[C++] 8. 상속"
 description: C++ 기본 문법
 date: 2023-11-13 00:00:03+0000
 image: cover.png
