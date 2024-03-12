@@ -54,6 +54,8 @@ public class GreetingController {
 }
 ```
 
+예제의 경우 template가 static final로 선언되어 있다. 하지만 Controller는 단일 인스턴스로 bean 컨테이너에 등록되어 공유하기 때문에 static이 필요한지 의문이다.
+
 ## 결과
 
 ![실행 화면](image.png)
