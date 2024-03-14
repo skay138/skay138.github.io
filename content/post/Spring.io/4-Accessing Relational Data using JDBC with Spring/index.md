@@ -2,7 +2,7 @@
 title: "[Spring Boot] Accessing Relational Data using JDBC with Spring"
 description: process of accessing relational data with Spring.
 date: 2024-03-12 23:29:18+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:

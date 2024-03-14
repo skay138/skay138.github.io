@@ -17,7 +17,7 @@ article_text = f"""
 title: "[Spring Boot] {title}"
 description: 
 date: {current_time}+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:
@@ -35,6 +35,5 @@ os.makedirs(folder_path)
 with open(f"{folder_path}/index.md", "w", encoding="utf-8") as f:
     f.write(article_text)
 
-shutil.copy(f"{current_folder_name}/springboot.png", f"{folder_path}/cover.png")
 
 print("done")

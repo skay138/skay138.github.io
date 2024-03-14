@@ -2,7 +2,7 @@
 title: "[Spring Boot] Uploading Files"
 description: process of creating a server application that can receive HTTP multi-part file uploads.
 date: 2024-03-14 16:23:56+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:

@@ -3,7 +3,7 @@ title: "[Spring Boot] 프로젝트 구조"
 description: 스프링부트 프로젝트 구조
 slug: spring-boot-project-structure
 date: 2024-02-22 00:00:01+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:

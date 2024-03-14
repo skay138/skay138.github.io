@@ -2,7 +2,7 @@
 title: "[Spring Boot] Authenticating a User with LDAP"
 description: securing application with the Spring Security LDAP module.
 date: 2024-03-14 18:44:35+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:
@@ -102,7 +102,7 @@ public class WebSecurityConfig {
 }
 ```
 
-`SecurityFilterChan()` : url에 대한 인가 설정  
+`SecurityFilterChain()` : url에 대한 인가 설정  
 `configure()` : 인증 메서드
 
 ## Add Application Properties

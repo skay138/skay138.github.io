@@ -3,7 +3,7 @@ title: "[Spring Boot] 스프링부트 @Annotation 정리"
 description: 스프링부트 어노테이션 정리
 slug: spring-boot-annotation-overview
 date: 2024-02-21 00:00:00+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:

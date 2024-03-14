@@ -2,7 +2,7 @@
 title: "[Spring Boot] Consuming a RESTful Web Service"
 description: process of creating an application that consumes a RESTful web service.
 date: 2024-03-12 22:43:56+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:

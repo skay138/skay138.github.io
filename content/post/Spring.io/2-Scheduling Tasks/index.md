@@ -2,7 +2,7 @@
 title: "[Spring Boot] Scheduling Tasks"
 description: steps for scheduling tasks with Spring.
 date: 2024-03-12 16:00:14+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:

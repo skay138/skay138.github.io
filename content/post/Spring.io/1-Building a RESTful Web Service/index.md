@@ -2,7 +2,7 @@
 title: "[Spring Boot] Building a RESTful Web Service"
 description: creating a “Hello, World” RESTful web service with Spring
 date: 2024-03-12 00:00:01+0900
-image: cover.png
+image: "/cover/springboot.png"
 categories:
   - Backend Studies
 tags:

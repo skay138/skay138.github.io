@@ -102,6 +102,16 @@
     }
 }
 
+@font-face {
+    font-family: "GabiaOndam";
+    src: local("GabiaOndam"), url(/GabiaOndam.ttf) format('truetype');
+}
+
+
+@font-face {
+    font-family: "Pretendard Variable";
+    src: local("Pretendard Variable"), url(/PretendardVariable.woff2) format('woff2-variations');
+}
 
 /**
 *   Global font family
@@ -111,5 +121,19 @@
     --zh-font-family: "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
 
     --base-font-family: "Lato", var(--sys-font-family), var(--zh-font-family), sans-serif;
-    --code-font-family:  D2coding ,Consolas, Monaco,"Courier New", Menlo, var(--zh-font-family), monospace;
+    --code-font-family: "D2Coding", "Courier New", Consolas, Monaco, Menlo, var(--zh-font-family), monospace;
+}
+
+/**
+*   Article content font settings
+*/
+:root {
+    --article-font-family: "Pretendard Variable", var(--base-font-family);
+    --article-font-size: 1.6rem;
+
+    @include respond(md) {
+        --article-font-size: 1.7rem;
+    }
+
+    --article-line-height: 1.85;
 }
