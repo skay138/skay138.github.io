@@ -7,7 +7,6 @@ categories:
   - Backend Studies
 tags:
   - Spring Boot
-  - Annotation
 ---
 
 ## @Annotation
@@ -34,7 +33,7 @@ tags:
 
 - @Autowired  
   의존성 주입(Dependency Injection)을 지정하는 데 사용.  
-  스프링 컨테이너는 @Autowired가 붙은 필드나 메서드의 매개변수에 해당하는 빈(Bean)을 찾아서 주입.
+  스프링 컨테이너는 @Autowired가 붙은 필드나 메서드의 매개변수에 해당하는 빈(Bean)을 찾아서 주입.  
   참고 : 스프링에서는 필드 주입을 사용할 때 일반적으로 'final' 키워드를 사용할 수 없음.
 
 - @GetMapping  

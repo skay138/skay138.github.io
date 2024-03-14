@@ -4,8 +4,8 @@ import os
 import shutil
 
 # Settings
-title = "Accessing Relational Data using JDBC with Spring"
-num=4
+title = "Authenticating a User with LDAP"
+num=6
 
 
 
