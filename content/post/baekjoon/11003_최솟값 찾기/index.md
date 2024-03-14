@@ -1,6 +1,7 @@
 ---
 title: "[백준] 11003번 : 최솟값 찾기"
 description: 슬라이딩 윈도우, 데크
+slug: baekjoon-11003
 date: 2024-03-09 00:00:10+0900
 image: cover.png
 categories:

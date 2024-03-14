@@ -1,6 +1,7 @@
 ---
 title: "[백준] 11399번 : ATM"
 description: 선택 정렬
+slug: baekjoon-11399
 date: 2024-03-10 00:00:10+0900
 image: cover.png
 categories:

@@ -1,6 +1,7 @@
 ---
 title: 쿠키 세션 JWT 정리
 description: "JWT vs Cookie : Why Comparing the Two Is Misleading"
+slug: cookie-session-jwt
 date: 2024-02-17 10:00:00+0900
 image: cover.png
 categories:

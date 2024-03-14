@@ -1,6 +1,7 @@
 ---
 title: "[디자인 패턴] 생성 패턴 | 팩토리 메서드"
 description: 팩토리 메서드 패턴, 가상 생성자, Factory Method
+slug: design-patterns-factory-method
 date: 2024-03-09 00:00:10+0900
 image: cover.png
 categories:

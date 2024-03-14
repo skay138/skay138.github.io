@@ -1,6 +1,7 @@
 ---
 title: "[디자인 패턴] 디자인 패턴이란?"
 description: 디자인 패턴에 대한 간단한 소개
+slug: design-patterns-intro
 date: 2024-02-18 00:00:10+0900
 image: cover.png
 categories:

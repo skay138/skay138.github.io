@@ -1,6 +1,7 @@
 ---
 title: "[Kurly] 쿠폰과 할인으로 앞다리살 하나 더 판매한 이야기 - 리뷰"
 description: zipkin과 kibana를 이용한 오류 분석
+slug: kurly-zipkin-kibana-review
 date: 2024-02-18 00:00:05+0900
 image: cover.png
 categories:

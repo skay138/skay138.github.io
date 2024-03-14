@@ -1,6 +1,7 @@
 ---
 title: "[백준] 11659번 : 구간 합 구하기 4"
 description: 구간 합
+slug: baekjoon-11659
 date: 2024-03-07 00:00:10+0900
 image: cover.png
 categories:

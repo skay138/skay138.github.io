@@ -1,6 +1,7 @@
 ---
 title: "학점은행제 학점 계산기 공유(학점 관리, 학점 계획)"
 description: 현재 학점과 목표 학점을 관리하는 구글 스프레드시트
+slug: credit-bank-cal
 date: 2023-01-01
 categories:
   - Misc
