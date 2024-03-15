@@ -31,15 +31,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Restore cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json')}}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json')}}
             
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -65,6 +56,16 @@ jobs:
         run: |
           hugo -t stack
           
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json')}}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json')}}
+            ${{ runner.os }}-nextjs-
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
