@@ -4,8 +4,8 @@ import os
 import shutil
 
 # Settings
-title = "Authenticating a User with LDAP"
-num=6
+title = "Messaging with Redis"
+num=7
 
 
 
