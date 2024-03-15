@@ -34,7 +34,7 @@ export default defineConfig({
       {
         name: "springboot",
         label: "Spring Boot",
-        path: "content/post/spring-io",
+        path: "content/post/Spring-io",
         defaultItem: ()=>{
           return {
             image: "/cover/springboot.png",
