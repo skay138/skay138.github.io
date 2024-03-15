@@ -29,8 +29,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: npm install
-        run: npm install
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Build TinaCMS
         env:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
@@ -40,8 +40,6 @@ jobs:
         run: |
           hugo -t stack
           cd public
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
