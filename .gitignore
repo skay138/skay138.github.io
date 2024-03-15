@@ -1,4 +1,4 @@
-
+.vscode
 *.exe
 node_modules
 .env
