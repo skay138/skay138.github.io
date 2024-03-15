@@ -16,7 +16,7 @@ tags:
 ## Standing up a Redis server
 
 메세지의 수신과 송신을 컨트롤하기 위한 서버가 필요하기 때문에, Redis를 설치해서 서버를 띄워야 합니다.\
-Redis는 key-value의 데이터 저장소이며, 메세징 시스템을 제공합니다. 참고로 Redis는 캐싱에도 이용되는데 [여기에](https://assets.tina.io/77586ac5-bb5f-421d-a6a1-da9d28eb0f45https://skay138.github.io/p/django-api-improvement-cache/) 간단하게 정리해뒀습니다!\
+Redis는 key-value의 데이터 저장소이며, 메세징 시스템을 제공합니다. 참고로 Redis는 캐싱에도 이용되는데 [여기에](https://skay138.github.io/p/django-api-improvement-cache/ "\[Django] API 성능을 개선해보자 : 캐싱") 간단하게 정리해뒀습니다!\
 Redis 설치는 [https://redis.io/download](https://redis.io/download)에서 가능합니다. 별도의 설정이 없다면 6379포트로 접근하면 이용할 수 있습니다.
 
 Spring프로젝트를 시작할 때 Dependencies에서 Spring Data Redis를 체크하시거나 그냥 넘어가셨다면 직접 추가해주세요.
