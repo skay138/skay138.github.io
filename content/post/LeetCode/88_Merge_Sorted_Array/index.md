@@ -3,7 +3,7 @@ title: "[LeetCode] 88. Merge Sorted Array"
 description: Top Interview 150 - Array / String
 slug: leetcode-88
 date: 2024-03-10 21:00:10+0900
-image: cover.png
+image: "/cover/algorithm.png"
 categories:
   - Algorithm
 tags:

@@ -3,7 +3,7 @@ title: "[LeetCode] 26. Remove Duplicates from Sorted Array"
 description: Top Interview 150 - Array / String
 slug: leetcode-26
 date: 2024-03-11 21:53:43+0900
-image: cover.png
+image: "/cover/algorithm.png"
 categories:
   - Algorithm
 tags:

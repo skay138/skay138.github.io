@@ -3,7 +3,7 @@ title: "[Django] API 성능을 개선해보자 : N+1문제"
 description: select_related()를 이용하여 쿼리 호출 줄이기
 slug: django-api-improvement-nplus1
 date: 2024-02-15 00:00:00+0900
-image: cover.png
+image: "/cover/django.png"
 categories:
   - Backend Studies
 tags:

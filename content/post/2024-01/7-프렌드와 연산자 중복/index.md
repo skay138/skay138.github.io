@@ -3,7 +3,7 @@ title: "[C++] 7. 프렌드와 연산자 중복"
 description: C++ 기본 문법
 slug: cpp-friend-operator-overloading
 date: 2023-11-06 00:00:03+0000
-image: cover.png
+image: "/cover/C++.png"
 categories:
   - Languages
 tags:

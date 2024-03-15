@@ -3,7 +3,7 @@ title: "[C++] 9. 가상 함수와 추상 클래스"
 description: C++ 기본 문법
 slug: cpp-virtual-func-abstract-class
 date: 2023-11-20 00:00:03+0000
-image: cover.png
+image: "/cover/C++.png"
 categories:
   - Languages
 tags:

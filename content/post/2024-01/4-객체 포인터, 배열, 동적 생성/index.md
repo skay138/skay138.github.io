@@ -3,7 +3,7 @@ title: "[C++] 4. 객체 포인터, 배열, 동적 생성"
 description: C++ 기본 문법
 slug: cpp-op-array-da
 date: 2023-09-11 00:00:03+0000
-image: cover.png
+image: "/cover/C++.png"
 categories:
   - Languages
 tags:

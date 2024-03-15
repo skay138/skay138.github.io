@@ -3,7 +3,7 @@ title: "[C++] 6. 함수 중복과 static 멤버"
 description: C++ 기본 문법
 slug: cpp-function-overloading-static-member
 date: 2023-10-23 00:00:03+0000
-image: cover.png
+image: "/cover/C++.png"
 categories:
   - Languages
 tags:
