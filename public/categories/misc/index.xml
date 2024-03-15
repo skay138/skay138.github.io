@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Misc on ThxKyu CODE</title>
+        <link>http://localhost:1313/categories/misc/</link>
+        <description>Recent content in Misc on ThxKyu CODE</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/misc/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>학점은행제 학점 계산기 공유(학점 관리, 학점 계획)</title>
+        <link>http://localhost:1313/p/credit-bank-cal/</link>
+        <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/credit-bank-cal/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/credit-bank-cal/1.png&#34;
+	width=&#34;1758&#34;
+	height=&#34;879&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;미리보기&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;200&#34;
+		data-flex-basis=&#34;480px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;학점은행제로 컴퓨터공학 학사를 취득하며 사용한 양식입니다.&lt;br&gt;
+아래에 링크 이동 후 사본 저장한 뒤, 과목명을 적절히 수정하셔서 사용하시면 되겠습니다.&lt;/p&gt;
+&lt;h2 id=&#34;사용방법&#34;&gt;사용방법&lt;/h2&gt;
+&lt;h3 id=&#34;과목-등록&#34;&gt;과목 등록&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;수강중인 &lt;code&gt;교과목명&lt;/code&gt; 등록 후 &lt;strong&gt;이수구분(전필, 전선, 일선, 교양)을 입력하시면&lt;/strong&gt; 현재 학점으로 합산됩니다.&lt;/li&gt;
+&lt;li&gt;전공필수와 전공선택의 과목명과 일치하는 &lt;code&gt;교과목명&lt;/code&gt;이 있다면 초록색으로 표시됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;자격증-독학사-등-등록&#34;&gt;자격증, 독학사 등 등록&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;합격한 자격증, 시험 등은 현재 학점 아래의 주황색칸에 등록하시면 현재 학점으로 합산됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;학점-계획&#34;&gt;학점 계획&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;준비중인 자격증이나 시험 등은 학점 계획 아래 주황색칸에 등록하시면 &lt;code&gt;계획 학점 총합&lt;/code&gt;에 합산됩니다.&lt;/li&gt;
+&lt;li&gt;현재 학점과 계획 학점 총합은 &lt;code&gt;계획 학점 총합&lt;/code&gt; 아래의 &lt;strong&gt;현재+계획 총합&lt;/strong&gt;에 합산됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;링크&#34;&gt;링크&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://docs.google.com/spreadsheets/d/1IU_PUeJZEuRvYR_3UjWeUG9HPrKigT__WWFM0tBSu1g/edit?usp=sharing&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;구글 스프레드시트로 이동&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

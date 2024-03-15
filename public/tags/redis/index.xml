@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Redis on ThxKyu CODE</title>
+        <link>http://localhost:1313/tags/redis/</link>
+        <description>Recent content in Redis on ThxKyu CODE</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[Django] API 성능을 개선해보자 : 캐싱</title>
+        <link>http://localhost:1313/p/django-api-improvement-cache/</link>
+        <pubDate>Fri, 16 Feb 2024 00:00:00 +0900</pubDate>
+        
+        <guid>http://localhost:1313/p/django-api-improvement-cache/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;캐싱이란?&lt;/h2&gt;
+&lt;p&gt;캐싱은 데이터나 계산 결과를 임시 저장소에 저장하는 프로세스를 말한다. 이는 데이터나 계산 결과를 나중에 빠르게 검색하거나 재사용할 수 있게 해준다.&lt;br&gt;
+캐싱은 방법에 따라 메모리나 디스크, DB등에 저장할 수 있다.
+내 프로젝트는 현재 sqlite3이라는 내장DB를 하는데, 보통은 DB서버를 두는 게 일반적이다. 따라서 테스트를 위해 DB서버를 열고 연결해 주었다.&lt;/p&gt;
+&lt;h2 id=&#34;분석에-사용한-도구&#34;&gt;분석에 사용한 도구&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Postman : 단일 API 호출과 Runner를 이용해 테스트를 진행했다.&lt;/li&gt;
+&lt;li&gt;Django-debug-toolbar : SQL이 어떻게 호출되는지 확인하는 데 사용했다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;전체공개-게시글-리스트를-호출하는-api&#34;&gt;전체공개 게시글 리스트를 호출하는 API&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;글 : 10000개&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;개선-전&#34;&gt;개선 전&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/1.png&#34;
+	width=&#34;910&#34;
+	height=&#34;74&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1229&#34;
+		data-flex-basis=&#34;2951px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;현재는 API를 호출할 때마다 쿼리 호출을 통해 DB에서 데이터를 받아 전달한다.&lt;/p&gt;
+&lt;h3 id=&#34;개선-과정&#34;&gt;개선 과정&lt;/h3&gt;
+&lt;h4 id=&#34;redis&#34;&gt;Redis&lt;/h4&gt;
+&lt;p&gt;Redis는 메모리 기반의 데이터 저장소이자 오픈 소스의 키-값 데이터 구조 저장소이다. 이를 이용하여 전체공개 게시글에 대해 캐싱을 해두고,데이터에 대해 변경이 있을 때만 업데이트했다.&lt;/p&gt;
+&lt;h4 id=&#34;왜-전체-공개-게시글인가&#34;&gt;왜 전체 공개 게시글인가?&lt;/h4&gt;
+&lt;p&gt;캐싱을 이용하는 이유는&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;데이터 액세스 빈도가 높은 경우&lt;/li&gt;
+&lt;li&gt;네트워크 대역폭 절약&lt;/li&gt;
+&lt;li&gt;서버 부하 감소&lt;/li&gt;
+&lt;li&gt;실시간성이 필요하지 않은 데이터&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;정도로 볼 수 있다. 그중 전체 게시글에 적용한 이유는 다음과 같다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;FUNSUN의 특성상 전체 공개 게시글의 업데이트 빈도는 낮으리라 예상했다.&lt;/li&gt;
+&lt;li&gt;검색 화면으로 진입 시 보여야 하는 데이터이기에 호출 빈도가 높을 것이라고 예상했다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;고려-사항&#34;&gt;고려 사항&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;캐싱 제한&lt;/strong&gt;&lt;br&gt;
+광고등의 도배성 게시글로 인해 public 게시글에 대해 짧은 시간에 많은 POST 요청이 생길 수 있다는 약점을 고려하고 싶었기에 업데이트가 필요할 시 5초에 한번만 캐싱하게끔 제한을 걸었다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;코드의 작성&lt;/strong&gt;&lt;br&gt;
+READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않았기에 처음에는 미들웨어에서 제어하려고 했다. 하지만 이 방법은 요청 시 수행되는 작업이기 때문에 정작 업데이트되야 하는 정보가 반영이 안됐다. 이는 Funding 모델에 update_cache_if_public함수를 만들어 중복을 최소화했다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;개선-후&#34;&gt;개선 후&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/2.png&#34;
+	width=&#34;899&#34;
+	height=&#34;77&#34;
+	
+	loading=&#34;lazy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;1167&#34;
+		data-flex-basis=&#34;2802px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Redis를 통해 데이터베이스 호출 없이 게시글을 불러옴으로써 Response Time을 줄일 수 있었다.&lt;/p&gt;
+&lt;h2 id=&#34;추가-내용&#34;&gt;추가 내용&lt;/h2&gt;
+&lt;h3 id=&#34;추가적으로-적용될-수-있는-api는-무엇이-있을까&#34;&gt;추가적으로 적용될 수 있는 API는 무엇이 있을까&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;사용자 프로필&lt;/strong&gt; : 정보를 한번 등록하면 업데이트가 자주 일어나지 않는다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;펀딩한 게시글 리스트&lt;/strong&gt; : 개인 마다의 업데이트 빈도가 짧지 않다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;데이터-중복에-대하여&#34;&gt;데이터 중복에 대하여&lt;/h3&gt;
+&lt;p&gt;결국 캐싱을 한다는 것은 사실 데이터를 중복으로 가지고 있는 것과 같다. 디스크과 메모리에 있어서 리소스 낭비가 일어날 수 있기에 캐싱을 남발하는 것은 주의해야 할 것 같다. 적절한 데이터를 엄선하여 캐싱하는 것이 캐싱을 구현하는 것보다 훨씬 어려웠다.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
