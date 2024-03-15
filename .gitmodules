@@ -5,3 +5,6 @@
 # 	path = public
 # 	url = git@github.com:skay138/skay138.github.io.git
 # 	branch = master
+[submodule "theme/stack"]
+	path = theme/stack
+	url = https://github.com/CaiJimmy/hugo-theme-stack.git
