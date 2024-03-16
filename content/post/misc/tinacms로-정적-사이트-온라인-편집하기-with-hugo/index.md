@@ -13,17 +13,19 @@ tags:
 ---
 
 개발 블로그를 시작하며 저만의 사이트를 가지고 싶었던 마음에 Hugo와 깃허브의 도움으로 호스팅하고 있었습니다.\
-시간은 조금 걸리지만 제 입맛대로 조금씩 꾸며져가는 블로그를 보고 있으니 뿌듯한 마음이 들면서도 글을 작성할 때 IDE를 사용하여 작성하다 보니 다음과 같은 불편함이 있었습니다..
+시간은 조금 걸리지만 제 입맛대로 조금씩 꾸며져가는 블로그를 보고 있으니 뿌듯한 마음이 들면서도, 글을 작성할 때 IDE를 사용하여 작성하다 보니 다음과 같은 불편함이 있었습니다..
 
 1. hugo 실행 및 preview 화면을 따로 확인해야 하는 번거로움
 2. 로컬 환경, 특히 세팅되어 있는 컴퓨터에서만 작성 가능함
 
-이러한 사항들은 글을 작성하는 시간을 오래걸리게 할 뿐 아니라 글을 쓰려는 의지마저 저하시켰습니다. 이를 해소하기 위해 정보를 찾던 중 TinaCMS를 알게 되었고, 다음들을 적용시켜 게시글 관리를 하기로 했습니다.
+이러한 사항들은 글을 작성하는 시간을 오래걸리게 할 뿐 아니라 글을 쓰려는 의지마저 저하시켰습니다. 이를 개선하기 위해 정보를 찾던 중 TinaCMS를 알게 되었고, 다음들을 적용시켜 게시글 관리를 하기로 했습니다.
 
 1. TinaCMS
 2. GitHub Action
 
 ## TinaCMS
+
+![tina.io](tina1.png)
 
 [TinaCMS](https://tina.io/ "tina.io")는 컨텐츠를 관리하기 위한 프레임워크로 사이트 편집을 원활하게 할 수 있도록 도와줍니다. 제가 파악한 바로는 다음의 주요 기능들이 있습니다.
 
@@ -32,8 +34,6 @@ tags:
 3. 컴포넌트를 연결하여 랜더링되는 화면에서 직접 편집
 
 그 중 저는 2번까지만 적용하여 블로그를 관리하려고 합니다.
-
-![tina.io](/tinaCMS/tina1.png)
 
 ### Setup TinaCMS
 
@@ -174,14 +174,14 @@ npx tinacms dev -c "hugo server -D -p 1313"
 
 설정을 마친 후 서버를 실행한 뒤 localhost:1313/admin 으로 접속하면 Tina페이지를 볼 수 있습니다.
 
-![게시글 작성 페이지](/tinaCMS/skay138.github.io_admin_.png)
+![게시글 작성 페이지](skay138.github.io_admin_.png)
 
 collection 선택 후 Create New 버튼을 클릭하게 되면 글 양식에 맞게 화면이 나오는 것을 볼 수 있습니다.
 
 ```markdown
 ---
 image: /cover/springboot.png
-title: '[Spring Boot] Messaging with Redis'
+title: "[Spring Boot] Messaging with Redis"
 description: using Spring Data Redis to publish and subscribe to messages sent with Redis.
 date: 2024-03-15T12:08:56.000Z
 categories:
@@ -234,11 +234,11 @@ export default defineConfig({
   token: process.env.TINA_TOKEN,
 ```
 
-여기서 TINA\_PUBLIC\_CLIENT\_ID가 기존에는 PUBLIC\_TINA\_CLINET\_ID거나 다른 변수명일텐데 수정해 주세요!\
+여기서 TINA_PUBLIC_CLIENT_ID가 기존에는 PUBLIC_TINA_CLINET_ID거나 다른 변수명일텐데 수정해 주세요!\
 로컬에서 실행시킨다면 .env도 맞춰서 수정해주셔야 합니다.
 
-* TINA\_PUBLIC\_CLIENT\_ID : Tina Cloud의 Client ID
-* TINA\_TOKEN : Tina Cloud의 Tokens/Content(Read only)
+- TINA_PUBLIC_CLIENT_ID : Tina Cloud의 Client ID
+- TINA_TOKEN : Tina Cloud의 Tokens/Content(Read only)
 
 ## GitHub Action
 
@@ -347,9 +347,9 @@ Build TinaCMS -> Setup Hugo 순서는 맞춰주시는 게 좋습니다.
 ### 환경 세팅
 
 깃허브 레파지토리의 Settings -> Environments -> github-pages에 환경변수를 추가해주세요.\
-Environment secrets에 TINA\_PUBLIC\_CLIENT\_ID과 TINA\_TOKEN를 넣어주시면 됩니다.
+Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 됩니다.
 
-![Environment secrets](/tinaCMS/github_env.png)
+![Environment secrets](github_env.png)
 
 이후, main 브랜치에 push될 때마다 자동으로 블로그가 build됩니다.
 
@@ -357,16 +357,19 @@ Environment secrets에 TINA\_PUBLIC\_CLIENT\_ID과 TINA\_TOKEN를 넣어주시�
 
 1. 환경 세팅 및 변수명이 제대로 되어 있는 지 확인해 주세요.
 2. branch설정 확인 : master branch 안될 수 있습니다.
-3. submodule 확인 : 이부분에서 좀 헤맸었는데 theme을 submodule로 관리하신다면 GitHub Action 중 Chekcout step에서 submodules: true 설정을 해주셔야 hugo build 부분이 제대로 빌드가 됩니다.
+3. submodule 확인 : 이부분에서 좀 헤맸었는데 theme을 submodule로 관리하신다면 GitHub Action 중 Chekcout step에서 `submodules: true` 설정을 해주셔야 hugo build 부분이 제대로 빌드가 됩니다.
 4. hugo build 확인 : config.toml에 따라 hugo -t stack 등 명령어가 상이할 수 있습니다.
 
 ## 결과 확인
 
-호스팅 되는 주소/admin으로 접속하시면 Tina에 로그인할 수 있습니다.
+호스팅 되는 주소/admin 으로 접속하시면 Tina에 로그인할 수 있습니다.\
+로그인 후 게시글 CRUD를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.
 
-![온라인 게시글 작성 페이지](/tinaCMS/skay138.github.io_admin_2.png)
+![GitHub Deploy](image.png)
 
-![tina setup checklist](/tinaCMS/checklist_tina.png)
+![빌드된 포스트](skay138.github.io_p_tinacms-static-site-online-edit_.png)
+
+![tina setup checklist](checklist_tina.png)
 
 Tina Cloud 페이지에서 Setup Checklist로 제대로 연결이 되었는지도 확인하실 수 있습니다.
 
@@ -380,8 +383,10 @@ TinaCMS으로 게시글 작성이 많이 편해졌으나 다음과 같은 사항
 2. 데이터 관련 오류\
    Markdown이 가끔 제대로 먹지 않거나, 파일을 찾을 수 없는 문제가 종종 발생합니다.
 3. Media 관리\
-   미디어 업로드 시 이름 변경이 안됩니다. 미리 이름을 설정하시고 업로드 하셔야 해요. 그리고 작성 페이지 안에서 이미지를 클릭할 때(캡션 설정을 위해) 페이지 맨 위로 올라가는 불편함이 있습니다.\
-   또한, Hugo stack 테마는 게시글 마다 폴더로 감싸 미디어 데이터를 폴더안에 넣어서 관리할 수 있게 구현되어 있습니다. 이는 나중에 수정/삭제 시 용이하기 때문에 저도 최대한 이 형태를 맞춰 관리하고 싶었습니다. 하지만 제가 못 찾은 것인지(External Media Providers는 고려하지 않았습니다) Hugo는 static 경로안에서만 미디어 데이터를 관리할 수 있기 때문에 감안하고 폴더 구조를 조정해야할 것 같습니다.
+   미디어 업로드 시 이름 변경이 안됩니다. 미리 이름을 설정하시고 업로드 하셔야 해요.\
+4. Stack 테마와 완벽히 호환안됨\
+   이것은 어찌보면 당연하지만 기존 구성에 대해 미디어와 관련해 안맞는 부분이 있습니다.\
+   static에서 가져오는 미디어는 caption이 보이지 않으며, 중앙 정렬이 안됩니다.
 
 그럼에도 VSCode등 별도의 IDE나 세팅없이 새로운 글을 작성하고, 바로 Deploy할 수 있는 것은 너무 매력적입니다.\
-이 글을 보시는 분들도 한번 적용해보시기 바래요!
+이 글을 보시는 분들도 한번 적용해보시기 바랍니다.

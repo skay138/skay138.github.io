@@ -13,10 +13,10 @@
         
         <guid>http://localhost:1313/p/spring-boot-messaging-with-redis/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Messaging with Redis" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;StringRedisTemplate&lt;/code&gt;를 이용하여 메세지를 게시하고, &lt;code&gt;MessageListenerAdapter&lt;/code&gt;를 이용하여 메세지를 가져오는 POJO를 구현할 겁니다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;StringRedisTemplate&lt;/code&gt;를 이용하여 메세지를 게시하고, &lt;code&gt;MessageListenerAdapter&lt;/code&gt;를 이용하여 메세지를 가져오는 POJO를 구현해봅시다.&lt;/p&gt;
 &lt;h2 id=&#34;standing-up-a-redis-server&#34;&gt;Standing up a Redis server&lt;/h2&gt;
 &lt;p&gt;메세지의 수신과 송신을 컨트롤하기 위한 서버가 필요하기 때문에, Redis를 설치해서 서버를 띄워야 합니다.&lt;br&gt;
-Redis는 key-value의 데이터 저장소이며, 메세징 시스템을 제공합니다. 참고로 Redis는 캐싱에도 이용되는데 &lt;a class=&#34;link&#34; href=&#34;https://skay138.github.io/p/django-api-improvement-cache/&#34;  title=&#34;[Django] API 성능을 개선해보자 : 캐싱&#34;
+Redis는 key-value의 데이터 저장소이며, 메세징 시스템을 제공합니다. 참고로 Redis는 캐싱에도 이용되는데 &lt;a class=&#34;link&#34; href=&#34;https://skay138.github.io/p/django-api-improvement-cache/&#34;  title=&#34;\[Django] API 성능을 개선해보자 : 캐싱&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;여기에&lt;/a&gt; 간단하게 정리해뒀습니다!&lt;br&gt;
 Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

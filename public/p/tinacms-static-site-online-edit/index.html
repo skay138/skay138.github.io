@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+     
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCCW8CEZ8X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VCCW8CEZ8X');
+</script>
+ <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="더이상 IDE로 글을 작성할 일은 없다!">
+<title>TinaCMS로 정적 사이트 온라인 편집하기 with Hugo</title>
+
+<link rel='canonical' href='http://localhost:1313/p/tinacms-static-site-online-edit/'>
+
+<link rel="stylesheet" href="/scss/style.min.1daefb6a7136b51cd4d43998d92b5765830562ec7bec8e26226a57d255c23afb.css"><meta property='og:title' content="TinaCMS로 정적 사이트 온라인 편집하기 with Hugo">
+<meta property='og:description' content="더이상 IDE로 글을 작성할 일은 없다!">
+<meta property='og:url' content='http://localhost:1313/p/tinacms-static-site-online-edit/'>
+<meta property='og:site_name' content='ThxKyu CODE'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Hugo' /><meta property='article:tag' content='TinaCMS' /><meta property='article:tag' content='GitHub Action' /><meta property='article:published_time' content='2024-03-16T06:34:30&#43;00:00'/><meta property='article:modified_time' content='2024-03-16T06:34:30&#43;00:00'/><meta property='og:image' content='http://localhost:1313/cover/tinacms.png' />
+<meta name="twitter:title" content="TinaCMS로 정적 사이트 온라인 편집하기 with Hugo">
+<meta name="twitter:description" content="더이상 IDE로 글을 작성할 일은 없다!"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/cover/tinacms.png' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+</head>
+
+<body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hucdd4d89c0ff227c1e283add464ffd68c_609717_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">ThxKyu CODE</a></h1>
+            <h2 class="site-description">Backend Developer</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/skay138'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#tinacms">TinaCMS</a>
+      <ol>
+        <li><a href="#setup-tinacms">Setup TinaCMS</a></li>
+        <li><a href="#컨텐츠-모델링하기">컨텐츠 모델링하기</a></li>
+        <li><a href="#tina-cloud">Tina Cloud</a></li>
+      </ol>
+    </li>
+    <li><a href="#github-action">GitHub Action</a>
+      <ol>
+        <li><a href="#환경-세팅">환경 세팅</a></li>
+        <li><a href="#오류-관련">오류 관련</a></li>
+      </ol>
+    </li>
+    <li><a href="#결과-확인">결과 확인</a></li>
+    <li><a href="#후기">후기</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/tinacms-static-site-online-edit/">
+                
+                    <img src="/cover/tinacms.png" loading="lazy" alt="Featured image of post TinaCMS로 정적 사이트 온라인 편집하기 with Hugo" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/misc/" style="background-color: #b6a668; color: #fff;">
+                Misc
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/tinacms-static-site-online-edit/">TinaCMS로 정적 사이트 온라인 편집하기 with Hugo</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            더이상 IDE로 글을 작성할 일은 없다!
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 16, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    8 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>개발 블로그를 시작하며 저만의 사이트를 가지고 싶었던 마음에 Hugo와 깃허브의 도움으로 호스팅하고 있었습니다.<br>
+시간은 조금 걸리지만 제 입맛대로 조금씩 꾸며져가는 블로그를 보고 있으니 뿌듯한 마음이 들면서도, 글을 작성할 때 IDE를 사용하여 작성하다 보니 다음과 같은 불편함이 있었습니다..</p>
+<ol>
+<li>hugo 실행 및 preview 화면을 따로 확인해야 하는 번거로움</li>
+<li>로컬 환경, 특히 세팅되어 있는 컴퓨터에서만 작성 가능함</li>
+</ol>
+<p>이러한 사항들은 글을 작성하는 시간을 오래걸리게 할 뿐 아니라 글을 쓰려는 의지마저 저하시켰습니다. 이를 개선하기 위해 정보를 찾던 중 TinaCMS를 알게 되었고, 다음들을 적용시켜 게시글 관리를 하기로 했습니다.</p>
+<ol>
+<li>TinaCMS</li>
+<li>GitHub Action</li>
+</ol>
+<h2 id="tinacms">TinaCMS</h2>
+<p><img src="/p/tinacms-static-site-online-edit/tina1.png"
+	width="1705"
+	height="724"
+	
+	loading="lazy"
+	
+		alt="tina.io"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="235"
+		data-flex-basis="565px"
+	
+></p>
+<p><a class="link" href="https://tina.io/"  title="tina.io"
+     target="_blank" rel="noopener"
+    >TinaCMS</a>는 컨텐츠를 관리하기 위한 프레임워크로 사이트 편집을 원활하게 할 수 있도록 도와줍니다. 제가 파악한 바로는 다음의 주요 기능들이 있습니다.</p>
+<ol>
+<li>게시글의 CRUD</li>
+<li>Tina Cloud를 통해 온라인 편집</li>
+<li>컴포넌트를 연결하여 랜더링되는 화면에서 직접 편집</li>
+</ol>
+<p>그 중 저는 2번까지만 적용하여 블로그를 관리하려고 합니다.</p>
+<h3 id="setup-tinacms">Setup TinaCMS</h3>
+<p>블로그 디렉토리에서 다음 명령어를 실행합니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx @tinacms/cli@latest init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>public assets directory는 미디어를 관리하는 디렉토리를 묻는 것이기에, Hugo 기준 static을 입력하시면 됩니다.</p>
+<h3 id="컨텐츠-모델링하기">컨텐츠 모델링하기</h3>
+<p>Tina를 이용하여 컨텐츠를 관리하기 위해, tina/config.ts파일에서 관련 설정을 해야합니다.<br>
+저는 카테고리를 기반해 게시글 설정을 했습니다. 아래는 schema -&gt; collections &gt; 하위의 springboot collection 설정입니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;springboot&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;SpringBoot&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">path</span><span class="o">:</span> <span class="s2">&#34;content/post/backend-studies/springboot&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">defaultItem</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">image</span><span class="o">:</span> <span class="s2">&#34;/cover/springboot.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;[Spring Boot] &#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">date</span>: <span class="kt">new</span> <span class="nb">Date</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">slug</span><span class="o">:</span> <span class="p">(</span><span class="nx">values</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">values</span><span class="o">?</span><span class="p">.</span><span class="nx">title</span>
+</span></span><span class="line"><span class="cl">              <span class="o">?</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">              <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/ /g</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Backend Studies&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">tags</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Spring Boot&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">ui</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">filename</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">// if disabled, the editor can not edit the filename
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kr">readonly</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Example of using a custom slugify function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">slugify</span><span class="o">:</span> <span class="p">(</span><span class="nx">values</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="c1">// Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="nx">values</span><span class="o">?</span><span class="p">.</span><span class="nx">title</span>
+</span></span><span class="line"><span class="cl">            <span class="o">?</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/ /g</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="si">}</span><span class="sb">/index`</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fields</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s2">&#34;image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;커버 이미지&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">required</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;title&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;제목&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">isTitle</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">required</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;slug&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;slug&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">isTitle</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">required</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">description</span><span class="o">:</span> <span class="s2">&#34;한글 포함 시 작성&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;description&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;설명&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">isTitle</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">required</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s2">&#34;datetime&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;date&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;작성일&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">required</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;categories&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;카테고리&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">list</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">options</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Backend Studies&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Backend Studies&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Algorithm&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Algorithm&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Languages&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Languages&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Tech Articles Reviews&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Tech Articles Reviews&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">value</span><span class="o">:</span> <span class="s1">&#39;Misc&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;Misc&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s2">&#34;rich-text&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;body&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;Body&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">isBody</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">label</span><span class="o">:</span> <span class="s2">&#34;Tags&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;tags&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">type</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">list</span>: <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>name</code>은 value, <code>label</code>은 Tina에서 보여줄 이름입니다.<br>
+<code>path</code>는 게시글들이 존재하는 경로를 기입해주시면 됩니다.<br>
+<code>defaultItem</code>은 게시글 작성 시 자동으로 설정될 데이터입니다. 저는 커버 이미지, 제목 양식, 작성일, 카테고리, 태그 등을 설정했습니다.<br>
+<code>fields</code>는 마크다운 파일의 설정입니다.</p>
+<p>더 자세한 설정은 <a class="link" href="https://tina.io/docs/reference/collections/"  title="tina_collections"
+     target="_blank" rel="noopener"
+    >이 곳</a>에서 확인해보세요!</p>
+<blockquote>
+<p><code>ui:filename</code>은 제가 hugo의 stack테마를 기반으로 작성하고 있기 때문에, 이를 위해 그냥 filename.md로 저장하는 게 아닌, filename/index.md로 저장하게끔 수정했습니다. 현재 Media 핸들링을 위해 저도 디렉터리 구조의 변경을 고려하고 있으며, 참고만 하시면 될 것 같습니다.</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx tinacms dev -c <span class="s2">&#34;hugo server -D -p 1313&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>설정을 마친 후 서버를 실행한 뒤 localhost:1313/admin 으로 접속하면 Tina페이지를 볼 수 있습니다.</p>
+<p><img src="/p/tinacms-static-site-online-edit/skay138.github.io_admin_.png"
+	width="1079"
+	height="953"
+	
+	loading="lazy"
+	
+		alt="게시글 작성 페이지"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="271px"
+	
+></p>
+<p>collection 선택 후 Create New 버튼을 클릭하게 되면 글 양식에 맞게 화면이 나오는 것을 볼 수 있습니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">image: /cover/springboot.png
+</span></span><span class="line"><span class="cl">title: &#34;[Spring Boot] Messaging with Redis&#34;
+</span></span><span class="line"><span class="cl">description: using Spring Data Redis to publish and subscribe to messages sent with Redis.
+</span></span><span class="line"><span class="cl">date: 2024-03-15T12:08:56.000Z
+</span></span><span class="line"><span class="cl">categories:
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> Backend Studies
+</span></span><span class="line"><span class="cl">tags:
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> Spring Boot
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="gu">## What You Will Build
+</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
+</span></span><span class="line"><span class="cl"><span class="sb">`StringRedisTemplate`</span>를 이용하여 메세지를 게시하고, <span class="sb">`MessageListenerAdapter`</span>를 이용하여 메세지를 가져오는 POJO를 구현해봅시다.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>실제 작성 시 위와 같은 md파일이 생성됩니다.</p>
+<p>body의 경우, md형식으로 작성하거나 미리보기의 형태로 글을 작성해볼 수 있습니다.<br>
+다만 저는 hugo컴포넌트와 연결하지는 않았기 때문에 Hugo에서의 미리보기 형태는 아닙니다.</p>
+<h3 id="tina-cloud">Tina Cloud</h3>
+<p>Local에서의 실행이 문제 없이 된다면, 온라인으로도 편집하기 위해 Tina Cloud를 이용해봅시다.</p>
+<ol>
+<li><a class="link" href="https://app.tina.io/"  title="Tina Cloud"
+     target="_blank" rel="noopener"
+    >Tina Cloud</a> 계정 만들기</li>
+<li>프로젝트 생성하기<br>
+1. Site URLs은 호스팅될 주소를 입력해주세요(ex : <a class="link" href="https://skay138.github.io"  target="_blank" rel="noopener"
+    >https://skay138.github.io</a>)<br>
+2. Repository는 블로그에 대한 Repository를 설정해주세요(ex : <a class="link" href="https://github.com/skay138/skay138.github.io"  target="_blank" rel="noopener"
+    >https://github.com/skay138/skay138.github.io</a>)</li>
+</ol>
+<p>Tina Cloud 설정이 끝났다면 Backend 구축을 해야합니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">npx @tinacms/cli init backend
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>커맨드를 실행하게 되면 tina/config.ts 파일이 수정되고, root 디렉토리에 .env가 추가될 겁니다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// Your hosting provider likely exposes this as an environment variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">branch</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">GITHUB_BRANCH</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">VERCEL_GIT_COMMIT_REF</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">HEAD</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;main&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">branch</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Get this from tina.io
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">clientId</span>: <span class="kt">process.env.TINA_PUBLIC_CLIENT_ID</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Get this from tina.io
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">token</span>: <span class="kt">process.env.TINA_TOKEN</span><span class="p">,</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>여기서 TINA_PUBLIC_CLIENT_ID가 기존에는 PUBLIC_TINA_CLINET_ID거나 다른 변수명일텐데 수정해 주세요!<br>
+로컬에서 실행시킨다면 .env도 맞춰서 수정해주셔야 합니다.</p>
+<ul>
+<li>TINA_PUBLIC_CLIENT_ID : Tina Cloud의 Client ID</li>
+<li>TINA_TOKEN : Tina Cloud의 Tokens/Content(Read only)</li>
+</ul>
+<h2 id="github-action">GitHub Action</h2>
+<p>저는 GitHub Pages를 이용해 호스팅을 했습니다. 만약 <a class="link" href="https://tina.io/docs/tina-cloud/deployment-options/vercel"  target="_blank" rel="noopener"
+    >Vercel</a>이나 <a class="link" href="https://tina.io/docs/tina-cloud/deployment-options/netlify"  target="_blank" rel="noopener"
+    >Netlify</a>를 이용한다면 각각 페이지를 참고해주세요.</p>
+<p><strong>.github/workflows/static.yml</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="c1"># Simple workflow for deploying static content to GitHub Pages</span>
+</span></span><span class="line"><span class="cl"><span class="n">name</span><span class="p">:</span> <span class="n">Deploy</span> <span class="k">static</span> <span class="n">content</span> <span class="n">to</span> <span class="n">Pages</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">on</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Runs on pushes targeting the default branch</span>
+</span></span><span class="line"><span class="cl">  <span class="n">push</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">branches</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;main&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1"># Allows you to run this workflow manually from the Actions tab</span>
+</span></span><span class="line"><span class="cl">  <span class="n">workflow_dispatch</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages</span>
+</span></span><span class="line"><span class="cl"><span class="n">permissions</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">contents</span><span class="p">:</span> <span class="n">read</span>
+</span></span><span class="line"><span class="cl">  <span class="n">pages</span><span class="p">:</span> <span class="n">write</span>
+</span></span><span class="line"><span class="cl">  <span class="n">id</span><span class="o">-</span><span class="n">token</span><span class="p">:</span> <span class="n">write</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.</span>
+</span></span><span class="line"><span class="cl"><span class="n">concurrency</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">group</span><span class="p">:</span> <span class="s2">&#34;pages&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cancel</span><span class="o">-</span><span class="ow">in</span><span class="o">-</span><span class="n">progress</span><span class="p">:</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">jobs</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># Single deploy job since we&#39;re just deploying</span>
+</span></span><span class="line"><span class="cl">  <span class="n">deploy</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">environment</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">name</span><span class="p">:</span> <span class="n">github</span><span class="o">-</span><span class="n">pages</span>
+</span></span><span class="line"><span class="cl">      <span class="n">url</span><span class="p">:</span> <span class="o">$</span><span class="p">{{</span> <span class="n">steps</span><span class="o">.</span><span class="n">deployment</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">page_url</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">runs</span><span class="o">-</span><span class="n">on</span><span class="p">:</span> <span class="n">ubuntu</span><span class="o">-</span><span class="n">latest</span>
+</span></span><span class="line"><span class="cl">    <span class="n">steps</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Checkout</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uses</span><span class="p">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">checkout</span><span class="err">@</span><span class="n">v4</span>
+</span></span><span class="line"><span class="cl">        <span class="n">with</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="n">submodules</span><span class="p">:</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Setup</span> <span class="ne">Node</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uses</span><span class="p">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">node</span><span class="err">@</span><span class="n">v4</span>
+</span></span><span class="line"><span class="cl">        <span class="n">with</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="n">node</span><span class="o">-</span><span class="n">version</span><span class="p">:</span> <span class="s2">&#34;16&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Cache</span> <span class="n">node</span> <span class="n">modules</span> <span class="k">for</span> <span class="n">TinaCMS</span>
+</span></span><span class="line"><span class="cl">        <span class="n">id</span><span class="p">:</span> <span class="n">cache</span><span class="o">-</span><span class="n">npm</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uses</span><span class="p">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">cache</span><span class="err">@</span><span class="n">v3</span>
+</span></span><span class="line"><span class="cl">        <span class="n">env</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="n">cache</span><span class="o">-</span><span class="n">name</span><span class="p">:</span> <span class="n">cache</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">modules</span>
+</span></span><span class="line"><span class="cl">        <span class="n">with</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="c1"># npm cache files are stored in `~/.npm` on Linux/macOS</span>
+</span></span><span class="line"><span class="cl">          <span class="n">path</span><span class="p">:</span> <span class="o">~/.</span><span class="n">npm</span>
+</span></span><span class="line"><span class="cl">          <span class="n">key</span><span class="p">:</span> <span class="o">$</span><span class="p">{{</span> <span class="n">runner</span><span class="o">.</span><span class="n">os</span> <span class="p">}}</span><span class="o">-</span><span class="n">build</span><span class="o">-$</span><span class="p">{{</span> <span class="n">env</span><span class="o">.</span><span class="n">cache</span><span class="o">-</span><span class="n">name</span> <span class="p">}}</span><span class="o">-$</span><span class="p">{{</span> <span class="n">hashFiles</span><span class="p">(</span><span class="s1">&#39;**/package-lock.json&#39;</span><span class="p">)</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">          <span class="n">restore</span><span class="o">-</span><span class="n">keys</span><span class="p">:</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">            <span class="o">$</span><span class="p">{{</span> <span class="n">runner</span><span class="o">.</span><span class="n">os</span> <span class="p">}}</span><span class="o">-</span><span class="n">build</span><span class="o">-$</span><span class="p">{{</span> <span class="n">env</span><span class="o">.</span><span class="n">cache</span><span class="o">-</span><span class="n">name</span> <span class="p">}}</span><span class="o">-</span>
+</span></span><span class="line"><span class="cl">            <span class="o">$</span><span class="p">{{</span> <span class="n">runner</span><span class="o">.</span><span class="n">os</span> <span class="p">}}</span><span class="o">-</span><span class="n">build</span><span class="o">-</span>
+</span></span><span class="line"><span class="cl">            <span class="o">$</span><span class="p">{{</span> <span class="n">runner</span><span class="o">.</span><span class="n">os</span> <span class="p">}}</span><span class="o">-</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="k">if</span><span class="p">:</span> <span class="o">$</span><span class="p">{{</span> <span class="n">steps</span><span class="o">.</span><span class="n">cache</span><span class="o">-</span><span class="n">npm</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">cache</span><span class="o">-</span><span class="n">hit</span> <span class="o">!=</span> <span class="s1">&#39;true&#39;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">name</span><span class="p">:</span> <span class="n">List</span> <span class="n">the</span> <span class="n">state</span> <span class="n">of</span> <span class="n">node</span> <span class="n">modules</span>
+</span></span><span class="line"><span class="cl">        <span class="k">continue</span><span class="o">-</span><span class="n">on</span><span class="o">-</span><span class="n">error</span><span class="p">:</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl">        <span class="n">run</span><span class="p">:</span> <span class="n">npm</span> <span class="n">list</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Install</span> <span class="n">dependencies</span>
+</span></span><span class="line"><span class="cl">        <span class="n">run</span><span class="p">:</span> <span class="n">npm</span> <span class="n">install</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Build</span> <span class="n">TinaCMS</span>
+</span></span><span class="line"><span class="cl">        <span class="n">env</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="n">TINA_PUBLIC_CLIENT_ID</span><span class="p">:</span> <span class="o">$</span><span class="p">{{</span> <span class="n">secrets</span><span class="o">.</span><span class="n">TINA_PUBLIC_CLIENT_ID</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">          <span class="n">TINA_TOKEN</span><span class="p">:</span> <span class="o">$</span><span class="p">{{</span> <span class="n">secrets</span><span class="o">.</span><span class="n">TINA_TOKEN</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">run</span><span class="p">:</span> <span class="n">npx</span> <span class="n">tinacms</span> <span class="n">build</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Setup</span> <span class="n">Hugo</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uses</span><span class="p">:</span> <span class="n">peaceiris</span><span class="o">/</span><span class="n">actions</span><span class="o">-</span><span class="n">hugo</span><span class="err">@</span><span class="n">v2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">with</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="n">hugo</span><span class="o">-</span><span class="n">version</span><span class="p">:</span> <span class="s2">&#34;0.123.8&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">extended</span><span class="p">:</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">hugo</span> <span class="n">build</span>
+</span></span><span class="line"><span class="cl">        <span class="n">run</span><span class="p">:</span> <span class="o">|</span>
+</span></span><span class="line"><span class="cl">          <span class="n">hugo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Setup</span> <span class="n">Pages</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uses</span><span class="p">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">configure</span><span class="o">-</span><span class="n">pages</span><span class="err">@</span><span class="n">v4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Upload</span> <span class="n">artifact</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uses</span><span class="p">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">upload</span><span class="o">-</span><span class="n">pages</span><span class="o">-</span><span class="n">artifact</span><span class="err">@</span><span class="n">v3</span>
+</span></span><span class="line"><span class="cl">        <span class="n">with</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">          <span class="c1"># Upload entire repository</span>
+</span></span><span class="line"><span class="cl">          <span class="n">path</span><span class="p">:</span> <span class="s2">&#34;./public&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Deploy</span> <span class="n">to</span> <span class="n">GitHub</span> <span class="n">Pages</span>
+</span></span><span class="line"><span class="cl">        <span class="n">id</span><span class="p">:</span> <span class="n">deployment</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uses</span><span class="p">:</span> <span class="n">actions</span><span class="o">/</span><span class="n">deploy</span><span class="o">-</span><span class="n">pages</span><span class="err">@</span><span class="n">v4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>name을 따라가시면 쉽게 파악하실겁니다. 언제 실행할 지 등 기호에 맞게 수정해주세요!<br>
+Build TinaCMS -&gt; Setup Hugo 순서는 맞춰주시는 게 좋습니다.</p>
+<h3 id="환경-세팅">환경 세팅</h3>
+<p>깃허브 레파지토리의 Settings -&gt; Environments -&gt; github-pages에 환경변수를 추가해주세요.<br>
+Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 됩니다.</p>
+<p><img src="/p/tinacms-static-site-online-edit/github_env.png"
+	width="846"
+	height="280"
+	
+	loading="lazy"
+	
+		alt="Environment secrets"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="302"
+		data-flex-basis="725px"
+	
+></p>
+<p>이후, main 브랜치에 push될 때마다 자동으로 블로그가 build됩니다.</p>
+<h3 id="오류-관련">오류 관련</h3>
+<ol>
+<li>환경 세팅 및 변수명이 제대로 되어 있는 지 확인해 주세요.</li>
+<li>branch설정 확인 : master branch 안될 수 있습니다.</li>
+<li>submodule 확인 : 이부분에서 좀 헤맸었는데 theme을 submodule로 관리하신다면 GitHub Action 중 Chekcout step에서 <code>submodules: true</code> 설정을 해주셔야 hugo build 부분이 제대로 빌드가 됩니다.</li>
+<li>hugo build 확인 : config.toml에 따라 hugo -t stack 등 명령어가 상이할 수 있습니다.</li>
+</ol>
+<h2 id="결과-확인">결과 확인</h2>
+<p>호스팅 되는 주소/admin 으로 접속하시면 Tina에 로그인할 수 있습니다.<br>
+로그인 후 게시글 CRUD를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.</p>
+<p><img src="/p/tinacms-static-site-online-edit/image.png"
+	width="1325"
+	height="105"
+	
+	loading="lazy"
+	
+		alt="GitHub Deploy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1261"
+		data-flex-basis="3028px"
+	
+></p>
+<p><img src="/p/tinacms-static-site-online-edit/skay138.github.io_p_tinacms-static-site-online-edit_.png"
+	width="1079"
+	height="953"
+	
+	loading="lazy"
+	
+		alt="빌드된 포스트"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="113"
+		data-flex-basis="271px"
+	
+></p>
+<p><img src="/p/tinacms-static-site-online-edit/checklist_tina.png"
+	width="580"
+	height="570"
+	
+	loading="lazy"
+	
+		alt="tina setup checklist"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="101"
+		data-flex-basis="244px"
+	
+></p>
+<p>Tina Cloud 페이지에서 Setup Checklist로 제대로 연결이 되었는지도 확인하실 수 있습니다.</p>
+<h2 id="후기">후기</h2>
+<p>TinaCMS으로 게시글 작성이 많이 편해졌으나 다음과 같은 사항들은 존재합니다.</p>
+<ol>
+<li>임시저장 없음<br>
+게시글을 저장하거나, Media를 올릴 때 마다 commit이 올라가기에 저는 글을 다 작성 후 저장하고 있습니다. 하지만 이 때문에 글을 통째로 날려버리게 된 후 그냥 신경안쓰고 commit을 날리고 있습니다.<br>
+또한 글을 작성하다 왼쪽 메뉴를 클릭하게 되신다면 소리없이 사라져버리는 글을 볼 수 있습니다 주륵. . .</li>
+<li>데이터 관련 오류<br>
+Markdown이 가끔 제대로 먹지 않거나, 파일을 찾을 수 없는 문제가 종종 발생합니다.</li>
+<li>Media 관리<br>
+미디어 업로드 시 이름 변경이 안됩니다. 미리 이름을 설정하시고 업로드 하셔야 해요.\</li>
+<li>Stack 테마와 완벽히 호환안됨<br>
+이것은 어찌보면 당연하지만 기존 구성에 대해 미디어와 관련해 안맞는 부분이 있습니다.<br>
+static에서 가져오는 미디어는 caption이 보이지 않으며, 중앙 정렬이 안됩니다.</li>
+</ol>
+<p>그럼에도 VSCode등 별도의 IDE나 세팅없이 새로운 글을 작성하고, 바로 Deploy할 수 있는 것은 너무 매력적입니다.<br>
+이 글을 보시는 분들도 한번 적용해보시기 바랍니다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+            <a href="/tags/tinacms/">TinaCMS</a>
+        
+            <a href="/tags/github-action/">GitHub Action</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            마지막 수정:  Mar 16, 2024 06:34 UTC
+        </span>
+    </section></footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/credit-bank-cal/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">학점은행제 학점 계산기 공유(학점 관리, 학점 계획)</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="skay138/skay138.github.io"
+        issue-term="title"
+        
+        label="💬comment"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2024 ThxKyu CODE
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.24.1">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+        </main>
+    </div>
+    <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+</body>
+
+</html>
