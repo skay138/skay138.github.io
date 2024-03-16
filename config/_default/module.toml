@@ -1,2 +1,5 @@
 [[imports]]
 path = "stack"
+
+[[module.imports]]
+path = "https://github.com/CaiJimmy/hugo-theme-stack.git"
