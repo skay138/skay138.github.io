@@ -33,7 +33,7 @@ tags:
 
 그 중 저는 2번까지만 적용하여 블로그를 관리하려고 합니다.
 
-![](/tinaCMS/tina1.png)
+![tina.io](/tinaCMS/tina1.png)
 
 ### Setup TinaCMS
 
@@ -174,7 +174,7 @@ npx tinacms dev -c "hugo server -D -p 1313"
 
 설정을 마친 후 서버를 실행한 뒤 localhost:1313/admin 으로 접속하면 Tina페이지를 볼 수 있습니다.
 
-![](/tinaCMS/skay138.github.io_admin_.png)
+![게시글 작성 페이지](/tinaCMS/skay138.github.io_admin_.png)
 
 collection 선택 후 Create New 버튼을 클릭하게 되면 글 양식에 맞게 화면이 나오는 것을 볼 수 있습니다.
 
@@ -349,7 +349,7 @@ Build TinaCMS -> Setup Hugo 순서는 맞춰주시는 게 좋습니다.
 깃허브 레파지토리의 Settings -> Environments -> github-pages에 환경변수를 추가해주세요.\
 Environment secrets에 TINA\_PUBLIC\_CLIENT\_ID과 TINA\_TOKEN를 넣어주시면 됩니다.
 
-![](/tinaCMS/github_env.png)
+![Environment secrets](/tinaCMS/github_env.png)
 
 이후, main 브랜치에 push될 때마다 자동으로 블로그가 build됩니다.
 
@@ -364,9 +364,9 @@ Environment secrets에 TINA\_PUBLIC\_CLIENT\_ID과 TINA\_TOKEN를 넣어주시�
 
 호스팅 되는 주소/admin으로 접속하시면 Tina에 로그인할 수 있습니다.
 
-![](/tinaCMS/skay138.github.io_admin_2.png)
+![온라인 게시글 작성 페이지](/tinaCMS/skay138.github.io_admin_2.png)
 
-![](/tinaCMS/checklist_tina.png)
+![tina setup checklist](/tinaCMS/checklist_tina.png)
 
 Tina Cloud 페이지에서 Setup Checklist로 제대로 연결이 되었는지도 확인하실 수 있습니다.
 
