@@ -25,7 +25,7 @@ tags:
 
 ## TinaCMS
 
-TinaCMS는 컨텐츠를 관리하기 위한 프레임워크로 사이트 편집을 원활하게 할 수 있도록 도와줍니다. 제가 파악한 바로는 다음의 주요 기능들이 있습니다.
+[TinaCMS](https://tina.io/ "tina.io")는 컨텐츠를 관리하기 위한 프레임워크로 사이트 편집을 원활하게 할 수 있도록 도와줍니다. 제가 파악한 바로는 다음의 주요 기능들이 있습니다.
 
 1. 게시글의 CRUD
 2. Tina Cloud를 통해 온라인 편집
@@ -164,6 +164,8 @@ Tina를 이용하여 컨텐츠를 관리하기 위해, tina/config.ts파일에�
 `defaultItem`은 게시글 작성 시 자동으로 설정될 데이터입니다. 저는 커버 이미지, 제목 양식, 작성일, 카테고리, 태그 등을 설정했습니다.\
 `fields`는 마크다운 파일의 설정입니다.
 
+더 자세한 설정은 [이 곳](https://tina.io/docs/reference/collections/ "tina_collections")에서 확인해보세요!
+
 > `ui:filename`은 제가 hugo의 stack테마를 기반으로 작성하고 있기 때문에, 이를 위해 그냥 filename.md로 저장하는 게 아닌, filename/index.md로 저장하게끔 수정했습니다. 현재 Media 핸들링을 위해 저도 디렉터리 구조의 변경을 고려하고 있으며, 참고만 하시면 될 것 같습니다.
 
 ```shell
@@ -200,7 +202,142 @@ body의 경우, md형식으로 작성하거나 미리보기의 형태로 글을 
 
 ### Tina Cloud
 
-Local에서의 실행이 문제 없이 된다면, 온라인으로도 편집하기 위해
+Local에서의 실행이 문제 없이 된다면, 온라인으로도 편집하기 위해 Tina Cloud를 이용해봅시다.
+
+1. [Tina Cloud](https://app.tina.io/ "Tina Cloud") 계정 만들기
+2. 프로젝트 생성하기\
+   Site URLs은 호스팅될 주소를 입력해주세요(ex : https\://skay138.github.io)\
+   Repository는 블로그에 대한 Repository를 설정해주세요(ex : https\://github.com/skay138/skay138.github.io)
+
+Tina Cloud 설정이 끝났다면 Backend 구축을 해야합니다.
+
+```shell
+npx @tinacms/cli init backend
+```
+
+커맨드를 실행하게 되면 tina/config.ts 파일과 root 디렉토리에 .env가 추가될 겁니다.
+
+```typescript
+// Your hosting provider likely exposes this as an environment variable
+const branch =
+  process.env.GITHUB_BRANCH ||
+  process.env.VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  "main";
+
+export default defineConfig({
+  branch,
+
+  // Get this from tina.io
+  clientId: process.env.TINA_PUBLIC_CLIENT_ID,
+  // Get this from tina.io
+  token: process.env.TINA_TOKEN,
+```
+
+여기서 TINA\_PUBLIC\_CLIENT\_ID가 기존에는 PUBLIC\_TINA\_CLINET\_ID거나 다른 변수명일텐데 수정해 주세요!\
+로컬에서 실행시킨다면 .env도 맞춰서 수정해주셔야 합니다.
+
+* TINA\_PUBLIC\_CLIENT\_ID : Tina Cloud의 Client ID
+* TINA\_TOKEN : Tina Cloud의 Tokens/Content(Read only)
+
+## GitHub Action
+
+저는 GitHub Pages를 이용해 호스팅을 했습니다. 만약 [Vercel](https://tina.io/docs/tina-cloud/deployment-options/vercel)이나 [Netlify](https://tina.io/docs/tina-cloud/deployment-options/netlify)를 이용한다면 각각 페이지를 참고해주세요.
+
+```
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "16"
+
+      - name: Cache node modules for TinaCMS
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: npm list
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build TinaCMS
+        env:
+          TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+          TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+        run: npx tinacms build
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.123.8"
+          extended: true
+
+      - name: hugo build
+        run: |
+          hugo
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: "./public"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+```
 
 ## 불편한 점
 
@@ -210,4 +347,5 @@ TinaCMS으로 게시글 작성이 많이 편해졌으나 다음과 같은 사항
    게시글을 저장하거나, Media를 올릴 때 마다 commit이 올라가기에 저는 글을 다 작성 후 저장하고 있습니다. 하지만 이 때문에 글을 통째로 날려버리게 된 후 그냥 신경안쓰고 commit을 날리고 있습니다.\
    또한 글을 작성하다 왼쪽 메뉴를 클릭하게 되신다면 소리없이 사라져버리는 글을 볼 수 있습니다 주륵. . .
 2. Media 관리\
-   Hugo stack 테마는 게시글 마다 폴더로 감싸 미디어 데이터를 폴더안에 넣어서 관리할 수 있게 구현되어 있고, 이는 나중에 수정/삭제 시 용이하기 때문에 저도 최대한 이 형태를 맞춰 관리하고 싶었습니다. 하지만 
+   미디어 업로드 시 이름 변경이 안됩니다. 미리 이름을 설정하시고 업로드 하셔야 해요.\
+   또한, Hugo stack 테마는 게시글 마다 폴더로 감싸 미디어 데이터를 폴더안에 넣어서 관리할 수 있게 구현되어 있습니다. 이는 나중에 수정/삭제 시 용이하기 때문에 저도 최대한 이 형태를 맞춰 관리하고 싶었습니다. 하지만 제가 못 찾은 것인지(External Media Providers는 고려하지 않았습니다) Hugo는 static 경로안에서만 미디어 데이터를 관리할 수 있기 때문에 감안하고 폴더 구조를 조정해야할 것 같습니다.
