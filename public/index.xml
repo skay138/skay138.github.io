@@ -634,7 +634,7 @@ Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 �
 &lt;/ol&gt;
 &lt;h2 id=&#34;결과-확인&#34;&gt;결과 확인&lt;/h2&gt;
 &lt;p&gt;호스팅 되는 주소/admin 으로 접속하시면 Tina에 로그인할 수 있습니다.&lt;br&gt;
-로그인 후 게시글 CRUD를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.&lt;/p&gt;
+로그인 후 게시글 생성/수정/삭제를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/image.png&#34;
 	width=&#34;1325&#34;
 	height=&#34;105&#34;
@@ -649,7 +649,7 @@ Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 �
 		data-flex-basis=&#34;3028px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/skay138.github.io_p_tinacms-static-site-online-edit_.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/skay138.github.io_p_spring-boot-messaging-with-redis_.png&#34;
 	width=&#34;1079&#34;
 	height=&#34;953&#34;
 	

@@ -363,11 +363,11 @@ Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 �
 ## 결과 확인
 
 호스팅 되는 주소/admin 으로 접속하시면 Tina에 로그인할 수 있습니다.\
-로그인 후 게시글 CRUD를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.
+로그인 후 게시글 생성/수정/삭제를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.
 
 ![GitHub Deploy](image.png)
 
-![빌드된 포스트](skay138.github.io_p_tinacms-static-site-online-edit_.png)
+![빌드된 포스트](skay138.github.io_p_spring-boot-messaging-with-redis_.png)
 
 ![tina setup checklist](checklist_tina.png)
 
