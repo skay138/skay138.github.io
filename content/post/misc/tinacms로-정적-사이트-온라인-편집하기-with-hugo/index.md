@@ -206,8 +206,8 @@ Local에서의 실행이 문제 없이 된다면, 온라인으로도 편집하�
 
 1. [Tina Cloud](https://app.tina.io/ "Tina Cloud") 계정 만들기
 2. 프로젝트 생성하기\
-   Site URLs은 호스팅될 주소를 입력해주세요(ex : https\://skay138.github.io)\
-   Repository는 블로그에 대한 Repository를 설정해주세요(ex : https\://github.com/skay138/skay138.github.io)
+   1\. Site URLs은 호스팅될 주소를 입력해주세요(ex : [https://skay138.github.io](https://skay138.github.io))\
+   2\. Repository는 블로그에 대한 Repository를 설정해주세요(ex : [https://github.com/skay138/skay138.github.io](https://github.com/skay138/skay138.github.io))
 
 Tina Cloud 설정이 끝났다면 Backend 구축을 해야합니다.
 
@@ -215,7 +215,7 @@ Tina Cloud 설정이 끝났다면 Backend 구축을 해야합니다.
 npx @tinacms/cli init backend
 ```
 
-커맨드를 실행하게 되면 tina/config.ts 파일과 root 디렉토리에 .env가 추가될 겁니다.
+커맨드를 실행하게 되면 tina/config.ts 파일이 수정되고, root 디렉토리에 .env가 추가될 겁니다.
 
 ```typescript
 // Your hosting provider likely exposes this as an environment variable
