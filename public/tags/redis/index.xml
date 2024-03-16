@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Redis on ThxKyu CODE</title>
-        <link>https://skay138.github.io/tags/redis/</link>
+        <link>http://localhost:1313/tags/redis/</link>
         <description>Recent content in Redis on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="https://skay138.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[Django] API 성능을 개선해보자 : 캐싱</title>
-        <link>https://skay138.github.io/p/django-api-improvement-cache/</link>
+        <link>http://localhost:1313/p/django-api-improvement-cache/</link>
         <pubDate>Fri, 16 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/django-api-improvement-cache/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;캐싱이란?&lt;/h2&gt;
+        <guid>http://localhost:1313/p/django-api-improvement-cache/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;캐싱이란?&lt;/h2&gt;
 &lt;p&gt;캐싱은 데이터나 계산 결과를 임시 저장소에 저장하는 프로세스를 말한다. 이는 데이터나 계산 결과를 나중에 빠르게 검색하거나 재사용할 수 있게 해준다.&lt;br&gt;
 캐싱은 방법에 따라 메모리나 디스크, DB등에 저장할 수 있다.
 내 프로젝트는 현재 sqlite3이라는 내장DB를 하는데, 보통은 DB서버를 두는 게 일반적이다. 따라서 테스트를 위해 DB서버를 열고 연결해 주었다.&lt;/p&gt;
@@ -26,7 +26,7 @@
 &lt;li&gt;글 : 10000개&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선-전&#34;&gt;개선 전&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-cache/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/1.png&#34;
 	width=&#34;910&#34;
 	height=&#34;74&#34;
 	
@@ -63,7 +63,7 @@
 READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않았기에 처음에는 미들웨어에서 제어하려고 했다. 하지만 이 방법은 요청 시 수행되는 작업이기 때문에 정작 업데이트되야 하는 정보가 반영이 안됐다. 이는 Funding 모델에 update_cache_if_public함수를 만들어 중복을 최소화했다.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;개선-후&#34;&gt;개선 후&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-cache/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/2.png&#34;
 	width=&#34;899&#34;
 	height=&#34;77&#34;
 	

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>선택 정렬 on ThxKyu CODE</title>
-        <link>https://skay138.github.io/tags/%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/</link>
+        <link>http://localhost:1313/tags/%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/</link>
         <description>Recent content in 선택 정렬 on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Sun, 10 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="https://skay138.github.io/tags/%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 10 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%EC%84%A0%ED%83%9D-%EC%A0%95%EB%A0%AC/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[백준] 11399번 : ATM</title>
-        <link>https://skay138.github.io/p/baekjoon-11399/</link>
+        <link>http://localhost:1313/p/baekjoon-11399/</link>
         <pubDate>Sun, 10 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/baekjoon-11399/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11399번 : ATM" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>http://localhost:1313/p/baekjoon-11399/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11399번 : ATM" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.acmicpc.net/problem/11399&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.&lt;/p&gt;
