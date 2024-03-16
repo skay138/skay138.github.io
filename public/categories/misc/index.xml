@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Misc on ThxKyu CODE</title>
-        <link>http://localhost:1313/categories/misc/</link>
+        <link>https://skay138.github.io/categories/misc/</link>
         <description>Recent content in Misc on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/misc/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 01 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://skay138.github.io/categories/misc/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>학점은행제 학점 계산기 공유(학점 관리, 학점 계획)</title>
-        <link>http://localhost:1313/p/credit-bank-cal/</link>
+        <link>https://skay138.github.io/p/credit-bank-cal/</link>
         <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/credit-bank-cal/</guid>
-        <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/credit-bank-cal/1.png&#34;
+        <guid>https://skay138.github.io/p/credit-bank-cal/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/credit-bank-cal/1.png&#34;
 	width=&#34;1758&#34;
 	height=&#34;879&#34;
 	

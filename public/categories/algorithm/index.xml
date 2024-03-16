@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Algorithm on ThxKyu CODE</title>
-        <link>http://localhost:1313/categories/algorithm/</link>
+        <link>https://skay138.github.io/categories/algorithm/</link>
         <description>Recent content in Algorithm on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Mon, 11 Mar 2024 21:53:43 +0900</lastBuildDate><atom:link href="http://localhost:1313/categories/algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 11 Mar 2024 21:53:43 +0900</lastBuildDate><atom:link href="https://skay138.github.io/categories/algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[LeetCode] 26. Remove Duplicates from Sorted Array</title>
-        <link>http://localhost:1313/p/leetcode-26/</link>
+        <link>https://skay138.github.io/p/leetcode-26/</link>
         <pubDate>Mon, 11 Mar 2024 21:53:43 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-26/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [LeetCode] 26. Remove Duplicates from Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/leetcode-26/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [LeetCode] 26. Remove Duplicates from Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/?envType=study-plan-v2&amp;amp;envId=top-interview-150&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, remove the
@@ -120,11 +120,11 @@ elements of &lt;code&gt;nums&lt;/code&gt; are not important as well as the size 
         </item>
         <item>
         <title>[LeetCode] 27. Remove Element</title>
-        <link>http://localhost:1313/p/leetcode-27/</link>
+        <link>https://skay138.github.io/p/leetcode-27/</link>
         <pubDate>Mon, 11 Mar 2024 16:43:21 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-27/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [LeetCode] 27. Remove Element" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/leetcode-27/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [LeetCode] 27. Remove Element" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&amp;amp;envId=top-interview-150&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; and an integer &lt;code&gt;val&lt;/code&gt;, remove all occurrences of
@@ -242,11 +242,11 @@ nums[0] == 3이고 nums[1] != 3 이기 때문에 nums[0]&lt;code&gt;idx = 0&lt;/
         </item>
         <item>
         <title>[LeetCode] 88. Merge Sorted Array</title>
-        <link>http://localhost:1313/p/leetcode-88/</link>
+        <link>https://skay138.github.io/p/leetcode-88/</link>
         <pubDate>Sun, 10 Mar 2024 21:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-88/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [LeetCode] 88. Merge Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/leetcode-88/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [LeetCode] 88. Merge Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&amp;amp;envId=top-interview-150&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You are given two integer arrays &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt;, sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, and two integers &lt;code&gt;m&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt;, representing the number of elements in &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt; respectively.&lt;/p&gt;
@@ -354,11 +354,11 @@ Example 2, Example 3이 특수한 상황의 예시를 미리 알려주고 있어
         </item>
         <item>
         <title>[백준] 11399번 : ATM</title>
-        <link>http://localhost:1313/p/baekjoon-11399/</link>
+        <link>https://skay138.github.io/p/baekjoon-11399/</link>
         <pubDate>Sun, 10 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11399/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11399번 : ATM" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11399/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11399번 : ATM" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.acmicpc.net/problem/11399&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.&lt;/p&gt;
@@ -435,11 +435,11 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[백준] 11003번 : 최솟값 찾기</title>
-        <link>http://localhost:1313/p/baekjoon-11003/</link>
+        <link>https://skay138.github.io/p/baekjoon-11003/</link>
         <pubDate>Sat, 09 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11003/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11003번 : 최솟값 찾기" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11003/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11003번 : 최솟값 찾기" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.acmicpc.net/problem/11003&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;N개의 수 A1, A2, &amp;hellip;, AN과 L이 주어진다.&lt;/p&gt;
@@ -510,14 +510,14 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[백준] 11660번 : 구간 합 구하기 5</title>
-        <link>http://localhost:1313/p/baekjoon-11660/</link>
+        <link>https://skay138.github.io/p/baekjoon-11660/</link>
         <pubDate>Fri, 08 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11660/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11660번 : 구간 합 구하기 5" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11660/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11660번 : 구간 합 구하기 5" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2)까지 합을 구하는 프로그램을 작성하시오. (x, y)는 x행 y열을 의미한다.&lt;/p&gt;
 &lt;p&gt;예를 들어, N = 4이고, 표가 아래와 같이 채워져 있는 경우를 살펴보자.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/baekjoon-11660/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/baekjoon-11660/image.png&#34;
 	width=&#34;206&#34;
 	height=&#34;206&#34;
 	
@@ -592,11 +592,11 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[백준] 11659번 : 구간 합 구하기 4</title>
-        <link>http://localhost:1313/p/baekjoon-11659/</link>
+        <link>https://skay138.github.io/p/baekjoon-11659/</link>
         <pubDate>Thu, 07 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11659/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11659번 : 구간 합 구하기 4" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11659/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11659번 : 구간 합 구하기 4" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;수 N개가 주어졌을 때, i번째 수부터 j번째 수까지 합을 구하는 프로그램을 작성하시오.&lt;/p&gt;
 &lt;h3 id=&#34;입력&#34;&gt;입력&lt;/h3&gt;
 &lt;p&gt;첫째 줄에 수의 개수 N과 합을 구해야 하는 횟수 M이 주어진다. 둘째 줄에는 N개의 수가 주어진다. 수는 1,000보다 작거나 같은 자연수이다. 셋째 줄부터 M개의 줄에는 합을 구해야 하는 구간 i와 j가 주어진다.&lt;/p&gt;

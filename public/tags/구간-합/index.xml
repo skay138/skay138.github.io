@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>구간 합 on ThxKyu CODE</title>
-        <link>http://localhost:1313/tags/%EA%B5%AC%EA%B0%84-%ED%95%A9/</link>
+        <link>https://skay138.github.io/tags/%EA%B5%AC%EA%B0%84-%ED%95%A9/</link>
         <description>Recent content in 구간 합 on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Fri, 08 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%EA%B5%AC%EA%B0%84-%ED%95%A9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 08 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="https://skay138.github.io/tags/%EA%B5%AC%EA%B0%84-%ED%95%A9/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[백준] 11660번 : 구간 합 구하기 5</title>
-        <link>http://localhost:1313/p/baekjoon-11660/</link>
+        <link>https://skay138.github.io/p/baekjoon-11660/</link>
         <pubDate>Fri, 08 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11660/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11660번 : 구간 합 구하기 5" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11660/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11660번 : 구간 합 구하기 5" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2)까지 합을 구하는 프로그램을 작성하시오. (x, y)는 x행 y열을 의미한다.&lt;/p&gt;
 &lt;p&gt;예를 들어, N = 4이고, 표가 아래와 같이 채워져 있는 경우를 살펴보자.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/baekjoon-11660/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/baekjoon-11660/image.png&#34;
 	width=&#34;206&#34;
 	height=&#34;206&#34;
 	
@@ -90,11 +90,11 @@
         </item>
         <item>
         <title>[백준] 11659번 : 구간 합 구하기 4</title>
-        <link>http://localhost:1313/p/baekjoon-11659/</link>
+        <link>https://skay138.github.io/p/baekjoon-11659/</link>
         <pubDate>Thu, 07 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11659/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11659번 : 구간 합 구하기 4" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11659/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11659번 : 구간 합 구하기 4" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;수 N개가 주어졌을 때, i번째 수부터 j번째 수까지 합을 구하는 프로그램을 작성하시오.&lt;/p&gt;
 &lt;h3 id=&#34;입력&#34;&gt;입력&lt;/h3&gt;
 &lt;p&gt;첫째 줄에 수의 개수 N과 합을 구해야 하는 횟수 M이 주어진다. 둘째 줄에는 N개의 수가 주어진다. 수는 1,000보다 작거나 같은 자연수이다. 셋째 줄부터 M개의 줄에는 합을 구해야 하는 구간 i와 j가 주어진다.&lt;/p&gt;

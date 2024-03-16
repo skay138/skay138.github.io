@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>ThxKyu CODE</title>
-        <link>http://localhost:1313/</link>
+        <link>https://skay138.github.io/</link>
         <description>Recent content on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Fri, 15 Mar 2024 12:08:56 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 Mar 2024 12:08:56 +0000</lastBuildDate><atom:link href="https://skay138.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[Spring Boot] Messaging with Redis</title>
-        <link>http://localhost:1313/p/spring-boot-messaging-with-redis/</link>
+        <link>https://skay138.github.io/p/spring-boot-messaging-with-redis/</link>
         <pubDate>Fri, 15 Mar 2024 12:08:56 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-messaging-with-redis/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Messaging with Redis" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-messaging-with-redis/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Messaging with Redis" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;StringRedisTemplate&lt;/code&gt;를 이용하여 메세지를 게시하고, &lt;code&gt;MessageListenerAdapter&lt;/code&gt;를 이용하여 메세지를 가져오는 POJO를 구현할 겁니다.&lt;/p&gt;
 &lt;h2 id=&#34;standing-up-a-redis-server&#34;&gt;Standing up a Redis server&lt;/h2&gt;
 &lt;p&gt;메세지의 수신과 송신을 컨트롤하기 위한 서버가 필요하기 때문에, Redis를 설치해서 서버를 띄워야 합니다.&lt;br&gt;
@@ -85,11 +85,11 @@ Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#
         </item>
         <item>
         <title>[Spring Boot] Authenticating a User with LDAP</title>
-        <link>http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/</link>
+        <link>https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/</link>
         <pubDate>Thu, 14 Mar 2024 18:44:35 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Authenticating a User with LDAP" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Authenticating a User with LDAP" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;Spring Security에 내장되어 있는 LDAP 서버를 통해 웹 어플리케이션 보안을 구축해보자.&lt;br&gt;
 LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;h3 id=&#34;ldap&#34;&gt;LDAP&lt;/h3&gt;
@@ -527,7 +527,7 @@ LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;p&gt;LDIF 파일을 사용하는 것은 프로덕션 시스템에서는 보편적인 방법이 아니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/image.png&#34;
 	width=&#34;425&#34;
 	height=&#34;261&#34;
 	
@@ -544,7 +544,7 @@ LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;p&gt;username = ben&lt;br&gt;
 password = benspassword&lt;br&gt;
 입력 시&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/image-1.png&#34;
 	width=&#34;281&#34;
 	height=&#34;97&#34;
 	
@@ -565,11 +565,11 @@ password = benspassword&lt;br&gt;
         </item>
         <item>
         <title>[Spring Boot] Uploading Files</title>
-        <link>http://localhost:1313/p/spring-boot-uploading-files/</link>
+        <link>https://skay138.github.io/p/spring-boot-uploading-files/</link>
         <pubDate>Thu, 14 Mar 2024 16:23:56 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-uploading-files/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Uploading Files" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-uploading-files/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Uploading Files" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;파일 업로드를 받아보고, 업로드 테스트를 위한 간단한 HTML 화면을 만들어보자.&lt;/p&gt;
 &lt;h3 id=&#34;create-a-file-upload-controller&#34;&gt;Create a File Upload Controller&lt;/h3&gt;
 &lt;p&gt;컨트롤러를 작성하기 앞서, Controller 에서 사용할 Service의 인터페이스를 먼저 작성하자.&lt;br&gt;
@@ -1259,7 +1259,7 @@ password = benspassword&lt;br&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;결과&#34;&gt;결과&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-uploading-files/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-uploading-files/image.png&#34;
 	width=&#34;651&#34;
 	height=&#34;276&#34;
 	
@@ -1421,7 +1421,7 @@ password = benspassword&lt;br&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;결과-1&#34;&gt;결과&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-uploading-files/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-uploading-files/image-1.png&#34;
 	width=&#34;253&#34;
 	height=&#34;118&#34;
 	
@@ -1451,11 +1451,11 @@ password = benspassword&lt;br&gt;
         </item>
         <item>
         <title>[Spring Boot] Accessing Relational Data using JDBC with Spring</title>
-        <link>http://localhost:1313/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</link>
+        <link>https://skay138.github.io/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</link>
         <pubDate>Tue, 12 Mar 2024 23:29:18 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Accessing Relational Data using JDBC with Spring" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Accessing Relational Data using JDBC with Spring" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;JdbcTemplate&lt;/code&gt;를 사용하여 관계형 데이터베이스에 접근하기&lt;/p&gt;
 &lt;h2 id=&#34;initial&#34;&gt;Initial&lt;/h2&gt;
 &lt;p&gt;프로젝트를 생성하며 JDBC API와 H2 Database의 Dependencies를 추가하거나, build.grade에서 직접 추가한다.&lt;/p&gt;
@@ -1649,7 +1649,7 @@ JdbcTemplate는 리소스 획득, 연결 관리, 예외 처리 및 코드의 목
 &lt;li&gt;arguments에 &lt;code&gt;?&lt;/code&gt;를 이용하여 SQL injection 공격을 피할 수 있음&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/image.png&#34;
 	width=&#34;431&#34;
 	height=&#34;210&#34;
 	
@@ -1667,11 +1667,11 @@ JdbcTemplate는 리소스 획득, 연결 관리, 예외 처리 및 코드의 목
         </item>
         <item>
         <title>[Spring Boot] Consuming a RESTful Web Service</title>
-        <link>http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/</link>
+        <link>https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/</link>
         <pubDate>Tue, 12 Mar 2024 22:43:56 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Consuming a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Consuming a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;RestTemplate&lt;/code&gt;를 사용하여 API 요청을 통해 랜덤 스프링 인용구를 검색해보자.&lt;/p&gt;
 &lt;h2 id=&#34;fetching-a-rest-resource&#34;&gt;Fetching a REST Resource&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/spring-guides/quoters&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1713,7 +1713,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;다음과 같이 작성한다면 ty와 일치하는 JSON 키값이 없기 때문에 type에 null이 나오게 된다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/image-1.png&#34;
 	width=&#34;400&#34;
 	height=&#34;44&#34;
 	
@@ -1842,7 +1842,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/image.png&#34;
 	width=&#34;452&#34;
 	height=&#34;39&#34;
 	
@@ -1861,11 +1861,11 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>[Spring Boot] Scheduling Tasks</title>
-        <link>http://localhost:1313/p/spring-boot-scheduling-tasks/</link>
+        <link>https://skay138.github.io/p/spring-boot-scheduling-tasks/</link>
         <pubDate>Tue, 12 Mar 2024 16:00:14 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-scheduling-tasks/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Scheduling Tasks" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-scheduling-tasks/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Scheduling Tasks" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;Spring의 @Scheduled 어노테이션을 이용하여 5초에 한번씩 현재 시간을 출력하는 어플리케이션을 만들어보자.&lt;/p&gt;
 &lt;h2 id=&#34;adding-awaitility-dependency&#34;&gt;Adding awaitility Dependency&lt;/h2&gt;
 &lt;p&gt;Task Scheduling을 위해서 awaitility 라이브러리를 추가해야 한다.&lt;/p&gt;
@@ -1974,7 +1974,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;@EnableScheduling 어노테이션을 통해 background task executor가 생성되었다는 것을 명시한다.&lt;/p&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-scheduling-tasks/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-scheduling-tasks/image.png&#34;
 	width=&#34;1011&#34;
 	height=&#34;140&#34;
 	
@@ -1992,11 +1992,11 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>[Java] record 키워드</title>
-        <link>http://localhost:1313/p/java-record-keyword/</link>
+        <link>https://skay138.github.io/p/java-record-keyword/</link>
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/java-record-keyword/</guid>
-        <description>&lt;img src="http://localhost:1313/p/java-record-keyword/cover.png" alt="Featured image of post [Java] record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;record&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/java-record-keyword/</guid>
+        <description>&lt;img src="https://skay138.github.io/p/java-record-keyword/cover.png" alt="Featured image of post [Java] record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;record&lt;/h2&gt;
 &lt;p&gt;JDK 14에서 추가된 키워드로, 타입과 필드 이름만 필요로 하는 불변 데이터 클래스이다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2335,11 +2335,11 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>[Spring Boot] Building a RESTful Web Service</title>
-        <link>http://localhost:1313/p/spring-boot-building-a-restful-web-service/</link>
+        <link>https://skay138.github.io/p/spring-boot-building-a-restful-web-service/</link>
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-building-a-restful-web-service/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Building a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-building-a-restful-web-service/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Building a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;http://localhost:8080/greeting&lt;/code&gt;으로 HTTP GET요청이 들어오면 JSON 데이터를 보내주는 것이 목표이다.&lt;/p&gt;
 &lt;p&gt;http://localhost:8080/greeting?name=User 와 같은 요청이 들어온다면&lt;br&gt;
 {&amp;ldquo;id&amp;rdquo;:1,&amp;ldquo;content&amp;rdquo;:&amp;ldquo;Hello, User!&amp;rdquo;} 의 JSON데이터를 보내줘야 한다.&lt;/p&gt;
@@ -2407,7 +2407,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;예제의 경우 template가 static final로 선언되어 있다. 하지만 Controller는 단일 인스턴스로 bean 컨테이너에 등록되어 공유하기 때문에 static이 필요한지 의문이다.&lt;/p&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-building-a-restful-web-service/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-building-a-restful-web-service/image.png&#34;
 	width=&#34;531&#34;
 	height=&#34;110&#34;
 	
@@ -2426,11 +2426,11 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>[LeetCode] 26. Remove Duplicates from Sorted Array</title>
-        <link>http://localhost:1313/p/leetcode-26/</link>
+        <link>https://skay138.github.io/p/leetcode-26/</link>
         <pubDate>Mon, 11 Mar 2024 21:53:43 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-26/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [LeetCode] 26. Remove Duplicates from Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/leetcode-26/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [LeetCode] 26. Remove Duplicates from Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/?envType=study-plan-v2&amp;amp;envId=top-interview-150&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, remove the
@@ -2538,11 +2538,11 @@ elements of &lt;code&gt;nums&lt;/code&gt; are not important as well as the size 
         </item>
         <item>
         <title>[LeetCode] 27. Remove Element</title>
-        <link>http://localhost:1313/p/leetcode-27/</link>
+        <link>https://skay138.github.io/p/leetcode-27/</link>
         <pubDate>Mon, 11 Mar 2024 16:43:21 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-27/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [LeetCode] 27. Remove Element" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/leetcode-27/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [LeetCode] 27. Remove Element" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&amp;amp;envId=top-interview-150&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; and an integer &lt;code&gt;val&lt;/code&gt;, remove all occurrences of
@@ -2660,11 +2660,11 @@ nums[0] == 3이고 nums[1] != 3 이기 때문에 nums[0]&lt;code&gt;idx = 0&lt;/
         </item>
         <item>
         <title>[LeetCode] 88. Merge Sorted Array</title>
-        <link>http://localhost:1313/p/leetcode-88/</link>
+        <link>https://skay138.github.io/p/leetcode-88/</link>
         <pubDate>Sun, 10 Mar 2024 21:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-88/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [LeetCode] 88. Merge Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/leetcode-88/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [LeetCode] 88. Merge Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;Description&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://leetcode.com/problems/merge-sorted-array/description/?envType=study-plan-v2&amp;amp;envId=top-interview-150&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You are given two integer arrays &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt;, sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, and two integers &lt;code&gt;m&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt;, representing the number of elements in &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt; respectively.&lt;/p&gt;
@@ -2772,11 +2772,11 @@ Example 2, Example 3이 특수한 상황의 예시를 미리 알려주고 있어
         </item>
         <item>
         <title>[백준] 11399번 : ATM</title>
-        <link>http://localhost:1313/p/baekjoon-11399/</link>
+        <link>https://skay138.github.io/p/baekjoon-11399/</link>
         <pubDate>Sun, 10 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11399/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11399번 : ATM" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11399/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11399번 : ATM" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.acmicpc.net/problem/11399&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다. 사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.&lt;/p&gt;
@@ -2853,11 +2853,11 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[디자인 패턴] 생성 패턴 | 팩토리 메서드</title>
-        <link>http://localhost:1313/p/design-patterns-factory-method/</link>
+        <link>https://skay138.github.io/p/design-patterns-factory-method/</link>
         <pubDate>Sat, 09 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/design-patterns-factory-method/</guid>
-        <description>&lt;img src="http://localhost:1313/p/design-patterns-factory-method/cover.png" alt="Featured image of post [디자인 패턴] 생성 패턴 | 팩토리 메서드" /&gt;&lt;h2 id=&#34;의도&#34;&gt;의도&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/design-patterns-factory-method/</guid>
+        <description>&lt;img src="https://skay138.github.io/p/design-patterns-factory-method/cover.png" alt="Featured image of post [디자인 패턴] 생성 패턴 | 팩토리 메서드" /&gt;&lt;h2 id=&#34;의도&#34;&gt;의도&lt;/h2&gt;
 &lt;p&gt;부모 클래스에서 객체들을 생성할 수 있는 인터페이스를 제공해 자식 클래스들이 생성될 객체들의 유형을 변경할 수 있도록 하는 생성 패턴&lt;/p&gt;
 &lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;ol&gt;
@@ -2869,7 +2869,7 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
 &lt;h2 id=&#34;해결책&#34;&gt;해결책&lt;/h2&gt;
 &lt;p&gt;객체 생성 직접 호출들을 팩토리 메서드에 대한 호출들로 대체.&lt;br&gt;
 자식 클래스에서 팩토리 메서드를 오버라이딩하여 그 메서드에 의해 생성되는 제품들의 클래스를 변경할 수 있게 됨.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/design-patterns-factory-method/image-1.png&#34;
 	width=&#34;620&#34;
 	height=&#34;270&#34;
 	
@@ -2884,7 +2884,7 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;단, 공통 기초 클래스 또는 공통 인터페이스를 두어야 함.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/design-patterns-factory-method/image.png&#34;
 	width=&#34;490&#34;
 	height=&#34;250&#34;
 	
@@ -2899,7 +2899,7 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;구조&#34;&gt;구조&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/design-patterns-factory-method/image-2.png&#34;
 	width=&#34;660&#34;
 	height=&#34;380&#34;
 	
@@ -2944,11 +2944,11 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[백준] 11003번 : 최솟값 찾기</title>
-        <link>http://localhost:1313/p/baekjoon-11003/</link>
+        <link>https://skay138.github.io/p/baekjoon-11003/</link>
         <pubDate>Sat, 09 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11003/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11003번 : 최솟값 찾기" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11003/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11003번 : 최솟값 찾기" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.acmicpc.net/problem/11003&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;문제 링크&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;N개의 수 A1, A2, &amp;hellip;, AN과 L이 주어진다.&lt;/p&gt;
@@ -3019,14 +3019,14 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[백준] 11660번 : 구간 합 구하기 5</title>
-        <link>http://localhost:1313/p/baekjoon-11660/</link>
+        <link>https://skay138.github.io/p/baekjoon-11660/</link>
         <pubDate>Fri, 08 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11660/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11660번 : 구간 합 구하기 5" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11660/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11660번 : 구간 합 구하기 5" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2)까지 합을 구하는 프로그램을 작성하시오. (x, y)는 x행 y열을 의미한다.&lt;/p&gt;
 &lt;p&gt;예를 들어, N = 4이고, 표가 아래와 같이 채워져 있는 경우를 살펴보자.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/baekjoon-11660/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/baekjoon-11660/image.png&#34;
 	width=&#34;206&#34;
 	height=&#34;206&#34;
 	
@@ -3101,11 +3101,11 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[백준] 11659번 : 구간 합 구하기 4</title>
-        <link>http://localhost:1313/p/baekjoon-11659/</link>
+        <link>https://skay138.github.io/p/baekjoon-11659/</link>
         <pubDate>Thu, 07 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11659/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post [백준] 11659번 : 구간 합 구하기 4" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/baekjoon-11659/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/algorithm.png" alt="Featured image of post [백준] 11659번 : 구간 합 구하기 4" /&gt;&lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;p&gt;수 N개가 주어졌을 때, i번째 수부터 j번째 수까지 합을 구하는 프로그램을 작성하시오.&lt;/p&gt;
 &lt;h3 id=&#34;입력&#34;&gt;입력&lt;/h3&gt;
 &lt;p&gt;첫째 줄에 수의 개수 N과 합을 구해야 하는 횟수 M이 주어진다. 둘째 줄에는 N개의 수가 주어진다. 수는 1,000보다 작거나 같은 자연수이다. 셋째 줄부터 M개의 줄에는 합을 구해야 하는 구간 i와 j가 주어진다.&lt;/p&gt;
@@ -3160,11 +3160,11 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>[Spring Boot] 프로젝트 구조</title>
-        <link>http://localhost:1313/p/spring-boot-project-structure/</link>
+        <link>https://skay138.github.io/p/spring-boot-project-structure/</link>
         <pubDate>Thu, 22 Feb 2024 00:00:01 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-project-structure/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] 프로젝트 구조" /&gt;&lt;h2 id=&#34;디렉터리-구조&#34;&gt;디렉터리 구조&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-project-structure/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] 프로젝트 구조" /&gt;&lt;h2 id=&#34;디렉터리-구조&#34;&gt;디렉터리 구조&lt;/h2&gt;
 &lt;h3 id=&#34;srcmainjava-디렉터리&#34;&gt;src/main/java 디렉터리&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;src/main/java&lt;/code&gt; 디렉터리는 자바 파일을 저장하는 공간이다.&lt;/p&gt;
 &lt;ul&gt;
@@ -3215,11 +3215,11 @@ JUnit과 스프링 부트의 테스트 도구를 사용하여 서버를 실행�
         </item>
         <item>
         <title>[Spring Boot] 스프링부트 @Annotation 정리</title>
-        <link>http://localhost:1313/p/spring-boot-annotation-overview/</link>
+        <link>https://skay138.github.io/p/spring-boot-annotation-overview/</link>
         <pubDate>Wed, 21 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/spring-boot-annotation-overview/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] 스프링부트 @Annotation 정리" /&gt;&lt;h2 id=&#34;annotation&#34;&gt;@Annotation&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/spring-boot-annotation-overview/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] 스프링부트 @Annotation 정리" /&gt;&lt;h2 id=&#34;annotation&#34;&gt;@Annotation&lt;/h2&gt;
 &lt;p&gt;코드에 부가적인 정보를 제공하는 메타데이터의 형태. 어노테이션은 @ 기호로 시작하며, 클래스, 메서드, 필드 등의 선언부에 적용될 수 있음.&lt;/p&gt;
 &lt;h3 id=&#34;spring-framework에서의-annotation&#34;&gt;Spring framework에서의 Annotation&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;런타임 처리&lt;/strong&gt;: 어노테이션을 사용하여 런타임에 동적으로 처리할 수 있는 정보를 제공합니다. 예를 들어, 스프링 프레임워크에서 @Autowired 어노테이션은 의존성 주입(Dependency Injection)을 위해 사용됩니다.&lt;/p&gt;
@@ -3292,11 +3292,11 @@ isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하�
         </item>
         <item>
         <title>[디자인 패턴] 디자인 패턴이란?</title>
-        <link>http://localhost:1313/p/design-patterns-intro/</link>
+        <link>https://skay138.github.io/p/design-patterns-intro/</link>
         <pubDate>Sun, 18 Feb 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/design-patterns-intro/</guid>
-        <description>&lt;img src="http://localhost:1313/p/design-patterns-intro/cover.png" alt="Featured image of post [디자인 패턴] 디자인 패턴이란?" /&gt;&lt;h2 id=&#34;서론&#34;&gt;서론&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/design-patterns-intro/</guid>
+        <description>&lt;img src="https://skay138.github.io/p/design-patterns-intro/cover.png" alt="Featured image of post [디자인 패턴] 디자인 패턴이란?" /&gt;&lt;h2 id=&#34;서론&#34;&gt;서론&lt;/h2&gt;
 &lt;p&gt;디자인 패턴을 몰라도 코딩은 할 수 있다. 하지만 트러블 슈팅에 있어 디자인 패턴도 고려해볼 수 있는가는 개발자의 유능함을 가를 수 있다고 생각한다.&lt;/p&gt;
 &lt;h2 id=&#34;디자인-패턴이란&#34;&gt;디자인 패턴이란?&lt;/h2&gt;
 &lt;p&gt;소프트웨어 디자인 과정에서 자주 발생하는 문제들에 대한 전형적인 해결책이다. 알고리즘도 문제에 대한 해결책이지만, 명확한 일련의 절차를 정의하는 알고리즘과는 달리 패턴은 문제에 대한 결과와 기능은 제시하나 구현 단계 및 순서는 사용자가 결정하게 된다.&lt;/p&gt;
@@ -3328,11 +3328,11 @@ isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하�
         </item>
         <item>
         <title>[Kurly] 쿠폰과 할인으로 앞다리살 하나 더 판매한 이야기 - 리뷰</title>
-        <link>http://localhost:1313/p/kurly-zipkin-kibana-review/</link>
+        <link>https://skay138.github.io/p/kurly-zipkin-kibana-review/</link>
         <pubDate>Sun, 18 Feb 2024 00:00:05 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/kurly-zipkin-kibana-review/</guid>
-        <description>&lt;img src="http://localhost:1313/p/kurly-zipkin-kibana-review/cover.png" alt="Featured image of post [Kurly] 쿠폰과 할인으로 앞다리살 하나 더 판매한 이야기 - 리뷰" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://helloworld.kurly.com/blog/%EC%BF%A0%ED%8F%B0%EA%B3%BC-%ED%95%A0%EC%9D%B8%EC%9C%BC%EB%A1%9C-%EC%95%9E%EB%8B%A4%EB%A6%AC%EC%82%B4-%ED%95%98%EB%82%98-%EB%8D%94-%ED%8C%90%EB%A7%A4%ED%95%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://skay138.github.io/p/kurly-zipkin-kibana-review/</guid>
+        <description>&lt;img src="https://skay138.github.io/p/kurly-zipkin-kibana-review/cover.png" alt="Featured image of post [Kurly] 쿠폰과 할인으로 앞다리살 하나 더 판매한 이야기 - 리뷰" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://helloworld.kurly.com/blog/%EC%BF%A0%ED%8F%B0%EA%B3%BC-%ED%95%A0%EC%9D%B8%EC%9C%BC%EB%A1%9C-%EC%95%9E%EB%8B%A4%EB%A6%AC%EC%82%B4-%ED%95%98%EB%82%98-%EB%8D%94-%ED%8C%90%EB%A7%A4%ED%95%9C-%EC%9D%B4%EC%95%BC%EA%B8%B0/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;원글 링크&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;원글-요약&#34;&gt;원글 요약&lt;/h2&gt;
 &lt;ol&gt;
@@ -3389,11 +3389,11 @@ isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하�
         </item>
         <item>
         <title>쿠키 세션 JWT 정리</title>
-        <link>http://localhost:1313/p/cookie-session-jwt/</link>
+        <link>https://skay138.github.io/p/cookie-session-jwt/</link>
         <pubDate>Sat, 17 Feb 2024 10:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/cookie-session-jwt/</guid>
-        <description>&lt;img src="http://localhost:1313/p/cookie-session-jwt/cover.png" alt="Featured image of post 쿠키 세션 JWT 정리" /&gt;&lt;p&gt;Client - Server 간에 사용자 인증을 위해 보편적으로 Cookie &amp;amp; Session나 토큰 인증 방식을 사용한다.&lt;br&gt;
+        <guid>https://skay138.github.io/p/cookie-session-jwt/</guid>
+        <description>&lt;img src="https://skay138.github.io/p/cookie-session-jwt/cover.png" alt="Featured image of post 쿠키 세션 JWT 정리" /&gt;&lt;p&gt;Client - Server 간에 사용자 인증을 위해 보편적으로 Cookie &amp;amp; Session나 토큰 인증 방식을 사용한다.&lt;br&gt;
 어떤 상황에 어떤 방식을 적용하는 지 궁금하여 정보를 찾아보다 &lt;a class=&#34;link&#34; href=&#34;https://jerrynsh.com/all-to-know-about-auth-and-cookies/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;재미있는 글&lt;/strong&gt;&lt;/a&gt;을 발견했다. 위 글을 읽으며 쿠키와 세션, JWT에 대해 정리해봤다.&lt;/p&gt;
 &lt;h2 id=&#34;기본-지식&#34;&gt;기본 지식&lt;/h2&gt;
@@ -3486,7 +3486,7 @@ isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하�
 &lt;h3 id=&#34;왜-jwt를-사용하는가&#34;&gt;왜 JWT를 사용하는가?&lt;/h3&gt;
 &lt;p&gt;JWT를 사용하면 &lt;em&gt;horizontal scaling&lt;/em&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;이 쉬워지기에 token-based authentication에 자주 이용된다. 그 이유는 토큰의 검증에 있어 서버와 데이터베이스 간의 통신이 필요없기 때문이다.&lt;br&gt;
 아래는 프로젝트에서 JWT를 적용한 예시이다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/cookie-session-jwt/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/cookie-session-jwt/1.png&#34;
 	width=&#34;705&#34;
 	height=&#34;603&#34;
 	
@@ -3591,11 +3591,11 @@ isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하�
         </item>
         <item>
         <title>[Django] API 성능을 개선해보자 : 캐싱</title>
-        <link>http://localhost:1313/p/django-api-improvement-cache/</link>
+        <link>https://skay138.github.io/p/django-api-improvement-cache/</link>
         <pubDate>Fri, 16 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/django-api-improvement-cache/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;캐싱이란?&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/django-api-improvement-cache/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;캐싱이란?&lt;/h2&gt;
 &lt;p&gt;캐싱은 데이터나 계산 결과를 임시 저장소에 저장하는 프로세스를 말한다. 이는 데이터나 계산 결과를 나중에 빠르게 검색하거나 재사용할 수 있게 해준다.&lt;br&gt;
 캐싱은 방법에 따라 메모리나 디스크, DB등에 저장할 수 있다.
 내 프로젝트는 현재 sqlite3이라는 내장DB를 하는데, 보통은 DB서버를 두는 게 일반적이다. 따라서 테스트를 위해 DB서버를 열고 연결해 주었다.&lt;/p&gt;
@@ -3609,7 +3609,7 @@ isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하�
 &lt;li&gt;글 : 10000개&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선-전&#34;&gt;개선 전&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-cache/1.png&#34;
 	width=&#34;910&#34;
 	height=&#34;74&#34;
 	
@@ -3646,7 +3646,7 @@ isAuthenticated()을 사용하면 현재 사용자의 인증여부를 확인하�
 READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않았기에 처음에는 미들웨어에서 제어하려고 했다. 하지만 이 방법은 요청 시 수행되는 작업이기 때문에 정작 업데이트되야 하는 정보가 반영이 안됐다. 이는 Funding 모델에 update_cache_if_public함수를 만들어 중복을 최소화했다.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;개선-후&#34;&gt;개선 후&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-cache/2.png&#34;
 	width=&#34;899&#34;
 	height=&#34;77&#34;
 	
@@ -3671,11 +3671,11 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
         </item>
         <item>
         <title>[Django] API 성능을 개선해보자 : N&#43;1문제</title>
-        <link>http://localhost:1313/p/django-api-improvement-nplus1/</link>
+        <link>https://skay138.github.io/p/django-api-improvement-nplus1/</link>
         <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/django-api-improvement-nplus1/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : N&#43;1문제" /&gt;&lt;h2 id=&#34;n1-문제란&#34;&gt;N+1 문제란?&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/django-api-improvement-nplus1/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : N&#43;1문제" /&gt;&lt;h2 id=&#34;n1-문제란&#34;&gt;N+1 문제란?&lt;/h2&gt;
 &lt;p&gt;N+1 문제는 데이터베이스 쿼리를 처리하는 동안 발생할 수 있는 성능 문제 중 하나다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;테이블의 데이터(댓글)을 가져오기 위해 쿼리를 실행한다(N번).&lt;/li&gt;
@@ -3692,7 +3692,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;li&gt;댓글 : 100개&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선-전&#34;&gt;개선 전&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/1.png&#34;
 	width=&#34;859&#34;
 	height=&#34;66&#34;
 	
@@ -3706,7 +3706,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 		data-flex-basis=&#34;3123px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/2.png&#34;
 	width=&#34;1743&#34;
 	height=&#34;872&#34;
 	
@@ -3728,7 +3728,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;li&gt;&lt;strong&gt;prefetch_related()&lt;/strong&gt; : 다대다 및 역방향 관계에 사용하며, 별도의 추가 쿼리를 사용하여 관련된 객체를 가져와 메모리에서 조합한다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;나의 경우, 외래 키 관계였기에 select_related()를 이용하여 댓글 데이터를 가져올 때 작성자에 대한 정보도 미리 로드하여 추가적인 쿼리 호출을 막았다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/3.png&#34;
 	width=&#34;1738&#34;
 	height=&#34;871&#34;
 	
@@ -3746,7 +3746,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 댓글의 작성자 정보를 추가할 때 쿼리 호출을 하고 있었고, 이는 외래키 참조를 통해 해결했다.&lt;/p&gt;
 &lt;p&gt;민망한 코드였다.&lt;/p&gt;
 &lt;h3 id=&#34;개선-후&#34;&gt;개선 후&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/4.png&#34;
 	width=&#34;847&#34;
 	height=&#34;73&#34;
 	
@@ -3758,7 +3758,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 		data-flex-basis=&#34;2784px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/5.png&#34;
 	width=&#34;1740&#34;
 	height=&#34;871&#34;
 	
@@ -3773,7 +3773,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;쿼리 호출 수를 비약적으로 줄인 결과 평균 응답 시간이 10배 넘게 줄었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/6.png&#34;
 	width=&#34;832&#34;
 	height=&#34;73&#34;
 	
@@ -3802,7 +3802,7 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
 &lt;li&gt;글 : 10000개&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선-전-1&#34;&gt;개선 전&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/7.png&#34;
 	width=&#34;1899&#34;
 	height=&#34;952&#34;
 	
@@ -3863,7 +3863,7 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;개선-후-1&#34;&gt;개선 후&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/8.png&#34;
 	width=&#34;1898&#34;
 	height=&#34;948&#34;
 	
@@ -3883,11 +3883,11 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
         </item>
         <item>
         <title>[C&#43;&#43;] 9. 가상 함수와 추상 클래스</title>
-        <link>http://localhost:1313/p/cpp-virtual-func-abstract-class/</link>
+        <link>https://skay138.github.io/p/cpp-virtual-func-abstract-class/</link>
         <pubDate>Mon, 20 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-virtual-func-abstract-class/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 9. 가상 함수와 추상 클래스" /&gt;&lt;h2 id=&#34;상속간-함수-오버라이딩&#34;&gt;상속간 함수 오버라이딩&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-virtual-func-abstract-class/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 9. 가상 함수와 추상 클래스" /&gt;&lt;h2 id=&#34;상속간-함수-오버라이딩&#34;&gt;상속간 함수 오버라이딩&lt;/h2&gt;
 &lt;p&gt;기본(Base) 클래스에서 정의한 멤버함수를 파생(Derived) 클래스에서 재정의 하는 것.&lt;/p&gt;
 &lt;p&gt;리턴형, 함수이름, 매개변수정보 모두 같아야 함.&lt;/p&gt;
 &lt;h3 id=&#34;객체-포인터와-함수호출&#34;&gt;객체 포인터와 함수호출&lt;/h3&gt;
@@ -4830,11 +4830,11 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
         </item>
         <item>
         <title>[C&#43;&#43;] 8. 상속</title>
-        <link>http://localhost:1313/p/cpp-inheritance/</link>
+        <link>https://skay138.github.io/p/cpp-inheritance/</link>
         <pubDate>Mon, 13 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-inheritance/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 8. 상속" /&gt;&lt;h2 id=&#34;상속inheritance&#34;&gt;상속(Inheritance)&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-inheritance/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 8. 상속" /&gt;&lt;h2 id=&#34;상속inheritance&#34;&gt;상속(Inheritance)&lt;/h2&gt;
 &lt;p&gt;부모 클래스(KR) = super class(JAVA) = Base class(C++) 기본 클래스&lt;br&gt;
 자식 클래스(KR) = sub class(JAVA) = Derived class(C++) 파생 클래스&lt;/p&gt;
 &lt;ul&gt;
@@ -5426,11 +5426,11 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
         </item>
         <item>
         <title>[C&#43;&#43;] 7. 프렌드와 연산자 중복</title>
-        <link>http://localhost:1313/p/cpp-friend-operator-overloading/</link>
+        <link>https://skay138.github.io/p/cpp-friend-operator-overloading/</link>
         <pubDate>Mon, 06 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-friend-operator-overloading/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 7. 프렌드와 연산자 중복" /&gt;&lt;h2 id=&#34;프렌드friend&#34;&gt;프렌드(Friend)&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-friend-operator-overloading/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 7. 프렌드와 연산자 중복" /&gt;&lt;h2 id=&#34;프렌드friend&#34;&gt;프렌드(Friend)&lt;/h2&gt;
 &lt;p&gt;private선언한 변수에 접근 가능하도록 설정해주는 키워드.&lt;/p&gt;
 &lt;h3 id=&#34;프렌드-키워드가-가능한-3가지&#34;&gt;프렌드 키워드가 가능한 3가지&lt;/h3&gt;
 &lt;h4 id=&#34;전역함수&#34;&gt;전역함수&lt;/h4&gt;
@@ -6516,11 +6516,11 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
         </item>
         <item>
         <title>[C&#43;&#43;] 6. 함수 중복과 static 멤버</title>
-        <link>http://localhost:1313/p/cpp-function-overloading-static-member/</link>
+        <link>https://skay138.github.io/p/cpp-function-overloading-static-member/</link>
         <pubDate>Mon, 23 Oct 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-function-overloading-static-member/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 6. 함수 중복과 static 멤버" /&gt;&lt;h2 id=&#34;함수중복함수-오버로딩&#34;&gt;함수중복(함수 오버로딩)&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-function-overloading-static-member/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 6. 함수 중복과 static 멤버" /&gt;&lt;h2 id=&#34;함수중복함수-오버로딩&#34;&gt;함수중복(함수 오버로딩)&lt;/h2&gt;
 &lt;p&gt;하나의 프로그램, 하나의 클래스 내에서 함수 이름을 중복해서 선언할 수 있다. 단, 매개변수가 달라야 한다.(매개변수 개수, 데이터형)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;함수 오버라이딩 : 상속에서 부모클래스에서 정의한 함수를 자식클래스에서 재정의&lt;/li&gt;
@@ -6905,11 +6905,11 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
         </item>
         <item>
         <title>[C&#43;&#43;] 5. 함수와 참조, 복사 생성자</title>
-        <link>http://localhost:1313/p/cpp-function-reference-copy-constructor/</link>
+        <link>https://skay138.github.io/p/cpp-function-reference-copy-constructor/</link>
         <pubDate>Mon, 25 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-function-reference-copy-constructor/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 5. 함수와 참조, 복사 생성자" /&gt;&lt;h2 id=&#34;호출-방식에-따른-매개변수-전달&#34;&gt;호출 방식에 따른 매개변수 전달&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-function-reference-copy-constructor/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 5. 함수와 참조, 복사 생성자" /&gt;&lt;h2 id=&#34;호출-방식에-따른-매개변수-전달&#34;&gt;호출 방식에 따른 매개변수 전달&lt;/h2&gt;
 &lt;h3 id=&#34;call-by-value값에-의한-호출&#34;&gt;call by value(값에 의한 호출)&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -7733,11 +7733,11 @@ default 복사 생성자가 존재(기존의 멤버 변수를 복사해준다)&l
         </item>
         <item>
         <title>[C&#43;&#43;] 4. 객체 포인터, 배열, 동적 생성</title>
-        <link>http://localhost:1313/p/cpp-op-array-da/</link>
+        <link>https://skay138.github.io/p/cpp-op-array-da/</link>
         <pubDate>Mon, 11 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-op-array-da/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 4. 객체 포인터, 배열, 동적 생성" /&gt;&lt;h2 id=&#34;객체-포인터&#34;&gt;객체 포인터&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-op-array-da/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 4. 객체 포인터, 배열, 동적 생성" /&gt;&lt;h2 id=&#34;객체-포인터&#34;&gt;객체 포인터&lt;/h2&gt;
 &lt;p&gt;객체의 주소 값을 가지는 변수&lt;br&gt;
 포인터로 멤버를 접근할 때 : 객체포인터 -&amp;gt; 멤버&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -8988,11 +8988,11 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>[C&#43;&#43;] 3. 클래스와 객체</title>
-        <link>http://localhost:1313/p/cpp-class-instance/</link>
+        <link>https://skay138.github.io/p/cpp-class-instance/</link>
         <pubDate>Tue, 05 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-class-instance/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 3. 클래스와 객체" /&gt;&lt;h2 id=&#34;캡슐화&#34;&gt;캡슐화&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-class-instance/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 3. 클래스와 객체" /&gt;&lt;h2 id=&#34;캡슐화&#34;&gt;캡슐화&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;객체의 본질적인 특성&lt;/li&gt;
 &lt;li&gt;객체를 캡슐화해서 내부를 보호하고 볼 수 없게 함(정보은닉)&lt;/li&gt;
@@ -9839,11 +9839,11 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>[C&#43;&#43;] 2. C&#43;&#43;의 입출력</title>
-        <link>http://localhost:1313/p/cpp-io/</link>
+        <link>https://skay138.github.io/p/cpp-io/</link>
         <pubDate>Tue, 29 Aug 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-io/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 2. C&#43;&#43;의 입출력" /&gt;&lt;h2 id=&#34;c의-출력&#34;&gt;C++의 출력&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-io/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 2. C&#43;&#43;의 입출력" /&gt;&lt;h2 id=&#34;c의-출력&#34;&gt;C++의 출력&lt;/h2&gt;
 &lt;p&gt;C++은 C와 다르게 데이터 타입 formating이 필요 없다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -10089,11 +10089,11 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>[C&#43;&#43;] 1. C&#43;&#43;의 특징</title>
-        <link>http://localhost:1313/p/cpp-feature/</link>
+        <link>https://skay138.github.io/p/cpp-feature/</link>
         <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-feature/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 1. C&#43;&#43;의 특징" /&gt;&lt;h2 id=&#34;c언어의-주요한-설계-목적&#34;&gt;C++언어의 주요한 설계 목적&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-feature/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 1. C&#43;&#43;의 특징" /&gt;&lt;h2 id=&#34;c언어의-주요한-설계-목적&#34;&gt;C++언어의 주요한 설계 목적&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;캡슐화(클래스) : 데이터를 캡슐로 싸서 외부의 접근으로부터 보호(정보은닉), 멤버 변수와 멤버 함수 이용&lt;br&gt;
 private 변수의 초기화, 조회 등에는 생성자 함수, public 함수 등을 이용하여 private에 접근한다.&lt;/li&gt;
@@ -10282,11 +10282,11 @@ private 변수의 초기화, 조회 등에는 생성자 함수, public 함수 �
         </item>
         <item>
         <title>학점은행제 학점 계산기 공유(학점 관리, 학점 계획)</title>
-        <link>http://localhost:1313/p/credit-bank-cal/</link>
+        <link>https://skay138.github.io/p/credit-bank-cal/</link>
         <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/credit-bank-cal/</guid>
-        <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/credit-bank-cal/1.png&#34;
+        <guid>https://skay138.github.io/p/credit-bank-cal/</guid>
+        <description>&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/credit-bank-cal/1.png&#34;
 	width=&#34;1758&#34;
 	height=&#34;879&#34;
 	
@@ -10326,35 +10326,35 @@ private 변수의 초기화, 조회 등에는 생성자 함수, public 함수 �
         </item>
         <item>
         <title>Archives</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>https://skay138.github.io/archives/</link>
         <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>https://skay138.github.io/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>About</title>
-        <link>http://localhost:1313/about/</link>
+        <link>https://skay138.github.io/about/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
+        <guid>https://skay138.github.io/about/</guid>
         <description>&lt;p&gt;백엔드 개발자 입니다.&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>Links</title>
-        <link>http://localhost:1313/links/</link>
+        <link>https://skay138.github.io/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/links/</guid>
+        <guid>https://skay138.github.io/links/</guid>
         <description></description>
         </item>
         <item>
         <title>Search</title>
-        <link>http://localhost:1313/search/</link>
+        <link>https://skay138.github.io/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>https://skay138.github.io/search/</guid>
         <description></description>
         </item>
         
