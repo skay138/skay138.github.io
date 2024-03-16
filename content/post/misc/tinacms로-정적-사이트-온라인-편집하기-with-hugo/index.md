@@ -244,6 +244,8 @@ export default defineConfig({
 
 저는 GitHub Pages를 이용해 호스팅을 했습니다. 만약 [Vercel](https://tina.io/docs/tina-cloud/deployment-options/vercel)이나 [Netlify](https://tina.io/docs/tina-cloud/deployment-options/netlify)를 이용한다면 각각 페이지를 참고해주세요.
 
+**.github/workflows/static.yml**
+
 ```
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
@@ -339,6 +341,28 @@ jobs:
 
 ```
 
+name따라 가시면서 바꾸시고 싶은 부분을 수정해주세요.\
+Build TinaCMS -> Setup Hugo 순서만 맞춰주세요.
+
+### 환경 세팅
+
+깃허브 레파지토리의 Settings -> Environments -> github-pages에 환경변수를 추가해주세요.\
+Environment secrets에 TINA\_PUBLIC\_CLIENT\_ID과 TINA\_TOKEN를 넣어주시면 됩니다.
+
+![](/tinaCMS/github_env.png)
+
+이후, main 브랜치에 push될 때마다 자동으로 블로그가 build됩니다.
+
+### 오류 관련
+
+1. 환경 세팅 및 변수가 제대로 되어 있는 지 확인
+2. branch설정 확인 : master 안될 수 있음
+3. submodule 확인 : 이부분에서 좀 헤맸었는데 theme을 submodule로 관리하신다면 GitHub Action 중 Chekcout step에서 submodules: true 설정을 해주셔야 hugo build 부분이 제대로 빌드가 됩니다.
+
+## 결과 확인
+
+호스팅 되는 주소/admin으로 접속하시면 Tina에 로그인할 수 있습니다.
+
 ## 불편한 점
 
 TinaCMS으로 게시글 작성이 많이 편해졌으나 다음과 같은 사항들은 존재합니다.
@@ -346,6 +370,8 @@ TinaCMS으로 게시글 작성이 많이 편해졌으나 다음과 같은 사항
 1. 임시저장 없음\
    게시글을 저장하거나, Media를 올릴 때 마다 commit이 올라가기에 저는 글을 다 작성 후 저장하고 있습니다. 하지만 이 때문에 글을 통째로 날려버리게 된 후 그냥 신경안쓰고 commit을 날리고 있습니다.\
    또한 글을 작성하다 왼쪽 메뉴를 클릭하게 되신다면 소리없이 사라져버리는 글을 볼 수 있습니다 주륵. . .
-2. Media 관리\
-   미디어 업로드 시 이름 변경이 안됩니다. 미리 이름을 설정하시고 업로드 하셔야 해요.\
+2. 데이터 관련 오류\
+   Markdown이 가끔 제대로 먹지 않거나, 파일을 찾을 수 없는 문제가 종종 발생합니다.
+3. Media 관리\
+   미디어 업로드 시 이름 변경이 안됩니다. 미리 이름을 설정하시고 업로드 하셔야 해요. 그리고 게시글을 작성하다 업로드 하시면 맨 위로 올라가버리는 현상이 있기 때문에 가능하면 이미지를 모두 업로드 하고 글을 작성하시는게 좋을 거 같아요.\
    또한, Hugo stack 테마는 게시글 마다 폴더로 감싸 미디어 데이터를 폴더안에 넣어서 관리할 수 있게 구현되어 있습니다. 이는 나중에 수정/삭제 시 용이하기 때문에 저도 최대한 이 형태를 맞춰 관리하고 싶었습니다. 하지만 제가 못 찾은 것인지(External Media Providers는 고려하지 않았습니다) Hugo는 static 경로안에서만 미디어 데이터를 관리할 수 있기 때문에 감안하고 폴더 구조를 조정해야할 것 같습니다.
