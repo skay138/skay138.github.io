@@ -31,31 +31,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-            
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-          
+
       - name: Install dependencies for TinaCMS
         run: npm ci
-        
+
       - name: Build TinaCMS
         env:
           TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
           TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
         run: npx tinacms build
-        
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.123.8'
+          hugo-version: "0.123.8"
           extended: true
-          
+
       - name: hugo build
         run: |
-          hugo -t stack
-          
+          hugo
+
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -68,15 +68,13 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './public'
-          
+          path: "./public"
 
-        
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
