@@ -159,22 +159,55 @@ Tina를 이용하여 컨텐츠를 관리하기 위해, tina/config.ts파일에�
 }
 ```
 
-name은 value, label은 Tina에서 보여줄 이름입니다.\
-path는 게시글들이 존재하는 경로를 기입해주시면 됩니다.\
+`name`은 value, `label`은 Tina에서 보여줄 이름입니다.\
+`path`는 게시글들이 존재하는 경로를 기입해주시면 됩니다.\
 `defaultItem`은 게시글 작성 시 자동으로 설정될 데이터입니다. 저는 커버 이미지, 제목 양식, 작성일, 카테고리, 태그 등을 설정했습니다.\
 `fields`는 마크다운 파일의 설정입니다.
 
 > `ui:filename`은 제가 hugo의 stack테마를 기반으로 작성하고 있기 때문에, 이를 위해 그냥 filename.md로 저장하는 게 아닌, filename/index.md로 저장하게끔 수정했습니다. 현재 Media 핸들링을 위해 저도 디렉터리 구조의 변경을 고려하고 있으며, 참고만 하시면 될 것 같습니다.
 
-설정을 마친 후
-
 ```shell
 npx tinacms dev -c "hugo server -D -p 1313"
 ```
 
-로 서버를 실행한 뒤 localhost:1313/admin 으로 접속하면 Tina페이지를 볼 수 있습니다.\
-collection 선택 후 Create New 버튼을 클릭하게 되면
+설정을 마친 후 서버를 실행한 뒤 localhost:1313/admin 으로 접속하면 Tina페이지를 볼 수 있습니다.
 
 ![](/tinaCMS/skay138.github.io_admin_.png)
 
-글 양식에 맞게 화면이 나오는 것을 볼 수 있습니다.
+collection 선택 후 Create New 버튼을 클릭하게 되면 글 양식에 맞게 화면이 나오는 것을 볼 수 있습니다.
+
+```markdown
+---
+image: /cover/springboot.png
+title: '[Spring Boot] Messaging with Redis'
+description: using Spring Data Redis to publish and subscribe to messages sent with Redis.
+date: 2024-03-15T12:08:56.000Z
+categories:
+  - Backend Studies
+tags:
+  - Spring Boot
+---
+
+## What You Will Build
+
+`StringRedisTemplate`를 이용하여 메세지를 게시하고, `MessageListenerAdapter`를 이용하여 메세지를 가져오는 POJO를 구현해봅시다.
+```
+
+실제 작성 시 위와 같은 md파일이 생성됩니다.
+
+body의 경우, md형식으로 작성하거나 미리보기의 형태로 글을 작성해볼 수 있습니다.\
+다만 저는 hugo컴포넌트와 연결하지는 않았기 때문에 Hugo에서의 미리보기 형태는 아닙니다.
+
+### Tina Cloud
+
+Local에서의 실행이 문제 없이 된다면, 온라인으로도 편집하기 위해
+
+## 불편한 점
+
+TinaCMS으로 게시글 작성이 많이 편해졌으나 다음과 같은 사항들은 존재합니다.
+
+1. 임시저장 없음\
+   게시글을 저장하거나, Media를 올릴 때 마다 commit이 올라가기에 저는 글을 다 작성 후 저장하고 있습니다. 하지만 이 때문에 글을 통째로 날려버리게 된 후 그냥 신경안쓰고 commit을 날리고 있습니다.\
+   또한 글을 작성하다 왼쪽 메뉴를 클릭하게 되신다면 소리없이 사라져버리는 글을 볼 수 있습니다 주륵. . .
+2. Media 관리\
+   Hugo stack 테마는 게시글 마다 폴더로 감싸 미디어 데이터를 폴더안에 넣어서 관리할 수 있게 구현되어 있고, 이는 나중에 수정/삭제 시 용이하기 때문에 저도 최대한 이 형태를 맞춰 관리하고 싶었습니다. 하지만 
