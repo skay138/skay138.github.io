@@ -12,7 +12,7 @@
         <pubDate>Sat, 16 Mar 2024 06:34:30 +0000</pubDate>
         
         <guid>http://localhost:1313/p/tinacms-static-site-online-edit/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/tinacms.png" alt="Featured image of post TinaCMS로 정적 사이트 온라인 편집하기 with Hugo" /&gt;&lt;p&gt;개발 블로그를 시작하며 저만의 사이트를 가지고 싶었던 마음에 Hugo와 깃허브의 도움으로 호스팅하고 있었습니다.&lt;br&gt;
+        <description>&lt;img src="http://localhost:1313/p/tinacms-static-site-online-edit/tinacms.png" alt="Featured image of post TinaCMS로 정적 사이트 온라인 편집하기 with Hugo" /&gt;&lt;p&gt;개발 블로그를 시작하며 저만의 사이트를 가지고 싶었던 마음에 Hugo와 깃허브의 도움으로 호스팅하고 있었습니다.&lt;br&gt;
 시간은 조금 걸리지만 제 입맛대로 조금씩 꾸며져가는 블로그를 보고 있으니 뿌듯한 마음이 들면서도, 글을 작성할 때 IDE를 사용하여 작성하다 보니 다음과 같은 불편함이 있었습니다..&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;hugo 실행 및 preview 화면을 따로 확인해야 하는 번거로움&lt;/li&gt;
