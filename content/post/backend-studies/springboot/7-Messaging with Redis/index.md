@@ -27,7 +27,7 @@ implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
 ## Create a Redis Message Receiver
 
-src/main/java/com/example/messagingredis/Receiver.java
+**src/main/java/com/example/messagingredis/Receiver.java**
 
 ```java
 package com.example.messagingredis;
@@ -53,4 +53,83 @@ public class Receiver {
 }
 ```
 
-작성중 . . .
+Receiver는 메세지를 수신하는 방법을 정의하는 POJO입니다. 메세지 리스너로 등록하면 메서드 이름을 원하는 대로 지정할 수 있습니다.
+
+> 예제에서는 메세지를 수신할 때마다 메세지를 세는 방식으로 동작하여 메세지를 수신했다고 알릴 수 있습니다.
+
+## Register the Listener and Send a Message
+
+Spring Data Redis에서는 수신/송신에 필요한 컴포넌트들을 제공하며, 다음을 설정해야 합니다.
+
+* A connection factory : message listener container와 Redis template을 Redis 서버에 연결
+* A message listener container : Receiver등록(메세지 수신)
+* A Redis template : 메세지 송신
+
+src/main/java/com/example/messagingredis/MessagingRedisApplication.java
+
+```java
+package com.example.messagingredis;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.listener.PatternTopic;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
+import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
+
+@SpringBootApplication
+public class MessagingRedisApplication {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(MessagingRedisApplication.class);
+
+  @Bean
+	RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory,
+    MessageListenerAdapter listenerAdapter) {
+
+		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+    container.setConnectionFactory(connectionFactory);
+    container.addMessageListener(listenerAdapter, new PatternTopic("chat"));
+
+    return container;
+  }
+
+  @Bean
+	MessageListenerAdapter listenerAdapter(Receiver receiver) {
+    return new MessageListenerAdapter(receiver, "receiveMessage");
+  }
+
+  @Bean
+	Receiver receiver() {
+    return new Receiver();
+  }
+
+  @Bean
+	StringRedisTemplate template(RedisConnectionFactory connectionFactory) {
+    return new StringRedisTemplate(connectionFactory);
+  }
+
+  public static void main(String[] args) throws InterruptedException {
+
+		ApplicationContext ctx = SpringApplication.run(MessagingRedisApplication.class, args);
+
+		StringRedisTemplate template = ctx.getBean(StringRedisTemplate.class);
+		Receiver receiver = ctx.getBean(Receiver.class);
+
+  while (receiver.getCount() == 0) {
+
+    LOGGER.info("Sending message...");
+    template.convertAndSend("chat", "Hello from Redis!");
+    Thread.sleep(500L);
+  }
+
+  System.exit(0);
+}
+}
+```
+
+## 결과
