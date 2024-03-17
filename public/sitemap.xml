@@ -23,17 +23,27 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/misc/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
+    <lastmod>2024-03-17T06:48:44+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
+    <lastmod>2024-03-17T06:48:44+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
+    <lastmod>2024-03-17T06:48:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2024-03-17T06:48:44+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/p/%EB%AF%B8%EB%94%94%EC%96%B4-%ED%85%8C%EC%8A%A4%ED%8A%B8/</loc>
+    <lastmod>2024-03-17T06:48:44+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -43,11 +53,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
     <lastmod>2024-03-16T06:34:30+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
