@@ -1,5 +1,5 @@
 ---
-image: /cover/tinacms.png
+image: tinacms.png
 title: TinaCMS로 정적 사이트 온라인 편집하기 with Hugo
 slug: tinacms-static-site-online-edit
 description: 더이상 IDE로 글을 작성할 일은 없다!
@@ -357,7 +357,7 @@ Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 �
 
 1. 환경 세팅 및 변수명이 제대로 되어 있는 지 확인해 주세요.
 2. branch설정 확인 : master branch 안될 수 있습니다.
-3. submodule 확인 : 이부분에서 좀 헤맸었는데 theme을 submodule로 관리하신다면 GitHub Action 중 Chekcout step에서 `submodules: true` 설정을 해주셔야 hugo build 부분이 제대로 빌드가 됩니다.
+3. submodule 확인 : 이부분에서 좀 헤맸었는데 theme을 submodule로 관리하신다면 GitHub Action 중 Checkout step에서 `submodules: true` 설정을 해주셔야 hugo build 부분이 제대로 빌드가 됩니다.
 4. hugo build 확인 : config.toml에 따라 hugo -t stack 등 명령어가 상이할 수 있습니다.
 
 ## 결과 확인
