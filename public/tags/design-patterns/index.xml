@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Design Patterns on ThxKyu CODE</title>
-        <link>https://skay138.github.io/tags/design-patterns/</link>
+        <link>http://localhost:1313/tags/design-patterns/</link>
         <description>Recent content in Design Patterns on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Sat, 09 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="https://skay138.github.io/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 09 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[디자인 패턴] 생성 패턴 | 팩토리 메서드</title>
-        <link>https://skay138.github.io/p/design-patterns-factory-method/</link>
+        <link>http://localhost:1313/p/design-patterns-factory-method/</link>
         <pubDate>Sat, 09 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/design-patterns-factory-method/</guid>
-        <description>&lt;img src="https://skay138.github.io/p/design-patterns-factory-method/cover.png" alt="Featured image of post [디자인 패턴] 생성 패턴 | 팩토리 메서드" /&gt;&lt;h2 id=&#34;의도&#34;&gt;의도&lt;/h2&gt;
+        <guid>http://localhost:1313/p/design-patterns-factory-method/</guid>
+        <description>&lt;img src="http://localhost:1313/p/design-patterns-factory-method/cover.png" alt="Featured image of post [디자인 패턴] 생성 패턴 | 팩토리 메서드" /&gt;&lt;h2 id=&#34;의도&#34;&gt;의도&lt;/h2&gt;
 &lt;p&gt;부모 클래스에서 객체들을 생성할 수 있는 인터페이스를 제공해 자식 클래스들이 생성될 객체들의 유형을 변경할 수 있도록 하는 생성 패턴&lt;/p&gt;
 &lt;h2 id=&#34;문제&#34;&gt;문제&lt;/h2&gt;
 &lt;ol&gt;
@@ -24,7 +24,7 @@
 &lt;h2 id=&#34;해결책&#34;&gt;해결책&lt;/h2&gt;
 &lt;p&gt;객체 생성 직접 호출들을 팩토리 메서드에 대한 호출들로 대체.&lt;br&gt;
 자식 클래스에서 팩토리 메서드를 오버라이딩하여 그 메서드에 의해 생성되는 제품들의 클래스를 변경할 수 있게 됨.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/design-patterns-factory-method/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-1.png&#34;
 	width=&#34;620&#34;
 	height=&#34;270&#34;
 	
@@ -39,7 +39,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;단, 공통 기초 클래스 또는 공통 인터페이스를 두어야 함.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/design-patterns-factory-method/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image.png&#34;
 	width=&#34;490&#34;
 	height=&#34;250&#34;
 	
@@ -54,7 +54,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;구조&#34;&gt;구조&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/design-patterns-factory-method/image-2.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-2.png&#34;
 	width=&#34;660&#34;
 	height=&#34;380&#34;
 	
@@ -99,11 +99,11 @@
         </item>
         <item>
         <title>[디자인 패턴] 디자인 패턴이란?</title>
-        <link>https://skay138.github.io/p/design-patterns-intro/</link>
+        <link>http://localhost:1313/p/design-patterns-intro/</link>
         <pubDate>Sun, 18 Feb 2024 00:00:10 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/design-patterns-intro/</guid>
-        <description>&lt;img src="https://skay138.github.io/p/design-patterns-intro/cover.png" alt="Featured image of post [디자인 패턴] 디자인 패턴이란?" /&gt;&lt;h2 id=&#34;서론&#34;&gt;서론&lt;/h2&gt;
+        <guid>http://localhost:1313/p/design-patterns-intro/</guid>
+        <description>&lt;img src="http://localhost:1313/p/design-patterns-intro/cover.png" alt="Featured image of post [디자인 패턴] 디자인 패턴이란?" /&gt;&lt;h2 id=&#34;서론&#34;&gt;서론&lt;/h2&gt;
 &lt;p&gt;디자인 패턴을 몰라도 코딩은 할 수 있다. 하지만 트러블 슈팅에 있어 디자인 패턴도 고려해볼 수 있는가는 개발자의 유능함을 가를 수 있다고 생각한다.&lt;/p&gt;
 &lt;h2 id=&#34;디자인-패턴이란&#34;&gt;디자인 패턴이란?&lt;/h2&gt;
 &lt;p&gt;소프트웨어 디자인 과정에서 자주 발생하는 문제들에 대한 전형적인 해결책이다. 알고리즘도 문제에 대한 해결책이지만, 명확한 일련의 절차를 정의하는 알고리즘과는 달리 패턴은 문제에 대한 결과와 기능은 제시하나 구현 단계 및 순서는 사용자가 결정하게 된다.&lt;/p&gt;

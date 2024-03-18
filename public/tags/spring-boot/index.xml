@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Spring Boot on ThxKyu CODE</title>
-        <link>https://skay138.github.io/tags/spring-boot/</link>
+        <link>http://localhost:1313/tags/spring-boot/</link>
         <description>Recent content in Spring Boot on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Fri, 15 Mar 2024 12:08:56 +0000</lastBuildDate><atom:link href="https://skay138.github.io/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 Mar 2024 12:08:56 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[Spring Boot] Messaging with Redis</title>
-        <link>https://skay138.github.io/p/spring-boot-messaging-with-redis/</link>
+        <link>http://localhost:1313/p/spring-boot-messaging-with-redis/</link>
         <pubDate>Fri, 15 Mar 2024 12:08:56 +0000</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-messaging-with-redis/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Messaging with Redis" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-messaging-with-redis/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Messaging with Redis" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;StringRedisTemplate&lt;/code&gt;를 이용하여 메세지를 게시하고, &lt;code&gt;MessageListenerAdapter&lt;/code&gt;를 이용하여 메세지를 가져오는 POJO를 구현해봅시다.&lt;/p&gt;
 &lt;h2 id=&#34;standing-up-a-redis-server&#34;&gt;Standing up a Redis server&lt;/h2&gt;
 &lt;p&gt;메세지의 수신과 송신을 컨트롤하기 위한 서버가 필요하기 때문에, Redis를 설치해서 서버를 띄워야 합니다.&lt;br&gt;
@@ -223,7 +223,7 @@ Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-messaging-with-redis/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-messaging-with-redis/image.png&#34;
 	width=&#34;288&#34;
 	height=&#34;119&#34;
 	
@@ -242,11 +242,11 @@ Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#
         </item>
         <item>
         <title>[Spring Boot] Authenticating a User with LDAP</title>
-        <link>https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/</link>
+        <link>http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/</link>
         <pubDate>Thu, 14 Mar 2024 18:44:35 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Authenticating a User with LDAP" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Authenticating a User with LDAP" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;Spring Security에 내장되어 있는 LDAP 서버를 통해 웹 어플리케이션 보안을 구축해보자.&lt;br&gt;
 LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;h3 id=&#34;ldap&#34;&gt;LDAP&lt;/h3&gt;
@@ -684,7 +684,7 @@ LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;p&gt;LDIF 파일을 사용하는 것은 프로덕션 시스템에서는 보편적인 방법이 아니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/image.png&#34;
 	width=&#34;425&#34;
 	height=&#34;261&#34;
 	
@@ -701,7 +701,7 @@ LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;p&gt;username = ben&lt;br&gt;
 password = benspassword&lt;br&gt;
 입력 시&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-authenticating-a-user-with-ldap/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-authenticating-a-user-with-ldap/image-1.png&#34;
 	width=&#34;281&#34;
 	height=&#34;97&#34;
 	
@@ -722,11 +722,11 @@ password = benspassword&lt;br&gt;
         </item>
         <item>
         <title>[Spring Boot] Uploading Files</title>
-        <link>https://skay138.github.io/p/spring-boot-uploading-files/</link>
+        <link>http://localhost:1313/p/spring-boot-uploading-files/</link>
         <pubDate>Thu, 14 Mar 2024 16:23:56 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-uploading-files/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Uploading Files" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-uploading-files/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Uploading Files" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;파일 업로드를 받아보고, 업로드 테스트를 위한 간단한 HTML 화면을 만들어보자.&lt;/p&gt;
 &lt;h3 id=&#34;create-a-file-upload-controller&#34;&gt;Create a File Upload Controller&lt;/h3&gt;
 &lt;p&gt;컨트롤러를 작성하기 앞서, Controller 에서 사용할 Service의 인터페이스를 먼저 작성하자.&lt;br&gt;
@@ -1416,7 +1416,7 @@ password = benspassword&lt;br&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;결과&#34;&gt;결과&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-uploading-files/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-uploading-files/image.png&#34;
 	width=&#34;651&#34;
 	height=&#34;276&#34;
 	
@@ -1578,7 +1578,7 @@ password = benspassword&lt;br&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;결과-1&#34;&gt;결과&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-uploading-files/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-uploading-files/image-1.png&#34;
 	width=&#34;253&#34;
 	height=&#34;118&#34;
 	
@@ -1608,11 +1608,11 @@ password = benspassword&lt;br&gt;
         </item>
         <item>
         <title>[Spring Boot] Accessing Relational Data using JDBC with Spring</title>
-        <link>https://skay138.github.io/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</link>
+        <link>http://localhost:1313/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</link>
         <pubDate>Tue, 12 Mar 2024 23:29:18 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Accessing Relational Data using JDBC with Spring" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Accessing Relational Data using JDBC with Spring" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;JdbcTemplate&lt;/code&gt;를 사용하여 관계형 데이터베이스에 접근하기&lt;/p&gt;
 &lt;h2 id=&#34;initial&#34;&gt;Initial&lt;/h2&gt;
 &lt;p&gt;프로젝트를 생성하며 JDBC API와 H2 Database의 Dependencies를 추가하거나, build.grade에서 직접 추가한다.&lt;/p&gt;
@@ -1806,7 +1806,7 @@ JdbcTemplate는 리소스 획득, 연결 관리, 예외 처리 및 코드의 목
 &lt;li&gt;arguments에 &lt;code&gt;?&lt;/code&gt;를 이용하여 SQL injection 공격을 피할 수 있음&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-accessing-relational-data-using-jdbc-with-spring/image.png&#34;
 	width=&#34;431&#34;
 	height=&#34;210&#34;
 	
@@ -1824,11 +1824,11 @@ JdbcTemplate는 리소스 획득, 연결 관리, 예외 처리 및 코드의 목
         </item>
         <item>
         <title>[Spring Boot] Consuming a RESTful Web Service</title>
-        <link>https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/</link>
+        <link>http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/</link>
         <pubDate>Tue, 12 Mar 2024 22:43:56 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Consuming a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Consuming a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;RestTemplate&lt;/code&gt;를 사용하여 API 요청을 통해 랜덤 스프링 인용구를 검색해보자.&lt;/p&gt;
 &lt;h2 id=&#34;fetching-a-rest-resource&#34;&gt;Fetching a REST Resource&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/spring-guides/quoters&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1870,7 +1870,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;다음과 같이 작성한다면 ty와 일치하는 JSON 키값이 없기 때문에 type에 null이 나오게 된다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/image-1.png&#34;
 	width=&#34;400&#34;
 	height=&#34;44&#34;
 	
@@ -1999,7 +1999,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-consuming-a-restful-web-service/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-consuming-a-restful-web-service/image.png&#34;
 	width=&#34;452&#34;
 	height=&#34;39&#34;
 	
@@ -2018,11 +2018,11 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>[Spring Boot] Scheduling Tasks</title>
-        <link>https://skay138.github.io/p/spring-boot-scheduling-tasks/</link>
+        <link>http://localhost:1313/p/spring-boot-scheduling-tasks/</link>
         <pubDate>Tue, 12 Mar 2024 16:00:14 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-scheduling-tasks/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Scheduling Tasks" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-scheduling-tasks/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Scheduling Tasks" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;Spring의 @Scheduled 어노테이션을 이용하여 5초에 한번씩 현재 시간을 출력하는 어플리케이션을 만들어보자.&lt;/p&gt;
 &lt;h2 id=&#34;adding-awaitility-dependency&#34;&gt;Adding awaitility Dependency&lt;/h2&gt;
 &lt;p&gt;Task Scheduling을 위해서 awaitility 라이브러리를 추가해야 한다.&lt;/p&gt;
@@ -2131,7 +2131,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;@EnableScheduling 어노테이션을 통해 background task executor가 생성되었다는 것을 명시한다.&lt;/p&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-scheduling-tasks/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-scheduling-tasks/image.png&#34;
 	width=&#34;1011&#34;
 	height=&#34;140&#34;
 	
@@ -2149,11 +2149,11 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>[Spring Boot] Building a RESTful Web Service</title>
-        <link>https://skay138.github.io/p/spring-boot-building-a-restful-web-service/</link>
+        <link>http://localhost:1313/p/spring-boot-building-a-restful-web-service/</link>
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-building-a-restful-web-service/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] Building a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-building-a-restful-web-service/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] Building a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;What You Will Build&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;http://localhost:8080/greeting&lt;/code&gt;으로 HTTP GET요청이 들어오면 JSON 데이터를 보내주는 것이 목표이다.&lt;/p&gt;
 &lt;p&gt;http://localhost:8080/greeting?name=User 와 같은 요청이 들어온다면&lt;br&gt;
 {&amp;ldquo;id&amp;rdquo;:1,&amp;ldquo;content&amp;rdquo;:&amp;ldquo;Hello, User!&amp;rdquo;} 의 JSON데이터를 보내줘야 한다.&lt;/p&gt;
@@ -2221,7 +2221,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;예제의 경우 template가 static final로 선언되어 있다. 하지만 Controller는 단일 인스턴스로 bean 컨테이너에 등록되어 공유하기 때문에 static이 필요한지 의문이다.&lt;/p&gt;
 &lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-building-a-restful-web-service/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/spring-boot-building-a-restful-web-service/image.png&#34;
 	width=&#34;531&#34;
 	height=&#34;110&#34;
 	
@@ -2240,11 +2240,11 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>[Spring Boot] 프로젝트 구조</title>
-        <link>https://skay138.github.io/p/spring-boot-project-structure/</link>
+        <link>http://localhost:1313/p/spring-boot-project-structure/</link>
         <pubDate>Thu, 22 Feb 2024 00:00:01 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-project-structure/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] 프로젝트 구조" /&gt;&lt;h2 id=&#34;디렉터리-구조&#34;&gt;디렉터리 구조&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-project-structure/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] 프로젝트 구조" /&gt;&lt;h2 id=&#34;디렉터리-구조&#34;&gt;디렉터리 구조&lt;/h2&gt;
 &lt;h3 id=&#34;srcmainjava-디렉터리&#34;&gt;src/main/java 디렉터리&lt;/h3&gt;
 &lt;p&gt;&lt;code&gt;src/main/java&lt;/code&gt; 디렉터리는 자바 파일을 저장하는 공간이다.&lt;/p&gt;
 &lt;ul&gt;
@@ -2295,11 +2295,11 @@ JUnit과 스프링 부트의 테스트 도구를 사용하여 서버를 실행�
         </item>
         <item>
         <title>[Spring Boot] 스프링부트 @Annotation 정리</title>
-        <link>https://skay138.github.io/p/spring-boot-annotation-overview/</link>
+        <link>http://localhost:1313/p/spring-boot-annotation-overview/</link>
         <pubDate>Wed, 21 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>https://skay138.github.io/p/spring-boot-annotation-overview/</guid>
-        <description>&lt;img src="https://skay138.github.io/cover/springboot.png" alt="Featured image of post [Spring Boot] 스프링부트 @Annotation 정리" /&gt;&lt;h2 id=&#34;annotation&#34;&gt;@Annotation&lt;/h2&gt;
+        <guid>http://localhost:1313/p/spring-boot-annotation-overview/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post [Spring Boot] 스프링부트 @Annotation 정리" /&gt;&lt;h2 id=&#34;annotation&#34;&gt;@Annotation&lt;/h2&gt;
 &lt;p&gt;코드에 부가적인 정보를 제공하는 메타데이터의 형태. 어노테이션은 @ 기호로 시작하며, 클래스, 메서드, 필드 등의 선언부에 적용될 수 있음.&lt;/p&gt;
 &lt;h3 id=&#34;spring-framework에서의-annotation&#34;&gt;Spring framework에서의 Annotation&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;런타임 처리&lt;/strong&gt;: 어노테이션을 사용하여 런타임에 동적으로 처리할 수 있는 정보를 제공합니다. 예를 들어, 스프링 프레임워크에서 @Autowired 어노테이션은 의존성 주입(Dependency Injection)을 위해 사용됩니다.&lt;/p&gt;
