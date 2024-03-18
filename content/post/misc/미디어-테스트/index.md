@@ -1,4 +1,5 @@
 ---
+image: /cover/tinacms.png
 title: 미디어 테스트
 date: 2024-03-17T06:48:44.149Z
 categories:
