@@ -12,12 +12,19 @@
         <pubDate>Sun, 17 Mar 2024 06:48:44 +0000</pubDate>
         
         <guid>http://localhost:1313/p/%EB%AF%B8%EB%94%94%EC%96%B4-%ED%85%8C%EC%8A%A4%ED%8A%B8/</guid>
-        <description>&lt;p&gt;미디어 테스트입니다.&lt;img src=&#34;http://localhost:1313/misc/%eb%af%b8%eb%94%94%ec%96%b4-%ed%85%8c%ec%8a%a4%ed%8a%b8/%ec%a0%9c%eb%aa%a9%ec%9d%84-%ec%9e%85%eb%a0%a5%ed%95%b4%ec%a3%bc%ec%84%b8%ec%9a%94_-001.png&#34;
-	
-	
+        <description>&lt;p&gt;미디어 테스트입니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/%EB%AF%B8%EB%94%94%EC%96%B4-%ED%85%8C%EC%8A%A4%ED%8A%B8/%EC%A0%9C%EB%AA%A9%EC%9D%84-%EC%9E%85%EB%A0%A5%ED%95%B4%EC%A3%BC%EC%84%B8%EC%9A%94_-001.png&#34;
+	width=&#34;809&#34;
+	height=&#34;540&#34;
 	
 	loading=&#34;lazy&#34;
 	
+		alt=&#34;test&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;149&#34;
+		data-flex-basis=&#34;359px&#34;
 	
 &gt;&lt;/p&gt;
 </description>
