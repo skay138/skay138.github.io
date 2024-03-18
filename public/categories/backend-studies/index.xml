@@ -16,7 +16,7 @@
 &lt;p&gt;&lt;code&gt;StringRedisTemplate&lt;/code&gt;를 이용하여 메세지를 게시하고, &lt;code&gt;MessageListenerAdapter&lt;/code&gt;를 이용하여 메세지를 가져오는 POJO를 구현해봅시다.&lt;/p&gt;
 &lt;h2 id=&#34;standing-up-a-redis-server&#34;&gt;Standing up a Redis server&lt;/h2&gt;
 &lt;p&gt;메세지의 수신과 송신을 컨트롤하기 위한 서버가 필요하기 때문에, Redis를 설치해서 서버를 띄워야 합니다.&lt;br&gt;
-Redis는 key-value의 데이터 저장소이며, 메세징 시스템을 제공합니다. 참고로 Redis는 캐싱에도 이용되는데 &lt;a class=&#34;link&#34; href=&#34;https://skay138.github.io/p/django-api-improvement-cache/&#34;  title=&#34;\[Django] API 성능을 개선해보자 : 캐싱&#34;
+Redis는 key-value의 데이터 저장소이며, 메세징 시스템을 제공합니다. 참고로 Redis는 캐싱에도 이용되는데 &lt;a class=&#34;link&#34; href=&#34;https://skay138.github.io/p/django-api-improvement-cache/&#34;  title=&#34;[Django] API 성능을 개선해보자 : 캐싱&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;여기에&lt;/a&gt; 간단하게 정리해뒀습니다!&lt;br&gt;
 Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -223,6 +223,21 @@ Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;결과&#34;&gt;결과&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/spring-boot-messaging-with-redis/image.png&#34;
+	width=&#34;288&#34;
+	height=&#34;119&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;실행 로그&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;242&#34;
+		data-flex-basis=&#34;580px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;정상적으로 송/수신 되는 것을 확인할 수 있습니다.&lt;/p&gt;
 </description>
         </item>
         <item>
