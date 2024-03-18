@@ -1,5 +1,5 @@
 ---
-image: /posttinacms.png
+image: tinacms.png
 title: TinaCMS로 정적 사이트 온라인 편집하기 with Hugo
 slug: tinacms-static-site-online-edit
 description: 더이상 IDE로 글을 작성할 일은 없다!
@@ -25,7 +25,7 @@ tags:
 
 ## TinaCMS
 
-![tina.io](/posttina1.png)
+![tina.io](tina1.png)
 
 [TinaCMS](https://tina.io/ "tina.io")는 컨텐츠를 관리하기 위한 프레임워크로 사이트 편집을 원활하게 할 수 있도록 도와줍니다. 제가 파악한 바로는 다음의 주요 기능들이 있습니다.
 
@@ -174,7 +174,7 @@ npx tinacms dev -c "hugo server -D -p 1313"
 
 설정을 마친 후 서버를 실행한 뒤 localhost:1313/admin 으로 접속하면 Tina페이지를 볼 수 있습니다.
 
-![게시글 작성 페이지](/postskay138.github.io_admin_.png)
+![게시글 작성 페이지](skay138.github.io_admin_.png)
 
 collection 선택 후 Create New 버튼을 클릭하게 되면 글 양식에 맞게 화면이 나오는 것을 볼 수 있습니다.
 
@@ -239,22 +239,22 @@ export default defineConfig({
   },
   media: {
     tina: {
-      mediaRoot: "post",
-      publicFolder: "content",
+      mediaRoot: "",
+      publicFolder: "content/post",
     },
   },
 ```
 
-여기서 TINA\_PUBLIC\_CLIENT\_ID가 기존에는 PUBLIC\_TINA\_CLINET\_ID거나 다른 변수명일텐데 수정해 주세요!\
+여기서 TINA_PUBLIC_CLIENT_ID가 기존에는 PUBLIC_TINA_CLINET_ID거나 다른 변수명일텐데 수정해 주세요!\
 로컬에서 실행시킨다면 .env도 맞춰서 수정해주셔야 합니다.
 
-* TINA\_PUBLIC\_CLIENT\_ID : Tina Cloud의 Client ID
-* TINA\_TOKEN : Tina Cloud의 Tokens/Content(Read only)
+- TINA_PUBLIC_CLIENT_ID : Tina Cloud의 Client ID
+- TINA_TOKEN : Tina Cloud의 Tokens/Content(Read only)
 
 media의 경우
 
-* publicFolder : assets을 관리하는 폴더입니다(ex : static).
-* mediaRoot : tina로 관리할 media폴더입니다. publicFolder/mediaRoot 경로로 저장됩니다.
+- publicFolder : assets을 관리하는 폴더입니다(ex : static).
+- mediaRoot : tina로 관리할 media폴더입니다. publicFolder/mediaRoot 경로로 저장됩니다.
 
 ## GitHub Action
 
@@ -363,9 +363,9 @@ Build TinaCMS -> Setup Hugo 순서는 맞춰주시는 게 좋습니다.
 ### 환경 세팅
 
 깃허브 레파지토리의 Settings -> Environments -> github-pages에 환경변수를 추가해주세요.\
-Environment secrets에 TINA\_PUBLIC\_CLIENT\_ID과 TINA\_TOKEN를 넣어주시면 됩니다.
+Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 됩니다.
 
-![Environment secrets](/postgithub_env.png)
+![Environment secrets](github_env.png)
 
 이후, main 브랜치에 push될 때마다 자동으로 블로그가 build됩니다.
 
@@ -381,11 +381,11 @@ Environment secrets에 TINA\_PUBLIC\_CLIENT\_ID과 TINA\_TOKEN를 넣어주시�
 호스팅 되는 주소/admin 으로 접속하시면 Tina에 로그인할 수 있습니다.\
 로그인 후 게시글 생성/수정/삭제를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.
 
-![GitHub Deploy](/postimage.png)
+![GitHub Deploy](image.png)
 
-![빌드된 포스트](/postskay138.github.io_p_spring-boot-messaging-with-redis_.png)
+![빌드된 포스트](skay138.github.io_p_spring-boot-messaging-with-redis_.png)
 
-![tina setup checklist](/postchecklist_tina.png)
+![tina setup checklist](checklist_tina.png)
 
 Tina Cloud 페이지에서 Setup Checklist로 제대로 연결이 되었는지도 확인하실 수 있습니다.
 
