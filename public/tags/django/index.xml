@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Django on ThxKyu CODE</title>
-        <link>http://localhost:1313/tags/django/</link>
+        <link>https://skay138.github.io/tags/django/</link>
         <description>Recent content in Django on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/django/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="https://skay138.github.io/tags/django/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[Django] API 성능을 개선해보자 : 캐싱</title>
-        <link>http://localhost:1313/p/django-api-improvement-cache/</link>
+        <link>https://skay138.github.io/p/django-api-improvement-cache/</link>
         <pubDate>Fri, 16 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/django-api-improvement-cache/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;캐싱이란?&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/django-api-improvement-cache/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;캐싱이란?&lt;/h2&gt;
 &lt;p&gt;캐싱은 데이터나 계산 결과를 임시 저장소에 저장하는 프로세스를 말한다. 이는 데이터나 계산 결과를 나중에 빠르게 검색하거나 재사용할 수 있게 해준다.&lt;br&gt;
 캐싱은 방법에 따라 메모리나 디스크, DB등에 저장할 수 있다.
 내 프로젝트는 현재 sqlite3이라는 내장DB를 하는데, 보통은 DB서버를 두는 게 일반적이다. 따라서 테스트를 위해 DB서버를 열고 연결해 주었다.&lt;/p&gt;
@@ -26,7 +26,7 @@
 &lt;li&gt;글 : 10000개&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선-전&#34;&gt;개선 전&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-cache/1.png&#34;
 	width=&#34;910&#34;
 	height=&#34;74&#34;
 	
@@ -63,7 +63,7 @@
 READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않았기에 처음에는 미들웨어에서 제어하려고 했다. 하지만 이 방법은 요청 시 수행되는 작업이기 때문에 정작 업데이트되야 하는 정보가 반영이 안됐다. 이는 Funding 모델에 update_cache_if_public함수를 만들어 중복을 최소화했다.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;개선-후&#34;&gt;개선 후&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-cache/2.png&#34;
 	width=&#34;899&#34;
 	height=&#34;77&#34;
 	
@@ -88,11 +88,11 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
         </item>
         <item>
         <title>[Django] API 성능을 개선해보자 : N&#43;1문제</title>
-        <link>http://localhost:1313/p/django-api-improvement-nplus1/</link>
+        <link>https://skay138.github.io/p/django-api-improvement-nplus1/</link>
         <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/django-api-improvement-nplus1/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : N&#43;1문제" /&gt;&lt;h2 id=&#34;n1-문제란&#34;&gt;N+1 문제란?&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/django-api-improvement-nplus1/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : N&#43;1문제" /&gt;&lt;h2 id=&#34;n1-문제란&#34;&gt;N+1 문제란?&lt;/h2&gt;
 &lt;p&gt;N+1 문제는 데이터베이스 쿼리를 처리하는 동안 발생할 수 있는 성능 문제 중 하나다.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;테이블의 데이터(댓글)을 가져오기 위해 쿼리를 실행한다(N번).&lt;/li&gt;
@@ -109,7 +109,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;li&gt;댓글 : 100개&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선-전&#34;&gt;개선 전&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/1.png&#34;
 	width=&#34;859&#34;
 	height=&#34;66&#34;
 	
@@ -123,7 +123,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 		data-flex-basis=&#34;3123px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/2.png&#34;
 	width=&#34;1743&#34;
 	height=&#34;872&#34;
 	
@@ -145,7 +145,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;li&gt;&lt;strong&gt;prefetch_related()&lt;/strong&gt; : 다대다 및 역방향 관계에 사용하며, 별도의 추가 쿼리를 사용하여 관련된 객체를 가져와 메모리에서 조합한다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;나의 경우, 외래 키 관계였기에 select_related()를 이용하여 댓글 데이터를 가져올 때 작성자에 대한 정보도 미리 로드하여 추가적인 쿼리 호출을 막았다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/3.png&#34;
 	width=&#34;1738&#34;
 	height=&#34;871&#34;
 	
@@ -163,7 +163,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 댓글의 작성자 정보를 추가할 때 쿼리 호출을 하고 있었고, 이는 외래키 참조를 통해 해결했다.&lt;/p&gt;
 &lt;p&gt;민망한 코드였다.&lt;/p&gt;
 &lt;h3 id=&#34;개선-후&#34;&gt;개선 후&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/4.png&#34;
 	width=&#34;847&#34;
 	height=&#34;73&#34;
 	
@@ -175,7 +175,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 		data-flex-basis=&#34;2784px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/5.png&#34;
 	width=&#34;1740&#34;
 	height=&#34;871&#34;
 	
@@ -190,7 +190,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;쿼리 호출 수를 비약적으로 줄인 결과 평균 응답 시간이 10배 넘게 줄었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/6.png&#34;
 	width=&#34;832&#34;
 	height=&#34;73&#34;
 	
@@ -219,7 +219,7 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
 &lt;li&gt;글 : 10000개&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;개선-전-1&#34;&gt;개선 전&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/7.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/7.png&#34;
 	width=&#34;1899&#34;
 	height=&#34;952&#34;
 	
@@ -280,7 +280,7 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;개선-후-1&#34;&gt;개선 후&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/8.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://skay138.github.io/p/django-api-improvement-nplus1/8.png&#34;
 	width=&#34;1898&#34;
 	height=&#34;948&#34;
 	

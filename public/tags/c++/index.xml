@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>C&#43;&#43; on ThxKyu CODE</title>
-        <link>http://localhost:1313/tags/c&#43;&#43;/</link>
+        <link>https://skay138.github.io/tags/c&#43;&#43;/</link>
         <description>Recent content in C&#43;&#43; on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Mon, 20 Nov 2023 00:00:03 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 20 Nov 2023 00:00:03 +0000</lastBuildDate><atom:link href="https://skay138.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[C&#43;&#43;] 9. 가상 함수와 추상 클래스</title>
-        <link>http://localhost:1313/p/cpp-virtual-func-abstract-class/</link>
+        <link>https://skay138.github.io/p/cpp-virtual-func-abstract-class/</link>
         <pubDate>Mon, 20 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-virtual-func-abstract-class/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 9. 가상 함수와 추상 클래스" /&gt;&lt;h2 id=&#34;상속간-함수-오버라이딩&#34;&gt;상속간 함수 오버라이딩&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-virtual-func-abstract-class/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 9. 가상 함수와 추상 클래스" /&gt;&lt;h2 id=&#34;상속간-함수-오버라이딩&#34;&gt;상속간 함수 오버라이딩&lt;/h2&gt;
 &lt;p&gt;기본(Base) 클래스에서 정의한 멤버함수를 파생(Derived) 클래스에서 재정의 하는 것.&lt;/p&gt;
 &lt;p&gt;리턴형, 함수이름, 매개변수정보 모두 같아야 함.&lt;/p&gt;
 &lt;h3 id=&#34;객체-포인터와-함수호출&#34;&gt;객체 포인터와 함수호출&lt;/h3&gt;
@@ -955,11 +955,11 @@
         </item>
         <item>
         <title>[C&#43;&#43;] 8. 상속</title>
-        <link>http://localhost:1313/p/cpp-inheritance/</link>
+        <link>https://skay138.github.io/p/cpp-inheritance/</link>
         <pubDate>Mon, 13 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-inheritance/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 8. 상속" /&gt;&lt;h2 id=&#34;상속inheritance&#34;&gt;상속(Inheritance)&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-inheritance/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 8. 상속" /&gt;&lt;h2 id=&#34;상속inheritance&#34;&gt;상속(Inheritance)&lt;/h2&gt;
 &lt;p&gt;부모 클래스(KR) = super class(JAVA) = Base class(C++) 기본 클래스&lt;br&gt;
 자식 클래스(KR) = sub class(JAVA) = Derived class(C++) 파생 클래스&lt;/p&gt;
 &lt;ul&gt;
@@ -1551,11 +1551,11 @@
         </item>
         <item>
         <title>[C&#43;&#43;] 7. 프렌드와 연산자 중복</title>
-        <link>http://localhost:1313/p/cpp-friend-operator-overloading/</link>
+        <link>https://skay138.github.io/p/cpp-friend-operator-overloading/</link>
         <pubDate>Mon, 06 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-friend-operator-overloading/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 7. 프렌드와 연산자 중복" /&gt;&lt;h2 id=&#34;프렌드friend&#34;&gt;프렌드(Friend)&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-friend-operator-overloading/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 7. 프렌드와 연산자 중복" /&gt;&lt;h2 id=&#34;프렌드friend&#34;&gt;프렌드(Friend)&lt;/h2&gt;
 &lt;p&gt;private선언한 변수에 접근 가능하도록 설정해주는 키워드.&lt;/p&gt;
 &lt;h3 id=&#34;프렌드-키워드가-가능한-3가지&#34;&gt;프렌드 키워드가 가능한 3가지&lt;/h3&gt;
 &lt;h4 id=&#34;전역함수&#34;&gt;전역함수&lt;/h4&gt;
@@ -2641,11 +2641,11 @@
         </item>
         <item>
         <title>[C&#43;&#43;] 6. 함수 중복과 static 멤버</title>
-        <link>http://localhost:1313/p/cpp-function-overloading-static-member/</link>
+        <link>https://skay138.github.io/p/cpp-function-overloading-static-member/</link>
         <pubDate>Mon, 23 Oct 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-function-overloading-static-member/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 6. 함수 중복과 static 멤버" /&gt;&lt;h2 id=&#34;함수중복함수-오버로딩&#34;&gt;함수중복(함수 오버로딩)&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-function-overloading-static-member/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 6. 함수 중복과 static 멤버" /&gt;&lt;h2 id=&#34;함수중복함수-오버로딩&#34;&gt;함수중복(함수 오버로딩)&lt;/h2&gt;
 &lt;p&gt;하나의 프로그램, 하나의 클래스 내에서 함수 이름을 중복해서 선언할 수 있다. 단, 매개변수가 달라야 한다.(매개변수 개수, 데이터형)&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;함수 오버라이딩 : 상속에서 부모클래스에서 정의한 함수를 자식클래스에서 재정의&lt;/li&gt;
@@ -3030,11 +3030,11 @@
         </item>
         <item>
         <title>[C&#43;&#43;] 5. 함수와 참조, 복사 생성자</title>
-        <link>http://localhost:1313/p/cpp-function-reference-copy-constructor/</link>
+        <link>https://skay138.github.io/p/cpp-function-reference-copy-constructor/</link>
         <pubDate>Mon, 25 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-function-reference-copy-constructor/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 5. 함수와 참조, 복사 생성자" /&gt;&lt;h2 id=&#34;호출-방식에-따른-매개변수-전달&#34;&gt;호출 방식에 따른 매개변수 전달&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-function-reference-copy-constructor/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 5. 함수와 참조, 복사 생성자" /&gt;&lt;h2 id=&#34;호출-방식에-따른-매개변수-전달&#34;&gt;호출 방식에 따른 매개변수 전달&lt;/h2&gt;
 &lt;h3 id=&#34;call-by-value값에-의한-호출&#34;&gt;call by value(값에 의한 호출)&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -3858,11 +3858,11 @@ default 복사 생성자가 존재(기존의 멤버 변수를 복사해준다)&l
         </item>
         <item>
         <title>[C&#43;&#43;] 4. 객체 포인터, 배열, 동적 생성</title>
-        <link>http://localhost:1313/p/cpp-op-array-da/</link>
+        <link>https://skay138.github.io/p/cpp-op-array-da/</link>
         <pubDate>Mon, 11 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-op-array-da/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 4. 객체 포인터, 배열, 동적 생성" /&gt;&lt;h2 id=&#34;객체-포인터&#34;&gt;객체 포인터&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-op-array-da/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 4. 객체 포인터, 배열, 동적 생성" /&gt;&lt;h2 id=&#34;객체-포인터&#34;&gt;객체 포인터&lt;/h2&gt;
 &lt;p&gt;객체의 주소 값을 가지는 변수&lt;br&gt;
 포인터로 멤버를 접근할 때 : 객체포인터 -&amp;gt; 멤버&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -5113,11 +5113,11 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>[C&#43;&#43;] 3. 클래스와 객체</title>
-        <link>http://localhost:1313/p/cpp-class-instance/</link>
+        <link>https://skay138.github.io/p/cpp-class-instance/</link>
         <pubDate>Tue, 05 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-class-instance/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 3. 클래스와 객체" /&gt;&lt;h2 id=&#34;캡슐화&#34;&gt;캡슐화&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-class-instance/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 3. 클래스와 객체" /&gt;&lt;h2 id=&#34;캡슐화&#34;&gt;캡슐화&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;객체의 본질적인 특성&lt;/li&gt;
 &lt;li&gt;객체를 캡슐화해서 내부를 보호하고 볼 수 없게 함(정보은닉)&lt;/li&gt;
@@ -5964,11 +5964,11 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>[C&#43;&#43;] 2. C&#43;&#43;의 입출력</title>
-        <link>http://localhost:1313/p/cpp-io/</link>
+        <link>https://skay138.github.io/p/cpp-io/</link>
         <pubDate>Tue, 29 Aug 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-io/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 2. C&#43;&#43;의 입출력" /&gt;&lt;h2 id=&#34;c의-출력&#34;&gt;C++의 출력&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-io/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 2. C&#43;&#43;의 입출력" /&gt;&lt;h2 id=&#34;c의-출력&#34;&gt;C++의 출력&lt;/h2&gt;
 &lt;p&gt;C++은 C와 다르게 데이터 타입 formating이 필요 없다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -6214,11 +6214,11 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>[C&#43;&#43;] 1. C&#43;&#43;의 특징</title>
-        <link>http://localhost:1313/p/cpp-feature/</link>
+        <link>https://skay138.github.io/p/cpp-feature/</link>
         <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-feature/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 1. C&#43;&#43;의 특징" /&gt;&lt;h2 id=&#34;c언어의-주요한-설계-목적&#34;&gt;C++언어의 주요한 설계 목적&lt;/h2&gt;
+        <guid>https://skay138.github.io/p/cpp-feature/</guid>
+        <description>&lt;img src="https://skay138.github.io/cover/C&#43;&#43;.png" alt="Featured image of post [C&#43;&#43;] 1. C&#43;&#43;의 특징" /&gt;&lt;h2 id=&#34;c언어의-주요한-설계-목적&#34;&gt;C++언어의 주요한 설계 목적&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;캡슐화(클래스) : 데이터를 캡슐로 싸서 외부의 접근으로부터 보호(정보은닉), 멤버 변수와 멤버 함수 이용&lt;br&gt;
 private 변수의 초기화, 조회 등에는 생성자 함수, public 함수 등을 이용하여 private에 접근한다.&lt;/li&gt;
