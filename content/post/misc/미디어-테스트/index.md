@@ -8,3 +8,7 @@ categories:
 미디어 테스트입니다.
 
 ![test](제목을-입력해주세요_-001.png)
+
+s
+
+![123](/misc/미디어-테스트/checklist_tina.png)
