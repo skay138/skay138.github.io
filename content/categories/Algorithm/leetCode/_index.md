@@ -1,7 +1,7 @@
 ---
 title: LeetCode
 description: LeetCode solving
-image: cover.png
+image: cover/algorithm.png
 weight: 31
 
 # Badge style

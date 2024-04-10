@@ -1,7 +1,7 @@
 ---
 title: BaekJoon
 description: BaekJoon solving
-image: cover.png
+image: cover/algorithm.png
 weight: 32
 
 # Badge style

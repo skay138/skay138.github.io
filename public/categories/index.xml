@@ -76,7 +76,7 @@
         <pubDate>Mon, 11 Mar 2024 21:53:43 +0900</pubDate>
         
         <guid>http://localhost:1313/categories/algorithm/leetcode/</guid>
-        <description>&lt;img src="http://localhost:1313/cover.png" alt="Featured image of post LeetCode" /&gt;</description>
+        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post LeetCode" /&gt;</description>
         </item>
         <item>
         <title>BaekJoon</title>
@@ -84,7 +84,7 @@
         <pubDate>Sun, 10 Mar 2024 00:00:10 +0900</pubDate>
         
         <guid>http://localhost:1313/categories/algorithm/baekjoon/</guid>
-        <description>&lt;img src="http://localhost:1313/cover.png" alt="Featured image of post BaekJoon" /&gt;</description>
+        <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post BaekJoon" /&gt;</description>
         </item>
         <item>
         <title>Languages</title>
