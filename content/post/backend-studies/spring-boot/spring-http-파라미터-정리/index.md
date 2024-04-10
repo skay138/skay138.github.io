@@ -3,6 +3,7 @@ title: Spring HTTP 파라미터 정리
 slug: spring-http-param
 description: http 파라미터에 대한 spring 어노테이션
 date: 2024-04-10T13:03:48.833Z
+categories: Backend Studies/Spring
 ---
 
 ## HTTP 파라미터 방식
