@@ -1,13 +1,12 @@
 ---
-title: "[Django] API 성능을 개선해보자 : 캐싱"
+title: "API 성능을 개선해보자 : 캐싱"
 description: Redis를 이용하여 데이터 캐싱하기
 slug: django-api-improvement-cache
 date: 2024-02-16 00:00:00+0900
 image: "/cover/django.png"
 categories:
-  - Backend Studies
+  - Backend Studies/Django
 tags:
-  - Django
   - code review
   - Redis
 ---

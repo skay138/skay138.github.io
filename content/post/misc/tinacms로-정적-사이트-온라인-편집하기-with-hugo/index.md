@@ -58,7 +58,7 @@ Tina를 이용하여 컨텐츠를 관리하기 위해, tina/config.ts파일에�
         defaultItem: () => {
           return {
             image: "/cover/springboot.png",
-            title: "[Spring Boot] ",
+            title: "",
             date: new Date(),
             slug: (values) => values?.title
               ?.toLowerCase()
@@ -181,7 +181,7 @@ collection 선택 후 Create New 버튼을 클릭하게 되면 글 양식에 맞
 ```markdown
 ---
 image: /cover/springboot.png
-title: "[Spring Boot] Messaging with Redis"
+title: "Messaging with Redis"
 description: using Spring Data Redis to publish and subscribe to messages sent with Redis.
 date: 2024-03-15T12:08:56.000Z
 categories:

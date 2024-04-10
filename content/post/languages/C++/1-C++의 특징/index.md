@@ -1,13 +1,12 @@
 ---
-title: "[C++] 1. C++의 특징"
+title: "1. C++의 특징"
 description: C++ 기본 문법
 slug: cpp-feature
 date: 2023-08-23
 image: "/cover/C++.png"
 categories:
-  - Languages
+  - Languages/C++
 tags:
-  - C++
 ---
 
 ## C++언어의 주요한 설계 목적

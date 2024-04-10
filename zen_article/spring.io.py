@@ -14,7 +14,7 @@ current_folder_name = "zen_article"
 
 article_text = f"""
 ---
-title: "[Spring Boot] {title}"
+title: "{title}"
 description: 
 date: {current_time}+0900
 image: "/cover/springboot.png"

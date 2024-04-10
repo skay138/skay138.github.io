@@ -1,13 +1,12 @@
 ---
-title: "[C++] 8. 상속"
+title: "8. 상속"
 description: C++ 기본 문법
 slug: cpp-inheritance
 date: 2023-11-13 00:00:03+0000
 image: "/cover/C++.png"
 categories:
-  - Languages
+  - Languages/C++
 tags:
-  - C++
 ---
 
 ## 상속(Inheritance)

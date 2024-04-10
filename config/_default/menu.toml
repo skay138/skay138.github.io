@@ -15,10 +15,12 @@ url = "https://github.com/skay138"
 [social.params]
 icon = "brand-github"
 
-#[[social]]
-#identifier = "twitter"
-#name = "Twitter"
-#url = "https://twitter.com"
+[[social]]
+identifier = "instagram"
+name = "Instagram"
+url = "https://www.instagram.com/thx_kyu/"
 
-#[social.params]
-#icon = "brand-twitter"
+[social.params]
+icon = "brand-instagram"
+
+

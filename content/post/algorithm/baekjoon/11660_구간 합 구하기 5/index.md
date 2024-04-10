@@ -1,11 +1,11 @@
 ---
-title: "[백준] 11660번 : 구간 합 구하기 5"
+title: "11660번 : 구간 합 구하기 5"
 description: 구간 합
 slug: baekjoon-11660
 date: 2024-03-08 00:00:10+0900
 image: "/cover/algorithm.png"
 categories:
-  - Algorithm
+  - Algorithm/baekjoon
 tags:
   - 구간 합
 ---

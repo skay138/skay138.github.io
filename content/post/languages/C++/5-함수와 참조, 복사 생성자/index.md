@@ -1,13 +1,12 @@
 ---
-title: "[C++] 5. 함수와 참조, 복사 생성자"
+title: "5. 함수와 참조, 복사 생성자"
 description: C++ 기본 문법
 slug: cpp-function-reference-copy-constructor
 date: 2023-09-25 00:00:03+0000
 image: "/cover/C++.png"
 categories:
-  - Languages
+  - Languages/C++
 tags:
-  - C++
 ---
 
 ## 호출 방식에 따른 매개변수 전달

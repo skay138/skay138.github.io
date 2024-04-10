@@ -1,13 +1,12 @@
 ---
-title: "[C++] 3. 클래스와 객체"
+title: "3. 클래스와 객체"
 description: C++ 기본 문법
 slug: cpp-class-instance
 date: 2023-09-05 00:00:03+0000
 image: "/cover/C++.png"
 categories:
-  - Languages
+  - Languages/C++
 tags:
-  - C++
 ---
 
 ## 캡슐화

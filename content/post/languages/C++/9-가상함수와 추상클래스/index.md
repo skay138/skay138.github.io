@@ -1,13 +1,12 @@
 ---
-title: "[C++] 9. 가상 함수와 추상 클래스"
+title: "9. 가상 함수와 추상 클래스"
 description: C++ 기본 문법
 slug: cpp-virtual-func-abstract-class
 date: 2023-11-20 00:00:03+0000
 image: "/cover/C++.png"
 categories:
-  - Languages
+  - Languages/C++
 tags:
-  - C++
 ---
 
 ## 상속간 함수 오버라이딩

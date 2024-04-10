@@ -1,13 +1,13 @@
 ---
-title: "[Java] record 키워드"
+title: "record 키워드"
 description: record 정리 및 Lombok과의 비교
-slug: java-record-keyword
+slug: record-keyword
 date: 2024-03-12 00:00:01+0900
 image: cover.png
 categories:
-  - Languages
+  - Languages/Java
 tags:
-  - Java
+  - record
 ---
 
 ## record

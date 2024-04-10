@@ -1,7 +1,7 @@
 ---
 title: Misc
 description: Free Topic
-weight: 5
+weight: 50
 image: cover.png
 
 # Badge style

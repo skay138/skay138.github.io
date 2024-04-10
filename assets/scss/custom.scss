@@ -137,3 +137,80 @@
 
     --article-line-height: 1.85;
 }
+
+//섹션 이미지 깨지는거 수정
+.section-image {
+    img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+}
+
+/* CSS for Category List */
+.category-list {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.category-details {
+margin-bottom: 10px;
+}
+
+.category-details a {
+text-decoration: none;
+color: #333;
+}
+
+.category-details a:hover {
+color: #007bff;
+}
+
+.category-term {
+margin: 0;
+font-size: 24px;
+font-weight: bold;
+}
+
+.category-description {
+margin: 5px 0;
+font-weight: 400;
+color: var(--card-text-color-secondary);
+font-size: 1.6rem;
+}
+
+/* CSS for Subcategory List */
+.subcategory-list {
+    padding: 0; /* Remove default padding */
+    margin-top: 10px;
+}
+
+.subcategory-list li {
+    margin-bottom: 5px;
+    display: flex; /* Align marker and text */
+    align-items: center; /* Align marker and text */
+}
+
+/* Add marker to list items */
+.subcategory-list li::before {
+    content: "-"; /* Add your desired marker here, like a bullet point */
+    margin-right: 10px; /* Adjust spacing between marker and text */
+    color: #555; /* Match marker color with text color */
+}
+
+.subcategory-list li a {
+    text-decoration: none;
+    color: #555;
+}
+
+.subcategory-list li a:hover {
+    color: #007bff;
+}
+
+.subcategory-list li h3 {
+    margin: 0;
+    font-size: 16px;
+}

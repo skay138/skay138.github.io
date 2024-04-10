@@ -1,8 +1,8 @@
 ---
 title: Algorithm
-description: my personal backend-study writings
-image: img.png
-weight: 2
+description: Algorithm study based on LeetCode & BaekJoon
+image: cover.png
+weight: 30
 
 # Badge style
 style:

@@ -1,0 +1,40 @@
+{{- define "body-class" }}template-categories{{ end -}}
+{{- define "main" }}
+<div class="article-page">
+  <div class="main-article">
+    <div class="article-details">
+      {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "categories" -}}
+      {{- $terms := $taxonomy.Pages -}}
+      {{- if $terms }}
+        {{- range $terms }}
+          {{- if eq .Parent.Title $taxonomy.Title }}
+            <div class="category-details">
+                <h2 class="category-term">
+                    <a href="{{ .RelPermalink }}">{{ .Title }}({{ len .Pages }})
+                    </a>
+                </h2>
+                {{- with .Params.description }}
+                  <h3 class="category-description">{{ . }}</h3>
+                {{- end }}
+              
+              <ul class="subcategory-list">
+                {{- $parent := . -}}
+                {{- range $terms }}
+                  {{- if and (ne .Parent.Title $taxonomy.Title) (eq .Parent.Title $parent.Title) }}
+                    <li>
+                      <a href="{{ .RelPermalink }}">
+                        <h3>{{ .Title }}({{ len .Pages }})</h3>
+                      </a>
+                    </li>
+                  {{- end }}
+                {{- end }}
+              </ul>
+            </div>
+          {{- end }}
+        {{- end }}
+      {{- end }}
+    </div>
+  </div>
+</div>
+{{- partialCached "footer/footer" . -}}
+{{- end -}}

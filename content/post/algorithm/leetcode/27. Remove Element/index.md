@@ -1,13 +1,12 @@
 ---
-title: "[LeetCode] 27. Remove Element"
+title: "27. Remove Element"
 description: Top Interview 150 - Array / String
 slug: leetcode-27
 date: 2024-03-11 16:43:21+0900
 image: "/cover/algorithm.png"
 categories:
-  - Algorithm
+  - Algorithm/LeetCode
 tags:
-  - LeetCode
   - Array / String
 ---
 

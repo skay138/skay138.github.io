@@ -1,13 +1,12 @@
 ---
-title: "[C++] 4. 객체 포인터, 배열, 동적 생성"
+title: "4. 객체 포인터, 배열, 동적 생성"
 description: C++ 기본 문법
 slug: cpp-op-array-da
 date: 2023-09-11 00:00:03+0000
 image: "/cover/C++.png"
 categories:
-  - Languages
+  - Languages/C++
 tags:
-  - C++
 ---
 
 ## 객체 포인터
@@ -212,7 +211,7 @@ char* p = new char[size];
   - 실행 중에 운영체제로부터 할당 받음(heap으로부터 할당)
 - C언어의 동적 메모리 할당
   - malloc(), free() 라이브러리 함수 사용
-- C++의 동적 메모리 할당/반환
+-의 동적 메모리 할당/반환
   - new, delete 연산자 사용
 
 #. 클래스의 경우 동적 생성이라고도 표현한다.
