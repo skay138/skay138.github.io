@@ -58,9 +58,10 @@ export default defineConfig({
         },
         fields: [
           {
-            type: "image",
+            type: "string",
             name: "image",
             label: "커버 이미지",
+            description: "cover/categoryname.png",
             required: false,
           },
           {
@@ -99,7 +100,7 @@ export default defineConfig({
             options: [
               {
                 value: 'Backend Studies/Spring Boot',
-                label: 'Spring',
+                label: 'Spring Boot',
               },
               {
                 value: 'Backend Studies/Django',
@@ -108,6 +109,100 @@ export default defineConfig({
               {
                 value: 'Backend Studies/etc',
                 label: 'etc.',
+              }
+            ],
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+          {
+            label: "Tags",
+            name: "tags",
+            type: "string",
+            list: true,
+          },
+        ],
+      },
+       /*
+      Computer Science
+      */
+      {
+        name: "computer_science",
+        label: "Computer Science",
+        path: "content/post/computer-science",
+        defaultItem: ()=>{
+          return {
+            date: new Date(),
+            slug: (values) => values?.title
+              ?.toLowerCase()
+              .replace(/ /g, '-'),
+          }
+        },
+        ui: {
+          filename: {
+            // if disabled, the editor can not edit the filename
+            readonly: true,
+            // Example of using a custom slugify function
+            slugify: (values) => {
+              // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+              return `${values?.title
+                ?.toLowerCase()
+                .replace(/ /g, '-')}/index`
+            },
+          },
+        },
+        fields: [
+          {
+            type: "string",
+            name: "image",
+            label: "커버 이미지",
+            description: "cover/categoryname.png",
+            required: false,
+          },
+          {
+            type: "string",
+            name: "title",
+            label: "제목",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "slug",
+            label: "slug",
+            isTitle: false,
+            required: false,
+            description: "한글 포함 시 작성",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "설명",
+            isTitle: false,
+            required: false,
+          },
+          {
+            type: "datetime",
+            name: "date",
+            label: "작성일",
+            required: false,
+          },
+          {
+            name: 'categories',
+            label: '카테고리',
+            type: 'string',
+            list: false,
+            options: [
+              {
+                value: 'Computer Science/Network',
+                label: 'Network',
+              },
+              {
+                value: 'Computer Science/Design Pattern',
+                label: 'Design Pattern',
               }
             ],
           },
@@ -135,12 +230,10 @@ export default defineConfig({
         defaultItem: ()=>{
           return {
             image: "/cover/algorithm.png",
-            title: "[] ",
             date: new Date(),
             slug: (values) => values?.title
               ?.toLowerCase()
-              .replace(/ /g, '-'),
-            categories: ['Algorithm']
+              .replace(/ /g, '-')
           }
         },
         ui: {
@@ -158,9 +251,10 @@ export default defineConfig({
         },
         fields: [
           {
-            type: "image",
+            type: "string",
             name: "image",
             label: "커버 이미지",
+            description: "cover/categoryname.png",
             required: false,
           },
           {
@@ -195,28 +289,16 @@ export default defineConfig({
             name: 'categories',
             label: '카테고리',
             type: 'string',
-            list: true,
+            list: false,
             options: [
               {
-                value: 'Backend Studies',
-                label: 'Backend Studies',
+                value: 'Algorithm/LeetCode',
+                label: 'LeetCode',
               },
               {
-                value: 'Algorithm',
-                label: 'Algorithm',
-              },
-              {
-                value: 'Languages',
-                label: 'Languages',
-              },
-              {
-                value: 'Tech Articles Reviews',
-                label: 'Tech Articles Reviews',
-              },
-              {
-                value: 'Misc',
-                label: 'Misc',
-              },
+                value: 'Algorithm/BaekJoon',
+                label: 'BaekJoon',
+              }
             ],
           },
           {
@@ -234,7 +316,7 @@ export default defineConfig({
         ],
       },
        /*
-      Algorithm
+      Languages
       */
       {
         name: "languages",
@@ -242,13 +324,10 @@ export default defineConfig({
         path: "content/post/languages",
         defaultItem: ()=>{
           return {
-            title: "[] ",
             date: new Date(),
             slug: (values) => values?.title
               ?.toLowerCase()
-              .replace(/ /g, '-'),
-            categories: ['Languages'],
-            tags: ['Java', 'C++'],
+              .replace(/ /g, '-')
           }
         },
         ui: {
@@ -266,9 +345,10 @@ export default defineConfig({
         },
         fields: [
           {
-            type: "image",
+            type: "string",
             name: "image",
             label: "커버 이미지",
+            description: "cover/categoryname.png",
             required: false,
           },
           {
@@ -303,27 +383,15 @@ export default defineConfig({
             name: 'categories',
             label: '카테고리',
             type: 'string',
-            list: true,
+            list: false,
             options: [
               {
-                value: 'Backend Studies',
-                label: 'Backend Studies',
+                value: 'Languages/Java',
+                label: 'Java',
               },
               {
-                value: 'Algorithm',
-                label: 'Algorithm',
-              },
-              {
-                value: 'Languages',
-                label: 'Languages',
-              },
-              {
-                value: 'Tech Articles Reviews',
-                label: 'Tech Articles Reviews',
-              },
-              {
-                value: 'Misc',
-                label: 'Misc',
+                value: 'Languages/C++',
+                label: 'C++',
               },
             ],
           },
@@ -372,9 +440,10 @@ export default defineConfig({
         },
         fields: [
           {
-            type: "image",
+            type: "string",
             name: "image",
             label: "커버 이미지",
+            description: "cover/categoryname.png",
             required: false,
           },
           {
@@ -409,24 +478,8 @@ export default defineConfig({
             name: 'categories',
             label: '카테고리',
             type: 'string',
-            list: true,
+            list: false,
             options: [
-              {
-                value: 'Backend Studies',
-                label: 'Backend Studies',
-              },
-              {
-                value: 'Algorithm',
-                label: 'Algorithm',
-              },
-              {
-                value: 'Languages',
-                label: 'Languages',
-              },
-              {
-                value: 'Tech Articles Reviews',
-                label: 'Tech Articles Reviews',
-              },
               {
                 value: 'Misc',
                 label: 'Misc',

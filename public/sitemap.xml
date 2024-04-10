@@ -3,12 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/categories/backend-studies/</loc>
-    <lastmod>2024-03-15T12:08:56+00:00</lastmod>
+    <lastmod>2024-04-10T13:03:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/backend-studies/spring-boot/</loc>
-    <lastmod>2024-03-15T12:08:56+00:00</lastmod>
+    <lastmod>2024-04-10T13:03:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -73,12 +73,22 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
+    <lastmod>2024-04-10T13:03:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
+    <lastmod>2024-04-10T13:03:48+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2024-04-10T13:03:48+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/p/spring-http-param/</loc>
+    <lastmod>2024-04-10T13:03:48+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -88,11 +98,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
     <lastmod>2024-03-16T06:34:30+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
