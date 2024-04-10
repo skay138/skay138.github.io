@@ -98,7 +98,7 @@ export default defineConfig({
             list: false,
             options: [
               {
-                value: 'Backend Studies/Spring',
+                value: 'Backend Studies/Spring Boot',
                 label: 'Spring',
               },
               {
