@@ -405,16 +405,19 @@
     <h2 id="http-파라미터-방식">
     <a href="#http-%ed%8c%8c%eb%9d%bc%eb%af%b8%ed%84%b0-%eb%b0%a9%ec%8b%9d" class="header-anchor">#</a>
     HTTP 파라미터 방식
-</h2><ol>
+</h2><ul>
 <li>Path 방식
+<br>
 URL에 포함된 파라미터를 받아오는 방식으로, 주로 GET요청에서 사용됩니다.
 <code>api/data/{id}</code>의 형태로 id를 전달하는 방식입니다.</li>
 <li>Query 방식
+<br>
 URL에 ?뒤의 문자열로 전달되는 데이터를 받습니다. POST 요청에서도 사용될 수 있지만, 보편적으로 GET요청에서 사용됩니다.
-<code>api/ada/?id=3</code>의 형태로 id값을 전달하는 방식입니다.</li>
+<code>api/dada/?id=3</code>의 형태로 id값을 전달하는 방식입니다.</li>
 <li>Body 방식
+<br>
 HTTP 요청의 body에 포함된 데이터를 받아오는 방식입니다. 주로 POST, PUT 요청에서 사용됩니다. 데이터의 형태는 JSON이 일반적입니다.</li>
-</ol>
+</ul>
 <h2 id="spring에서의-적용">
     <a href="#spring%ec%97%90%ec%84%9c%ec%9d%98-%ec%a0%81%ec%9a%a9" class="header-anchor">#</a>
     Spring에서의 적용

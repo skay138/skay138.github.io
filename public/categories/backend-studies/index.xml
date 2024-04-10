@@ -15,16 +15,19 @@
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Spring HTTP 파라미터 정리" /&gt;&lt;h2 id=&#34;http-파라미터-방식&#34;&gt;
     &lt;a href=&#34;#http-%ed%8c%8c%eb%9d%bc%eb%af%b8%ed%84%b0-%eb%b0%a9%ec%8b%9d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     HTTP 파라미터 방식
-&lt;/h2&gt;&lt;ol&gt;
+&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Path 방식
+&lt;br&gt;
 URL에 포함된 파라미터를 받아오는 방식으로, 주로 GET요청에서 사용됩니다.
 &lt;code&gt;api/data/{id}&lt;/code&gt;의 형태로 id를 전달하는 방식입니다.&lt;/li&gt;
 &lt;li&gt;Query 방식
+&lt;br&gt;
 URL에 ?뒤의 문자열로 전달되는 데이터를 받습니다. POST 요청에서도 사용될 수 있지만, 보편적으로 GET요청에서 사용됩니다.
-&lt;code&gt;api/ada/?id=3&lt;/code&gt;의 형태로 id값을 전달하는 방식입니다.&lt;/li&gt;
+&lt;code&gt;api/dada/?id=3&lt;/code&gt;의 형태로 id값을 전달하는 방식입니다.&lt;/li&gt;
 &lt;li&gt;Body 방식
+&lt;br&gt;
 HTTP 요청의 body에 포함된 데이터를 받아오는 방식입니다. 주로 POST, PUT 요청에서 사용됩니다. 데이터의 형태는 JSON이 일반적입니다.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;spring에서의-적용&#34;&gt;
     &lt;a href=&#34;#spring%ec%97%90%ec%84%9c%ec%9d%98-%ec%a0%81%ec%9a%a9&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     Spring에서의 적용

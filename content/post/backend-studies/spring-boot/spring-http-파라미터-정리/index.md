@@ -9,13 +9,16 @@ categories: Backend Studies/Spring Boot
 
 ## HTTP 파라미터 방식
 
-* Path 방식  \
+* Path 방식
+  \
   URL에 포함된 파라미터를 받아오는 방식으로, 주로 GET요청에서 사용됩니다.
   `api/data/{id}`의 형태로 id를 전달하는 방식입니다.
-* Query 방식  \
+* Query 방식
+  \
   URL에 ?뒤의 문자열로 전달되는 데이터를 받습니다. POST 요청에서도 사용될 수 있지만, 보편적으로 GET요청에서 사용됩니다.
-  `api/ada/?id=3`의 형태로 id값을 전달하는 방식입니다.
-* Body 방식  \
+  `api/dada/?id=3`의 형태로 id값을 전달하는 방식입니다.
+* Body 방식
+  \
   HTTP 요청의 body에 포함된 데이터를 받아오는 방식입니다. 주로 POST, PUT 요청에서 사용됩니다. 데이터의 형태는 JSON이 일반적입니다.
 
 ## Spring에서의 적용

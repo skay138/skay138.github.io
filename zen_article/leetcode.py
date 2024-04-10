@@ -32,14 +32,13 @@ clean_body = clean_body.replace("**Explanation:**", "Explanation:")
 article_text = f"""
 
 ---
-title: "[LeetCode] {title}"
+title: "{title}"
 description: Top Interview 150 - {Algorithm}
 date: {current_time}+0900
-image: cover.png
+image: cover/algorithm.png
 categories:
-  - Algorithm
+  - Algorithm/LeetCode
 tags:
-  - LeetCode
   - {Algorithm}
 ---
 
@@ -61,12 +60,10 @@ tags:
 """
 
 
-folder_path = f"./content/post/LeetCode/{title}"
+folder_path = f"./content/post/algorithm/leetcode/{title}"
 os.makedirs(folder_path)
 
 with open(f"{folder_path}/index.md", "w", encoding="utf-8") as f:
     f.write(article_text)
-
-shutil.copy(f"{current_folder_name}/leetcode.png", f"{folder_path}/cover.png")
 
 print("done")
