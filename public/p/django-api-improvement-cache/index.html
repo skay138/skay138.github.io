@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko-kr" dir="ltr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+     
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCCW8CEZ8X"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VCCW8CEZ8X');
+</script>
+ <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Redis를 이용하여 데이터 캐싱하기">
+<title>API 성능을 개선해보자 : 캐싱</title>
+
+<link rel='canonical' href='http://localhost:1313/p/django-api-improvement-cache/'>
+
+<link rel="stylesheet" href="/scss/style.min.222d200f76ffd76ab0b07ca40c3615a2a7de38b517af8419a5c901ecc176912a.css"><meta property='og:title' content="API 성능을 개선해보자 : 캐싱">
+<meta property='og:description' content="Redis를 이용하여 데이터 캐싱하기">
+<meta property='og:url' content='http://localhost:1313/p/django-api-improvement-cache/'>
+<meta property='og:site_name' content='ThxKyu CODE'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='code review' /><meta property='article:tag' content='Redis' /><meta property='article:published_time' content='2024-02-16T00:00:00&#43;09:00'/><meta property='article:modified_time' content='2024-02-16T00:00:00&#43;09:00'/><meta property='og:image' content='http://localhost:1313/cover/django.png' />
+<meta name="twitter:title" content="API 성능을 개선해보자 : 캐싱">
+<meta name="twitter:description" content="Redis를 이용하여 데이터 캐싱하기"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/cover/django.png' />
+    <link rel="shortcut icon" href="/favicon.png" />
+
+</head>
+
+<body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hucdd4d89c0ff227c1e283add464ffd68c_609717_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">ThxKyu CODE</a></h1>
+            <h2 class="site-description">Backend Developer</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/skay138'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/thx_kyu/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M16.5 7.5l0 .01" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-category"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4h6v6h-6z" /><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#캐싱이란">캐싱이란?</a></li>
+    <li><a href="#분석에-사용한-도구">분석에 사용한 도구</a></li>
+    <li><a href="#전체공개-게시글-리스트를-호출하는-api">전체공개 게시글 리스트를 호출하는 API</a>
+      <ol>
+        <li><a href="#개선-전">개선 전</a></li>
+        <li><a href="#개선-과정">개선 과정</a>
+          <ol>
+            <li><a href="#redis">Redis</a></li>
+            <li><a href="#왜-전체-공개-게시글인가">왜 전체 공개 게시글인가?</a></li>
+            <li><a href="#고려-사항">고려 사항</a></li>
+          </ol>
+        </li>
+        <li><a href="#개선-후">개선 후</a></li>
+      </ol>
+    </li>
+    <li><a href="#추가-내용">추가 내용</a>
+      <ol>
+        <li><a href="#추가적으로-적용될-수-있는-api는-무엇이-있을까">추가적으로 적용될 수 있는 API는 무엇이 있을까</a></li>
+        <li><a href="#데이터-중복에-대하여">데이터 중복에 대하여</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+        <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/django-api-improvement-cache/">
+                
+                    <img src="/cover/django.png" loading="lazy" alt="Featured image of post API 성능을 개선해보자 : 캐싱" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/backend-studies/django/" style="background-color: #59886B; color: #fff;">
+                Django
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h1 class="article-title">
+            <a href="/p/django-api-improvement-cache/">API 성능을 개선해보자 : 캐싱</a>
+        </h1>
+    
+        
+        <h2 class="article-subtitle">
+            Redis를 이용하여 데이터 캐싱하기
+        </h2>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 16, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="캐싱이란">
+    <a href="#%ec%ba%90%ec%8b%b1%ec%9d%b4%eb%9e%80" class="header-anchor">#</a>
+    캐싱이란?
+</h2><p>캐싱은 데이터나 계산 결과를 임시 저장소에 저장하는 프로세스를 말한다. 이는 데이터나 계산 결과를 나중에 빠르게 검색하거나 재사용할 수 있게 해준다.<br>
+캐싱은 방법에 따라 메모리나 디스크, DB등에 저장할 수 있다.
+내 프로젝트는 현재 sqlite3이라는 내장DB를 하는데, 보통은 DB서버를 두는 게 일반적이다. 따라서 테스트를 위해 DB서버를 열고 연결해 주었다.</p>
+<h2 id="분석에-사용한-도구">
+    <a href="#%eb%b6%84%ec%84%9d%ec%97%90-%ec%82%ac%ec%9a%a9%ed%95%9c-%eb%8f%84%ea%b5%ac" class="header-anchor">#</a>
+    분석에 사용한 도구
+</h2><ul>
+<li>Postman : 단일 API 호출과 Runner를 이용해 테스트를 진행했다.</li>
+<li>Django-debug-toolbar : SQL이 어떻게 호출되는지 확인하는 데 사용했다.</li>
+</ul>
+<h2 id="전체공개-게시글-리스트를-호출하는-api">
+    <a href="#%ec%a0%84%ec%b2%b4%ea%b3%b5%ea%b0%9c-%ea%b2%8c%ec%8b%9c%ea%b8%80-%eb%a6%ac%ec%8a%a4%ed%8a%b8%eb%a5%bc-%ed%98%b8%ec%b6%9c%ed%95%98%eb%8a%94-api" class="header-anchor">#</a>
+    전체공개 게시글 리스트를 호출하는 API
+</h2><ul>
+<li>글 : 10000개</li>
+</ul>
+<h3 id="개선-전">
+    <a href="#%ea%b0%9c%ec%84%a0-%ec%a0%84" class="header-anchor">#</a>
+    개선 전
+</h3><p><img src="/p/django-api-improvement-cache/1.png"
+	width="910"
+	height="74"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1229"
+		data-flex-basis="2951px"
+	
+></p>
+<p>현재는 API를 호출할 때마다 쿼리 호출을 통해 DB에서 데이터를 받아 전달한다.</p>
+<h3 id="개선-과정">
+    <a href="#%ea%b0%9c%ec%84%a0-%ea%b3%bc%ec%a0%95" class="header-anchor">#</a>
+    개선 과정
+</h3><h4 id="redis">
+    <a href="#redis" class="header-anchor">#</a>
+    Redis
+</h4><p>Redis는 메모리 기반의 데이터 저장소이자 오픈 소스의 키-값 데이터 구조 저장소이다. 이를 이용하여 전체공개 게시글에 대해 캐싱을 해두고,데이터에 대해 변경이 있을 때만 업데이트했다.</p>
+<h4 id="왜-전체-공개-게시글인가">
+    <a href="#%ec%99%9c-%ec%a0%84%ec%b2%b4-%ea%b3%b5%ea%b0%9c-%ea%b2%8c%ec%8b%9c%ea%b8%80%ec%9d%b8%ea%b0%80" class="header-anchor">#</a>
+    왜 전체 공개 게시글인가?
+</h4><p>캐싱을 이용하는 이유는</p>
+<ol>
+<li>데이터 액세스 빈도가 높은 경우</li>
+<li>네트워크 대역폭 절약</li>
+<li>서버 부하 감소</li>
+<li>실시간성이 필요하지 않은 데이터</li>
+</ol>
+<p>정도로 볼 수 있다. 그중 전체 게시글에 적용한 이유는 다음과 같다.</p>
+<ol>
+<li>FUNSUN의 특성상 전체 공개 게시글의 업데이트 빈도는 낮으리라 예상했다.</li>
+<li>검색 화면으로 진입 시 보여야 하는 데이터이기에 호출 빈도가 높을 것이라고 예상했다.</li>
+</ol>
+<h4 id="고려-사항">
+    <a href="#%ea%b3%a0%eb%a0%a4-%ec%82%ac%ed%95%ad" class="header-anchor">#</a>
+    고려 사항
+</h4><ol>
+<li><strong>캐싱 제한</strong><br>
+광고등의 도배성 게시글로 인해 public 게시글에 대해 짧은 시간에 많은 POST 요청이 생길 수 있다는 약점을 고려하고 싶었기에 업데이트가 필요할 시 5초에 한번만 캐싱하게끔 제한을 걸었다.</li>
+<li><strong>코드의 작성</strong><br>
+READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않았기에 처음에는 미들웨어에서 제어하려고 했다. 하지만 이 방법은 요청 시 수행되는 작업이기 때문에 정작 업데이트되야 하는 정보가 반영이 안됐다. 이는 Funding 모델에 update_cache_if_public함수를 만들어 중복을 최소화했다.</li>
+</ol>
+<h3 id="개선-후">
+    <a href="#%ea%b0%9c%ec%84%a0-%ed%9b%84" class="header-anchor">#</a>
+    개선 후
+</h3><p><img src="/p/django-api-improvement-cache/2.png"
+	width="899"
+	height="77"
+	
+	loading="lazy"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="1167"
+		data-flex-basis="2802px"
+	
+></p>
+<p>Redis를 통해 데이터베이스 호출 없이 게시글을 불러옴으로써 Response Time을 줄일 수 있었다.</p>
+<h2 id="추가-내용">
+    <a href="#%ec%b6%94%ea%b0%80-%eb%82%b4%ec%9a%a9" class="header-anchor">#</a>
+    추가 내용
+</h2><h3 id="추가적으로-적용될-수-있는-api는-무엇이-있을까">
+    <a href="#%ec%b6%94%ea%b0%80%ec%a0%81%ec%9c%bc%eb%a1%9c-%ec%a0%81%ec%9a%a9%eb%90%a0-%ec%88%98-%ec%9e%88%eb%8a%94-api%eb%8a%94-%eb%ac%b4%ec%97%87%ec%9d%b4-%ec%9e%88%ec%9d%84%ea%b9%8c" class="header-anchor">#</a>
+    추가적으로 적용될 수 있는 API는 무엇이 있을까
+</h3><ul>
+<li><strong>사용자 프로필</strong> : 정보를 한번 등록하면 업데이트가 자주 일어나지 않는다.</li>
+<li><strong>펀딩한 게시글 리스트</strong> : 개인 마다의 업데이트 빈도가 짧지 않다.</li>
+</ul>
+<h3 id="데이터-중복에-대하여">
+    <a href="#%eb%8d%b0%ec%9d%b4%ed%84%b0-%ec%a4%91%eb%b3%b5%ec%97%90-%eb%8c%80%ed%95%98%ec%97%ac" class="header-anchor">#</a>
+    데이터 중복에 대하여
+</h3><p>결국 캐싱을 한다는 것은 사실 데이터를 중복으로 가지고 있는 것과 같다. 디스크과 메모리에 있어서 리소스 낭비가 일어날 수 있기에 캐싱을 남발하는 것은 주의해야 할 것 같다. 적절한 데이터를 엄선하여 캐싱하는 것이 캐싱을 구현하는 것보다 훨씬 어려웠다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/code-review/">Code Review</a>
+        
+            <a href="/tags/redis/">Redis</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/django-api-improvement-nplus1/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/django.png" loading="lazy" data-key="django-api-improvement-nplus1" data-hash="/cover/django.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">API 성능을 개선해보자 : N&#43;1문제</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="skay138/skay138.github.io"
+        issue-term="title"
+        
+        label="💬comment"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2024 ThxKyu CODE
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+        </main>
+    </div>
+    <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+</body>
+
+</html>
