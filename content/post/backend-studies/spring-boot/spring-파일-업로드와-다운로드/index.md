@@ -73,6 +73,8 @@ public String happyFileUpload(MultipartFile file, String happyAtgpSn) throws Exc
 }
 ```
 
+위 메서드가 정상적으로 종료되어 happyAtgpSn을 return한다면 서버에 첨부파일이 저장되고, 첨부파일 테이블에도 관련 정보가 저장됩니다. 이후 happyAtgpSn을 게시글 데이터에 추가하여 게시글 테이블에 해당 게시글을 등록합니다(코드는 생략).
+
 ## 파일 다운로드
 
 ```java
