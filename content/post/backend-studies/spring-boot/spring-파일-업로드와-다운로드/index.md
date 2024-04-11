@@ -147,7 +147,9 @@ public void happyFileDownload(HttpServletRequest request, HttpServletResponse re
 3. ServletOutputStream: 이 클래스는 서블릿에서 클라이언트로 데이터를 보낼 때 사용됩니다. 서블릿 컨테이너에서 제공되며, HTTP 응답의 출력 스트림을 나타냅니다. 클라이언트로 데이터를 보내기 위해 사용됩니다.
 4. BufferedOutputStream: 이 클래스는 데이터를 쓸 때 성능을 향상시키기 위해 사용됩니다. ServletOutputStream과 같이 사용되며, 데이터를 버퍼에 저장해두고 필요할 때 버퍼의 내용을 출력하는 방식으로 동작합니다. 이는 입출력 작업을 보다 효율적으로 수행할 수 있도록 도와줍니다.
 
-web의 파일다운로드는 링크 클릭이나 폼 제출을 통해 다운로드 하는 방식을 이용해야합니다.\
+이렇게 설정된 스트림들은 파일의 내용을 읽어들여 클라이언트에게 전송하는 데 사용됩니다. FileInputStream과 BufferedInputStream은 파일에서 데이터를 읽어오고, ServletOutputStream과 BufferedOutputStream은 클라이언트로 데이터를 전송합니다.
+
+`참고:`web의 파일다운로드는 링크 클릭이나 폼 제출을 통해 다운로드 하는 방식을 이용해야합니다.\
 Ajax등을 이용할 경우 payload가 제대로 전달되지 않을 수 있어요.
 
 ## 파일 삭제
