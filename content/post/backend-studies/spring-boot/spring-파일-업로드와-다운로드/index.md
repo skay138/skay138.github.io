@@ -29,44 +29,50 @@ categories: Backend Studies/Spring Boot
 ```java
 public String happyFileUpload(MultipartFile file, String happyAtgpSn) throws Exception {
     String filePath = "happyBoard/atch";
-    String fileExt = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1).toLowerCase(); //확장자명 가져오기
+    //확장자명 가져오기
+    String fileExt = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1).toLowerCase();
     String fileName = "happy" + "_" + System.nanoTime() + "." + fileExt;
+    // 저장할 경로의 파일객체를 생성(transferTo 메서드에 사용)
     File happyFile = new File(filePath + fileName);
     // 원본파일명이 존재하는 경우
     if (!"".equals(file.getOriginalFilename())) {
-        try {
-            File chkDir = new File(filePath);
+        happyAtgpSn = "400";
+        return happyAtgpSn;
+    }
+    try {
+        // 파일 경로가 없다면 생성
+        File chkDir = new File(filePath);
 
-            if (!chkDir.exists()) {
-                chkDir.mkdirs();
-            }
-
-            //파일 전송
-            file.transferTo(happyFile);
-
-            HappyBoardAtfiVO happyBoardAtfiVO = new HappyBoardAtfiVO();
-            happyBoardAtfiVO.setHappyAtgpSn(happyAtgpSn);                // 첨부파일 그룹 일련번호
-            happyBoardAtfiVO.setHappyAtfiOgName(file.getOriginalFilename());    // 첨부파일 원본명
-            happyBoardAtfiVO.setHappyAtfiSfName(fileName);                       // 첨부파일 저장명
-            happyBoardAtfiVO.setHappyAtfiExt(fileExt);                               // 첨부파일 확장자명
-            happyBoardAtfiVO.setHappyAtfiUrl(filePath);                            // 첨부파일 저장 경로
-
-            // 첨부파일 정보 등록
-            happyAtgpSn = mypageService.insertHappyAtfiInfo(happyBoardAtfiVO);
-
-        } catch (NullPointerException np) {
-            np.printStackTrace();
-            happyFile.delete();
-            happyAtgpSn = "400";
-        } catch (IOException ie) {
-            ie.printStackTrace();
-            happyFile.delete();
-            happyAtgpSn = "400";
-        } catch (Exception e) {
-            e.printStackTrace();
-            happyFile.delete();
-            happyAtgpSn = "400";
+        if (!chkDir.exists()) {
+            chkDir.mkdirs();
         }
+
+        // 임시 파일 저장 경로로 이동(서버에 저장)
+        file.transferTo(happyFile);
+
+        // 파일 정보 객체에 저장
+        HappyBoardAtfiVO happyBoardAtfiVO = new HappyBoardAtfiVO();
+        happyBoardAtfiVO.setHappyAtgpSn(happyAtgpSn);                // 첨부파일 그룹 일련번호
+        happyBoardAtfiVO.setHappyAtfiOgName(file.getOriginalFilename());    // 첨부파일 원본명
+        happyBoardAtfiVO.setHappyAtfiSfName(fileName);                       // 첨부파일 저장명
+        happyBoardAtfiVO.setHappyAtfiExt(fileExt);                               // 첨부파일 확장자명
+        happyBoardAtfiVO.setHappyAtfiUrl(filePath);                            // 첨부파일 저장 경로
+
+        // 첨부파일 정보 DB에 등록
+        happyAtgpSn = mypageService.insertHappyAtfiInfo(happyBoardAtfiVO);
+
+    } catch (NullPointerException np) {
+        np.printStackTrace();
+        happyFile.delete();
+        happyAtgpSn = "400";
+    } catch (IOException ie) {
+        ie.printStackTrace();
+        happyFile.delete();
+        happyAtgpSn = "400";
+    } catch (Exception e) {
+        e.printStackTrace();
+        happyFile.delete();
+        happyAtgpSn = "400";
     }
 
     return happyAtgpSn;
