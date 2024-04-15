@@ -237,16 +237,18 @@ Java IO클래스의 InputStream과 OutputStream은 위처럼 구현할 수도 �
 
 이렇게 설정된 스트림들은 파일의 내용을 읽어들여 클라이언트에게 전송하는 데 사용됩니다. `FileInputStream`과 `BufferedInputStream`은 파일에서 데이터를 읽어오고, `ServletOutputStream`과 `BufferedOutputStream`은 클라이언트로 데이터를 전송합니다.
 
+<!--
 #### 성능비교
 
 JAVA IO 보다 NIO 패키지가 성능이 더 좋다는 글이 있어 개발 서버에서 임의로 파일을 다운로드 해봤습니다.\
 다른 변수도 있고 속도도 일정하게 나오지 않아(40\~200ms까지 값이 튑니다) 부정확하지만 최빈값은 다음과 같습니다.
 
-![NIO](nio_file.png)
+![NIO](https://assets.tina.io/4789a061-aacd-4ee0-8eee-5bf3f2d6b5denio_file.png)
 
-![JAVA IO](java_io_file.png)
+![JAVA IO](https://assets.tina.io/4789a061-aacd-4ee0-8eee-5bf3f2d6b5dejava_io_file.png)
 
 데이터는 80MB 크기의 PDF로 테스트했습니다.
+-->
 
 ### URL 제공 방식
 
