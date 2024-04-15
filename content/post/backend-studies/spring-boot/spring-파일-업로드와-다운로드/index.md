@@ -9,8 +9,6 @@ categories: Backend Studies/Spring Boot
 
 게시판을 구현하다보면 첨부파일 기능이 필요한 경우가 있습니다. 현재 진행중인 Spring 기반 프로젝트 버전과 맞는 첨부파일 핸들링을 해보며 관련 내용을 정리해보려고 합니다.
 
-> 선요약 : NIO 패키지를 이용합시다.
-
 ## 테이블 구성
 
 게시글 하나당 하나의 첨부파일만 업로드한다면 게시글 테이블 하나로도 구현이 가능하겠지만, 여러개의 첨부파일을 올리고 싶다면 첨부파일 테이블을 따로 구성해야 합니다.\
@@ -230,8 +228,7 @@ while ((input = bis.read(data)) != -1) {
 }
 ```
 
-Java IO클래스의 InputStream과 OutputStream은 위처럼 구현할 수도 있습니다.\
-하지만 NIO패키지가 성능면에서 우위를 가지기 때문에 잘 사용하지 않습니다(과거 NIO 패키지 전 코드)
+Java IO클래스의 InputStream과 OutputStream은 위처럼 구현할 수도 있습니다.
 
 1. `FileInputStream`: 이 클래스는 파일로부터 바이트 단위로 데이터를 읽어오는데 사용됩니다. 파일을 열고 그 내용을 읽어들일 때 주로 활용됩니다.
 2. `BufferedInputStream`: 이 클래스는 데이터를 읽어올 때 성능을 향상시키기 위해 사용됩니다. FileInputStream과 같이 사용되며, 데이터를 버퍼에 저장해두고 필요할 때 버퍼로부터 읽어오는 방식으로 동작합니다. 이는 입출력 작업을 보다 효율적으로 수행할 수 있도록 도와줍니다.
@@ -239,6 +236,17 @@ Java IO클래스의 InputStream과 OutputStream은 위처럼 구현할 수도 �
 4. `BufferedOutputStream`: 이 클래스는 데이터를 쓸 때 성능을 향상시키기 위해 사용됩니다. ServletOutputStream과 같이 사용되며, 데이터를 버퍼에 저장해두고 필요할 때 버퍼의 내용을 출력하는 방식으로 동작합니다. 이는 입출력 작업을 보다 효율적으로 수행할 수 있도록 도와줍니다.
 
 이렇게 설정된 스트림들은 파일의 내용을 읽어들여 클라이언트에게 전송하는 데 사용됩니다. `FileInputStream`과 `BufferedInputStream`은 파일에서 데이터를 읽어오고, `ServletOutputStream`과 `BufferedOutputStream`은 클라이언트로 데이터를 전송합니다.
+
+#### 성능비교
+
+JAVA IO 보다 NIO 패키지가 성능이 더 좋다는 글이 있어 개발 서버에서 임의로 파일을 다운로드 해봤습니다.\
+다른 변수도 있고 속도도 일정하게 나오지 않아(40\~200ms까지 값이 튑니다) 부정확하지만 최빈값은 다음과 같습니다.
+
+![NIO](nio_file.png)
+
+![JAVA IO](java_io_file.png)
+
+데이터는 80MB 크기의 PDF로 테스트했습니다.
 
 ### URL 제공 방식
 
