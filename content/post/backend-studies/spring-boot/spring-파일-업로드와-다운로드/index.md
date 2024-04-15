@@ -187,7 +187,7 @@ public void happyFileDownload(HttpServletRequest request, HttpServletResponse re
 }
 ```
 
-NIO 패키지를 이용하여 파일 다운로드 기능을 구현할 수 있습니다.
+일반적인 파일 다운로드 기능은 NIO 패키지를 이용하여 파일 다운로드 기능을 구현할 수 있습니다.
 
 ```
 try (InputStream in = Files.newInputStream(file)) {
@@ -212,6 +212,8 @@ try (InputStream in = Files.newInputStream(file)) {
 ***
 
 ```java
+File file = new File(filePath + happyAtfiSfName);
+// 중략
 fis = new FileInputStream(file);
 bis = new BufferedInputStream(fis);
 so = response.getOutputStream();
@@ -225,7 +227,7 @@ while ((input = bis.read(data)) != -1) {
 }
 ```
 
-Java IO클래스의 InputStream과 OutputStream은 위처럼 구현할 수도 있습니다.
+Java IO클래스의 InputStream과 OutputStream를 이용해 업로드를 구현할 수도 있습니다.
 
 1. `FileInputStream`: 이 클래스는 파일로부터 바이트 단위로 데이터를 읽어오는데 사용됩니다. 파일을 열고 그 내용을 읽어들일 때 주로 활용됩니다.
 2. `BufferedInputStream`: 이 클래스는 데이터를 읽어올 때 성능을 향상시키기 위해 사용됩니다. FileInputStream과 같이 사용되며, 데이터를 버퍼에 저장해두고 필요할 때 버퍼로부터 읽어오는 방식으로 동작합니다. 이는 입출력 작업을 보다 효율적으로 수행할 수 있도록 도와줍니다.
@@ -233,6 +235,8 @@ Java IO클래스의 InputStream과 OutputStream은 위처럼 구현할 수도 �
 4. `BufferedOutputStream`: 이 클래스는 데이터를 쓸 때 성능을 향상시키기 위해 사용됩니다. ServletOutputStream과 같이 사용되며, 데이터를 버퍼에 저장해두고 필요할 때 버퍼의 내용을 출력하는 방식으로 동작합니다. 이는 입출력 작업을 보다 효율적으로 수행할 수 있도록 도와줍니다.
 
 이렇게 설정된 스트림들은 파일의 내용을 읽어들여 클라이언트에게 전송하는 데 사용됩니다. `FileInputStream`과 `BufferedInputStream`은 파일에서 데이터를 읽어오고, `ServletOutputStream`과 `BufferedOutputStream`은 클라이언트로 데이터를 전송합니다.
+
+대용량 파일 처리의 경우 Java IO클래스가 적절하다고 합니다. 
 
 <!--
 #### 성능비교
