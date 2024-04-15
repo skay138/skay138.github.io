@@ -9,6 +9,8 @@ categories: Backend Studies/Spring Boot
 
 게시판을 구현하다보면 첨부파일 기능이 필요한 경우가 있습니다. 현재 진행중인 Spring 기반 프로젝트 버전과 맞는 첨부파일 핸들링을 해보며 관련 내용을 정리해보려고 합니다.
 
+> 선요약 : NIO 패키지를 이용하는게 정석적
+
 ## 테이블 구성
 
 게시글 하나당 하나의 첨부파일만 업로드한다면 게시글 테이블 하나로도 구현이 가능하겠지만, 여러개의 첨부파일을 올리고 싶다면 첨부파일 테이블을 따로 구성해야 합니다.\
@@ -138,59 +140,22 @@ public String happyFileUpload(MultipartFile file, String happyAtgpSn) throws Exc
 java의 NIO 패키지를 이용하여 업로드 기능을 구현할 수도 있습니다.\
 `Files.copy()`에서 CopyOption을 설정할 수 있습니다.
 
+`StandardCopyOption`은 3가지를 제공합니다.
+
+* REPLACE\_EXISTING : 기존 파일이 존재하는 경우 해당 파일을 대체합니다.
+* COPY\_ATTRIBUTES : 파일의 속성을 새 파일로 복사합니다.
+* ATOMIC\_MOVE : 원자적 이동(파일 이동 작업을 끝까지 보장).
+
 ## 파일 다운로드
 
-> 기본적인 파일 다운로드
-
-```java
-public void happyFileDownload(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    String happyAtfiSn = request.getParameter("happyAtfiSn");
-    String happyAtgpSn = request.getParameter("happyAtgpSn");
-    String happyAtfiOgName = request.getParameter("happyAtfiOgName");
-    String happyAtfiSfName = request.getParameter("happyAtfiSfName");
-
-    if (happyAtfiSfName != null) {
-        String filePath = "happyBoard/atch/";
-        Path file = Paths.get(filePath, happyAtfiSfName);
-
-        if (Files.exists(file) && Files.isRegularFile(file)) {
-            String browser = request.getHeader("User-Agent");
-            String encodedFileName = "";
-
-            // 파일 인코딩
-            if (browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")) { 
-                // 브라우저 확인 파일명
-                encodedFileName = URLEncoder.encode(happyAtfiOgName, "UTF-8").replaceAll("\\+", "%20").replace("+", "%20");
-            } else {
-                encodedFileName = new String(happyAtfiOgName.getBytes("UTF-8"), "ISO-8859-1");
-            }
-
-            response.setHeader("Content-Disposition", "attachment;filename=" + encodedFileName);
-            response.setContentType("application/octet-stream");
-
-            Files.copy(file, response.getOutputStream());
-        }
-    }
-
-}
-```
-
-NIO 패키지를 이용하여 파일 다운로드 기능을 구현할 수 있습니다.
-
-`참고:`Spring에서 제공하는 `StreamingResponseBody`를 활용하여 다운로드를 구현할 수도 있습니다.
-
-`참고:`web의 파일다운로드는 링크 클릭이나 폼 제출을 통해 다운로드해야 합니다.\
-Ajax등을 이용할 경우 payload가 제대로 전달되지 않을 수 있어요.
-
-> 대용량 파일 다운로드의 경우에는 주로 `스트리밍 방식`과 `URL 제공 방식`을 사용합니다.
+파일 다운로드를 위한 방법으로 스트림 방식과 URL 제공 방식이 있습니다.
 
 1. 스트리밍 방식 : 데이터를 outputStream에 담아 전송
 2. URL 제공 방식 : 파일이 저장되어 있는 경로를 제공하여 브라우저에서 다운로드
 
-### 스트리밍 방식
+### 스트림 방식
 
 ```java
-@RequestMapping("")
 public void happyFileDownload(HttpServletRequest request, HttpServletResponse response) throws Exception {
     String happyAtfiSn = request.getParameter("happyAtfiSn");
     String happyAtgpSn = request.getParameter("happyAtgpSn");
@@ -220,22 +185,34 @@ public void happyFileDownload(HttpServletRequest request, HttpServletResponse re
     response.setHeader("Content-Disposition", "attachment;filename=" + encodedFileName);
     response.setContentType("application/octet-stream");
 
-    try (InputStream in = Files.newInputStream(file)) {
-        byte[] buffer = new byte[4096]; // 버퍼 크기 설정
-        int bytesRead;
-        while ((bytesRead = in.read(buffer)) != -1) {
-            response.getOutputStream().write(buffer, 0, bytesRead);
-        }
-    } catch (NullPointerException np) {
-        np.printStackTrace();
-    } catch (IOException ie) {
-        ie.printStackTrace();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-
+    Files.copy(file, response.getOutputStream());
 }
 ```
+
+NIO 패키지를 이용하여 파일 다운로드 기능을 구현할 수 있습니다.
+
+```
+try (InputStream in = Files.newInputStream(file)) {
+    byte[] buffer = new byte[4096]; // 버퍼 크기 설정
+    int bytesRead;
+    while ((bytesRead = in.read(buffer)) != -1) {
+        response.getOutputStream().write(buffer, 0, bytesRead);
+    }
+} catch (NullPointerException np) {
+    np.printStackTrace();
+} catch (IOException ie) {
+    ie.printStackTrace();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+```
+
+위와 같이 `Files.copy()`대신 직접 코드를 작성하여 버퍼 설정을 할 수 있지만 일반적인 상황에서는 필요하지 않습니다.
+
+`참고:` `Files.copy()`는 8192byte의 버퍼 사이즈를 가집니다.
+
+`참고:` web의 파일다운로드는 링크 클릭이나 폼 제출을 통해 다운로드해야 합니다.\
+Ajax등을 이용할 경우 payload가 제대로 전달되지 않을 수 있어요.
 
 ***
 
@@ -253,7 +230,8 @@ while ((input = bis.read(data)) != -1) {
 }
 ```
 
-InputStream과 OutputStream은 위처럼 구현할 수도 있습니다.
+Java IO클래스의 InputStream과 OutputStream은 위처럼 구현할 수도 있습니다.\
+하지만 NIO패키지가 성능면에서 우위를 가지기 때문에 잘 사용하지 않습니다(과거 NIO 패키지 전 코드)
 
 1. `FileInputStream`: 이 클래스는 파일로부터 바이트 단위로 데이터를 읽어오는데 사용됩니다. 파일을 열고 그 내용을 읽어들일 때 주로 활용됩니다.
 2. `BufferedInputStream`: 이 클래스는 데이터를 읽어올 때 성능을 향상시키기 위해 사용됩니다. FileInputStream과 같이 사용되며, 데이터를 버퍼에 저장해두고 필요할 때 버퍼로부터 읽어오는 방식으로 동작합니다. 이는 입출력 작업을 보다 효율적으로 수행할 수 있도록 도와줍니다.
