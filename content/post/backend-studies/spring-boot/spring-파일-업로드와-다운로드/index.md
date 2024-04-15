@@ -209,9 +209,6 @@ try (InputStream in = Files.newInputStream(file)) {
 
 `참고:` `Files.copy()`는 8192byte의 버퍼 사이즈를 가집니다.
 
-`참고:` web의 파일다운로드는 링크 클릭이나 폼 제출을 통해 다운로드해야 합니다.\
-Ajax등을 이용할 경우 payload가 제대로 전달되지 않을 수 있어요.
-
 ***
 
 ```java
