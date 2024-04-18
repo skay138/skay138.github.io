@@ -9,7 +9,7 @@ categories: Backend Studies/Spring Boot
 
 게시판을 구현하다보면 첨부파일 기능이 필요한 경우가 있습니다. 현재 진행중인 Spring 기반 프로젝트 버전과 맞는 첨부파일 핸들링을 해보며 관련 내용을 정리해보려고 합니다.
 
-> 선요약 : NIO API를 이용하거나(추천) 전통적인 IO API를 이용할 수 있습니다.
+> 선요약 : NIO API를 이용하거나 전통적인 IO API를 이용할 수 있습니다.
 
 ## 테이블 구성
 
@@ -283,6 +283,38 @@ NIO API의 평균값이 더 좋은 성능을 보이며 이는 buffer 크기 차�
 > Using NIO.2 can significantly increase file copying performance since the NIO.2 utilizes lower-level system entry points.
 
 이는 NIO API가 JAVA IO보다 더 낮은 레벨의 시스템에서 접근하기 때문에 뛰어난 퍼포먼스를 보여준다고 합니다.
+
+**Files.copy() 메서드 중**
+
+```java
+public static long copy(Path source, OutputStream out) throws IOException {
+        // ensure not null before opening file
+        Objects.requireNonNull(out);
+
+        try (InputStream in = newInputStream(source)) {
+            return copy(in, out);
+        }
+    }
+```
+
+```java
+public InputStream newInputStream(Path path, OpenOption... options)
+        throws IOException
+    {
+        if (options.length > 0) {
+            for (OpenOption opt: options) {
+                // All OpenOption values except for APPEND and WRITE are allowed
+                if (opt == StandardOpenOption.APPEND ||
+                    opt == StandardOpenOption.WRITE)
+                    throw new UnsupportedOperationException("'" + opt + "' not allowed");
+            }
+        }
+        return Channels.newInputStream(Files.newByteChannel(path, options));
+    }
+```
+
+내부 코드를 보면 newInputStream()을 호출하는데 해당 메서드에서 Channel을 이용하는 것을 확인할 수 있다.\
+이 점 또한 성능 개선에 영향을 미치는 것 같다.
 
 <!--
 #### 성능비교
