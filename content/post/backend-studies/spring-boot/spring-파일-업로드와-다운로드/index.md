@@ -9,6 +9,8 @@ categories: Backend Studies/Spring Boot
 
 게시판을 구현하다보면 첨부파일 기능이 필요한 경우가 있습니다. 현재 진행중인 Spring 기반 프로젝트 버전과 맞는 첨부파일 핸들링을 해보며 관련 내용을 정리해보려고 합니다.
 
+> 선요약 : NIO API를 이용하거나 전통적인 IO API를 이용할 수 있습니다.
+
 ## 테이블 구성
 
 게시글 하나당 하나의 첨부파일만 업로드한다면 게시글 테이블 하나로도 구현이 가능하겠지만, 여러개의 첨부파일을 올리고 싶다면 첨부파일 테이블을 따로 구성해야 합니다.\
@@ -25,6 +27,71 @@ categories: Backend Studies/Spring Boot
 * ATFI\_EXT : 첨부파일 확장자명
 
 ## 파일 업로드
+
+### NIO.2 API (JDK7)
+
+```java
+public String happyFileUpload(MultipartFile file, String happyAtgpSn) throws Exception {
+    String filePath = "happyBoard/atch/";
+    String fileExt = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1).toLowerCase();
+    String fileName = "happy" + "_" + System.nanoTime() + "." + fileExt;
+    Path happyFilePath = Paths.get(filePath, fileName);
+    // 원본파일명이 없으면 패스
+    if (file.getOriginalFilename().equals("")) {
+        happyAtgpSn = "400";
+        return happyAtgpSn;
+    }
+    try {
+        //폴더 경로가 없다면 생성
+        File chkDir = new File(filePath);
+
+        if (!chkDir.exists()) {
+            chkDir.mkdirs();
+        }
+
+        // 파일 데이터가 있다면
+        try (InputStream inputStream = file.getInputStream()){
+
+            // 파일 저장
+            Files.copy(inputStream, happyFilePath, StandardCopyOption.REPLACE_EXISTING);
+
+            // 파일 정보 객체에 저장
+            HappyBoardAtfiVO happyBoardAtfiVO = new HappyBoardAtfiVO();
+            happyBoardAtfiVO.setHappyAtgpSn(happyAtgpSn);                // 첨부파일 그룹 일련번호
+            happyBoardAtfiVO.setHappyAtfiOgName(file.getOriginalFilename());    // 첨부파일 원본명
+            happyBoardAtfiVO.setHappyAtfiSfName(fileName);                       // 첨부파일 저장명
+            happyBoardAtfiVO.setHappyAtfiExt(fileExt);                               // 첨부파일 확장자명
+            happyBoardAtfiVO.setHappyAtfiUrl(filePath);                            // 첨부파일 저장 경로
+            // 첨부파일 정보 등록
+            happyAtgpSn = mypageService.insertHappyAtfiInfo(happyBoardAtfiVO);
+        }
+
+    } catch (NullPointerException np) {
+        np.printStackTrace();
+        happyAtgpSn = "400";
+    } catch (IOException ie) {
+        ie.printStackTrace();
+        happyAtgpSn = "400";
+    } catch (Exception e) {
+        e.printStackTrace();
+        happyAtgpSn = "400";
+    }
+
+    return happyAtgpSn;
+}
+```
+
+위 메서드가 정상적으로 종료되어 happyAtgpSn을 return한다면 서버에 첨부파일이 저장되고, 첨부파일 테이블에도 관련 정보가 저장됩니다. 이후 happyAtgpSn을 게시글 데이터에 추가하여 게시글 테이블에 해당 게시글을 등록합니다(코드는 생략).
+
+`Files.copy()`에서 CopyOption을 설정할 수 있습니다.
+
+`StandardCopyOption`은 3가지를 제공합니다.
+
+* REPLACE\_EXISTING : 기존 파일이 존재하는 경우 해당 파일을 대체합니다.
+* COPY\_ATTRIBUTES : 파일의 속성을 새 파일로 복사합니다.
+* ATOMIC\_MOVE : 원자적 이동(파일 이동 작업을 끝까지 보장).
+
+### IO API (Before JDK7)
 
 ```java
 public String happyFileUpload(MultipartFile file, String happyAtgpSn) throws Exception {
@@ -82,67 +149,7 @@ public String happyFileUpload(MultipartFile file, String happyAtgpSn) throws Exc
 }
 ```
 
-위 메서드가 정상적으로 종료되어 happyAtgpSn을 return한다면 서버에 첨부파일이 저장되고, 첨부파일 테이블에도 관련 정보가 저장됩니다. 이후 happyAtgpSn을 게시글 데이터에 추가하여 게시글 테이블에 해당 게시글을 등록합니다(코드는 생략).
-
-### 다른 방법
-
-```java
-public String happyFileUpload(MultipartFile file, String happyAtgpSn) throws Exception {
-    String filePath = "happyBoard/atch/";
-    String fileExt = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1).toLowerCase();
-    String fileName = "happy" + "_" + System.nanoTime() + "." + fileExt;
-    Path happyFilePath = Paths.get(filePath, fileName);
-    // 원본파일명이 없으면 패스
-    if (file.getOriginalFilename().equals("")) {
-        happyAtgpSn = "400";
-        return happyAtgpSn;
-    }
-    try {
-        //폴더 경로가 없다면 생성
-        File chkDir = new File(filePath);
-
-        if (!chkDir.exists()) {
-            chkDir.mkdirs();
-        }
-
-        //파일 전송
-        try (InputStream inputStream = file.getInputStream()){
-            Files.copy(inputStream, happyFilePath, StandardCopyOption.REPLACE_EXISTING);
-            inputStream.close();
-
-            HappyBoardAtfiVO happyBoardAtfiVO = new HappyBoardAtfiVO();
-            happyBoardAtfiVO.setHappyAtgpSn(happyAtgpSn);                // 첨부파일 그룹 일련번호
-            happyBoardAtfiVO.setHappyAtfiOgName(file.getOriginalFilename());    // 첨부파일 원본명
-            happyBoardAtfiVO.setHappyAtfiSfName(fileName);                       // 첨부파일 저장명
-            happyBoardAtfiVO.setHappyAtfiExt(fileExt);                               // 첨부파일 확장자명
-            happyBoardAtfiVO.setHappyAtfiUrl(filePath);                            // 첨부파일 저장 경로
-            // 첨부파일 정보 등록
-            happyAtgpSn = mypageService.insertHappyAtfiInfo(happyBoardAtfiVO);
-        }
-
-    } catch (NullPointerException np) {
-        np.printStackTrace();
-        happyAtgpSn = "400";
-    } catch (IOException ie) {
-        ie.printStackTrace();
-        happyAtgpSn = "400";
-    } catch (Exception e) {
-        e.printStackTrace();
-        happyAtgpSn = "400";
-    }
-
-    return happyAtgpSn;
-}
-```
-
-java의 NIO 패키지를 이용하여 업로드 기능을 구현할 수도 있습니다.\
-`Files.copy()`에서 CopyOption을 설정할 수 있습니다.
-
-`StandardCopyOption`은 3가지를 제공합니다.
-
-* REPLACE\_EXISTING : 기존 파일이 존재하는 경우 해당 파일을 대체합니다.
-* COPY\_ATTRIBUTES : 파일의 속성을 새 파일로 복사합니다.
-* ATOMIC\_MOVE : 원자적 이동(파일 이동 작업을 끝까지 보장).
+JAVA IO API를 이용하여 업로드 기능을 구현할 수도 있습니다.
 
 ## 파일 다운로드
 
@@ -153,6 +160,8 @@ java의 NIO 패키지를 이용하여 업로드 기능을 구현할 수도 있�
 
 ### 스트림 방식
 
+#### NIO.2 API (JDK7)
+
 ```java
 public void happyFileDownload(HttpServletRequest request, HttpServletResponse response) throws Exception {
     String happyAtfiSn = request.getParameter("happyAtfiSn");
@@ -160,19 +169,23 @@ public void happyFileDownload(HttpServletRequest request, HttpServletResponse re
     String happyAtfiOgName = request.getParameter("happyAtfiOgName");
     String happyAtfiSfName = request.getParameter("happyAtfiSfName");
 
+    // 요청 파일명 확인
     if (happyAtfiSfName == null) {
         return;
     }
     String filePath = "happyBoard/atch/";
     Path file = Paths.get(filePath, happyAtfiSfName);
 
+    // 파일이 없다면 종료
     if (!Files.exists(file) || !Files.isRegularFile(file)) {
         return;
     }
+
+    // 브라우저에 따른 인코딩
     String browser = request.getHeader("User-Agent");
     String encodedFileName = "";
 
-    // 파일 인코딩
+    // 브라우저 종류에 따른 파일명 인코딩
     if (browser.contains("MSIE") || browser.contains("Trident") || browser.contains("Chrome")) {
         // 브라우저 확인 파일명
         encodedFileName = URLEncoder.encode(happyAtfiOgName, "UTF-8").replaceAll("\\+", "%20").replace("+", "%20");
@@ -180,36 +193,20 @@ public void happyFileDownload(HttpServletRequest request, HttpServletResponse re
         encodedFileName = new String(happyAtfiOgName.getBytes("UTF-8"), "ISO-8859-1");
     }
 
+    // response 타입 설정
     response.setHeader("Content-Disposition", "attachment;filename=" + encodedFileName);
     response.setContentType("application/octet-stream");
 
+    // 파일 response로 전송
     Files.copy(file, response.getOutputStream());
 }
 ```
 
-일반적인 파일 다운로드 기능은 NIO 패키지를 이용하여 파일 다운로드 기능을 구현할 수 있습니다.
-
-```
-try (InputStream in = Files.newInputStream(file)) {
-    byte[] buffer = new byte[4096]; // 버퍼 크기 설정
-    int bytesRead;
-    while ((bytesRead = in.read(buffer)) != -1) {
-        response.getOutputStream().write(buffer, 0, bytesRead);
-    }
-} catch (NullPointerException np) {
-    np.printStackTrace();
-} catch (IOException ie) {
-    ie.printStackTrace();
-} catch (Exception e) {
-    e.printStackTrace();
-}
-```
-
-위와 같이 `Files.copy()`대신 직접 코드를 작성하여 버퍼 설정을 할 수 있지만 일반적인 상황에서는 필요하지 않습니다.
+일반적인 파일 다운로드 기능은 NIO API를 이용하여 파일 다운로드 기능을 구현할 수 있습니다.
 
 `참고:` `Files.copy()`는 8192byte의 버퍼 사이즈를 가집니다.
 
-***
+#### IO API (Before JDK7)
 
 ```java
 File file = new File(filePath + happyAtfiSfName);
@@ -221,13 +218,15 @@ bos = new BufferedOutputStream(so);
 
 byte[] data = new byte[2048];
 int input = 0;
+
+// 버퍼에 데이터를 담아 없을 때까지 전송
 while ((input = bis.read(data)) != -1) {
     bos.write(data, 0, input);
     bos.flush();
 }
 ```
 
-Java IO클래스의 InputStream과 OutputStream를 이용해 업로드를 구현할 수도 있습니다.
+NIO API가 나오기 전, 직접 stream을 열어 loop를 통해 전달하는 전통적인 방식입니다.
 
 1. `FileInputStream`: 이 클래스는 파일로부터 바이트 단위로 데이터를 읽어오는데 사용됩니다. 파일을 열고 그 내용을 읽어들일 때 주로 활용됩니다.
 2. `BufferedInputStream`: 이 클래스는 데이터를 읽어올 때 성능을 향상시키기 위해 사용됩니다. FileInputStream과 같이 사용되며, 데이터를 버퍼에 저장해두고 필요할 때 버퍼로부터 읽어오는 방식으로 동작합니다. 이는 입출력 작업을 보다 효율적으로 수행할 수 있도록 도와줍니다.
@@ -236,7 +235,12 @@ Java IO클래스의 InputStream과 OutputStream를 이용해 업로드를 구현
 
 이렇게 설정된 스트림들은 파일의 내용을 읽어들여 클라이언트에게 전송하는 데 사용됩니다. `FileInputStream`과 `BufferedInputStream`은 파일에서 데이터를 읽어오고, `ServletOutputStream`과 `BufferedOutputStream`은 클라이언트로 데이터를 전송합니다.
 
-대용량 파일 처리의 경우 Java IO클래스가 적절하다고 합니다. 
+그 밖에
+
+* Apache Commons IO
+* Guava(Google)
+
+등을 이용하여 구현할 수도 있습니다.
 
 <!--
 #### 성능비교
@@ -265,6 +269,7 @@ public class WebConfig implements WebMvcConfigurer {
 }
 ```
 
+(확인필요)\
 파일 리소스의 경로와 URL 경로를 맵핑하여 브라우저에게 다운로드를 제공할 수 있습니다.
 
 ## 파일 삭제
