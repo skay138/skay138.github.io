@@ -8,10 +8,10 @@
         <language>ko-kr</language>
         <lastBuildDate>Sat, 09 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="http://localhost:1313/categories/computer-science/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[생성 패턴] 팩토리 메서드</title>
-        <link>http://localhost:1313/p/design-patterns-factory-method/</link>
+        <link>http://localhost:1313/article/design-patterns-factory-method/</link>
         <pubDate>Sat, 09 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/design-patterns-factory-method/</guid>
+        <guid>http://localhost:1313/article/design-patterns-factory-method/</guid>
         <description>&lt;img src="http://localhost:1313/cover/designpattern.png" alt="Featured image of post [생성 패턴] 팩토리 메서드" /&gt;&lt;h2 id=&#34;의도&#34;&gt;
     &lt;a href=&#34;#%ec%9d%98%eb%8f%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     의도
@@ -30,7 +30,7 @@
     해결책
 &lt;/h2&gt;&lt;p&gt;객체 생성 직접 호출들을 팩토리 메서드에 대한 호출들로 대체.&lt;br&gt;
 자식 클래스에서 팩토리 메서드를 오버라이딩하여 그 메서드에 의해 생성되는 제품들의 클래스를 변경할 수 있게 됨.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/design-patterns-factory-method/image-1.png&#34;
 	width=&#34;620&#34;
 	height=&#34;270&#34;
 	
@@ -45,7 +45,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;단, 공통 기초 클래스 또는 공통 인터페이스를 두어야 함.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/design-patterns-factory-method/image.png&#34;
 	width=&#34;490&#34;
 	height=&#34;250&#34;
 	
@@ -62,7 +62,7 @@
 &lt;h2 id=&#34;구조&#34;&gt;
     &lt;a href=&#34;#%ea%b5%ac%ec%a1%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     구조
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-2.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/design-patterns-factory-method/image-2.png&#34;
 	width=&#34;660&#34;
 	height=&#34;380&#34;
 	
@@ -111,10 +111,10 @@
         </item>
         <item>
         <title>디자인 패턴이란?</title>
-        <link>http://localhost:1313/p/design-patterns-intro/</link>
+        <link>http://localhost:1313/article/design-patterns-intro/</link>
         <pubDate>Sun, 18 Feb 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/design-patterns-intro/</guid>
+        <guid>http://localhost:1313/article/design-patterns-intro/</guid>
         <description>&lt;img src="http://localhost:1313/cover/designpattern.png" alt="Featured image of post 디자인 패턴이란?" /&gt;&lt;h2 id=&#34;서론&#34;&gt;
     &lt;a href=&#34;#%ec%84%9c%eb%a1%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     서론
@@ -167,11 +167,11 @@
         </item>
         <item>
         <title>쿠키 세션 JWT 정리</title>
-        <link>http://localhost:1313/p/cookie-session-jwt/</link>
+        <link>http://localhost:1313/article/cookie-session-jwt/</link>
         <pubDate>Sat, 17 Feb 2024 10:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/cookie-session-jwt/</guid>
-        <description>&lt;img src="http://localhost:1313/p/cookie-session-jwt/cover.png" alt="Featured image of post 쿠키 세션 JWT 정리" /&gt;&lt;p&gt;Client - Server 간에 사용자 인증을 위해 보편적으로 Cookie &amp;amp; Session나 토큰 인증 방식을 사용한다.&lt;br&gt;
+        <guid>http://localhost:1313/article/cookie-session-jwt/</guid>
+        <description>&lt;img src="http://localhost:1313/article/cookie-session-jwt/cover.png" alt="Featured image of post 쿠키 세션 JWT 정리" /&gt;&lt;p&gt;Client - Server 간에 사용자 인증을 위해 보편적으로 Cookie &amp;amp; Session나 토큰 인증 방식을 사용한다.&lt;br&gt;
 어떤 상황에 어떤 방식을 적용하는 지 궁금하여 정보를 찾아보다 &lt;a class=&#34;link&#34; href=&#34;https://jerrynsh.com/all-to-know-about-auth-and-cookies/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;strong&gt;재미있는 글&lt;/strong&gt;&lt;/a&gt;을 발견했다. 위 글을 읽으며 쿠키와 세션, JWT에 대해 정리해봤다.&lt;/p&gt;
 &lt;h2 id=&#34;기본-지식&#34;&gt;
@@ -278,7 +278,7 @@
     왜 JWT를 사용하는가?
 &lt;/h3&gt;&lt;p&gt;JWT를 사용하면 &lt;em&gt;horizontal scaling&lt;/em&gt;&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;이 쉬워지기에 token-based authentication에 자주 이용된다. 그 이유는 토큰의 검증에 있어 서버와 데이터베이스 간의 통신이 필요없기 때문이다.&lt;br&gt;
 아래는 프로젝트에서 JWT를 적용한 예시이다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/cookie-session-jwt/1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/cookie-session-jwt/1.png&#34;
 	width=&#34;705&#34;
 	height=&#34;603&#34;
 	

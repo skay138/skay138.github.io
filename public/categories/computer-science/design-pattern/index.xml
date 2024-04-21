@@ -8,10 +8,10 @@
         <language>ko-kr</language>
         <lastBuildDate>Sat, 09 Mar 2024 00:00:10 +0900</lastBuildDate><atom:link href="http://localhost:1313/categories/computer-science/design-pattern/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>[생성 패턴] 팩토리 메서드</title>
-        <link>http://localhost:1313/p/design-patterns-factory-method/</link>
+        <link>http://localhost:1313/article/design-patterns-factory-method/</link>
         <pubDate>Sat, 09 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/design-patterns-factory-method/</guid>
+        <guid>http://localhost:1313/article/design-patterns-factory-method/</guid>
         <description>&lt;img src="http://localhost:1313/cover/designpattern.png" alt="Featured image of post [생성 패턴] 팩토리 메서드" /&gt;&lt;h2 id=&#34;의도&#34;&gt;
     &lt;a href=&#34;#%ec%9d%98%eb%8f%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     의도
@@ -30,7 +30,7 @@
     해결책
 &lt;/h2&gt;&lt;p&gt;객체 생성 직접 호출들을 팩토리 메서드에 대한 호출들로 대체.&lt;br&gt;
 자식 클래스에서 팩토리 메서드를 오버라이딩하여 그 메서드에 의해 생성되는 제품들의 클래스를 변경할 수 있게 됨.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/design-patterns-factory-method/image-1.png&#34;
 	width=&#34;620&#34;
 	height=&#34;270&#34;
 	
@@ -45,7 +45,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;단, 공통 기초 클래스 또는 공통 인터페이스를 두어야 함.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/design-patterns-factory-method/image.png&#34;
 	width=&#34;490&#34;
 	height=&#34;250&#34;
 	
@@ -62,7 +62,7 @@
 &lt;h2 id=&#34;구조&#34;&gt;
     &lt;a href=&#34;#%ea%b5%ac%ec%a1%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     구조
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/design-patterns-factory-method/image-2.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/design-patterns-factory-method/image-2.png&#34;
 	width=&#34;660&#34;
 	height=&#34;380&#34;
 	
@@ -111,10 +111,10 @@
         </item>
         <item>
         <title>디자인 패턴이란?</title>
-        <link>http://localhost:1313/p/design-patterns-intro/</link>
+        <link>http://localhost:1313/article/design-patterns-intro/</link>
         <pubDate>Sun, 18 Feb 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/design-patterns-intro/</guid>
+        <guid>http://localhost:1313/article/design-patterns-intro/</guid>
         <description>&lt;img src="http://localhost:1313/cover/designpattern.png" alt="Featured image of post 디자인 패턴이란?" /&gt;&lt;h2 id=&#34;서론&#34;&gt;
     &lt;a href=&#34;#%ec%84%9c%eb%a1%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     서론

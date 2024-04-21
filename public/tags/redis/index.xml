@@ -8,10 +8,10 @@
         <language>ko-kr</language>
         <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>API 성능을 개선해보자 : 캐싱</title>
-        <link>http://localhost:1313/p/django-api-improvement-cache/</link>
+        <link>http://localhost:1313/article/django-api-improvement-cache/</link>
         <pubDate>Fri, 16 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/django-api-improvement-cache/</guid>
+        <guid>http://localhost:1313/article/django-api-improvement-cache/</guid>
         <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;
     &lt;a href=&#34;#%ec%ba%90%ec%8b%b1%ec%9d%b4%eb%9e%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     캐싱이란?
@@ -34,7 +34,7 @@
 &lt;h3 id=&#34;개선-전&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ec%a0%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 전
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/1.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-cache/1.png&#34;
 	width=&#34;910&#34;
 	height=&#34;74&#34;
 	
@@ -81,7 +81,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;h3 id=&#34;개선-후&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ed%9b%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 후
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/2.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-cache/2.png&#34;
 	width=&#34;899&#34;
 	height=&#34;77&#34;
 	

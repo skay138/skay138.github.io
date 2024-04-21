@@ -8,11 +8,11 @@
         <language>ko-kr</language>
         <lastBuildDate>Sat, 16 Mar 2024 06:34:30 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/github-action/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>TinaCMS로 정적 사이트 온라인 편집하기 with Hugo</title>
-        <link>http://localhost:1313/p/tinacms-static-site-online-edit/</link>
+        <link>http://localhost:1313/article/tinacms-static-site-online-edit/</link>
         <pubDate>Sat, 16 Mar 2024 06:34:30 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/tinacms-static-site-online-edit/</guid>
-        <description>&lt;img src="http://localhost:1313/p/tinacms-static-site-online-edit/tinacms.png" alt="Featured image of post TinaCMS로 정적 사이트 온라인 편집하기 with Hugo" /&gt;&lt;p&gt;개발 블로그를 시작하며 저만의 사이트를 가지고 싶었던 마음에 Hugo와 깃허브의 도움으로 호스팅하고 있었습니다.&lt;br&gt;
+        <guid>http://localhost:1313/article/tinacms-static-site-online-edit/</guid>
+        <description>&lt;img src="http://localhost:1313/article/tinacms-static-site-online-edit/tinacms.png" alt="Featured image of post TinaCMS로 정적 사이트 온라인 편집하기 with Hugo" /&gt;&lt;p&gt;개발 블로그를 시작하며 저만의 사이트를 가지고 싶었던 마음에 Hugo와 깃허브의 도움으로 호스팅하고 있었습니다.&lt;br&gt;
 시간은 조금 걸리지만 제 입맛대로 조금씩 꾸며져가는 블로그를 보고 있으니 뿌듯한 마음이 들면서도, 글을 작성할 때 IDE를 사용하여 작성하다 보니 다음과 같은 불편함이 있었습니다..&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;hugo 실행 및 preview 화면을 따로 확인해야 하는 번거로움&lt;/li&gt;
@@ -26,7 +26,7 @@
 &lt;h2 id=&#34;tinacms&#34;&gt;
     &lt;a href=&#34;#tinacms&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     TinaCMS
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/tina1.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/tinacms-static-site-online-edit/tina1.png&#34;
 	width=&#34;1705&#34;
 	height=&#34;724&#34;
 	
@@ -304,7 +304,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;설정을 마친 후 서버를 실행한 뒤 localhost:1313/admin 으로 접속하면 Tina페이지를 볼 수 있습니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/skay138.github.io_admin_.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/tinacms-static-site-online-edit/skay138.github.io_admin_.png&#34;
 	width=&#34;1079&#34;
 	height=&#34;953&#34;
 	
@@ -649,7 +649,7 @@ Build TinaCMS -&amp;gt; Setup Hugo 순서는 맞춰주시는 게 좋습니다.&l
     환경 세팅
 &lt;/h3&gt;&lt;p&gt;깃허브 레파지토리의 Settings -&amp;gt; Environments -&amp;gt; github-pages에 환경변수를 추가해주세요.&lt;br&gt;
 Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 됩니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/github_env.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/tinacms-static-site-online-edit/github_env.png&#34;
 	width=&#34;846&#34;
 	height=&#34;280&#34;
 	
@@ -678,7 +678,7 @@ Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 �
     결과 확인
 &lt;/h2&gt;&lt;p&gt;호스팅 되는 주소/admin 으로 접속하시면 Tina에 로그인할 수 있습니다.&lt;br&gt;
 로그인 후 게시글 생성/수정/삭제를 했을 때 github에 commit이 올라가며 페이지가 빌드되시는 것을 확인할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/tinacms-static-site-online-edit/image.png&#34;
 	width=&#34;1325&#34;
 	height=&#34;105&#34;
 	
@@ -692,7 +692,7 @@ Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 �
 		data-flex-basis=&#34;3028px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/skay138.github.io_p_spring-boot-messaging-with-redis_.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/tinacms-static-site-online-edit/skay138.github.io_p_spring-boot-messaging-with-redis_.png&#34;
 	width=&#34;1079&#34;
 	height=&#34;953&#34;
 	
@@ -706,7 +706,7 @@ Environment secrets에 TINA_PUBLIC_CLIENT_ID과 TINA_TOKEN를 넣어주시면 �
 		data-flex-basis=&#34;271px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/tinacms-static-site-online-edit/checklist_tina.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/tinacms-static-site-online-edit/checklist_tina.png&#34;
 	width=&#34;580&#34;
 	height=&#34;570&#34;
 	

@@ -8,10 +8,10 @@
         <language>ko-kr</language>
         <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/code-review/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>API 성능을 개선해보자 : 캐싱</title>
-        <link>http://localhost:1313/p/django-api-improvement-cache/</link>
+        <link>http://localhost:1313/article/django-api-improvement-cache/</link>
         <pubDate>Fri, 16 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/django-api-improvement-cache/</guid>
+        <guid>http://localhost:1313/article/django-api-improvement-cache/</guid>
         <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;
     &lt;a href=&#34;#%ec%ba%90%ec%8b%b1%ec%9d%b4%eb%9e%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     캐싱이란?
@@ -34,7 +34,7 @@
 &lt;h3 id=&#34;개선-전&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ec%a0%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 전
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/1.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-cache/1.png&#34;
 	width=&#34;910&#34;
 	height=&#34;74&#34;
 	
@@ -81,7 +81,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;h3 id=&#34;개선-후&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ed%9b%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 후
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-cache/2.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-cache/2.png&#34;
 	width=&#34;899&#34;
 	height=&#34;77&#34;
 	
@@ -112,10 +112,10 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
         </item>
         <item>
         <title>API 성능을 개선해보자 : N&#43;1문제</title>
-        <link>http://localhost:1313/p/django-api-improvement-nplus1/</link>
+        <link>http://localhost:1313/article/django-api-improvement-nplus1/</link>
         <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/django-api-improvement-nplus1/</guid>
+        <guid>http://localhost:1313/article/django-api-improvement-nplus1/</guid>
         <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post API 성능을 개선해보자 : N&#43;1문제" /&gt;&lt;h2 id=&#34;n1-문제란&#34;&gt;
     &lt;a href=&#34;#n1-%eb%ac%b8%ec%a0%9c%eb%9e%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     N+1 문제란?
@@ -141,7 +141,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;h3 id=&#34;개선-전&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ec%a0%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 전
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/1.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/1.png&#34;
 	width=&#34;859&#34;
 	height=&#34;66&#34;
 	
@@ -155,7 +155,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 		data-flex-basis=&#34;3123px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/2.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/2.png&#34;
 	width=&#34;1743&#34;
 	height=&#34;872&#34;
 	
@@ -181,7 +181,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;li&gt;&lt;strong&gt;prefetch_related()&lt;/strong&gt; : 다대다 및 역방향 관계에 사용하며, 별도의 추가 쿼리를 사용하여 관련된 객체를 가져와 메모리에서 조합한다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;나의 경우, 외래 키 관계였기에 select_related()를 이용하여 댓글 데이터를 가져올 때 작성자에 대한 정보도 미리 로드하여 추가적인 쿼리 호출을 막았다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/3.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/3.png&#34;
 	width=&#34;1738&#34;
 	height=&#34;871&#34;
 	
@@ -201,7 +201,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 &lt;h3 id=&#34;개선-후&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ed%9b%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 후
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/4.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/4.png&#34;
 	width=&#34;847&#34;
 	height=&#34;73&#34;
 	
@@ -213,7 +213,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 		data-flex-basis=&#34;2784px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/5.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/5.png&#34;
 	width=&#34;1740&#34;
 	height=&#34;871&#34;
 	
@@ -228,7 +228,7 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;쿼리 호출 수를 비약적으로 줄인 결과 평균 응답 시간이 10배 넘게 줄었다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/6.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/6.png&#34;
 	width=&#34;832&#34;
 	height=&#34;73&#34;
 	
@@ -263,7 +263,7 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
 &lt;h3 id=&#34;개선-전-1&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ec%a0%84-1&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 전
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/7.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/7.png&#34;
 	width=&#34;1899&#34;
 	height=&#34;952&#34;
 	
@@ -328,7 +328,7 @@ django에서 제공하는 Paginator라이브러리는 카운팅 쿼리 호출이
 &lt;/div&gt;&lt;h3 id=&#34;개선-후-1&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9c%ec%84%a0-%ed%9b%84-1&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     개선 후
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/django-api-improvement-nplus1/8.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/django-api-improvement-nplus1/8.png&#34;
 	width=&#34;1898&#34;
 	height=&#34;948&#34;
 	

@@ -8,10 +8,10 @@
         <language>ko-kr</language>
         <lastBuildDate>Mon, 11 Mar 2024 21:53:43 +0900</lastBuildDate><atom:link href="http://localhost:1313/categories/algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>26. Remove Duplicates from Sorted Array</title>
-        <link>http://localhost:1313/p/leetcode-26/</link>
+        <link>http://localhost:1313/article/leetcode-26/</link>
         <pubDate>Mon, 11 Mar 2024 21:53:43 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-26/</guid>
+        <guid>http://localhost:1313/article/leetcode-26/</guid>
         <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post 26. Remove Duplicates from Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;
     &lt;a href=&#34;#description&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     Description
@@ -126,10 +126,10 @@ elements of &lt;code&gt;nums&lt;/code&gt; are not important as well as the size 
         </item>
         <item>
         <title>27. Remove Element</title>
-        <link>http://localhost:1313/p/leetcode-27/</link>
+        <link>http://localhost:1313/article/leetcode-27/</link>
         <pubDate>Mon, 11 Mar 2024 16:43:21 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-27/</guid>
+        <guid>http://localhost:1313/article/leetcode-27/</guid>
         <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post 27. Remove Element" /&gt;&lt;h2 id=&#34;description&#34;&gt;
     &lt;a href=&#34;#description&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     Description
@@ -254,10 +254,10 @@ nums[0] == 3이고 nums[1] != 3 이기 때문에 nums[0]&lt;code&gt;idx = 0&lt;/
         </item>
         <item>
         <title>88. Merge Sorted Array</title>
-        <link>http://localhost:1313/p/leetcode-88/</link>
+        <link>http://localhost:1313/article/leetcode-88/</link>
         <pubDate>Sun, 10 Mar 2024 21:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/leetcode-88/</guid>
+        <guid>http://localhost:1313/article/leetcode-88/</guid>
         <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post 88. Merge Sorted Array" /&gt;&lt;h2 id=&#34;description&#34;&gt;
     &lt;a href=&#34;#description&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     Description
@@ -372,10 +372,10 @@ Example 2, Example 3이 특수한 상황의 예시를 미리 알려주고 있어
         </item>
         <item>
         <title>11399번 : ATM</title>
-        <link>http://localhost:1313/p/baekjoon-11399/</link>
+        <link>http://localhost:1313/article/baekjoon-11399/</link>
         <pubDate>Sun, 10 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11399/</guid>
+        <guid>http://localhost:1313/article/baekjoon-11399/</guid>
         <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post 11399번 : ATM" /&gt;&lt;h2 id=&#34;문제&#34;&gt;
     &lt;a href=&#34;#%eb%ac%b8%ec%a0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     문제
@@ -465,10 +465,10 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>11003번 : 최솟값 찾기</title>
-        <link>http://localhost:1313/p/baekjoon-11003/</link>
+        <link>http://localhost:1313/article/baekjoon-11003/</link>
         <pubDate>Sat, 09 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11003/</guid>
+        <guid>http://localhost:1313/article/baekjoon-11003/</guid>
         <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post 11003번 : 최솟값 찾기" /&gt;&lt;h2 id=&#34;문제&#34;&gt;
     &lt;a href=&#34;#%eb%ac%b8%ec%a0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     문제
@@ -552,16 +552,16 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>11660번 : 구간 합 구하기 5</title>
-        <link>http://localhost:1313/p/baekjoon-11660/</link>
+        <link>http://localhost:1313/article/baekjoon-11660/</link>
         <pubDate>Fri, 08 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11660/</guid>
+        <guid>http://localhost:1313/article/baekjoon-11660/</guid>
         <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post 11660번 : 구간 합 구하기 5" /&gt;&lt;h2 id=&#34;문제&#34;&gt;
     &lt;a href=&#34;#%eb%ac%b8%ec%a0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     문제
 &lt;/h2&gt;&lt;p&gt;N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2)까지 합을 구하는 프로그램을 작성하시오. (x, y)는 x행 y열을 의미한다.&lt;/p&gt;
 &lt;p&gt;예를 들어, N = 4이고, 표가 아래와 같이 채워져 있는 경우를 살펴보자.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/baekjoon-11660/image.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/baekjoon-11660/image.png&#34;
 	width=&#34;206&#34;
 	height=&#34;206&#34;
 	
@@ -646,10 +646,10 @@ N번째 index까지의 합이 필요하기 때문에 선택 정렬을 사용하�
         </item>
         <item>
         <title>11659번 : 구간 합 구하기 4</title>
-        <link>http://localhost:1313/p/baekjoon-11659/</link>
+        <link>http://localhost:1313/article/baekjoon-11659/</link>
         <pubDate>Thu, 07 Mar 2024 00:00:10 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/baekjoon-11659/</guid>
+        <guid>http://localhost:1313/article/baekjoon-11659/</guid>
         <description>&lt;img src="http://localhost:1313/cover/algorithm.png" alt="Featured image of post 11659번 : 구간 합 구하기 4" /&gt;&lt;h2 id=&#34;문제&#34;&gt;
     &lt;a href=&#34;#%eb%ac%b8%ec%a0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     문제

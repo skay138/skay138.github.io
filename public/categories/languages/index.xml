@@ -8,11 +8,11 @@
         <language>ko-kr</language>
         <lastBuildDate>Tue, 12 Mar 2024 00:00:01 +0900</lastBuildDate><atom:link href="http://localhost:1313/categories/languages/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>record 키워드</title>
-        <link>http://localhost:1313/p/record-keyword/</link>
+        <link>http://localhost:1313/article/record-keyword/</link>
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/record-keyword/</guid>
-        <description>&lt;img src="http://localhost:1313/p/record-keyword/cover.png" alt="Featured image of post record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;
+        <guid>http://localhost:1313/article/record-keyword/</guid>
+        <description>&lt;img src="http://localhost:1313/article/record-keyword/cover.png" alt="Featured image of post record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;
     &lt;a href=&#34;#record&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     record
 &lt;/h2&gt;&lt;p&gt;JDK 14에서 추가된 키워드로, 타입과 필드 이름만 필요로 하는 불변 데이터 클래스이다.&lt;/p&gt;
@@ -367,10 +367,10 @@
         </item>
         <item>
         <title>9. 가상 함수와 추상 클래스</title>
-        <link>http://localhost:1313/p/cpp-virtual-func-abstract-class/</link>
+        <link>http://localhost:1313/article/cpp-virtual-func-abstract-class/</link>
         <pubDate>Mon, 20 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-virtual-func-abstract-class/</guid>
+        <guid>http://localhost:1313/article/cpp-virtual-func-abstract-class/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 9. 가상 함수와 추상 클래스" /&gt;&lt;h2 id=&#34;상속간-함수-오버라이딩&#34;&gt;
     &lt;a href=&#34;#%ec%83%81%ec%86%8d%ea%b0%84-%ed%95%a8%ec%88%98-%ec%98%a4%eb%b2%84%eb%9d%bc%ec%9d%b4%eb%94%a9&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     상속간 함수 오버라이딩
@@ -1324,10 +1324,10 @@
         </item>
         <item>
         <title>8. 상속</title>
-        <link>http://localhost:1313/p/cpp-inheritance/</link>
+        <link>http://localhost:1313/article/cpp-inheritance/</link>
         <pubDate>Mon, 13 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-inheritance/</guid>
+        <guid>http://localhost:1313/article/cpp-inheritance/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 8. 상속" /&gt;&lt;h2 id=&#34;상속inheritance&#34;&gt;
     &lt;a href=&#34;#%ec%83%81%ec%86%8dinheritance&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     상속(Inheritance)
@@ -1932,10 +1932,10 @@
         </item>
         <item>
         <title>7. 프렌드와 연산자 중복</title>
-        <link>http://localhost:1313/p/cpp-friend-operator-overloading/</link>
+        <link>http://localhost:1313/article/cpp-friend-operator-overloading/</link>
         <pubDate>Mon, 06 Nov 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-friend-operator-overloading/</guid>
+        <guid>http://localhost:1313/article/cpp-friend-operator-overloading/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 7. 프렌드와 연산자 중복" /&gt;&lt;h2 id=&#34;프렌드friend&#34;&gt;
     &lt;a href=&#34;#%ed%94%84%eb%a0%8c%eb%93%9cfriend&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     프렌드(Friend)
@@ -3040,10 +3040,10 @@
         </item>
         <item>
         <title>6. 함수 중복과 static 멤버</title>
-        <link>http://localhost:1313/p/cpp-function-overloading-static-member/</link>
+        <link>http://localhost:1313/article/cpp-function-overloading-static-member/</link>
         <pubDate>Mon, 23 Oct 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-function-overloading-static-member/</guid>
+        <guid>http://localhost:1313/article/cpp-function-overloading-static-member/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 6. 함수 중복과 static 멤버" /&gt;&lt;h2 id=&#34;함수중복함수-오버로딩&#34;&gt;
     &lt;a href=&#34;#%ed%95%a8%ec%88%98%ec%a4%91%eb%b3%b5%ed%95%a8%ec%88%98-%ec%98%a4%eb%b2%84%eb%a1%9c%eb%94%a9&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     함수중복(함수 오버로딩)
@@ -3445,10 +3445,10 @@
         </item>
         <item>
         <title>5. 함수와 참조, 복사 생성자</title>
-        <link>http://localhost:1313/p/cpp-function-reference-copy-constructor/</link>
+        <link>http://localhost:1313/article/cpp-function-reference-copy-constructor/</link>
         <pubDate>Mon, 25 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-function-reference-copy-constructor/</guid>
+        <guid>http://localhost:1313/article/cpp-function-reference-copy-constructor/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 5. 함수와 참조, 복사 생성자" /&gt;&lt;h2 id=&#34;호출-방식에-따른-매개변수-전달&#34;&gt;
     &lt;a href=&#34;#%ed%98%b8%ec%b6%9c-%eb%b0%a9%ec%8b%9d%ec%97%90-%eb%94%b0%eb%a5%b8-%eb%a7%a4%ea%b0%9c%eb%b3%80%ec%88%98-%ec%a0%84%eb%8b%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     호출 방식에 따른 매개변수 전달
@@ -4297,10 +4297,10 @@ default 복사 생성자가 존재(기존의 멤버 변수를 복사해준다)&l
         </item>
         <item>
         <title>4. 객체 포인터, 배열, 동적 생성</title>
-        <link>http://localhost:1313/p/cpp-op-array-da/</link>
+        <link>http://localhost:1313/article/cpp-op-array-da/</link>
         <pubDate>Mon, 11 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-op-array-da/</guid>
+        <guid>http://localhost:1313/article/cpp-op-array-da/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 4. 객체 포인터, 배열, 동적 생성" /&gt;&lt;h2 id=&#34;객체-포인터&#34;&gt;
     &lt;a href=&#34;#%ea%b0%9d%ec%b2%b4-%ed%8f%ac%ec%9d%b8%ed%84%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     객체 포인터
@@ -5573,10 +5573,10 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>3. 클래스와 객체</title>
-        <link>http://localhost:1313/p/cpp-class-instance/</link>
+        <link>http://localhost:1313/article/cpp-class-instance/</link>
         <pubDate>Tue, 05 Sep 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-class-instance/</guid>
+        <guid>http://localhost:1313/article/cpp-class-instance/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 3. 클래스와 객체" /&gt;&lt;h2 id=&#34;캡슐화&#34;&gt;
     &lt;a href=&#34;#%ec%ba%a1%ec%8a%90%ed%99%94&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     캡슐화
@@ -6440,10 +6440,10 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>2. C&#43;&#43;의 입출력</title>
-        <link>http://localhost:1313/p/cpp-io/</link>
+        <link>http://localhost:1313/article/cpp-io/</link>
         <pubDate>Tue, 29 Aug 2023 00:00:03 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-io/</guid>
+        <guid>http://localhost:1313/article/cpp-io/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 2. C&#43;&#43;의 입출력" /&gt;&lt;h2 id=&#34;c의-출력&#34;&gt;
     &lt;a href=&#34;#c%ec%9d%98-%ec%b6%9c%eb%a0%a5&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     C++의 출력
@@ -6702,10 +6702,10 @@ stoi() 함수&lt;/li&gt;
         </item>
         <item>
         <title>1. C&#43;&#43;의 특징</title>
-        <link>http://localhost:1313/p/cpp-feature/</link>
+        <link>http://localhost:1313/article/cpp-feature/</link>
         <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/cpp-feature/</guid>
+        <guid>http://localhost:1313/article/cpp-feature/</guid>
         <description>&lt;img src="http://localhost:1313/cover/C&#43;&#43;.png" alt="Featured image of post 1. C&#43;&#43;의 특징" /&gt;&lt;h2 id=&#34;c언어의-주요한-설계-목적&#34;&gt;
     &lt;a href=&#34;#c%ec%96%b8%ec%96%b4%ec%9d%98-%ec%a3%bc%ec%9a%94%ed%95%9c-%ec%84%a4%ea%b3%84-%eb%aa%a9%ec%a0%81&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     C++언어의 주요한 설계 목적

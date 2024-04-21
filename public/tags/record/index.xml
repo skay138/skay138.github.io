@@ -8,11 +8,11 @@
         <language>ko-kr</language>
         <lastBuildDate>Tue, 12 Mar 2024 00:00:01 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/record/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>record 키워드</title>
-        <link>http://localhost:1313/p/record-keyword/</link>
+        <link>http://localhost:1313/article/record-keyword/</link>
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/record-keyword/</guid>
-        <description>&lt;img src="http://localhost:1313/p/record-keyword/cover.png" alt="Featured image of post record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;
+        <guid>http://localhost:1313/article/record-keyword/</guid>
+        <description>&lt;img src="http://localhost:1313/article/record-keyword/cover.png" alt="Featured image of post record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;
     &lt;a href=&#34;#record&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     record
 &lt;/h2&gt;&lt;p&gt;JDK 14에서 추가된 키워드로, 타입과 필드 이름만 필요로 하는 불변 데이터 클래스이다.&lt;/p&gt;

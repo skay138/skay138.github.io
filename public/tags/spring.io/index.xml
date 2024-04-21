@@ -8,10 +8,10 @@
         <language>ko-kr</language>
         <lastBuildDate>Fri, 15 Mar 2024 12:08:56 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/spring.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Messaging with Redis</title>
-        <link>http://localhost:1313/p/messaging-with-redis/</link>
+        <link>http://localhost:1313/article/messaging-with-redis/</link>
         <pubDate>Fri, 15 Mar 2024 12:08:56 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/messaging-with-redis/</guid>
+        <guid>http://localhost:1313/article/messaging-with-redis/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Messaging with Redis" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;
     &lt;a href=&#34;#what-you-will-build&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     What You Will Build
@@ -233,7 +233,7 @@ Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#
 &lt;/div&gt;&lt;h2 id=&#34;결과&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/messaging-with-redis/image.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/messaging-with-redis/image.png&#34;
 	width=&#34;288&#34;
 	height=&#34;119&#34;
 	
@@ -252,10 +252,10 @@ Redis 설치는 &lt;a class=&#34;link&#34; href=&#34;https://redis.io/download&#
         </item>
         <item>
         <title>Authenticating a User with LDAP</title>
-        <link>http://localhost:1313/p/authenticating-a-user-with-ldap/</link>
+        <link>http://localhost:1313/article/authenticating-a-user-with-ldap/</link>
         <pubDate>Thu, 14 Mar 2024 18:44:35 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/authenticating-a-user-with-ldap/</guid>
+        <guid>http://localhost:1313/article/authenticating-a-user-with-ldap/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Authenticating a User with LDAP" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;
     &lt;a href=&#34;#what-you-will-build&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     What You Will Build
@@ -708,7 +708,7 @@ LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;h2 id=&#34;결과&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/authenticating-a-user-with-ldap/image.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/authenticating-a-user-with-ldap/image.png&#34;
 	width=&#34;425&#34;
 	height=&#34;261&#34;
 	
@@ -725,7 +725,7 @@ LDAP 서버는 유저들을 포함한 data file로 로드한다.&lt;/p&gt;
 &lt;p&gt;username = ben&lt;br&gt;
 password = benspassword&lt;br&gt;
 입력 시&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/authenticating-a-user-with-ldap/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/authenticating-a-user-with-ldap/image-1.png&#34;
 	width=&#34;281&#34;
 	height=&#34;97&#34;
 	
@@ -746,10 +746,10 @@ password = benspassword&lt;br&gt;
         </item>
         <item>
         <title>Uploading Files</title>
-        <link>http://localhost:1313/p/uploading-files/</link>
+        <link>http://localhost:1313/article/uploading-files/</link>
         <pubDate>Thu, 14 Mar 2024 16:23:56 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/uploading-files/</guid>
+        <guid>http://localhost:1313/article/uploading-files/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Uploading Files" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;
     &lt;a href=&#34;#what-you-will-build&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     What You Will Build
@@ -1075,7 +1075,7 @@ password = benspassword&lt;br&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;StorageFileNotFoundException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Throwable&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cause&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;StorageFileNotFoundException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Throwable&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cause&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;		&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;super&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;message&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cause&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;	&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -1452,7 +1452,7 @@ password = benspassword&lt;br&gt;
 &lt;/div&gt;&lt;h3 id=&#34;결과&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/uploading-files/image.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/uploading-files/image.png&#34;
 	width=&#34;651&#34;
 	height=&#34;276&#34;
 	
@@ -1618,7 +1618,7 @@ password = benspassword&lt;br&gt;
 &lt;/div&gt;&lt;h3 id=&#34;결과-1&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc-1&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/uploading-files/image-1.png&#34;
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/uploading-files/image-1.png&#34;
 	width=&#34;253&#34;
 	height=&#34;118&#34;
 	
@@ -1648,10 +1648,10 @@ password = benspassword&lt;br&gt;
         </item>
         <item>
         <title>Accessing Relational Data using JDBC with Spring</title>
-        <link>http://localhost:1313/p/accessing-relational-data-using-jdbc-with-spring/</link>
+        <link>http://localhost:1313/article/accessing-relational-data-using-jdbc-with-spring/</link>
         <pubDate>Tue, 12 Mar 2024 23:29:18 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/accessing-relational-data-using-jdbc-with-spring/</guid>
+        <guid>http://localhost:1313/article/accessing-relational-data-using-jdbc-with-spring/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Accessing Relational Data using JDBC with Spring" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;
     &lt;a href=&#34;#what-you-will-build&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     What You Will Build
@@ -1856,7 +1856,7 @@ JdbcTemplate는 리소스 획득, 연결 관리, 예외 처리 및 코드의 목
 &lt;h2 id=&#34;결과&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/accessing-relational-data-using-jdbc-with-spring/image.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/accessing-relational-data-using-jdbc-with-spring/image.png&#34;
 	width=&#34;431&#34;
 	height=&#34;210&#34;
 	
@@ -1874,10 +1874,10 @@ JdbcTemplate는 리소스 획득, 연결 관리, 예외 처리 및 코드의 목
         </item>
         <item>
         <title>Consuming a RESTful Web Service</title>
-        <link>http://localhost:1313/p/consuming-a-restful-web-service/</link>
+        <link>http://localhost:1313/article/consuming-a-restful-web-service/</link>
         <pubDate>Tue, 12 Mar 2024 22:43:56 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/consuming-a-restful-web-service/</guid>
+        <guid>http://localhost:1313/article/consuming-a-restful-web-service/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Consuming a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;
     &lt;a href=&#34;#what-you-will-build&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     What You Will Build
@@ -1926,7 +1926,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;다음과 같이 작성한다면 ty와 일치하는 JSON 키값이 없기 때문에 type에 null이 나오게 된다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/consuming-a-restful-web-service/image-1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/consuming-a-restful-web-service/image-1.png&#34;
 	width=&#34;400&#34;
 	height=&#34;44&#34;
 	
@@ -2059,7 +2059,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;/div&gt;&lt;h2 id=&#34;결과&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/consuming-a-restful-web-service/image.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/consuming-a-restful-web-service/image.png&#34;
 	width=&#34;452&#34;
 	height=&#34;39&#34;
 	
@@ -2078,10 +2078,10 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>Scheduling Tasks</title>
-        <link>http://localhost:1313/p/scheduling-tasks/</link>
+        <link>http://localhost:1313/article/scheduling-tasks/</link>
         <pubDate>Tue, 12 Mar 2024 16:00:14 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/scheduling-tasks/</guid>
+        <guid>http://localhost:1313/article/scheduling-tasks/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Scheduling Tasks" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;
     &lt;a href=&#34;#what-you-will-build&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     What You Will Build
@@ -2201,7 +2201,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;h2 id=&#34;결과&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/scheduling-tasks/image.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/scheduling-tasks/image.png&#34;
 	width=&#34;1011&#34;
 	height=&#34;140&#34;
 	
@@ -2219,10 +2219,10 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         </item>
         <item>
         <title>Building a RESTful Web Service</title>
-        <link>http://localhost:1313/p/building-a-restful-web-service/</link>
+        <link>http://localhost:1313/article/building-a-restful-web-service/</link>
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
-        <guid>http://localhost:1313/p/building-a-restful-web-service/</guid>
+        <guid>http://localhost:1313/article/building-a-restful-web-service/</guid>
         <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post Building a RESTful Web Service" /&gt;&lt;h2 id=&#34;what-you-will-build&#34;&gt;
     &lt;a href=&#34;#what-you-will-build&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     What You Will Build
@@ -2299,7 +2299,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
 &lt;h2 id=&#34;결과&#34;&gt;
     &lt;a href=&#34;#%ea%b2%b0%ea%b3%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     결과
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/p/building-a-restful-web-service/image.png&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/building-a-restful-web-service/image.png&#34;
 	width=&#34;531&#34;
 	height=&#34;110&#34;
 	
