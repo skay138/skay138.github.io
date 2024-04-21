@@ -351,13 +351,31 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/files/**")
-                .addResourceLocations("file:/path/to/directory/");
+        .addResourceLocations("file:///your/path/location")      
     }
 }
 ```
 
-(확인필요)\
-파일 리소스의 경로와 URL 경로를 맵핑하여 브라우저에게 다운로드를 제공할 수 있습니다.
+**url 지정(localhost:8080/files/)**
+
+```java
+registry.addResourceHandler("/files/**")
+```
+
+**리소스 파일의 실제 주소 설정**
+
+```java
+// 리눅스 경우 root에서 시작하는 폴더 경로 지정 할 경우 
+.addResourceLocations("file:///usr/download/") 
+
+// 리소스 템플릿 경로를 지정할 경우
+.addResourceLocations("classpath:/templates/", "classpath:/static/")
+
+// 윈도우에서 실행 시 다음과 같은 형태로 드라이브 문자 포함 경로 지정 
+.addResourceLocations("file:///C:/~/")
+```
+
+파일 리소스의 경로와 URL 경로를 맵핑하여 파일에 접근할 수 있습니다.
 
 ## 파일 삭제
 

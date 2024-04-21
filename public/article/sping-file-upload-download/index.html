@@ -341,14 +341,14 @@
     
 
     <div class="article-title-wrapper">
-        <h1 class="article-title">
+        <h2 class="article-title">
             <a href="/article/sping-file-upload-download/">Spring 파일 업로드와 다운로드</a>
-        </h1>
+        </h2>
     
         
-        <h2 class="article-subtitle">
+        <h3 class="article-subtitle">
             MultipartFile과 HttpServletRequest를 이용하여 파일을 업로드 및 다운로드 해보자
-        </h2>
+        </h3>
         
     </div>
 
@@ -987,13 +987,44 @@ Direct Buffer는 JVM 힙 메모리 외부에 위치하므로, 데이터 복사 �
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addResourceHandlers</span><span class="p">(</span><span class="n">ResourceHandlerRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">addResourceHandler</span><span class="p">(</span><span class="s">&#34;/files/**&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">addResourceLocations</span><span class="p">(</span><span class="s">&#34;file:/path/to/directory/&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">addResourceLocations</span><span class="p">(</span><span class="s">&#34;file:///your/path/location&#34;</span><span class="p">)</span><span class="w">      
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>(확인필요)<br>
-파일 리소스의 경로와 URL 경로를 맵핑하여 브라우저에게 다운로드를 제공할 수 있습니다.</p>
+</div><p><strong>url 지정(localhost:8080/files/)</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">registry</span><span class="p">.</span><span class="na">addResourceHandler</span><span class="p">(</span><span class="s">&#34;/files/**&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>리소스 파일의 실제 주소 설정</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 리눅스 경우 root에서 시작하는 폴더 경로 지정 할 경우 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">.</span><span class="na">addResourceLocations</span><span class="p">(</span><span class="s">&#34;file:///usr/download/&#34;</span><span class="p">)</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 리소스 템플릿 경로를 지정할 경우</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">.</span><span class="na">addResourceLocations</span><span class="p">(</span><span class="s">&#34;classpath:/templates/&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;classpath:/static/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 윈도우에서 실행 시 다음과 같은 형태로 드라이브 문자 포함 경로 지정 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">.</span><span class="na">addResourceLocations</span><span class="p">(</span><span class="s">&#34;file:///C:/~/&#34;</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>파일 리소스의 경로와 URL 경로를 맵핑하여 파일에 접근할 수 있습니다.</p>
 <h2 id="파일-삭제">
     <a href="#%ed%8c%8c%ec%9d%bc-%ec%82%ad%ec%a0%9c" class="header-anchor">#</a>
     파일 삭제

@@ -7,12 +7,12 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
         <lastBuildDate>Fri, 16 Feb 2024 00:00:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/code-review/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>API 성능을 개선해보자 : 캐싱</title>
+        <title>[Django] API 성능을 개선해보자 : 캐싱</title>
         <link>http://localhost:1313/article/django-api-improvement-cache/</link>
         <pubDate>Fri, 16 Feb 2024 00:00:00 +0900</pubDate>
         
         <guid>http://localhost:1313/article/django-api-improvement-cache/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;
+        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : 캐싱" /&gt;&lt;h2 id=&#34;캐싱이란&#34;&gt;
     &lt;a href=&#34;#%ec%ba%90%ec%8b%b1%ec%9d%b4%eb%9e%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     캐싱이란?
 &lt;/h2&gt;&lt;p&gt;캐싱은 데이터나 계산 결과를 임시 저장소에 저장하는 프로세스를 말한다. 이는 데이터나 계산 결과를 나중에 빠르게 검색하거나 재사용할 수 있게 해준다.&lt;br&gt;
@@ -111,12 +111,12 @@ READ를 제외한 CUD함수마다 코드를 중복하여 작성하고 싶지 않
 </description>
         </item>
         <item>
-        <title>API 성능을 개선해보자 : N&#43;1문제</title>
+        <title>[Django] API 성능을 개선해보자 : N&#43;1문제</title>
         <link>http://localhost:1313/article/django-api-improvement-nplus1/</link>
         <pubDate>Thu, 15 Feb 2024 00:00:00 +0900</pubDate>
         
         <guid>http://localhost:1313/article/django-api-improvement-nplus1/</guid>
-        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post API 성능을 개선해보자 : N&#43;1문제" /&gt;&lt;h2 id=&#34;n1-문제란&#34;&gt;
+        <description>&lt;img src="http://localhost:1313/cover/django.png" alt="Featured image of post [Django] API 성능을 개선해보자 : N&#43;1문제" /&gt;&lt;h2 id=&#34;n1-문제란&#34;&gt;
     &lt;a href=&#34;#n1-%eb%ac%b8%ec%a0%9c%eb%9e%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     N+1 문제란?
 &lt;/h2&gt;&lt;p&gt;N+1 문제는 데이터베이스 쿼리를 처리하는 동안 발생할 수 있는 성능 문제 중 하나다.&lt;/p&gt;
