@@ -13,8 +13,21 @@ categories: Languages/Java
 
 객체 지향의 시초가 된 논문 [Record Handing - C. A. R. Hoare](https://archive.computerhistory.org/resources/text/Knuth_Don_X4100/PDF_index/k-9-pdf/k-9-u2293-Record-Handling-Hoare.pdf)에서 null에 대해 다음과 같이 정의했습니다.
 
-> 두 객체가 서로 참조 관계에 있을 때, 한 객체가 다른 객체를 참조할 일이 없는 경우\
-> (2.2 Partial Functional Relationships p.9 참고)
+> 두 객체가 서로 참조 관계에 있을 때, 한 객체가 다른 객체를 참조할 일이 없는 경우
+
+For a partial functional relationship, there may be an x for which there is no y appropriately related to it.\
+부분적인 함수적 관계의 경우, 어떤 x에 대해 그와 적절하게 관련된 y가 없을 수 있습니다.
+
+All the relationships introduced above for persons are in fact partial, since there will be persons who have no offspring, and persons who have no elder brother or sister; and in any finite collection of persons, there must be at least one who has no father.\
+위에서 소개된 모든 인간 관계는 사실 부분적인 것입니다. 왜냐하면 후손이 없는 사람들이나 형제가 없는 사람들이 있기 때문입니다. 그리고 어떤 유한한 인간 집합에서도 적어도 한 명의 아버지가 없는 사람이 있을 겁니다.
+
+In order to meet this problem, a special null value is provided for reference variables and fields.\
+이 문제를 해결하기 위해, 참조 변수와 필드를 위해 특별한 널(null) 값이 제공됩니다.
+
+If a field of a record is given this value, it usually indicates that the functional relationship represented by that field is not defined (or not yet defined) for that record; and that it is therefore a partial rather than total functional relationship.\
+만약 레코드의 필드가 이 값으로 설정된다면, 보통은 해당 필드에 의해 표현된 함수적 관계가 해당 레코드에 대해 정의되지 않았음(또는 아직 정의되지 않았음)을 나타내며, 따라서 부분적이고 전체적이 아닌 함수적 관계임을 의미합니다.
+
+(2.2 Partial Functional Relationships p.9 참고)
 
 이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.
 
@@ -29,7 +42,7 @@ categories: Languages/Java
   - null이라는 값이 있음
 - 모든 참조의 기본값이 null이며, null이 가능함.
 
-조사에 따르면, 1000여개의 어플리케이션의 소프트웨어 결함이 Native Crash(161)를 제외하면 nullPointer Exception이 많았다고 합니다(149).
+조사에 따르면, 1000여개의 어플리케이션의 소프트웨어 결함이 Native Crash(161)를 제외하면 nullPointer Exception(149)이 많았다고 합니다.
 
 따라서 null을 안전하게 다루는 것이 중요합니다.
 
