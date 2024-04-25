@@ -13,7 +13,7 @@ categories: Languages/Java
 
 객체 지향의 시초가 된 논문 [Record Handing - C. A. R. Hoare](https://archive.computerhistory.org/resources/text/Knuth_Don_X4100/PDF_index/k-9-pdf/k-9-u2293-Record-Handling-Hoare.pdf)에서 null에 대해 다음과 같이 정의했습니다.
 
-> 두 객체가 서로 참조 관계에 있을 때, 한 객체가 다른 객체를 참조할 일이 없는 경우
+> 두 객체가 서로 참조 관계에 있을 때, 한 객체가 다른 객체를 참조할 일이 없는 경우\
 > (2.2 Partial Functional Relationships p.9 참고)
 
 이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.
