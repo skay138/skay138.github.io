@@ -3,7 +3,7 @@ title: "record 키워드"
 description: record 정리 및 Lombok과의 비교
 slug: record-keyword
 date: 2024-03-12 00:00:01+0900
-image: cover.png
+image: /cover/java.png
 categories:
   - Languages/Java
 tags:
