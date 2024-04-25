@@ -6,7 +6,288 @@
         <description>Recent content on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Thu, 11 Apr 2024 08:03:19 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 25 Apr 2024 04:03:19 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>자바(Spring)에서 null 핸들링하기</title>
+        <link>http://localhost:1313/article/null-in-java/</link>
+        <pubDate>Thu, 25 Apr 2024 04:03:19 +0000</pubDate>
+        
+        <guid>http://localhost:1313/article/null-in-java/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/java.png" alt="Featured image of post 자바(Spring)에서 null 핸들링하기" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/vX3yY_36Sk4?si=XzxyrYHKkP98xft3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철)&lt;/a&gt; 영상을 시청하며 정리한 글입니다.&lt;/p&gt;
+&lt;h2 id=&#34;null에-대해서&#34;&gt;
+    &lt;a href=&#34;#null%ec%97%90-%eb%8c%80%ed%95%b4%ec%84%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    null에 대해서
+&lt;/h2&gt;&lt;p&gt;객체 지향의 시초가 된 논문 &lt;a class=&#34;link&#34; href=&#34;https://archive.computerhistory.org/resources/text/Knuth_Don_X4100/PDF_index/k-9-pdf/k-9-u2293-Record-Handling-Hoare.pdf&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Record Handing - C. A. R. Hoare&lt;/a&gt;에서 null에 대해 다음과 같이 정의했습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;두 객체가 서로 참조 관계에 있을 때, 한 객체가 다른 객체를 참조할 일이 없는 경우
+(2.2 Partial Functional Relationships p.9 참고)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.&lt;/p&gt;
+&lt;p&gt;하지만 이로 인해 모든 레퍼런스는 값이 있거나 null인 상황이 되어버리며, 프로그래머가 null을 항상 체크해야하는 번거로움이 생겼습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Java에서의 null&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;의미가 모호하다.
+&lt;ul&gt;
+&lt;li&gt;초기화되지 않음&lt;/li&gt;
+&lt;li&gt;정의되지 않음&lt;/li&gt;
+&lt;li&gt;값이 없음&lt;/li&gt;
+&lt;li&gt;null이라는 값이 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;모든 참조의 기본값이 null이며, null이 가능함.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;조사에 따르면, 1000여개의 어플리케이션의 소프트웨어 결함이 Native Crash(161)를 제외하면 nullPointer Exception이 많았다고 합니다(149).&lt;/p&gt;
+&lt;p&gt;따라서 null을 안전하게 다루는 것이 중요합니다.&lt;/p&gt;
+&lt;h2 id=&#34;null을-안전하게-다루는-방법&#34;&gt;
+    &lt;a href=&#34;#null%ec%9d%84-%ec%95%88%ec%a0%84%ed%95%98%ea%b2%8c-%eb%8b%a4%eb%a3%a8%eb%8a%94-%eb%b0%a9%eb%b2%95&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    null을 안전하게 다루는 방법
+&lt;/h2&gt;&lt;p&gt;어떻게 프로그래밍을 하는 게 좋을지에 대한 원칙과 가이드(중요)&lt;/p&gt;
+&lt;h3 id=&#34;단정문assertion&#34;&gt;
+    &lt;a href=&#34;#%eb%8b%a8%ec%a0%95%eb%ac%b8assertion&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    단정문(assertion)
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;assert 식1 ;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;assert 식1 : 식2;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;부울식인 식1이 거짓이면 AssertionError 발생&lt;/li&gt;
+&lt;li&gt;식2는 AssertionError에 포함될 상세 정보를 만드는 생성식&lt;/li&gt;
+&lt;li&gt;-enableassertions 또는 -ea 옵션으로 활성화&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;setRefreshInterval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;assert&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interval&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interval&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MAX_REFRESH_RATE&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;interval&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 이어서 작성&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;단, 공개 메서드에는 사용하지 말아야 함.&lt;br&gt;
+기본이 disable이기에 사용자를 알 수 없는 API등에서는 사용하면 안됨(운영에서 무시됨)&lt;/p&gt;
+&lt;h3 id=&#34;javautilobjects&#34;&gt;
+    &lt;a href=&#34;#javautilobjects&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    java.util.Objects
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Java 8&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- isnull(Object obj)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- nonnull(Object obj)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- requireNonnull(T obj)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- requireNonnull(T obj, String message)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- requireNonnull(T obj, Supplier&amp;lt;String&amp;gt; messageSupplier)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Java 9&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requireNonnullElse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;defaultObj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;requireNonnullElseGet&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;obj&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Supplier&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;extends&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Supplier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;javautiloptional&#34;&gt;
+    &lt;a href=&#34;#javautiloptional&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    java.util.Optional
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=Ej0sss6cq14&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Optional - The Mother of All Bikesheds: Stuart Marks&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Rule #1: Never, ever, use null for an Optional variable or return value.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;절대로 Optional 변수와 &lt;strong&gt;반환값에 null을 사용하지 말라&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Rule #2: Never use Optional.get() unless you can prove that the Optional is present.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Optional에 값이 들어 있다는 걸 확신하지 않는한 Optional.get()을 쓰지 말라.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Rule #3: Prefer alternatives to Optional.isPresent() and Optional.get().&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Optional.isPresent()이나 Optional.get()외 API를 가능한 사용하라.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Rule #4: It&amp;rsquo;s generally a bad idea to create an Optional for the specific purpose of chaining methods from it to get a value.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Optional에서 여러 메서드를 연속해서 호출하고 값을 얻기 위해 Optional을 생성하는 건 권장하지 않는다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Rule #5: If an Optional chain is nested or has an intermediate result of Optional&amp;lt;Optional&lt;T&gt;&amp;gt;, it&amp;rsquo;s probably too complex.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Rule #6: Avoid using Optional in fields, method parameters, and collections.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;Optional을 &lt;strong&gt;필드, 메서드 매개변수, 집합 자료형에 쓰지 말라&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Rule #7: Avoid using identity-sensitive operations on Optionals.&lt;/strong&gt;&lt;/p&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;집합 자료형(List, Set, Map)을 감싸는 데 Optional을 쓰지 말고 빈 집합을 사용하라.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에 주의하자.&lt;/p&gt;
+&lt;h3 id=&#34;null-잘-쓰는-법&#34;&gt;
+    &lt;a href=&#34;#null-%ec%9e%98-%ec%93%b0%eb%8a%94-%eb%b2%95&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    null 잘 쓰는 법
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;API(매개변수, 반환값)에 null을 최대한 쓰지 말아라.
+&lt;ul&gt;
+&lt;li&gt;반환값은 Optional, null 객체, 빈값, 예외로 처리&lt;/li&gt;
+&lt;li&gt;매개변수는 명확한 메서드 추가 정의&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;사전 조건과 사후 조건을 확인하라: 계약에 의한 설계(design by contract)
+&lt;ul&gt;
+&lt;li&gt;보호절을 통한 사전 조건 확인, 다양한 편의 객체 활용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;(상태와 같이) null의 범위를 지역(클래스, 메서드)에 제한하라.&lt;/li&gt;
+&lt;li&gt;초기화를 명확히 하라.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;null 잘 쓰는 법 1: API에 null을 최대한 쓰지 말아라&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;null로 지나치게 유연한 메서드를 만들지 말고 &lt;strong&gt;명시적인 메서드&lt;/strong&gt;를 만들어라&lt;/li&gt;
+&lt;li&gt;null을 반환하지 말라
+&lt;ul&gt;
+&lt;li&gt;반환 값이 꼭 있어야 한다면 null을 반환하지 말고 &lt;strong&gt;예외&lt;/strong&gt;를 던져라&lt;/li&gt;
+&lt;li&gt;빈 반환 값은 빈 컬렉션이나 &lt;strong&gt;&amp;ldquo;null 객체&amp;quot;를 활용&lt;/strong&gt;하라&lt;/li&gt;
+&lt;li&gt;반환 값이 없을 수도 있다면 &lt;strong&gt;Optional을 반환&lt;/strong&gt;하라&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;선택적 매개변수는 null 대신 &lt;strong&gt;다형성(메서드 추가 정의; overload)을 사용&lt;/strong&gt;해서 표현하라&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;null 잘 쓰는 법 2: 계약에 의한 설계(Design by Contract)&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When quality is pursued, productivity follows - K. Fujino&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/null-in-java/design-by-contract.png&#34;
+	width=&#34;1813&#34;
+	height=&#34;725&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;출처:스프링캠프 2019&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;250&#34;
+		data-flex-basis=&#34;600px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;API 규약을 소비자와 제공자 사이에 지켜야 할 엄격한 계약으로 여기는 설계 방법&lt;/li&gt;
+&lt;li&gt;형식적 규약 외에 &lt;strong&gt;사전 조건&lt;/strong&gt;과 &lt;strong&gt;사후 조건&lt;/strong&gt;과 &lt;strong&gt;유지 조건&lt;/strong&gt;을 포함&lt;/li&gt;
+&lt;li&gt;베르트랑 마이어(Bertrand Meyer) - 에펠(Eiffel) 프로그래밍 언어 제작&lt;/li&gt;
+&lt;li&gt;개방-폐쇄 원칙의 상위 개념&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;개방-폐쇄 원칙이란 소프트웨어 구성 요소(컴포넌트, 클래스, 모듈, 함수)는 확장에 대해서 개방되어야 하지만, 변경에 대해서는 폐쇄되어야 한다는 의미이다. 즉, 변하는 것은 변하기 쉽게, 변하지 않는 것은 변하는 것에 영향을 받지 않게 설계하는 것을 의미&lt;/p&gt;
+&lt;p&gt;요약하면, null이 아니여야하는데 null이 들어오는 경우를 확인해야 한다는 겁니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;null 잘 쓰는 법 3: null의 범위를 지역에 제한하라&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OOP to me means only messaging, local retention and protection and hiding of state-process, and extreme late-binding of all things. - Alan Kay&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;기본 문제 해결 원칙: 큰 문제는 제어 가능한 작은 문제로 나누어 정복하고 다시 통합한다.&lt;/li&gt;
+&lt;li&gt;상태도 비슷하게 null도 지역적으로 제한할 경우 큰 문제가 안된다.&lt;/li&gt;
+&lt;li&gt;클래스와 메서드를 작게 만들어라.&lt;/li&gt;
+&lt;li&gt;설계가 잘 된 코드에서는 null의 위험도 약해진다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;상태를 클래스와 메서드 안에서만 핸들링하고 다른 곳에서 side effect가 없다면 품질문제가 일어날 확률은 낮습니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;null 잘 쓰는 법 4: 초기화를 명확히 하라&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;초기화 시점과 실행 시점이 겹치지 않아야 한다.&lt;/li&gt;
+&lt;li&gt;실행 시점엔 초기화되지 않은 필드가 없어야 한다.&lt;/li&gt;
+&lt;li&gt;실행 시점에 null인 필드는 초기화되지 않았따는 의미가 아닌, &lt;strong&gt;값이 없다는 의미&lt;/strong&gt;여야 한다.&lt;/li&gt;
+&lt;li&gt;객체 필드의 생명주기는 모두 &lt;strong&gt;객체의 생명주기와 같아야&lt;/strong&gt; 한다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;지연 초기화(lazy initialization)&lt;/strong&gt; 필드의 경우 &lt;strong&gt;팩토리 메서드&lt;/strong&gt;로 null 처리를 캡슐화 하라.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;null이-안전하다고-보장해주는-도구&#34;&gt;
+    &lt;a href=&#34;#null%ec%9d%b4-%ec%95%88%ec%a0%84%ed%95%98%eb%8b%a4%ea%b3%a0-%eb%b3%b4%ec%9e%a5%ed%95%b4%ec%a3%bc%eb%8a%94-%eb%8f%84%ea%b5%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    null이 안전하다고 보장해주는 도구
+&lt;/h2&gt;&lt;h3 id=&#34;checkerframework&#34;&gt;
+    &lt;a href=&#34;#checkerframework&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    CheckerFramework
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;null 안정성 확인
+@nullable, @Nonnull, @Polynull&lt;/li&gt;
+&lt;li&gt;Map 키, 잠금, 순차 자료형(배열, 리스트 등) 색인값, 정규식, 문자열 형식, 단위 등 다수 확인 기능 제공&lt;/li&gt;
+&lt;li&gt;자작 확인 기능 추가 가능&lt;/li&gt;
+&lt;li&gt;특정 환경이나 IDE 독립적&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;기본-null-정책&#34;&gt;
+    &lt;a href=&#34;#%ea%b8%b0%eb%b3%b8-null-%ec%a0%95%ec%b1%85&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    기본 null 정책
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;과도한 어노테이션 사용 예방&lt;/li&gt;
+&lt;li&gt;기본 @Nonnull(필드, 매개변수, 반환값 등)&lt;/li&gt;
+&lt;li&gt;예외적 @nullable(지역 변수, 타입 캐스트 등)&lt;/li&gt;
+&lt;li&gt;패키지, 클래스 수준 정책 설정 @DefaultQualifier&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;예시 코드&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Nullable&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zipcode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;city&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;final&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;country&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;Address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Nullable&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zipcode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;city&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;country&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 이어서 작성&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Address&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zipcode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;city&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;country&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;address1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zipcode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;city&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;country&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;   &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Spring 파일 업로드와 다운로드</title>
         <link>http://localhost:1313/article/sping-file-upload-download/</link>
         <pubDate>Thu, 11 Apr 2024 08:03:19 +0000</pubDate>
@@ -601,7 +882,7 @@ Direct Buffer는 JVM 힙 메모리 외부에 위치하므로, 데이터 복사 �
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;@Override&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;addResourceHandlers&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ResourceHandlerRegistry&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;addResourceHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/files/**&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;addResourceLocations&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;file:///your/path/location&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;addResourceLocations&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;file:///your/path/location&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
@@ -639,6 +920,21 @@ Direct Buffer는 JVM 힙 메모리 외부에 위치하므로, 데이터 복사 �
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;파일 리소스의 경로와 URL 경로를 맵핑하여 파일에 접근할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/sping-file-upload-download/file_download.png&#34;
+	width=&#34;1916&#34;
+	height=&#34;1026&#34;
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;테스트&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;186&#34;
+		data-flex-basis=&#34;448px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;경로를 통해 정상적으로 다운로드가 가능한 것을 확인했습니다.&lt;/p&gt;
 &lt;h2 id=&#34;파일-삭제&#34;&gt;
     &lt;a href=&#34;#%ed%8c%8c%ec%9d%bc-%ec%82%ad%ec%a0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     파일 삭제
@@ -4270,7 +4566,7 @@ Spring은 API에 접근하기 위해 &lt;code&gt;RestTemplate&lt;/code&gt;를 �
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
         <guid>http://localhost:1313/article/record-keyword/</guid>
-        <description>&lt;img src="http://localhost:1313/article/record-keyword/cover.png" alt="Featured image of post record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;
+        <description>&lt;img src="http://localhost:1313/cover/java.png" alt="Featured image of post record 키워드" /&gt;&lt;h2 id=&#34;record&#34;&gt;
     &lt;a href=&#34;#record&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     record
 &lt;/h2&gt;&lt;p&gt;JDK 14에서 추가된 키워드로, 타입과 필드 이름만 필요로 하는 불변 데이터 클래스이다.&lt;/p&gt;

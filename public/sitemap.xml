@@ -73,16 +73,16 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-04-11T08:03:19+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2024-04-11T08:03:19+00:00</lastmod>
+    <lastmod>2024-04-25T08:03:19+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
+    <lastmod>2024-04-25T08:03:19+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-04-11T08:03:19+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

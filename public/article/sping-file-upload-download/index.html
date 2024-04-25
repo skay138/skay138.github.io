@@ -30,6 +30,9 @@
     <meta name="twitter:image" content='http://localhost:1313/cover/springboot.png' />
     <link rel="shortcut icon" href="/favicon.png" />
 
+  
+
+
 </head>
 
 <body class="
@@ -987,7 +990,7 @@ Direct Buffer는 JVM 힙 메모리 외부에 위치하므로, 데이터 복사 �
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addResourceHandlers</span><span class="p">(</span><span class="n">ResourceHandlerRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">addResourceHandler</span><span class="p">(</span><span class="s">&#34;/files/**&#34;</span><span class="p">)</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">addResourceLocations</span><span class="p">(</span><span class="s">&#34;file:///your/path/location&#34;</span><span class="p">)</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">addResourceLocations</span><span class="p">(</span><span class="s">&#34;file:///your/path/location&#34;</span><span class="p">);</span><span class="w">      
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
@@ -1025,6 +1028,21 @@ Direct Buffer는 JVM 힙 메모리 외부에 위치하므로, 데이터 복사 �
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>파일 리소스의 경로와 URL 경로를 맵핑하여 파일에 접근할 수 있습니다.</p>
+<p><img src="/article/sping-file-upload-download/file_download.png"
+	width="1916"
+	height="1026"
+	
+	loading="lazy"
+	
+		alt="테스트"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="186"
+		data-flex-basis="448px"
+	
+></p>
+<p>경로를 통해 정상적으로 다운로드가 가능한 것을 확인했습니다.</p>
 <h2 id="파일-삭제">
     <a href="#%ed%8c%8c%ec%9d%bc-%ec%82%ad%ec%a0%9c" class="header-anchor">#</a>
     파일 삭제
@@ -1121,19 +1139,7 @@ Direct Buffer는 JVM 힙 메모리 외부에 위치하므로, 데이터 복사 �
 
         <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
-    <section class="article-lastmod">
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="12" cy="12" r="9" />
-  <polyline points="12 7 12 12 15 15" />
-</svg>
-
-
-
-        <span>
-            마지막 수정:  Apr 11, 2024 08:03 UTC
-        </span>
-    </section></footer>
+    </footer>
 
 
     

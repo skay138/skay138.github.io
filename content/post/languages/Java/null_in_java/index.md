@@ -1,9 +1,9 @@
 ---
 image: cover/java.png
-title: 자바에서 null을 안전히 다루는 방법
+title: 자바(Spring)에서 null 핸들링하기
 slug: null-in-java
-description: "[스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철) 리뷰"
-date: 2024-04-25T08:03:19.544Z
+description: "스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철) 리뷰"
+date: 2024-04-25T04:03:19.544Z
 categories: Languages/Java
 ---
 
@@ -82,20 +82,33 @@ private void setRefreshInterval(int interval)
 
 [Optional - The Mother of All Bikesheds: Stuart Marks](https://www.youtube.com/watch?v=Ej0sss6cq14)
 
+**Rule #1: Never, ever, use null for an Optional variable or return value.**
+
 1. 절대로 Optional 변수와 **반환값에 null을 사용하지 말라**.
-   > Never, ever, use null for an Optional variable or return value.
+
+**Rule #2: Never use Optional.get() unless you can prove that the Optional is present.**
+
 2. Optional에 값이 들어 있다는 걸 확신하지 않는한 Optional.get()을 쓰지 말라.
-   > Never use Optional.get() unless you can prove that the Optional is present.
+
+**Rule #3: Prefer alternatives to Optional.isPresent() and Optional.get().**
+
 3. Optional.isPresent()이나 Optional.get()외 API를 가능한 사용하라.
-   > Prefer alternatives to Optional.isPresent() and Optional.get().
+
+**Rule #4: It's generally a bad idea to create an Optional for the specific purpose of chaining methods from it to get a value.**
+
 4. Optional에서 여러 메서드를 연속해서 호출하고 값을 얻기 위해 Optional을 생성하는 건 권장하지 않는다.
-   > It's generally a bad idea to create an Optional for the specific purpose of chaining methods from it to get a value.
+
+**Rule #5: If an Optional chain is nested or has an intermediate result of Optional<Optional<T>>, it's probably too complex.**
+
 5. Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.
-   > If an Optional chain is nested or has an intermediate result of Optional<Optional<T>>, it's probably too complex.
+
+**Rule #6: Avoid using Optional in fields, method parameters, and collections.**
+
 6. Optional을 **필드, 메서드 매개변수, 집합 자료형에 쓰지 말라**.
-   > Avoid using Optional in fields, method parameters, and collections.
+
+**Rule #7: Avoid using identity-sensitive operations on Optionals.**
+
 7. 집합 자료형(List, Set, Map)을 감싸는 데 Optional을 쓰지 말고 빈 집합을 사용하라.
-   > Avoid using identity-sensitive operations on Optionals.
 
 Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에 주의하자.
 
@@ -178,3 +191,24 @@ Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에
 - 기본 @Nonnull(필드, 매개변수, 반환값 등)
 - 예외적 @nullable(지역 변수, 타입 캐스트 등)
 - 패키지, 클래스 수준 정책 설정 @DefaultQualifier
+
+예시 코드
+
+```java
+public class Address{
+   public final String address1;
+   public final @Nullable String address2;
+   public final String zipcode;
+   public final String city;
+   public final String country;
+
+   private Address(String address1, @Nullable String address2, String zipcode, String city, String country){
+      // 이어서 작성
+   }
+
+   public static Address of(String address1, String zipcode, String city, String country){
+      return new Address(address1, null, zipcode, city, country);
+   }
+
+}
+```
