@@ -7,7 +7,7 @@ date: 2024-04-25T04:03:19.544Z
 categories: Languages/Java
 ---
 
-[스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철)](https://youtu.be/vX3yY_36Sk4?si=XzxyrYHKkP98xft3) 영상을 시청하며 정리한 글입니다.
+[스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철)](https://youtu.be/vX3yY_36Sk4?si=XzxyrYHKkP98xft3) 영상을 정리한 글입니다.
 
 ## null에 대해서
 
@@ -92,7 +92,7 @@ private void setRefreshInterval(int interval)
 
 ### java.util.Optional⭐
 
-[Optional - The Mother of All Bikesheds: Stuart Marks](https://www.youtube.com/watch?v=Ej0sss6cq14) 영상을 시청하며 정리한 내용입니다.
+[Optional - The Mother of All Bikesheds: Stuart Marks](https://www.youtube.com/watch?v=Ej0sss6cq14) 영상을 정리한 내용입니다.
 
 **Rule #1: Never, ever, use null for an Optional variable or return value.**
 
@@ -295,7 +295,7 @@ Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에
 
 - 과도한 어노테이션 사용 예방
 - 기본 @Nonnull(필드, 매개변수, 반환값 등)
-- 예외적 @nullable(지역 변수, 타입 캐스트 등)
+- 예외적 @Nullable(지역 변수, 타입 캐스트 등)
 - 패키지, 클래스 수준 정책 설정 @DefaultQualifier
 
 예시 코드
