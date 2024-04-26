@@ -13,7 +13,7 @@
         
         <guid>http://localhost:1313/article/null-in-java/</guid>
         <description>&lt;img src="http://localhost:1313/cover/java.png" alt="Featured image of post 자바(Spring)에서 null 핸들링하기" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youtu.be/vX3yY_36Sk4?si=XzxyrYHKkP98xft3&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철)&lt;/a&gt; 영상을 시청하며 정리한 글입니다.&lt;/p&gt;
+    &gt;스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철)&lt;/a&gt; 영상을 정리한 글입니다.&lt;/p&gt;
 &lt;h2 id=&#34;null에-대해서&#34;&gt;
     &lt;a href=&#34;#null%ec%97%90-%eb%8c%80%ed%95%b4%ec%84%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     null에 대해서
@@ -122,7 +122,7 @@
     &lt;a href=&#34;#javautiloptional&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     java.util.Optional⭐
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=Ej0sss6cq14&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Optional - The Mother of All Bikesheds: Stuart Marks&lt;/a&gt; 영상을 시청하며 정리한 내용입니다.&lt;/p&gt;
+    &gt;Optional - The Mother of All Bikesheds: Stuart Marks&lt;/a&gt; 영상을 정리한 내용입니다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rule #1: Never, ever, use null for an Optional variable or return value.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;절대로 Optional 변수와 &lt;strong&gt;반환값에 null을 사용하지 말라&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rule #2: Never use Optional.get() unless you can prove that the Optional is present.&lt;/strong&gt;&lt;/p&gt;
@@ -416,7 +416,7 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 &lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;과도한 어노테이션 사용 예방&lt;/li&gt;
 &lt;li&gt;기본 @Nonnull(필드, 매개변수, 반환값 등)&lt;/li&gt;
-&lt;li&gt;예외적 @nullable(지역 변수, 타입 캐스트 등)&lt;/li&gt;
+&lt;li&gt;예외적 @Nullable(지역 변수, 타입 캐스트 등)&lt;/li&gt;
 &lt;li&gt;패키지, 클래스 수준 정책 설정 @DefaultQualifier&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;예시 코드&lt;/p&gt;
