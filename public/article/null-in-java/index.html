@@ -384,7 +384,7 @@
 
 
                 <time class="article-time--reading">
-                    6 분 정도
+                    7 분 정도
                 </time>
             </div>
         
@@ -418,8 +418,8 @@
 <p>If a field of a record is given this value, it usually indicates that the functional relationship represented by that field is not defined (or not yet defined) for that record; and that it is therefore a partial rather than total functional relationship.<br>
 만약 레코드의 필드가 이 값으로 설정된다면, 보통은 해당 필드에 의해 표현된 함수적 관계가 해당 레코드에 대해 정의되지 않았음(또는 아직 정의되지 않았음)을 나타내며, 따라서 부분적이고 전체적이 아닌 함수적 관계임을 의미합니다.</p>
 <p>(2.2 Partial Functional Relationships p.9 참고)</p>
-<p>이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.</p>
-<p>하지만 이로 인해 모든 레퍼런스는 값이 있거나 null인 상황이 되어버리며, 프로그래머가 null을 항상 체크해야하는 번거로움이 생겼습니다.</p>
+<p>이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.<br>
+하지만 이로 인해 모든 레퍼런스는 값이 있거나 null인 상황이 되어버리며, 프로그래머가 null을 항상 체크해야하는 번거로움이 생겼습니다.</p>
 <p><strong>Java에서의 null</strong></p>
 <ul>
 <li>의미가 모호하다.
@@ -511,33 +511,198 @@
 </h3><p><a class="link" href="https://www.youtube.com/watch?v=Ej0sss6cq14"  target="_blank" rel="noopener"
     >Optional - The Mother of All Bikesheds: Stuart Marks</a></p>
 <p><strong>Rule #1: Never, ever, use null for an Optional variable or return value.</strong></p>
-<ol>
-<li>절대로 Optional 변수와 <strong>반환값에 null을 사용하지 말라</strong>.</li>
-</ol>
+<p>절대로 Optional 변수와 <strong>반환값에 null을 사용하지 말라</strong>.</p>
 <p><strong>Rule #2: Never use Optional.get() unless you can prove that the Optional is present.</strong></p>
-<ol start="2">
-<li>Optional에 값이 들어 있다는 걸 확신하지 않는한 Optional.get()을 쓰지 말라.</li>
-</ol>
+<p>Optional에 값이 들어 있다는 걸 확신하지 않는한 Optional.get()을 쓰지 말라.<br>
+이는 결국 No Element Exception으로 돌아온다.</p>
 <p><strong>Rule #3: Prefer alternatives to Optional.isPresent() and Optional.get().</strong></p>
-<ol start="3">
-<li>Optional.isPresent()이나 Optional.get()외 API를 가능한 사용하라.</li>
-</ol>
+<p>Optional.isPresent()에서 Optional.get()로 이어지는 코드는 지양하라.<br>
+Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null checking과 똑같다.</p>
+<p>영상에서 소개하는 추천 메서드들은 아래와 같습니다.</p>
+<ul>
+<li>
+<p>orElse(), orElseGet(), orElseThrow()</p>
+</li>
+<li>
+<p>map()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">custList</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="na">getID</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">custID</span><span class="p">).</span><span class="na">findFirst</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// return opt.isPresent() ? opt.get().getName() : &#34;Unknown&#34;;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">return</span><span class="w"> </span><span class="n">opt</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Customer</span><span class="p">::</span><span class="n">getName</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="s">&#34;Unknown&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>filter()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Obj</span><span class="o">&gt;</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">config</span><span class="p">.</span><span class="na">parent</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">config</span><span class="p">.</span><span class="na">parent</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">config</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">config</span><span class="p">()).</span><span class="na">orElseThrow</span><span class="p">(</span><span class="n">Exception</span><span class="p">::</span><span class="k">new</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>ifPresent()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="w"> </span><span class="n">oTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getTask</span><span class="p">(...);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">oTask</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">executor</span><span class="p">.</span><span class="na">runTask</span><span class="p">(</span><span class="n">oTask</span><span class="p">.</span><span class="na">get</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// use:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">getTask</span><span class="p">(...).</span><span class="na">ifPresent</span><span class="p">(</span><span class="n">executor</span><span class="p">::</span><span class="n">runTask</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Stream of Optional</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Java8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">custIDlist</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="n">map</span><span class="p">(</span><span class="n">Customer</span><span class="p">::</span><span class="n">findByID</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">isPresent</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">get</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Java9</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">custIDlist</span><span class="p">.</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Customer</span><span class="p">::</span><span class="n">findByID</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">flatMap</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">stream</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
 <p><strong>Rule #4: It&rsquo;s generally a bad idea to create an Optional for the specific purpose of chaining methods from it to get a value.</strong></p>
-<ol start="4">
-<li>Optional에서 여러 메서드를 연속해서 호출하고 값을 얻기 위해 Optional을 생성하는 건 권장하지 않는다.</li>
-</ol>
+<p>값을 가져오기 위해 Optional을 생성하여 메서드를 연결하는 것은 일반적으로 좋은 방법이 아니다.</p>
+<ul>
+<li>
+<p>Method Chaining</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// BAD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">s</span><span class="p">).</span><span class="na">orElseGet</span><span class="p">(</span><span class="k">this</span><span class="p">::</span><span class="n">getDefault</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// GOOD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">getDefault</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
 <p><strong>Rule #5: If an Optional chain is nested or has an intermediate result of Optional&lt;Optional<T>&gt;, it&rsquo;s probably too complex.</strong></p>
-<ol start="5">
-<li>Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.</li>
-</ol>
+<p>Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.</p>
+<ul>
+<li>
+<p>Avoiding If-Statements is Cool, But&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Optional</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getFirstValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSecondValue</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Add first and second, treating empty as zero, returning as Optional of the sum,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// unless BOTH are empty, in which case return an empty Optional.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Stream</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">isPresent</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">get</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="p">.</span><span class="na">reduce</span><span class="p">(</span><span class="n">BigDecimal</span><span class="p">::</span><span class="n">add</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// clever but...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">first</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">second</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">b</span><span class="p">::</span><span class="n">add</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="n">b</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">of</span><span class="p">).</span><span class="na">orElse</span><span class="p">(</span><span class="n">second</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// Not the shortest, but is it the clearest?</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">BigDecimal</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">first</span><span class="p">.</span><span class="na">isPresent</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">second</span><span class="p">.</span><span class="na">isPresent</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">empty</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">first</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="n">ZERO</span><span class="p">).</span><span class="na">add</span><span class="p">(</span><span class="n">second</span><span class="p">.</span><span class="na">orElse</span><span class="p">(</span><span class="n">ZERO</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
 <p><strong>Rule #6: Avoid using Optional in fields, method parameters, and collections.</strong></p>
-<ol start="6">
-<li>Optional을 <strong>필드, 메서드 매개변수, 집합 자료형에 쓰지 말라</strong>.</li>
-</ol>
+<p>Optional을 <strong>필드, 메서드 매개변수, 집합 자료형에 쓰지 말라</strong>.</p>
 <p><strong>Rule #7: Avoid using identity-sensitive operations on Optionals.</strong></p>
-<ol start="7">
-<li>집합 자료형(List, Set, Map)을 감싸는 데 Optional을 쓰지 말고 빈 집합을 사용하라.</li>
-</ol>
+<p>집합 자료형(List, Set, Map)을 감싸는 데 Optional을 쓰지 말고 빈 집합을 사용하라.</p>
+<hr>
 <p>Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에 주의하자.</p>
 <h3 id="null-잘-쓰는-법">
     <a href="#null-%ec%9e%98-%ec%93%b0%eb%8a%94-%eb%b2%95" class="header-anchor">#</a>

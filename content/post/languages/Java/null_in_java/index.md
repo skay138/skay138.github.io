@@ -29,8 +29,7 @@ If a field of a record is given this value, it usually indicates that the functi
 
 (2.2 Partial Functional Relationships p.9 참고)
 
-이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.
-
+이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.\
 하지만 이로 인해 모든 레퍼런스는 값이 있거나 null인 상황이 되어버리며, 프로그래머가 null을 항상 체크해야하는 번거로움이 생겼습니다.
 
 **Java에서의 null**
@@ -97,31 +96,125 @@ private void setRefreshInterval(int interval)
 
 **Rule #1: Never, ever, use null for an Optional variable or return value.**
 
-1. 절대로 Optional 변수와 **반환값에 null을 사용하지 말라**.
+절대로 Optional 변수와 **반환값에 null을 사용하지 말라**.
 
 **Rule #2: Never use Optional.get() unless you can prove that the Optional is present.**
 
-2. Optional에 값이 들어 있다는 걸 확신하지 않는한 Optional.get()을 쓰지 말라.
+Optional에 값이 들어 있다는 걸 확신하지 않는한 Optional.get()을 쓰지 말라.\
+이는 결국 No Element Exception으로 돌아온다.
 
 **Rule #3: Prefer alternatives to Optional.isPresent() and Optional.get().**
 
-3. Optional.isPresent()이나 Optional.get()외 API를 가능한 사용하라.
+Optional.isPresent()에서 Optional.get()로 이어지는 코드는 지양하라.\
+Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null checking과 똑같다.
+
+영상에서 소개하는 추천 메서드들은 아래와 같습니다.
+
+- orElse(), orElseGet(), orElseThrow()
+
+- map()
+
+  ```java
+  Optional<Customer> opt = custList.stream().filter(c -> c.getID() == custID).findFirst();
+  // return opt.isPresent() ? opt.get().getName() : "Unknown";
+  return opt.map(Customer::getName).orElse("Unknown");
+  ```
+
+- filter()
+
+  ```java
+  Optional<Obj> obj = config.parent();
+  config.parent().filter(config -> config == this.config()).orElseThrow(Exception::new);
+  ```
+
+- ifPresent()
+
+  ```java
+  Optional<Task> oTask = getTask(...);
+  if (oTask.isPresent()){
+  executor.runTask(oTask.get());
+  }
+
+  // use:
+  getTask(...).ifPresent(executor::runTask);
+  ```
+
+- Stream of Optional
+
+  ```java
+  // Java8
+  List<Customer> list1 = custIDlist.stream().
+                map(Customer::findByID)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .collect(Collectors.toList());
+
+  // Java9
+  List<Customer> list = custIDlist.stream()
+          .map(Customer::findByID)
+          .flatMap(Optional::stream)
+          .collect(Collectors.toList());
+  ```
 
 **Rule #4: It's generally a bad idea to create an Optional for the specific purpose of chaining methods from it to get a value.**
 
-4. Optional에서 여러 메서드를 연속해서 호출하고 값을 얻기 위해 Optional을 생성하는 건 권장하지 않는다.
+값을 가져오기 위해 Optional을 생성하여 메서드를 연결하는 것은 일반적으로 좋은 방법이 아니다.
+
+- Method Chaining
+
+  ```java
+  // BAD
+  String process(String s) {
+    return Optional.ofNullable(s).orElseGet(this::getDefault);
+  }
+
+  // GOOD
+  String process(String s) {
+    return (s != null) ? s : getDefault();
+  }
+  ```
 
 **Rule #5: If an Optional chain is nested or has an intermediate result of Optional<Optional<T>>, it's probably too complex.**
 
-5. Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.
+Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.
+
+- Avoiding If-Statements is Cool, But...
+
+  ```java
+  Optional<BigDecimal> first = getFirstValue();
+  Optional<BigDecimal> second = getSecondValue();
+
+  // Add first and second, treating empty as zero, returning as Optional of the sum,
+  // unless BOTH are empty, in which case return an empty Optional.
+
+  Optional<BigDecimal> result = Stream.of(first, second)
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .reduce(BigDecimal::add);
+
+  // clever but...
+  Optional<BigDecimal> results = first.map(b -> second.map(b::add).orElse(b))
+            .map(Optional::of).orElse(second);
+
+  // Not the shortest, but is it the clearest?
+  Optional<BigDecimal> result;
+
+  if(!first.isPresent() && !second.isPresent()) {
+      result = Optional.empty();
+  } else {
+      result = Optional.of(first.orElse(ZERO).add(second.orElse(ZERO)));
+  }
+  ```
 
 **Rule #6: Avoid using Optional in fields, method parameters, and collections.**
 
-6. Optional을 **필드, 메서드 매개변수, 집합 자료형에 쓰지 말라**.
+Optional을 **필드, 메서드 매개변수, 집합 자료형에 쓰지 말라**.
 
 **Rule #7: Avoid using identity-sensitive operations on Optionals.**
 
-7. 집합 자료형(List, Set, Map)을 감싸는 데 Optional을 쓰지 말고 빈 집합을 사용하라.
+집합 자료형(List, Set, Map)을 감싸는 데 Optional을 쓰지 말고 빈 집합을 사용하라.
+
+---
 
 Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에 주의하자.
 
