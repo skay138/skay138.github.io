@@ -6,7 +6,7 @@ description: MultipartFile과 HttpServletRequest를 이용하여 파일을 업�
 date: 2024-04-11T08:03:19.544Z
 categories: Backend Studies/Spring Boot
 tags:
-    - java NIO
+    - Java NIO
     - Java I/O
 ---
 
