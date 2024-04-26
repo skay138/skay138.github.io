@@ -31,8 +31,8 @@
 &lt;p&gt;If a field of a record is given this value, it usually indicates that the functional relationship represented by that field is not defined (or not yet defined) for that record; and that it is therefore a partial rather than total functional relationship.&lt;br&gt;
 만약 레코드의 필드가 이 값으로 설정된다면, 보통은 해당 필드에 의해 표현된 함수적 관계가 해당 레코드에 대해 정의되지 않았음(또는 아직 정의되지 않았음)을 나타내며, 따라서 부분적이고 전체적이 아닌 함수적 관계임을 의미합니다.&lt;/p&gt;
 &lt;p&gt;(2.2 Partial Functional Relationships p.9 참고)&lt;/p&gt;
-&lt;p&gt;이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.&lt;/p&gt;
-&lt;p&gt;하지만 이로 인해 모든 레퍼런스는 값이 있거나 null인 상황이 되어버리며, 프로그래머가 null을 항상 체크해야하는 번거로움이 생겼습니다.&lt;/p&gt;
+&lt;p&gt;이는 객체지향 언어에서 특별한 값이 없음을 나타내기 위해 도입했고 이 값을 사용하려고 할 때 오류를 내도록 설계된 것입니다.&lt;br&gt;
+하지만 이로 인해 모든 레퍼런스는 값이 있거나 null인 상황이 되어버리며, 프로그래머가 null을 항상 체크해야하는 번거로움이 생겼습니다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Java에서의 null&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;의미가 모호하다.
@@ -129,7 +129,7 @@
 &lt;p&gt;Optional에 값이 들어 있다는 걸 확신하지 않는한 Optional.get()을 쓰지 말라.&lt;br&gt;
 이는 결국 No Element Exception으로 돌아온다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rule #3: Prefer alternatives to Optional.isPresent() and Optional.get().&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Optional.isPresent()와 Optional.get()이외의 API를 가능한 사용하라.&lt;br&gt;
+&lt;p&gt;Optional.isPresent()에서 Optional.get()로 이어지는 코드는 지양하라.&lt;br&gt;
 Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null checking과 똑같다.&lt;/p&gt;
 &lt;p&gt;영상에서 소개하는 추천 메서드들은 아래와 같습니다.&lt;/p&gt;
 &lt;ul&gt;
@@ -253,6 +253,7 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Rule #5: If an Optional chain is nested or has an intermediate result of Optional&amp;lt;Optional&lt;T&gt;&amp;gt;, it&amp;rsquo;s probably too complex.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Avoiding If-Statements is Cool, But&amp;hellip;&lt;/p&gt;
@@ -310,7 +311,6 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 &lt;/div&gt;
 &lt;/div&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Optional로 값을 처리하는 중에 그 안에 중간값을 처리하기 위해 또 다른 Optional이 사용되면 너무 복잡해진다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rule #6: Avoid using Optional in fields, method parameters, and collections.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Optional을 &lt;strong&gt;필드, 메서드 매개변수, 집합 자료형에 쓰지 말라&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Rule #7: Avoid using identity-sensitive operations on Optionals.&lt;/strong&gt;&lt;/p&gt;
@@ -392,7 +392,7 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 &lt;ul&gt;
 &lt;li&gt;초기화 시점과 실행 시점이 겹치지 않아야 한다.&lt;/li&gt;
 &lt;li&gt;실행 시점엔 초기화되지 않은 필드가 없어야 한다.&lt;/li&gt;
-&lt;li&gt;실행 시점에 null인 필드는 초기화되지 않았따는 의미가 아닌, &lt;strong&gt;값이 없다는 의미&lt;/strong&gt;여야 한다.&lt;/li&gt;
+&lt;li&gt;실행 시점에 null인 필드는 초기화되지 않았다는 의미가 아닌, &lt;strong&gt;값이 없다는 의미&lt;/strong&gt;여야 한다.&lt;/li&gt;
 &lt;li&gt;객체 필드의 생명주기는 모두 &lt;strong&gt;객체의 생명주기와 같아야&lt;/strong&gt; 한다.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;지연 초기화(lazy initialization)&lt;/strong&gt; 필드의 경우 &lt;strong&gt;팩토리 메서드&lt;/strong&gt;로 null 처리를 캡슐화 하라.&lt;/li&gt;
 &lt;/ul&gt;
@@ -458,7 +458,20 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h2 id=&#34;기타&#34;&gt;
+    &lt;a href=&#34;#%ea%b8%b0%ed%83%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    기타
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Spring에서 Optional은 주로 데이터 엑세스(데이터베이스 등)이나 비즈니스 로직 처리에서 사용합니다.&lt;/li&gt;
+&lt;li&gt;Spring에서 Nullchecking과 빈 값을 동시에 체크하고 싶다면
+&lt;ol&gt;
+&lt;li&gt;StringUtils.hasLength(): Null check &amp;amp; &amp;quot;&amp;rdquo; check&lt;/li&gt;
+&lt;li&gt;StringUtils.hasText(): 공백(스페이스)까지 check
+를 이용할 수 있습니다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
         </item>
         <item>
         <title>Spring 파일 업로드와 다운로드</title>

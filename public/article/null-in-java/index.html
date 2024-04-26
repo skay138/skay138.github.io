@@ -295,7 +295,7 @@
       <ol>
         <li><a href="#단정문assertion">단정문(assertion)</a></li>
         <li><a href="#javautilobjects">java.util.Objects</a></li>
-        <li><a href="#javautiloptional">java.util.Optional</a></li>
+        <li><a href="#javautiloptional">java.util.Optional⭐</a></li>
         <li><a href="#null-잘-쓰는-법">null 잘 쓰는 법</a></li>
       </ol>
     </li>
@@ -308,6 +308,7 @@
         </li>
       </ol>
     </li>
+    <li><a href="#기타">기타</a></li>
   </ol>
 </nav>
         </div>
@@ -507,9 +508,9 @@
 </div>
 </div><h3 id="javautiloptional">
     <a href="#javautiloptional" class="header-anchor">#</a>
-    java.util.Optional
+    java.util.Optional⭐
 </h3><p><a class="link" href="https://www.youtube.com/watch?v=Ej0sss6cq14"  target="_blank" rel="noopener"
-    >Optional - The Mother of All Bikesheds: Stuart Marks</a></p>
+    >Optional - The Mother of All Bikesheds: Stuart Marks</a> 영상을 시청하며 정리한 내용입니다.</p>
 <p><strong>Rule #1: Never, ever, use null for an Optional variable or return value.</strong></p>
 <p>절대로 Optional 변수와 <strong>반환값에 null을 사용하지 말라</strong>.</p>
 <p><strong>Rule #2: Never use Optional.get() unless you can prove that the Optional is present.</strong></p>
@@ -779,7 +780,7 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 <ul>
 <li>초기화 시점과 실행 시점이 겹치지 않아야 한다.</li>
 <li>실행 시점엔 초기화되지 않은 필드가 없어야 한다.</li>
-<li>실행 시점에 null인 필드는 초기화되지 않았따는 의미가 아닌, <strong>값이 없다는 의미</strong>여야 한다.</li>
+<li>실행 시점에 null인 필드는 초기화되지 않았다는 의미가 아닌, <strong>값이 없다는 의미</strong>여야 한다.</li>
 <li>객체 필드의 생명주기는 모두 <strong>객체의 생명주기와 같아야</strong> 한다.</li>
 <li><strong>지연 초기화(lazy initialization)</strong> 필드의 경우 <strong>팩토리 메서드</strong>로 null 처리를 캡슐화 하라.</li>
 </ul>
@@ -845,7 +846,25 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="기타">
+    <a href="#%ea%b8%b0%ed%83%80" class="header-anchor">#</a>
+    기타
+</h2><ul>
+<li>Spring에서 Optional은 주로 데이터 엑세스(데이터베이스 등)나 비즈니스 로직을 처리하며 사용합니다.</li>
+<li>Spring에서 null과 빈 값을 동시에 체크하고 싶다면
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">  </span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasLength</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">// str != null &amp;&amp; str.length() &gt; 0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasText</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">// hasLength(str) &amp;&amp; containsText(str)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
+</div>위의 두 가지 방법을 이용할 수 있습니다.</li>
+</ul>
+
 </section>
 
 

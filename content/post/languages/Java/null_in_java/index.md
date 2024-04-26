@@ -90,9 +90,9 @@ private void setRefreshInterval(int interval)
 - requireNonnullElseGet(T obj, Supplier<? extends T> Supplier)
 ```
 
-### java.util.Optional
+### java.util.Optional⭐
 
-[Optional - The Mother of All Bikesheds: Stuart Marks](https://www.youtube.com/watch?v=Ej0sss6cq14)
+[Optional - The Mother of All Bikesheds: Stuart Marks](https://www.youtube.com/watch?v=Ej0sss6cq14) 영상을 시청하며 정리한 내용입니다.
 
 **Rule #1: Never, ever, use null for an Optional variable or return value.**
 
@@ -275,7 +275,7 @@ Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에
 
 - 초기화 시점과 실행 시점이 겹치지 않아야 한다.
 - 실행 시점엔 초기화되지 않은 필드가 없어야 한다.
-- 실행 시점에 null인 필드는 초기화되지 않았따는 의미가 아닌, **값이 없다는 의미**여야 한다.
+- 실행 시점에 null인 필드는 초기화되지 않았다는 의미가 아닌, **값이 없다는 의미**여야 한다.
 - 객체 필드의 생명주기는 모두 **객체의 생명주기와 같아야** 한다.
 - **지연 초기화(lazy initialization)** 필드의 경우 **팩토리 메서드**로 null 처리를 캡슐화 하라.
 
@@ -318,3 +318,13 @@ public class Address{
 
 }
 ```
+
+## 기타
+
+- Spring에서 Optional은 주로 데이터 엑세스(데이터베이스 등)나 비즈니스 로직을 처리하며 사용합니다.
+- Spring에서 null과 빈 값을 동시에 체크하고 싶다면
+  ```java
+    StringUtils.hasLength(str); // str != null && str.length() > 0
+    StringUtils.hasText(str); // hasLength(str) && containsText(str)
+  ```
+  위의 두 가지 방법을 이용할 수 있습니다.
