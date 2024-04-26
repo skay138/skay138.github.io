@@ -178,7 +178,7 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 
   ```java
   // Java8
-  List<Customer> list1 = custIDlist.stream().
+  List<Customer> list = custIDlist.stream().
                 map(Customer::findByID)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
@@ -362,4 +362,4 @@ public class Address{
     StringUtils.hasLength(str); // str != null && str.length() > 0
     StringUtils.hasText(str); // hasLength(str) && containsText(str)
   ```
-  위의 두 가지 방법을 이용할 수 있습니다.
+  위의 두 가지 방법을 이용할 수도 있습니다.
