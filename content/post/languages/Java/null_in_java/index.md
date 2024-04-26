@@ -1,10 +1,13 @@
 ---
 image: cover/java.png
-title: 자바(Spring)에서 null 핸들링하기
+title: 자바(Spring)에서 null 처리하기
 slug: null-in-java
 description: "스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철) 리뷰"
 date: 2024-04-25T04:03:19.544Z
 categories: Languages/Java
+tags:
+  - Optional
+  - "null"
 ---
 
 [스프링캠프 2019[Track 2 Mini-Session]: 자바에서 null을 안전히 다루는 방법(박성철)](https://youtu.be/vX3yY_36Sk4?si=XzxyrYHKkP98xft3) 영상을 정리한 글입니다.
@@ -92,7 +95,39 @@ private void setRefreshInterval(int interval)
 
 ### java.util.Optional⭐
 
-[Optional - The Mother of All Bikesheds: Stuart Marks](https://www.youtube.com/watch?v=Ej0sss6cq14) 영상을 정리한 내용입니다.
+Optional은 값의 유무가 확실하지 않은 객체를 위한 래퍼 타입으로, 널(null)을 직접 다루는 것을 피하기 위한 방법을 제공합니다.\
+이를 통해 `NullPointerException`을 방지하고 코드의 가독성을 향상시킬 수 있습니다.
+
+예를 들어, 메서드가 어떤 값을 찾지 못할 때 null을 반환하면 호출하는 쪽에서는 매번 null 체크를 해야 합니다.\
+Optional을 사용하면 이러한 null 체크를 간결하게 처리할 수 있습니다.
+
+예시 코드는 다음과 같습니다.
+
+```java
+import java.util.Optional;
+
+public class Main {
+    public static void main(String[] args) {
+        // 실제 코드에서는 데이터베이스 등에서 값을 가져온다고 가정
+        String str = "Hello";
+
+        // Optional을 사용하지 않은 경우
+        if (str != null) {
+            System.out.println(str.toUpperCase());
+        } else {
+            System.out.println("String is null");
+        }
+
+        // Optional을 사용한 경우
+        Optional<String> optionalStr = Optional.ofNullable(str);
+        optionalStr.ifPresent(s -> System.out.println(s.toUpperCase()));
+    }
+}
+```
+---
+
+[Optional - The Mother of All Bikesheds: Stuart Marks](https://www.youtube.com/watch?v=Ej0sss6cq14)에서 Optional을 어떻게 사용해야 하는지 소개합니다.\
+아래는 정리한 내용입니다.
 
 **Rule #1: Never, ever, use null for an Optional variable or return value.**
 
@@ -130,9 +165,9 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 - ifPresent()
 
   ```java
-  Optional<Task> oTask = getTask(...);
+  Optional<Task> oTask = getTask(...); //getTask: Optional<Task> 객체를 가져오는 메소드
   if (oTask.isPresent()){
-  executor.runTask(oTask.get());
+  executor.runTask(oTask.get()); //executor.runTask: Task객체를 핸들링하는 메소드
   }
 
   // use:
