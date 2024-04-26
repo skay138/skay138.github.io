@@ -645,7 +645,7 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// Java8</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">custIDlist</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">custIDlist</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="n">map</span><span class="p">(</span><span class="n">Customer</span><span class="p">::</span><span class="n">findByID</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">isPresent</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">Optional</span><span class="p">::</span><span class="n">get</span><span class="p">)</span><span class="w">
@@ -913,7 +913,7 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">StringUtils</span><span class="p">.</span><span class="na">hasText</span><span class="p">(</span><span class="n">str</span><span class="p">);</span><span class="w"> </span><span class="c1">// hasLength(str) &amp;&amp; containsText(str)</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div>위의 두 가지 방법을 이용할 수 있습니다.</li>
+</div>위의 두 가지 방법을 이용할 수도 있습니다.</li>
 </ul>
 
 </section>

@@ -82,13 +82,38 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>http://localhost:1313/tags/null/</loc>
+    <lastmod>2024-04-25T04:03:19+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/optional/</loc>
+    <lastmod>2024-04-25T04:03:19+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>http://localhost:1313/post/</loc>
+    <lastmod>2024-04-25T04:03:19+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-04-25T04:03:19+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/article/null-in-java/</loc>
     <lastmod>2024-04-25T04:03:19+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/java.io/</loc>
+    <lastmod>2024-04-11T08:03:19+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/tags/nio-api/</loc>
+    <lastmod>2024-04-11T08:03:19+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url><url>
@@ -108,11 +133,6 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/tags/hugo/</loc>
-    <lastmod>2024-03-16T06:34:30+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-03-16T06:34:30+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

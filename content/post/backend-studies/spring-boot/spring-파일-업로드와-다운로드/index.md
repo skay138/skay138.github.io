@@ -5,6 +5,9 @@ slug: sping-file-upload-download
 description: MultipartFile과 HttpServletRequest를 이용하여 파일을 업로드 및 다운로드 해보자
 date: 2024-04-11T08:03:19.544Z
 categories: Backend Studies/Spring Boot
+tags:
+    - java NIO
+    - Java I/O
 ---
 
 게시판을 구현하다보면 첨부파일 기능이 필요한 경우가 있습니다. 현재 진행중인 Spring 기반 프로젝트 버전과 맞는 첨부파일 핸들링을 해보며 관련 내용을 정리해보려고 합니다.
