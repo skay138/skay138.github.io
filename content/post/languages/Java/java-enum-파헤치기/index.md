@@ -42,20 +42,15 @@ Enum은 서로 관련된 상수들의 집합을 정의하는 데 사용하며, �
 try {
     ...
     if(progress){
-        mypageService.happyAtfiDelete(happyAtfiSn);
+        ...
         code = 200;
     }else{
+        ...
         code = 400;
     }
-} catch (NullPointerException np) {
-    np.printStackTrace();
-    code = -100;
-} catch (IOException ie) {
-    ie.printStackTrace();
-    code = -100;
 } catch (Exception e) {
-    e.printStackTrace();
-    code = -100;
+    ...
+    code = 500;
 }
 
 return code;
@@ -91,7 +86,7 @@ Java의 Enum은 완전한 기능을 갖춘 **클래스**이기에 기존 Enum보
 public enum MyPageResultType {
     SUCCESS(200),
     FAIL(400),
-    EXCEPTION(-100);
+    EXCEPTION(500);
 
     private int code;
 
