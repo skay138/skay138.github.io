@@ -367,7 +367,8 @@ Optional.get()을 사용하기 위해 isPresent()를 호출하는 것은 null ch
 &lt;p&gt;&lt;strong&gt;Rule #7: Avoid using identity-sensitive operations on Optionals.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;집합 자료형(List, Set, Map)을 감싸는 데 Optional을 쓰지 말고 빈 집합을 사용하라.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에 주의하자.&lt;/p&gt;
+&lt;p&gt;Optional은 반환값으로만 사용하며, 직렬화가 안된다는 사실에 주의해야 합니다.&lt;br&gt;
+또한, Optional의 크기는 16byte이지만 너무 과용하면 좋지 않다고 합니다.&lt;/p&gt;
 &lt;h3 id=&#34;null-잘-쓰는-법&#34;&gt;
     &lt;a href=&#34;#null-%ec%9e%98-%ec%93%b0%eb%8a%94-%eb%b2%95&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     null 잘 쓰는 법
