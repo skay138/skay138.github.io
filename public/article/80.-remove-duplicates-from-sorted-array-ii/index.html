@@ -16,16 +16,16 @@
 </script>
  <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Top Interview 150 - Array / String">
-<title>27. Remove Element</title>
+<title>80. Remove Duplicates from Sorted Array II</title>
 
-<link rel='canonical' href='http://localhost:1313/article/leetcode-27/'>
+<link rel='canonical' href='http://localhost:1313/article/80.-remove-duplicates-from-sorted-array-ii/'>
 
-<link rel="stylesheet" href="/scss/style.min.e27032fac0868bf4efa375e4bbb40ce496e05835b7d3412eaa1c589b2006d671.css"><meta property='og:title' content="27. Remove Element">
+<link rel="stylesheet" href="/scss/style.min.e27032fac0868bf4efa375e4bbb40ce496e05835b7d3412eaa1c589b2006d671.css"><meta property='og:title' content="80. Remove Duplicates from Sorted Array II">
 <meta property='og:description' content="Top Interview 150 - Array / String">
-<meta property='og:url' content='http://localhost:1313/article/leetcode-27/'>
+<meta property='og:url' content='http://localhost:1313/article/80.-remove-duplicates-from-sorted-array-ii/'>
 <meta property='og:site_name' content='ThxKyu CODE'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Array / String' /><meta property='article:published_time' content='2024-03-11T16:43:21&#43;09:00'/><meta property='article:modified_time' content='2024-03-11T16:43:21&#43;09:00'/><meta property='og:image' content='http://localhost:1313/cover/algorithm.png' />
-<meta name="twitter:title" content="27. Remove Element">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Array / String' /><meta property='article:published_time' content='2024-05-02T09:24:21&#43;09:00'/><meta property='article:modified_time' content='2024-05-02T09:24:21&#43;09:00'/><meta property='og:image' content='http://localhost:1313/cover/algorithm.png' />
+<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
 <meta name="twitter:description" content="Top Interview 150 - Array / String"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://localhost:1313/cover/algorithm.png' />
     <link rel="shortcut icon" href="/favicon.png" />
@@ -291,8 +291,18 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#description">Description</a></li>
-    <li><a href="#풀이">풀이</a></li>
-    <li><a href="#코드">코드</a></li>
+    <li><a href="#approach-1">Approach 1</a>
+      <ol>
+        <li><a href="#풀이">풀이</a></li>
+        <li><a href="#코드">코드</a></li>
+      </ol>
+    </li>
+    <li><a href="#approach-2">Approach 2</a>
+      <ol>
+        <li><a href="#풀이-1">풀이</a></li>
+        <li><a href="#코드-1">코드</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -307,9 +317,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/article/leetcode-27/">
+            <a href="/article/80.-remove-duplicates-from-sorted-array-ii/">
                 
-                    <img src="/cover/algorithm.png" loading="lazy" alt="Featured image of post 27. Remove Element" />
+                    <img src="/cover/algorithm.png" loading="lazy" alt="Featured image of post 80. Remove Duplicates from Sorted Array II" />
                 
             </a>
         </div>
@@ -328,7 +338,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/article/leetcode-27/">27. Remove Element</a>
+            <a href="/article/80.-remove-duplicates-from-sorted-array-ii/">80. Remove Duplicates from Sorted Array II</a>
         </h2>
     
         
@@ -354,7 +364,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Mar 11, 2024</time>
+                <time class="article-time--published">May 02, 2024</time>
             </div>
         
 
@@ -387,48 +397,44 @@
     <h2 id="description">
     <a href="#description" class="header-anchor">#</a>
     Description
-</h2><p><a class="link" href="https://leetcode.com/problems/remove-element/description/?envType=study-plan-v2&amp;envId=top-interview-150"  target="_blank" rel="noopener"
+</h2><p><a class="link" href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/?envType=study-plan-v2&amp;envId=top-interview-150"  target="_blank" rel="noopener"
     >문제 링크</a></p>
-<p>Given an integer array <code>nums</code> and an integer <code>val</code>, remove all occurrences of
-<code>val</code> in <code>nums</code> <a class="link" href="https://en.wikipedia.org/wiki/In-place_algorithm"  target="_blank" rel="noopener"
-    ><strong>in-place</strong></a>. The order of the elements may be changed. Then return
-<em>the number of elements in</em> <code>nums</code> <em>which are not equal to</em> <code>val</code>.</p>
-<p>Consider the number of elements in <code>nums</code> which are not equal to <code>val</code> be
-<code>k</code>, to get accepted, you need to do the following things:</p>
-<ul>
-<li>Change the array <code>nums</code> such that the first <code>k</code> elements of <code>nums</code>
-contain the elements which are not equal to <code>val</code>. The remaining elements of
-<code>nums</code> are not important as well as the size of <code>nums</code>.</li>
-<li>Return <code>k</code>.</li>
-</ul>
+<p>Given an integer array <code>nums</code> sorted in <strong>non-decreasing order</strong>, remove some
+duplicates <a class="link" href="https://en.wikipedia.org/wiki/In-place_algorithm"  target="_blank" rel="noopener"
+    ><strong>in-place</strong></a> such that each unique element appears <strong>at most
+twice</strong>. The <strong>relative order</strong> of the elements should be kept the
+<strong>same</strong>.</p>
+<p>Since it is impossible to change the length of the array in some languages, you must instead have the result
+be placed in the <strong>first part</strong> of the array <code>nums</code>. More formally, if there are
+<code>k</code> elements after removing the duplicates, then the first <code>k</code> elements of
+<code>nums</code> should hold the final result. It does not matter what you leave beyond the
+first <code>k</code> elements.</p>
+<p>Return <code>k</code> <em>after placing the final result in the first</em> <code>k</code> <em>slots of</em> <code>nums</code>.</p>
+<p>Do <strong>not</strong> allocate extra space for another array. You must do this by <strong>modifying the
+input array <a class="link" href="https://en.wikipedia.org/wiki/In-place_algorithm"  target="_blank" rel="noopener"
+    >in-place</a></strong> with O(1) extra memory.</p>
 <p><strong>Custom Judge:</strong></p>
 <p>The judge will test your solution with the following code:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">int[] nums = [...]; // Input array
-</span></span><span class="line"><span class="cl">int val = ...; // Value to remove
-</span></span><span class="line"><span class="cl">int[] expectedNums = [...]; // The expected answer with correct length.
-</span></span><span class="line"><span class="cl">                            // It is sorted with no values equaling val.
+</span></span><span class="line"><span class="cl">int[] expectedNums = [...]; // The expected answer with correct length
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">int k = removeElement(nums, val); // Calls your implementation
+</span></span><span class="line"><span class="cl">int k = removeDuplicates(nums); // Calls your implementation
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">assert k == expectedNums.length;
-</span></span><span class="line"><span class="cl">sort(nums, 0, k); // Sort the first k elements of nums
-</span></span><span class="line"><span class="cl">for (int i = 0; i &lt; actualLength; i++) {
+</span></span><span class="line"><span class="cl">for (int i = 0; i &lt; k; i++) {
 </span></span><span class="line"><span class="cl">    assert nums[i] == expectedNums[i];
 </span></span><span class="line"><span class="cl">}
 </span></span></code></pre></td></tr></table>
@@ -443,9 +449,9 @@ contain the elements which are not equal to <code>val</code>. The remaining elem
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Input: nums = [3,2,2,3], val = 3
-</span></span><span class="line"><span class="cl">Output: 2, nums = [2,2,_,_]
-</span></span><span class="line"><span class="cl">Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Input: nums = [1,1,1,2,2,3]
+</span></span><span class="line"><span class="cl">Output: 5, nums = [1,1,2,2,3,_]
+</span></span><span class="line"><span class="cl">Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
 </span></span><span class="line"><span class="cl">It does not matter what you leave beyond the returned k (hence they are underscores).
 </span></span></code></pre></td></tr></table>
 </div>
@@ -456,33 +462,85 @@ contain the elements which are not equal to <code>val</code>. The remaining elem
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Input: nums = [0,1,2,2,3,0,4,2], val = 2
-</span></span><span class="line"><span class="cl">Output: 5, nums = [0,1,4,0,3,_,_,_]
-</span></span><span class="line"><span class="cl">Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
-</span></span><span class="line"><span class="cl">Note that the five elements can be returned in any order.
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Input: nums = [0,0,1,1,1,1,2,3,3]
+</span></span><span class="line"><span class="cl">Output: 7, nums = [0,0,1,1,2,3,3,_,_]
+</span></span><span class="line"><span class="cl">Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
 </span></span><span class="line"><span class="cl">It does not matter what you leave beyond the returned k (hence they are underscores).
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>Constraints:</strong></p>
 <ul>
-<li><code>0 &lt;= nums.length &lt;= 100</code></li>
-<li><code>0 &lt;= nums[i] &lt;= 50</code></li>
-<li><code>0 &lt;= val &lt;= 100</code></li>
+<li><code>1 &lt;= nums.length &lt;= 3 * 104</code></li>
+<li><code>-104 &lt;= nums[i] &lt;= 104</code></li>
+<li><code>nums</code> is sorted in <strong>non-decreasing</strong> order.</li>
 </ul>
-<h2 id="풀이">
+<h2 id="approach-1">
+    <a href="#approach-1" class="header-anchor">#</a>
+    Approach 1
+</h2><h3 id="풀이">
     <a href="#%ed%92%80%ec%9d%b4" class="header-anchor">#</a>
     풀이
-</h2><p>val값을 제외하기 위해 nums를 순회하며 val값이 아니라면, 0번째 인덱스(<code>idx</code>)부터 nums[i]를 넣어 nums를 수정했다.<br>
-만약, nums = [3, 2, 2, 3] 이고 val = 3이라면<br>
-nums[0] == 3이고 nums[1] != 3 이기 때문에 nums[0]<code>idx = 0</code> 에는 nums[1]이 들어가게 된다.<br>
-이후 nums[2] != val 이니 nums[1]<code>idx = 1</code>에 nums[2]가 들어간다.</p>
-<h2 id="코드">
+</h3><p><code>idx = 1</code>을 선언하여 1번째 인덱스부터 추가될 수를 구합니다.<br>
+같은 수가 2개까지 허용되기에, 추가될 수가 두번째 수인지 아닌지 구분해 줄 <code>not_twice</code>변수를 선언했습니다.<br>
+idx번째 인덱스에 수가 추가되어야 할 경우는 두 가지입니다.</p>
+<ol>
+<li>i번째 수와 i-1번째 수가 같지 않은 경우</li>
+<li>i번째 수와 i-1번째 수가 같으며, i번째 수가 두번째 수인 경우.</li>
+</ol>
+<p>이에 대한 조건문을 작성하며 풀이했습니다.</p>
+<h3 id="코드">
     <a href="#%ec%bd%94%eb%93%9c" class="header-anchor">#</a>
     코드
-</h2><div class="highlight"><div class="chroma">
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">idx</span> <span class="o">=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">not_twice</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="n">not_twice</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">not_twice</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="n">not_twice</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">idx</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="approach-2">
+    <a href="#approach-2" class="header-anchor">#</a>
+    Approach 2
+</h2><p>코드 제출 후 Solutions을 참고하며 다른 코드를 참고했습니다.</p>
+<h3 id="풀이-1">
+    <a href="#%ed%92%80%ec%9d%b4-1" class="header-anchor">#</a>
+    풀이
+</h3><p>수에 대해 한번은 중복이 허용되기에, 1번째 인덱스까지는 모든 수에 대해 기존의 수가 들어가면 됩니다.<br>
+이후 i번째 수와 idx-2번째 수를 비교한다면, 같은 수가 2번을 초과하는 경우를 처리할 수 있습니다.</p>
+<p>따라서 <code>idx=2</code>, <code>i=2</code> 부터 <strong>i번째 수가 idx-2와 같지 않은 경우</strong>에만 idx번째 인덱스에 수를 추가합니다.</p>
+<h3 id="코드-1">
+    <a href="#%ec%bd%94%eb%93%9c-1" class="header-anchor">#</a>
+    코드
+</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -495,10 +553,10 @@ nums[0] == 3이고 nums[1] != 3 이기 때문에 nums[0]<code>idx = 0</code> 에
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">removeElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">val</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">val</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">idx</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">idx</span><span class="o">-</span><span class="mi">2</span><span class="p">]):</span>
 </span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">                <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">idx</span>
@@ -546,25 +604,6 @@ nums[0] == 3이고 nums[1] != 3 이기 때문에 nums[0]<code>idx = 0</code> 에
             
                 
 <article class="has-image">
-    <a href="/article/80.-remove-duplicates-from-sorted-array-ii/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/cover/algorithm.png" loading="lazy" data-key="" data-hash="/cover/algorithm.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">80. Remove Duplicates from Sorted Array II</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
     <a href="/article/leetcode-26/">
         
         
@@ -577,6 +616,25 @@ nums[0] == 3이고 nums[1] != 3 이기 때문에 nums[0]<code>idx = 0</code> 에
 
         <div class="article-details">
             <h2 class="article-title">26. Remove Duplicates from Sorted Array</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/article/leetcode-27/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/algorithm.png" loading="lazy" data-key="leetcode-27" data-hash="/cover/algorithm.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">27. Remove Element</h2>
         </div>
     </a>
 </article>

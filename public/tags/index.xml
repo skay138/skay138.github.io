@@ -6,7 +6,15 @@
         <description>Recent content in Tags on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Thu, 25 Apr 2024 04:03:19 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 02 May 2024 09:24:21 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Array / String</title>
+        <link>http://localhost:1313/tags/array-/-string/</link>
+        <pubDate>Thu, 02 May 2024 09:24:21 +0900</pubDate>
+        
+        <guid>http://localhost:1313/tags/array-/-string/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Null</title>
         <link>http://localhost:1313/tags/null/</link>
         <pubDate>Thu, 25 Apr 2024 04:03:19 +0000</pubDate>
@@ -76,14 +84,6 @@
         <pubDate>Tue, 12 Mar 2024 00:00:01 +0900</pubDate>
         
         <guid>http://localhost:1313/tags/record/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Array / String</title>
-        <link>http://localhost:1313/tags/array-/-string/</link>
-        <pubDate>Mon, 11 Mar 2024 21:53:43 +0900</pubDate>
-        
-        <guid>http://localhost:1313/tags/array-/-string/</guid>
         <description></description>
         </item>
         <item>

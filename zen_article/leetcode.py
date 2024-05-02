@@ -22,7 +22,12 @@ markdown_text = md(html=html)
 title = markdown_text[markdown_text.find('[') + 1:markdown_text.find(']')]
 
 # 대괄호 이후의 내용 제거
-body = markdown_text.split('Hint')[1]
+body = ""
+try:
+  body = markdown_text.split('Hint')[1]
+except IndexError:
+  body = markdown_text.split('Companies')[1]
+
 clean_body = body.split('---')[0]
 
 # ** 제거

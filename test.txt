@@ -1,0 +1,1328 @@
+
+
+
+[80. Remove Duplicates from Sorted Array
+ II](/problems/remove-duplicates-from-sorted-array-ii/)
+
+
+
+
+
+
+ Solved
+
+
+
+
+
+ Medium
+
+
+
+
+
+Topics
+ 
+
+
+
+Companies
+
+
+Given an integer array `nums` sorted in **non-decreasing order**, remove some
+ duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that each unique element appears **at most
+ twice**. The **relative order** of the elements should be kept the
+ **same**.
+
+
+Since it is impossible to change the length of the array in some languages, you must instead have the result
+ be placed in the **first part** of the array `nums`. More formally, if there are
+ `k` elements after removing the duplicates, then the first `k` elements of
+ `nums` should hold the final result. It does not matter what you leave beyond the
+ first `k` elements.
+
+
+Return `k` *after placing the final result in the first* `k` *slots of* `nums`.
+
+
+Do **not** allocate extra space for another array. You must do this by **modifying the
+ input array [in-place](https://en.wikipedia.org/wiki/In-place_algorithm)** with O(1) extra memory.
+
+
+**Custom Judge:**
+
+
+The judge will test your solution with the following code:
+
+
+
+```
+int[] nums = [...]; // Input array
+int[] expectedNums = [...]; // The expected answer with correct length
+
+int k = removeDuplicates(nums); // Calls your implementation
+
+assert k == expectedNums.length;
+for (int i = 0; i < k; i++) {
+    assert nums[i] == expectedNums[i];
+}
+
+```
+
+If all assertions pass, then your solution will be **accepted**.
+
+
+ 
+
+
+**Example 1:**
+
+
+
+```
+**Input:** nums = [1,1,1,2,2,3]
+**Output:** 5, nums = [1,1,2,2,3,_]
+**Explanation:** Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+```
+
+**Example 2:**
+
+
+
+```
+**Input:** nums = [0,0,1,1,1,1,2,3,3]
+**Output:** 7, nums = [0,0,1,1,2,3,3,_,_]
+**Explanation:** Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively.
+It does not matter what you leave beyond the returned k (hence they are underscores).
+
+```
+
+ 
+
+
+**Constraints:**
+
+
+* `1 <= nums.length <= 3 * 104`
+* `-104 <= nums[i] <= 104`
+* `nums` is sorted in **non-decreasing** order.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+Seen this question in a real interview before?
+ 
+1/5
+
+
+Yes
+
+ No
+
+
+
+
+Accepted
+932.7K
+
+
+
+
+Submissions
+1.6M
+
+
+
+
+Acceptance Rate
+58.2%
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+Topics
+
+
+
+
+
+
+
+
+[Array](/tag/array/)[Two Pointers](/tag/two-pointers/)
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+Companies
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+Similar Questions
+
+
+
+
+
+
+
+
+
+
+
+
+
+[Remove Duplicates from
+ Sorted Array](/problems/remove-duplicates-from-sorted-array/)
+
+
+
+Easy
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+Discussion (85)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Choose a type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PreviewComment
+
+
+
+
+
+
+
+
+
+
+
+💡 Discussion
+ Rules
+
+
+
+
+
+1. Please don't post **any solutions** in this discussion.
+
+
+2. The problem discussion is for asking questions about the problem or
+ for sharing tips - anything except for solutions.
+
+
+3. If you'd like to share your solution for feedback and ideas, please
+ head to the solutions tab and post it there.
+
+
+
+
+
+
+
+
+Sort by:Best
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/default_avatar.jpg)](/sanju1819/)
+
+
+
+[sanju1819](/sanju1819/)
+![100 Days Badge 2023](https://assets.leetcode.com/static_assets/marketing/lg100.png)
+
+
+
+
+
+
+
+
+May 29, 2023
+
+
+
+
+
+
+
+
+
+
+!!!!!!!! SPOILER ALERT !!!!!
+
+
+Just take 2 variables fast and slow and place at 2nd
+ index and check both are equal or not. If it is
+ equal increase the fast variable else nums[slow++] =
+ nums[fast++].
+
+
+Hey! are you thinking it's completed,  
+
+ Think what you have to return and what you have to
+ do if size is less than 2 ?
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+
+
+
+
+ 37
+
+
+
+
+
+
+
+
+
+
+ 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/christopherblodgett/avatar_1551580446.png)](/christopherblodgett/)
+
+
+
+[christopherblodgett](/christopherblodgett/)
+
+
+
+
+
+
+
+Jun 10, 2023
+
+
+
+
+
+
+
+
+
+
+Works on my machine. It is the second time I've had
+ their TS behave differently than TS loaded locally.
+ This is frustrating.
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+ Feedback
+
+
+
+
+
+
+
+
+
+ 33
+
+
+
+
+
+
+
+
+
+
+ 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/avatars/avatar_1687708936.png)](/leozartino/)
+
+
+
+[leozartino](/leozartino/)
+
+
+
+
+
+
+Sep 29, 2023
+
+
+
+
+
+
+
+
+
+
+non-decreasing order is just a fancy way to say that
+ the array is sorted in ascending order. 😅
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+
+
+
+
+ 73
+
+
+
+
+
+
+
+
+
+
+ 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/default_avatar.jpg)](/andrew_yasinsky/)
+
+
+
+[andrew\_yasinsky](/andrew_yasinsky/)
+
+
+
+
+
+
+Jul 24, 2023
+
+
+
+
+
+
+
+
+
+
+" remove some duplicates in-place such that each
+ unique element appears at most twice." - this is
+ pidgin English  
+
+ "remove some duplicates, such unique elements appear
+ twice"
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+
+
+
+
+ 15
+
+
+
+
+
+
+
+
+
+
+ 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/avatars/avatar_1696226471.png)](/farmanmohd124/)
+
+
+
+[farmanmohd124](/farmanmohd124/)
+![May LeetCoding Challenge](/static/images/badges/dcc-2023-5.png)
+
+
+
+
+
+
+
+Apr 13, 2023
+
+
+
+
+
+
+
+
+
+
+can anyone tell me , in this problem the funtion has
+ a return type of int but in output there is vector .
+ why?
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+ Ask Question
+
+
+
+
+
+
+
+
+
+ 11
+
+
+
+
+
+
+
+
+
+
+ 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/default_avatar.jpg)](/majun8cn/)
+
+
+
+[majun8cn](/majun8cn/)
+
+
+
+
+
+
+Feb 13, 2014
+
+
+
+
+
+
+
+
+
+
+I submitted an answer based on a new Array B. I scan
+ the Array A and only put the first 1-2 of the same
+ numbers to B. Then copy the B back to A.
+
+
+It requires O(N) space. Is there any way to solve
+ this question with O(1) space?
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+
+
+
+
+ 11
+
+
+
+
+
+
+
+
+
+
+ 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/leetcode/avatar_1568224780.png)](/LeetCode/)
+
+
+
+[LeetCode](/LeetCode/)
+
+
+
+
+
+
+Feb 06, 2022
+
+
+
+
+
+
+
+
+
+
+This problem is the Daily LeetCoding Challenge for
+ February, Day 6.
+
+
+Feel free to share anything related to this problem
+ here!
+
+
+You can ask questions, discuss what you've learned
+ from this problem, or show off how many days of
+ streak you've made!
+
+
+
+
+---
+
+
+If you'd like to share a detailed solution to the
+ problem, please create a new post in the discuss
+ section and provide
+
+
+* **Detailed Explanations**: Describe
+ the algorithm you used to solve this problem.
+ Include any insights you used to solve this
+ problem.
+* **Images** that help explain the
+ algorithm.
+* **Language and Code** you used to
+ pass the problem.
+* **Time and Space complexity
+ analysis**.
+
+
+
+
+---
+
+
+**📌 Do you want to learn the problem
+ thoroughly?**  
+
+ Read [**⭐ LeetCode Official
+ Solution⭐**](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/solution) to learn the 3
+ approaches to the problem with detailed explanations
+ to the algorithms, codes, and complexity analysis.
+ 
+
+
+
+ Spoiler Alert! We'll explain these 2
+ approaches in the official solution
+**Approach 1:** Popping Unwanted
+ Duplicates
+
+
+**Approach 2:** Overwriting unwanted
+ duplicates
+
+
+
+If you're new to Daily LeetCoding Challenge, [**check out this
+ post**](https://leetcode.com/discuss/general-discussion/655704/)!
+
+
+
+
+---
+
+
+  
+
+
+[![](https://assets.leetcode.com/static_assets/marketing/daily_leetcoding_banner.png)](https://leetcode.com/subscribe/?ref=ex_dc)
+
+
+
+  
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+
+
+
+
+ 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/default_avatar.jpg)](/darrendarrendarren/)
+
+
+
+[darrendarrendarren](/darrendarrendarren/)
+
+
+
+
+
+
+
+Dec 12, 2023
+
+
+
+
+
+
+
+
+
+
+"remove some duplicates in-place such that each
+ unique element appears at most twice"
+
+
+1. If an element appears twice it is not unique
+2. "At most twice" is a vague constraint because it
+ is satisfied by elements in the output appearing
+ zero times, one time, or two times
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+
+
+
+
+ 6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/avatars/avatar_1672815677.png)](/constablensw/)
+
+
+
+[constablensw](/constablensw/)
+
+
+
+
+
+
+Jan 02, 2023
+
+
+
+
+
+
+
+
+
+
+When I run my Java code in my IDE I get the correct
+ result but when I put it in Leetcode and run it, it
+ gets an incorrect answer on case 2. It says the code
+ outputs [0,0,1,1,1,2,3] instead of [0,0,1,1,2,3,3].
+ I'm stumped. Here's my code. What am I doing
+ wrong?  
+
+ class Solution {  
+
+ public int removeDuplicates(int[] nums) {  
+
+ for(int TR=2; TR < nums.length-1; TR=TR+2){  
+
+ if(nums[TR]==nums[TR - 1]){  
+
+ nums[TR] = Integer.MAX\_VALUE;  
+
+ Arrays.sort(nums);  
+
+ nums = Arrays.copyOf(nums, nums.length-1);  
+
+ TR=TR-2;  
+
+ }  
+
+ }  
+
+ Arrays.sort(nums);  
+
+ return nums.length;  
+
+ }  
+
+ }
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+ Ask Question
+
+
+
+
+
+
+
+
+
+ 6
+
+
+
+
+
+
+
+
+
+
+ 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[![](https://assets.leetcode.com/users/heqingy/avatar_1552803831.png)](/heqingy/)
+
+
+
+[heqingy](/heqingy/)
+
+
+
+
+
+
+Sep 05, 2016
+
+
+
+
+
+
+
+
+
+
+The main idea is to use binary search to find the
+ rightmost value that equal to current value.
+
+
+And, for the upper bound of search range, we don't
+ need to set it as the end of the array, instead, we
+ can double the length of range each time, until it's
+ unequal to current value.
+
+
+
+
+
+
+ Read more
+
+
+
+
+
+
+
+
+
+
+ 6
+
+
+
+
+
+
+
+
+
+
+ 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1234
+
+9
+
+
+
+
+
+
+
+
+
+
+Copyright ©️ 2024 LeetCode All rights reserved
+
