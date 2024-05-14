@@ -39,9 +39,9 @@
 &lt;h2 id=&#34;erd&#34;&gt;
     &lt;a href=&#34;#erd&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ERD
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/payment-system-erd/payment_system.png&#34;
-	width=&#34;2240&#34;
-	height=&#34;1118&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/article/payment-system-erd/payment_system_v2.png&#34;
+	width=&#34;1119&#34;
+	height=&#34;668&#34;
 	
 	loading=&#34;lazy&#34;
 	
@@ -49,8 +49,8 @@
 	
 	
 		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;200&#34;
-		data-flex-basis=&#34;480px&#34;
+		data-flex-grow=&#34;167&#34;
+		data-flex-basis=&#34;402px&#34;
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;다대다 관계는 관계 테이블로 구성했습니다.&lt;/p&gt;

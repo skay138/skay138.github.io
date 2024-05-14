@@ -26,7 +26,9 @@ tags:
 
 ## ERD
 
-![결제 시스템](payment_system.png)
+![결제 시스템(논리)](payment_system_v2.png)
+
+![결제 시스템(물리)](<payment_system_v2(physical).png>)
 
 다대다 관계는 관계 테이블로 구성했습니다.
 
