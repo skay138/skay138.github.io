@@ -6,7 +6,15 @@
         <description>Recent content in Backend Studies on ThxKyu CODE</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko-kr</language>
-        <lastBuildDate>Mon, 06 May 2024 00:00:05 +0900</lastBuildDate><atom:link href="http://localhost:1313/categories/backend-studies/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 05 Aug 2024 02:27:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/backend-studies/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>QueryDSL 원하는 컬럼만 조회</title>
+        <link>http://localhost:1313/article/querydsl-%EC%9B%90%ED%95%98%EB%8A%94-%EC%BB%AC%EB%9F%BC%EB%A7%8C-%EC%A1%B0%ED%9A%8C/</link>
+        <pubDate>Mon, 05 Aug 2024 02:27:50 +0000</pubDate>
+        
+        <guid>http://localhost:1313/article/querydsl-%EC%9B%90%ED%95%98%EB%8A%94-%EC%BB%AC%EB%9F%BC%EB%A7%8C-%EC%A1%B0%ED%9A%8C/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/springboot.png" alt="Featured image of post QueryDSL 원하는 컬럼만 조회" /&gt;</description>
+        </item>
+        <item>
         <title>결제 시스템 ERD 설계</title>
         <link>http://localhost:1313/article/payment-system-erd/</link>
         <pubDate>Mon, 06 May 2024 00:00:05 +0900</pubDate>
