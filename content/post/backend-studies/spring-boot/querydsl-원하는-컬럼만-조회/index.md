@@ -200,3 +200,51 @@ public Slice<CommentResponseDTO> findByAuthorId(Long id, Pageable pageable) {
 이때, 페이징에 필요한 Query문(count) 역시 필요한 테이블에서만 작업할 수 있습니다.
 
 쿼리를 어떻게 작성하냐에 역시 Backend 성능을 좌우하는 중요한 요소이기에 적절한 고려가 필요하고, 이를 위해 실제 쿼리가 어떻게 호출되는지 디버깅 하며 확인하는 습관을 갖추는게 좋다고 생각합니다.
+
+
+## 번외: SpringBOot 3.x.x QueryDSL 설정
+
+
+[Inflearn 참고](https://www.inflearn.com/chats/700670/querydsl-springboot-3-0%EC%9D%98-gradle-%EC%84%A4%EC%A0%95%EC%9D%84-%EA%B3%B5%EC%9C%A0%ED%95%A9%EB%8B%88%EB%8B%A4?gad_source=1&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5OY_JVvnlTT4gkh0lHp_1juCEF9j2OB1aG6SY87ad1K-4uvh4YWLEkaAhgCEALw_wcB)
+
+```gradle
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.0'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'study'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Querydsl 추가
+	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+```
