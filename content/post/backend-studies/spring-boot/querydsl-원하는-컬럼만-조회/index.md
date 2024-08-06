@@ -28,7 +28,6 @@ public interface MyRepository extends JpaRepository<Info, Long> {
 
 위와 같이 Entity 테이블의 파라미터에 맞게 인터페이스를 작성하면, InfoEntity에서 원하는 컬럼(title, content)만 가져올 수 있게 됩니다. 이 경우 InfoMapping를 반환하기 때문에 만약 ResponseDTO를 사용한다면 한번의 변환과정이 필요합니다.
 
-
 ## QueryDSL Projections
 
 이 방법은 개인적으로 선호하는 방식입니다.\
@@ -37,12 +36,13 @@ SQL을 작성할 때 좀더 세밀하게 컨트롤할 수 있고, 데이터를 �
 
 ### Scalar Projection
 
-- 특정 필드만을 선택하여 조회하는 방식입니다.
-- 예를 들어, QUser.user.name과 같이 단일 필드를 선택합니다.
+* 특정 필드만을 선택하여 조회하는 방식입니다.
+* 예를 들어, QUser.user.name과 같이 단일 필드를 선택합니다.
 
 적용 상황
-- 단일 필드 또는 소수의 필드만을 조회할 때.
-- 간단한 값의 리스트를 반환해야 할 때.
+
+* 단일 필드 또는 소수의 필드만을 조회할 때.
+* 간단한 값의 리스트를 반환해야 할 때.
 
 ```java
 List<String> names = queryFactory
@@ -53,12 +53,13 @@ List<String> names = queryFactory
 
 ### Tuple Projections
 
-- 여러 필드를 선택하여 Tuple 객체로 조회하는 방식입니다.
-- 각 필드에 접근할 때는 get 메서드를 사용합니다.
+* 여러 필드를 선택하여 Tuple 객체로 조회하는 방식입니다.
+* 각 필드에 접근할 때는 get 메서드를 사용합니다.
 
 적용 상황
-- 여러 필드를 조회하되, DTO 클래스를 만들기 부담스러울 때.
-- 간단하게 여러 값의 쌍을 반환하고 싶을 때.
+
+* 여러 필드를 조회하되, DTO 클래스를 만들기 부담스러울 때.
+* 간단하게 여러 값의 쌍을 반환하고 싶을 때.
 
 ```java
 List<Tuple> results = queryFactory
@@ -75,12 +76,13 @@ for (Tuple tuple : results) {
 
 ### Bean Projections
 
-- 결과를 JavaBean 객체로 변환하는 방식입니다. 주로 DTO(Data Transfer Object)를 사용합니다.
-- Projections.bean 메서드를 사용합니다.
+* 결과를 JavaBean 객체로 변환하는 방식입니다. 주로 DTO(Data Transfer Object)를 사용합니다.
+* Projections.bean 메서드를 사용합니다.
 
 적용 상황
-- 캡슐화된 DTO 클래스를 사용하고, getter/setter 메서드를 통해 필드에 접근할 때.
-- 스프링 프레임워크와 통합하여 사용할 때.
+
+* 캡슐화된 DTO 클래스를 사용하고, getter/setter 메서드를 통해 필드에 접근할 때.
+* 스프링 프레임워크와 통합하여 사용할 때.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -93,12 +95,13 @@ List<UserDTO> results = queryFactory
 
 ### Constructor Projections
 
-- DTO의 생성자를 통해 값을 주입하는 방식입니다.
-- Projections.constructor 메서드를 사용합니다.
+* DTO의 생성자를 통해 값을 주입하는 방식입니다.
+* Projections.constructor 메서드를 사용합니다.
 
 적용 상황
-- DTO 클래스에 매핑할 때 생성자를 사용하고 싶은 경우.
-- 필드 초기화가 복잡하거나 immutable 객체를 생성할 때.
+
+* DTO 클래스에 매핑할 때 생성자를 사용하고 싶은 경우.
+* 필드 초기화가 복잡하거나 immutable 객체를 생성할 때.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -111,12 +114,13 @@ List<UserDTO> results = queryFactory
 
 ### Fields Projections
 
-- DTO의 필드에 직접 값을 주입하는 방식입니다.
-- Projections.fields 메서드를 사용합니다.
+* DTO의 필드에 직접 값을 주입하는 방식입니다.
+* Projections.fields 메서드를 사용합니다.
 
 적용 상황
-- DTO 클래스의 필드가 public이거나 리플렉션을 통해 직접 접근할 때.
-- 간단한 데이터 전달 객체를 사용할 때.
+
+* DTO 클래스의 필드가 public이거나 리플렉션을 통해 직접 접근할 때.
+* 간단한 데이터 전달 객체를 사용할 때.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -129,12 +133,13 @@ List<UserDTO> results = queryFactory
 
 ### Mapping Projections
 
-- 직접 커스텀 매핑 로직을 정의하여 결과를 변환하는 방식입니다.
-- ExpressionUtils.as 등을 사용하여 커스텀 매핑을 정의할 수 있습니다.
+* 직접 커스텀 매핑 로직을 정의하여 결과를 변환하는 방식입니다.
+* ExpressionUtils.as 등을 사용하여 커스텀 매핑을 정의할 수 있습니다.
 
 적용 상황
-- 복잡한 커스텀 매핑 로직이 필요한 경우.
-- 서브쿼리 결과를 특정 필드에 매핑할 때.
+
+* 복잡한 커스텀 매핑 로직이 필요한 경우.
+* 서브쿼리 결과를 특정 필드에 매핑할 때.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -201,11 +206,9 @@ public Slice<CommentResponseDTO> findByAuthorId(Long id, Pageable pageable) {
 
 쿼리를 어떻게 작성하냐에 역시 Backend 성능을 좌우하는 중요한 요소이기에 적절한 고려가 필요하고, 이를 위해 실제 쿼리가 어떻게 호출되는지 디버깅 하며 확인하는 습관을 갖추는게 좋다고 생각합니다.
 
+## 번외: SpringBoot 3.x.x QueryDSL 설정
 
-## 번외: SpringBOot 3.x.x QueryDSL 설정
-
-
-[Inflearn 참고](https://www.inflearn.com/chats/700670/querydsl-springboot-3-0%EC%9D%98-gradle-%EC%84%A4%EC%A0%95%EC%9D%84-%EA%B3%B5%EC%9C%A0%ED%95%A9%EB%8B%88%EB%8B%A4?gad_source=1&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5OY_JVvnlTT4gkh0lHp_1juCEF9j2OB1aG6SY87ad1K-4uvh4YWLEkaAhgCEALw_wcB)
+[Inflearn 참고](https://www.inflearn.com/chats/700670/querydsl-springboot-3-0%EC%9D%98-gradle-%EC%84%A4%EC%A0%95%EC%9D%84-%EA%B3%B5%EC%9C%A0%ED%95%A9%EB%8B%88%EB%8B%A4?gad_source=1\&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5OY_JVvnlTT4gkh0lHp_1juCEF9j2OB1aG6SY87ad1K-4uvh4YWLEkaAhgCEALw_wcB)
 
 ```gradle
 plugins {
