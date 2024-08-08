@@ -116,11 +116,7 @@ List<UserDTO> results = queryFactory
 
 * DTO의 필드에 직접 값을 주입하는 방식입니다.
 * Projections.fields 메서드를 사용합니다.
-
-적용 상황
-
-* DTO 클래스의 필드가 public이거나 리플렉션을 통해 직접 접근할 때.
-* 간단한 데이터 전달 객체를 사용할 때.
+* Bean Projections과 동작 방식은 비슷합니다.
 
 ```java
 List<UserDTO> results = queryFactory
