@@ -158,7 +158,7 @@ Hibernate:
 
 쿼리를 어떻게 작성하냐에 역시 Backend 성능을 좌우하는 중요한 요소이기에 적절한 고려가 필요하고, 이를 위해 실제 쿼리가 어떻게 호출되는지 디버깅 하며 확인하는 습관을 갖추는게 좋다고 생각합니다.
 
-Query문 작성에 있어 필요한 컬럼만 가져오기는 기본 중의 기본이기에, 한번 알아보도록 합시다.
+아래는 원하는 컬럼만 조회하는 방법입니다.
 
 ## Mapping By Interface
 
@@ -178,9 +178,8 @@ public interface MyRepository extends JpaRepository<Info, Long> {
 
 ## QueryDSL Projections
 
-이 방법은 개인적으로 선호하는 방식입니다.\
-SQL을 작성할 때 좀더 세밀하게 컨트롤할 수 있고, 데이터를 바로 ResponseDTO에 매핑할 수 있습니다.\
-예를 들어 게시글의 ResponseDTO의 경우, author(작성자) 에 대한 정보가 포함되어야 할 수 있습니다. author의 정보 역시 전부 필요하지 않을 수 있기에 어떤 데이터만을 가져올 지 Projection을 통해 지정할 수 있습니다.
+QueryDSL이 제공하는 Projections을 이용하는 방법도 있습니다.\
+저는 개인적으로 이 방법을 더 선호합니다.
 
 ### Scalar Projection
 
