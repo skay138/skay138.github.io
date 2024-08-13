@@ -8,7 +8,155 @@ tags:
   - QueryDSL
 ---
 
-보통 ORM을 사용하다 보면, DB에서 객체로 데이터를 가져옵니다. Entity의 컬럼 수가 적거나, join을 많이 하지 않는다면 성능상 크게 문제가 되지 않지만 DB 설계가 복잡해질수록 모든 컬럼을 가져와서 DTO로 변환시키는 행위는 지양해야 한다고 생각합니다. 이는 성능 문제로 이어지기 때문이죠.
+## 시작하며
+
+ORM을 사용할 때 보통 데이터베이스에서 엔티티로 데이터를 가져옵니다. 잘 설계된 데이터베이스 테이블은 일반적으로 컬럼 수가 20개를 넘지 않기 때문에, 기본적으로 엔티티를 매핑하는 것이 좋습니다.
+
+지연 로딩과 FetchJoin, BatchSize 등으로 성능 최적화가 가능하다면 그렇게 해결하는 게 좋다고 생각합니다..
+
+그러나 특정 경우에는 필요한 컬럼만 조회하기 위해 인터페이스나 DTO를 사용하여 Repository에서 데이터를 반환하는 방법도 있습니다. 이 경우에는 다음과 같은 점을 고려해야 합니다.
+
+- 재사용성 저하: DTO나 인터페이스를 사용하면 메소드의 재사용성이 떨어질 수 있습니다. 각 메소드마다 별도의 DTO를 정의하고 관리해야 할 수 있습니다.
+- 성능 트레이드 오프: 특정 컬럼만 조회하는 것이 성능상 이점이 있을 수 있지만, 이로 인해 발생하는 코드의 복잡성과 유지보수성 문제는 트레이드 오프가 될 수 있습니다.
+
+이는 `JPA 성능 최적화` 키워드와 관련하여 검색하면 양질의 글들이 많습니다. 성능 최적화는 특히 자주 호출되는 메소드나 불필요한 테이블 조인과 같은 경우에 중요합니다. 이때는 성능 개선이 필요할 수 있습니다.
+
+결론적으로, 엔티티와 DTO를 적절히 활용하는 방법을 아는 것은 유용합니다. 엔티티를 기본적으로 사용하되, 성능 최적화가 필요한 경우에는 원하는 컬럼만 매핑하여 반환하는 방법을 고려하는 보는 것도 필요합니다.
+
+## 예시
+
+```java
+public Slice<CommentEntity> findByAuthorId(Long id, Pageable pageable) {
+
+        JPAQuery<CommentEntity> query = queryFactory
+                .select(
+                        commentEntity
+                )
+                .from(commentEntity)
+                .leftJoin(commentEntity.community, communityEntity).fetchJoin()
+                .where(commentEntity.author.id.eq(id).and(commentEntity.deleted.isFalse()))
+                .orderBy(commentEntity.createdTime.desc())
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize());
+
+        List<CommentEntity> content = query.fetch();
+        boolean hasNext = content.size() == pageable.getPageSize();
+
+        return new SliceImpl<>(content, pageable, hasNext);
+    }
+```
+
+사용자가 작성한 댓글과, 이에 대한 게시글(community) 정보를 가져오기 위한 쿼리입니다. 만약 commentEntity자체를 select해오게 되면 쿼리가 다음과 같습니다.
+
+```log
+   select
+        ce1_0.id,
+        ce1_0.author_id,
+        c1_0.id,
+        c1_0.animal,
+        c1_0.author_id,
+        c1_0.category,
+        (SELECT
+            count(1)
+        FROM
+            comments r
+        WHERE
+            r.community_id = c1_0.id),
+        c1_0.content,
+        c1_0.created_time,
+        c1_0.file_group_id,
+        c1_0.hashtag,
+        (SELECT
+            count(1)
+        FROM
+            likes l
+        WHERE
+            l.community_id = c1_0.id),
+        c1_0.title,
+        c1_0.updated_time,
+        ce1_0.content,
+        ce1_0.created_time,
+        ce1_0.deleted,
+        ce1_0.parent_id,
+        ce1_0.updated_time
+    from
+        comments ce1_0
+    left join
+        community c1_0
+            on c1_0.id=ce1_0.community_id
+    where
+        ce1_0.author_id=?
+        and ce1_0.deleted=?
+    order by
+        ce1_0.created_time desc
+    limit
+        ?, ?
+```
+
+community 테이블에 매핑되어 있는 댓글 수 쿼리와 좋아요 수 쿼리 때문에 두 테이블을 더 join하고 있습니다.\
+community 테이블을 수정하여 해결할 수도 있지만 당장 제가 community 테이블을 수정할 수 있는 상황이 아니였기에 comment 테이블을 수정하기로 했습니다.\
+
+```java
+public Slice<CommentEntity> findByAuthorId(Long id, Pageable pageable) {
+
+        JPAQuery<CommentEntity> query = queryFactory
+                .select(
+                        Projections.fields(
+                                CommentEntity.class,
+                                commentEntity.id,
+                                commentEntity.content,
+                                commentEntity.createdTime,
+                                commentEntity.updatedTime,
+                                commentEntity.parent.id.as("parentId"),
+                                Projections.fields(CommunityEntity.class,
+                                        communityEntity.id,
+                                        communityEntity.title
+                                ).as("community")
+                        )
+                )
+                .from(commentEntity)
+                .leftJoin(commentEntity.community, communityEntity)
+                .where(commentEntity.author.id.eq(id).and(commentEntity.deleted.isFalse()))
+                .orderBy(commentEntity.createdTime.desc())
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize());
+
+        List<CommentEntity> content = query.fetch();
+        boolean hasNext = content.size() == pageable.getPageSize();
+
+        return new SliceImpl<>(content, pageable, hasNext);
+    }
+```
+
+`CommentDTO`가 아닌 `CommentEntity`로 매핑한 이유는, 다른 곳에서 데이터가 활용된다고 가정하여도 현재 쿼리에서 `CommentEntity`가 필요한 컬럼을 충분히 충족할 수 있다고 생각했기 때문입니다. 작성자의 댓글 리스트는 특정한 데이터이기 때문에 재사용성이 크게 중요하지 않다고 판단하고 있고, 필요에 따라 추후에 DTO로 전환하는 것도 고려하고 있습니다.
+
+Projections을 통해 원하는 컬럼만 매핑하게 되면 쿼리를 다음과 같습니다.
+
+```log
+Hibernate:
+    select
+        ce1_0.id,
+        ce1_0.content,
+        ce1_0.created_time,
+        ce1_0.updated_time,
+        ce1_0.parent_id,
+        ce1_0.community_id,
+        c1_0.title
+    from
+        comments ce1_0
+    left join
+        community c1_0
+            on c1_0.id=ce1_0.community_id
+    where
+        ce1_0.author_id=?
+        and ce1_0.deleted=?
+    order by
+        ce1_0.created_time desc
+    limit
+        ?, ?
+```
+
+쿼리를 어떻게 작성하냐에 역시 Backend 성능을 좌우하는 중요한 요소이기에 적절한 고려가 필요하고, 이를 위해 실제 쿼리가 어떻게 호출되는지 디버깅 하며 확인하는 습관을 갖추는게 좋다고 생각합니다.
 
 Query문 작성에 있어 필요한 컬럼만 가져오기는 기본 중의 기본이기에, 한번 알아보도록 합시다.
 
@@ -36,13 +184,13 @@ SQL을 작성할 때 좀더 세밀하게 컨트롤할 수 있고, 데이터를 �
 
 ### Scalar Projection
 
-* 특정 필드만을 선택하여 조회하는 방식입니다.
-* 예를 들어, QUser.user.name과 같이 단일 필드를 선택합니다.
+- 특정 필드만을 선택하여 조회하는 방식입니다.
+- 예를 들어, QUser.user.name과 같이 단일 필드를 선택합니다.
 
 적용 상황
 
-* 단일 필드 또는 소수의 필드만을 조회할 때.
-* 간단한 값의 리스트를 반환해야 할 때.
+- 단일 필드 또는 소수의 필드만을 조회할 때.
+- 간단한 값의 리스트를 반환해야 할 때.
 
 ```java
 List<String> names = queryFactory
@@ -53,13 +201,13 @@ List<String> names = queryFactory
 
 ### Tuple Projections
 
-* 여러 필드를 선택하여 Tuple 객체로 조회하는 방식입니다.
-* 각 필드에 접근할 때는 get 메서드를 사용합니다.
+- 여러 필드를 선택하여 Tuple 객체로 조회하는 방식입니다.
+- 각 필드에 접근할 때는 get 메서드를 사용합니다.
 
 적용 상황
 
-* 여러 필드를 조회하되, DTO 클래스를 만들기 부담스러울 때.
-* 간단하게 여러 값의 쌍을 반환하고 싶을 때.
+- 여러 필드를 조회하되, DTO 클래스를 만들기 부담스러울 때.
+- 간단하게 여러 값의 쌍을 반환하고 싶을 때.
 
 ```java
 List<Tuple> results = queryFactory
@@ -76,13 +224,13 @@ for (Tuple tuple : results) {
 
 ### Bean Projections
 
-* 결과를 JavaBean 객체로 변환하는 방식입니다. 주로 DTO(Data Transfer Object)를 사용합니다.
-* Projections.bean 메서드를 사용합니다.
+- 결과를 JavaBean 객체로 변환하는 방식입니다. 주로 DTO(Data Transfer Object)를 사용합니다.
+- Projections.bean 메서드를 사용합니다.
 
 적용 상황
 
-* 캡슐화된 DTO 클래스를 사용하고, getter/setter 메서드를 통해 필드에 접근할 때.
-* 스프링 프레임워크와 통합하여 사용할 때.
+- 캡슐화된 DTO 클래스를 사용하고, getter/setter 메서드를 통해 필드에 접근할 때.
+- 스프링 프레임워크와 통합하여 사용할 때.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -95,13 +243,13 @@ List<UserDTO> results = queryFactory
 
 ### Constructor Projections
 
-* DTO의 생성자를 통해 값을 주입하는 방식입니다.
-* Projections.constructor 메서드를 사용합니다.
+- DTO의 생성자를 통해 값을 주입하는 방식입니다.
+- Projections.constructor 메서드를 사용합니다.
 
 적용 상황
 
-* DTO 클래스에 매핑할 때 생성자를 사용하고 싶은 경우.
-* 필드 초기화가 복잡하거나 immutable 객체를 생성할 때.
+- DTO 클래스에 매핑할 때 생성자를 사용하고 싶은 경우.
+- 필드 초기화가 복잡하거나 immutable 객체를 생성할 때.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -114,9 +262,9 @@ List<UserDTO> results = queryFactory
 
 ### Fields Projections
 
-* DTO의 필드에 직접 값을 주입하는 방식입니다.
-* Projections.fields 메서드를 사용합니다.
-* Bean Projections과 동작 방식은 비슷합니다.
+- DTO의 필드에 직접 값을 주입하는 방식입니다.
+- Projections.fields 메서드를 사용합니다.
+- Bean Projections과 동작 방식은 비슷합니다.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -129,13 +277,13 @@ List<UserDTO> results = queryFactory
 
 ### Mapping Projections
 
-* 직접 커스텀 매핑 로직을 정의하여 결과를 변환하는 방식입니다.
-* ExpressionUtils.as 등을 사용하여 커스텀 매핑을 정의할 수 있습니다.
+- 직접 커스텀 매핑 로직을 정의하여 결과를 변환하는 방식입니다.
+- ExpressionUtils.as 등을 사용하여 커스텀 매핑을 정의할 수 있습니다.
 
 적용 상황
 
-* 복잡한 커스텀 매핑 로직이 필요한 경우.
-* 서브쿼리 결과를 특정 필드에 매핑할 때.
+- 복잡한 커스텀 매핑 로직이 필요한 경우.
+- 서브쿼리 결과를 특정 필드에 매핑할 때.
 
 ```java
 List<UserDTO> results = queryFactory
@@ -149,62 +297,9 @@ List<UserDTO> results = queryFactory
     .fetch();
 ```
 
-## 예시
-
-```java
-public Slice<CommentResponseDTO> findByAuthorId(Long id, Pageable pageable) {
-        QCommentEntity c = QCommentEntity.commentEntity;
-        QMember m = QMember.member;
-        QCommunityEntity p = QCommunityEntity.communityEntity;
-        JPAQuery<CommentResponseDTO> query = queryFactory
-                .select(
-                        Projections.bean(CommentResponseDTO.class,
-                                c.id,
-                                c.content,
-                                c.createdTime,
-                                c.updatedTime,
-                                c.parent.id.as("parentId"),
-                                Projections.bean(MemberSummaryResponseDTO.class,
-                                        m.id,
-                                        m.name,
-                                        m.email).as("author"),
-                                Projections.bean(CommunitySummaryResponseDTO.class,
-                                        p.id,
-                                        p.title).as("community")
-                        ))
-                .from(c)
-                .leftJoin(c.author, m)
-                .leftJoin(c.community, p)
-                .where(c.author.id.eq(id).and(c.deleted.isFalse()))
-                .orderBy(c.createdTime.desc());
-
-                // 페이지네이션 적용
-                List<CommentResponseDTO> content = query
-                        .offset(pageable.getOffset())
-                        .limit(pageable.getPageSize())
-                        .fetch();
-
-                // 총 개수 가져오기(댓글 테이블만 보면 되기에 따로 leftJoin 하지 않음)
-                Long count = queryFactory
-                        .select(c.count())
-                        .from(c)
-                        .where(c.author.id.eq(id).and(c.deleted.isFalse()))
-                        .fetchOne();
-
-                boolean hasNext = count > pageable.getOffset() + pageable.getPageSize();
-
-                return new SliceImpl<>(content, pageable, hasNext);
-    }
-```
-
-단순 조회 + 페이징이 필요한 데이터에 대해 Bean Projections을 이용해 ResponseDTO에 매핑한 예시입니다.\
-이때, 페이징에 필요한 Query문(count) 역시 필요한 테이블에서만 작업할 수 있습니다.
-
-쿼리를 어떻게 작성하냐에 역시 Backend 성능을 좌우하는 중요한 요소이기에 적절한 고려가 필요하고, 이를 위해 실제 쿼리가 어떻게 호출되는지 디버깅 하며 확인하는 습관을 갖추는게 좋다고 생각합니다.
-
 ## 번외: SpringBoot 3.x.x QueryDSL 설정
 
-[Inflearn 참고](https://www.inflearn.com/chats/700670/querydsl-springboot-3-0%EC%9D%98-gradle-%EC%84%A4%EC%A0%95%EC%9D%84-%EA%B3%B5%EC%9C%A0%ED%95%A9%EB%8B%88%EB%8B%A4?gad_source=1\&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5OY_JVvnlTT4gkh0lHp_1juCEF9j2OB1aG6SY87ad1K-4uvh4YWLEkaAhgCEALw_wcB)
+[Inflearn 참고](https://www.inflearn.com/chats/700670/querydsl-springboot-3-0%EC%9D%98-gradle-%EC%84%A4%EC%A0%95%EC%9D%84-%EA%B3%B5%EC%9C%A0%ED%95%A9%EB%8B%88%EB%8B%A4?gad_source=1&gclid=Cj0KCQjwzby1BhCQARIsAJ_0t5OY_JVvnlTT4gkh0lHp_1juCEF9j2OB1aG6SY87ad1K-4uvh4YWLEkaAhgCEALw_wcB)
 
 ```gradle
 plugins {
