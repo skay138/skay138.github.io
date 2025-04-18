@@ -100,9 +100,9 @@ public class OrderProcessor {
 
 ```
 
-1. Order에 대한 검증은 `isInvalidOrder`에서 처리한다. 부정 연산자를 피하기 위해 valid 대신 invalid를 썼다.
+1. Order에 대한 검증은 `isInvalidOrder`에서 처리한다. 조건문의 가독성을 위해 isValidOrder 대신 부정형인 isInvalidOrder를 사용했다.
 2. 결제 금액 계산은 Order 객체에게 위임했다.
-3. sendEmail은 별도의 서비스로 구현하는게 좋아보이지만 연습에선 크게 상관이 없을 것 같아 메서드로만 분리했다.
+3. 이메일 전송은 원칙적으로 별도의 서비스로 분리하는 것이 이상적이지만, 이번 연습에선 간단하게 메서드로만 분리하여 흐름만 나눴다.
 
 ### Order.java
 
@@ -128,9 +128,9 @@ public Double calculateTotalPrice() {
 
 기존 코드가 Order로 이동했을 뿐 모호한 부분들이 많았다.
 
-1. totalPrice를 계산하기 위한 함수인데 discount의 값이 바뀜
-2. totalPrice는 Order객체 내부에 있는데 반환값을 가짐(getTotalPrice와 헷갈림)
-3. 이렇게 가져온 값을 다시 `setTotalPrice(calculatedPrice)`와 같이 처리하고 있음.
+1. totalPrice를 계산하기 위한 함수인데 discount의 값이 바뀐다.
+2. totalPrice는 Order 객체의 내부 상태인데도 별도의 반환값을 가지며 동작하여, getTotalPrice() 같은 단순 접근자와 혼동될 수 있다.
+3. 이렇게 가져온 값을 다시 `setTotalPrice(calculatedPrice)`와 같이 처리하고 있다.
 
 이 모호한 부분들을 해결하기 위해 함수명을 변경하고, 역할을 조금 더 구분지었다.
 
@@ -180,6 +180,6 @@ public class Order {
 ```
 
 일단 calculate 대신 apply 를 사용하여 할인 등 가격정책을 적용하는 함수로 역할을 수정했다.\
-할인의 경우 할인률을 정하는 별도의 메서드로 분리했고, 여기서는 값의 변경 없이 할인률 자체를 반환하도록 했다.
+할인률을 결정하는 로직은 별도의 메서드로 분리했으며, 해당 메서드는 순수하게 할인률만 반환하도록 설계했다. 이를 통해 applyPricingPolicy()는 정책 적용의 흐름에만 집중할 수 있게 되었다.
 
 이 구조를 통해 추후 추가적인 가격정책이 생겨도 `applyPricingPolicy` 내부에 쉽게 적용할 수 있지 않을까?
